@@ -1,19 +1,3 @@
-# 485. Max Consecutive Ones
+# LeetCode practice
 
-Given a binary array, find the maximum number of consecutive 1s in this array.
-
-**Example 1:**
-
-```
-Input: [1,1,0,1,1,1]
-Output: 3
-Explanation: The first two digits or the last three digits are consecutive 1s.
-    The maximum number of consecutive 1s is 3.
-```
-
-
-
-**Note:**
-
-- The input array will only contain `0` and `1`.
-- The length of input array is a positive integer and will not exceed 10,000
+为每一个题目建立一个模块，命名为："num"+"_"+"题目排序（四位数字）"+"题目名称"
