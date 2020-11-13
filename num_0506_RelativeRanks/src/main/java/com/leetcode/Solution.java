@@ -16,7 +16,6 @@ public class Solution {
         int[] arr = {1, 4, 5, 3, 2};
         Solution obj = new Solution();
         System.out.println(Arrays.toString(obj.findRelativeRanks(arr)));
-
 //        System.out.println(Integer.compare(1, 2));
     }
 
