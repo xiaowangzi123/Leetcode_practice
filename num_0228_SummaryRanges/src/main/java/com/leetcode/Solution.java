@@ -15,6 +15,7 @@ public class Solution {
         Solution obj = new Solution();
         System.out.println(obj.summaryRanges(arr));
 
+        //测试“”和String.valueOf()速度
         long t1 = System.currentTimeMillis();
         List<String> arr1 = new ArrayList<>();
         for (int i = 0; i < 10000; i++) {
