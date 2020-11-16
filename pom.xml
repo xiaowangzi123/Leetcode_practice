@@ -18,6 +18,7 @@
 
 
     <modules>
+        <module>num_0228_SummaryRanges</module>
         <module>num_0485_MaxConsecutiveOnes</module>
         <module>num_0496_NextGreaterElementI</module>
         <module>num_0506_RelativeRanks</module>
