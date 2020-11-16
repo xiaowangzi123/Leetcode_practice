@@ -16,10 +16,12 @@ public class Solution {
     public int diagonalSum(int[][] mat) {
         int row = mat.length;
         int sum = 0;
+        //对角线数据相加
         for (int i = 0; i < row; i++) {
             sum += mat[i][i] + mat[i][row - i - 1];
         }
 
+        //去掉中间重复相加的数据
         if (row % 2 == 1) {
             sum -= mat[row / 2][row / 2];
         }
