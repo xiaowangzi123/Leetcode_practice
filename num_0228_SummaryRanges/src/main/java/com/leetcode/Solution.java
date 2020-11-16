@@ -14,6 +14,20 @@ public class Solution {
         int[] arr = {0, 1, 2, 3, 5, 6, 7, 9};
         Solution obj = new Solution();
         System.out.println(obj.summaryRanges(arr));
+
+        long t1 = System.currentTimeMillis();
+        List<String> arr1 = new ArrayList<>();
+        for (int i = 0; i < 10000; i++) {
+            arr1.add(String.valueOf(i));
+        }
+        long t2 = System.currentTimeMillis();
+        List<String> arr2 = new ArrayList<>();
+        for (int i = 0; i < 10000; i++) {
+            arr1.add(i + "");
+        }
+        long t3 = System.currentTimeMillis();
+        System.out.println((t2 - t1) + ":" + (t3 - t2));
+
     }
 
     public List<String> summaryRanges(int[] nums) {
@@ -26,7 +40,7 @@ public class Solution {
                 i++;
             }
             if (num == nums[i]) {
-                res.add(num + "");
+                res.add(String.valueOf(num));
             } else {
                 res.add(num + "->" + nums[i]);
             }
