@@ -20,18 +20,18 @@ public class Solution {
         int[] res = new int[code.length];
         if (k == 0) return res;
 
-        int start = 1, end = k, sum = 0;
+        int start = 1, sum = 0;
         if (k < 0) {
             start = code.length + k;
-            end = code.length - 1;
+            k = code.length - 1;
         }
         //第一个元素值sum
-        for (int i = start; i <= end; i++) sum += code[i];
+        for (int i = start; i <= k; i++) sum += code[i];
 
         for (int i = 0; i < code.length; i++) {
             res[i] = sum;
             sum -= code[(start++) % code.length];
-            sum += code[(++end) % code.length];
+            sum += code[(++k) % code.length];
         }
         return res;
     }
