@@ -14,7 +14,13 @@ public class Solution {
 
     public int sumOddLengthSubarrays(int[] arr) {
         int res = 0;
-
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j + i <= arr.length; j += 2) {
+                for (int k = i; k < i + j; k++) {
+                    res += arr[k];
+                }
+            }
+        }
         return res;
     }
 }
