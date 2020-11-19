@@ -26,6 +26,7 @@
         <module>num_0620_NotBoringMovies</module>
         <module>num_1351_CountNegativeNumbersinaSortedMatrix</module>
         <module>num_1431_KidsWiththeGreatestNumberofCandies</module>
+        <module>num_1470_ShuffletheArray</module>
         <module>num_1480_RunningSumof1dArray</module>
         <module>num_1572_MatrixDiagonalSum</module>
         <module>num_1588_SumofAllOddLengthSubarrays</module>
