@@ -12,11 +12,15 @@ public class Solution1290 {
         ListNode node = new ListNode(1);
         node.next = new ListNode(0);
         node.next.next = new ListNode(1);
-        while (node.next != null) {
+        //此处代码去掉注释后，调用getDecimalValue方法得到的数据有误
+        /*while (node != null) {
             System.out.print(node.val + ",");
-            node.next = node.next.next;
-        }
-        System.out.println();
+            node = node.next;
+        }*/
+
+        System.out.println("-----------");
+        Solution1290 obj = new Solution1290();
+        System.out.println(obj.getDecimalValue(node));
 
     }
 
