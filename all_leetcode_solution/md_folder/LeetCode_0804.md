@@ -1,39 +1,33 @@
-# 1512. Number of Good Pairs
+# 804. Unique Morse Code Words
 
-Given an array of integers `nums`.
+International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: `"a"` maps to `".-"`, `"b"` maps to `"-..."`, `"c"` maps to `"-.-."`, and so on.
 
-A pair `(i,j)` is called *good* if `nums[i]` == `nums[j]` and `i` < `j`.
-
-Return the number of *good* pairs.
-
- 
-
-**Example 1:**
+For convenience, the full table for the 26 letters of the English alphabet is given below:
 
 ```
-Input: nums = [1,2,3,1,1,3]
-Output: 4
-Explanation: There are 4 good pairs (0,3), (0,4), (3,4), (2,5) 0-indexed.
+[".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
 ```
 
-**Example 2:**
+Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, "cab" can be written as "-.-..--...", (which is the concatenation "-.-." + ".-" + "`-...`"). We'll call such a concatenation, the transformation of a word.
+
+Return the number of different transformations among all words we have.
 
 ```
-Input: nums = [1,1,1,1]
-Output: 6
-Explanation: Each pair in the array are good.
+Example:
+Input: words = ["gin", "zen", "gig", "msg"]
+Output: 2
+Explanation: 
+The transformation of each word is:
+"gin" -> "--...-."
+"zen" -> "--...-."
+"gig" -> "--...--."
+"msg" -> "--...--."
+
+There are 2 different transformations, "--...-." and "--...--.".
 ```
 
-**Example 3:**
+**Note:**
 
-```
-Input: nums = [1,2,3]
-Output: 0
-```
-
- 
-
-**Constraints:**
-
-- `1 <= nums.length <= 100`
-- `1 <= nums[i] <= 100`
+- The length of `words` will be at most `100`.
+- Each `words[i]` will have length in range `[1, 12]`.
+- `words[i]` will only consist of lowercase letters.
