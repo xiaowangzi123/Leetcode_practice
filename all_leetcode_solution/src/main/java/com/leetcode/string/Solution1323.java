@@ -1,5 +1,7 @@
 package com.leetcode.string;
 
+import java.util.Arrays;
+
 /**
  * @author ：wyq
  * @date ：Created in 2020/11/19
@@ -9,19 +11,22 @@ public class Solution1323 {
 
     public static void main(String[] args) {
         Solution1323 obj = new Solution1323();
-        String s = "RLRRLLRLRL";
-        System.out.println(obj.balancedStringSplit(s));
+        int num = 9669;
+        System.out.println(obj.maximum69Number(num));
     }
 
 
-    public int balancedStringSplit(String s) {
-        int result = 0, count = 0;
-        for (char c : s.toCharArray()) {
-            if (c == 'L') ++count;
-            else --count;
-            if (count == 0) ++result;
+    public int maximum69Number(int num) {
+        String str = String.valueOf(num);
+        char[] ch = str.toCharArray();
+
+        for (int i = 0; i < ch.length; i++) {
+            if (ch[i] == '6') {
+                ch[i] = '9';
+                break;
+            }
         }
-        return result;
+        return Integer.parseInt(new String(ch));
     }
 
 
