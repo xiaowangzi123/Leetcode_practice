@@ -1,8 +1,7 @@
 package com.leetcode;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author ：wyq
@@ -14,7 +13,10 @@ public class Solution1309 {
         Solution1309 obj = new Solution1309();
         String s = "12345678910#11#";
 //        String s = "12345678910#11#12#13#14#15#16#17#18#19#20#21#22#23#24#25#26#";
-        System.out.println((char)('a'+1));
+        System.out.println((char) ('a' + 1));
+        int n = 4;
+//        String srt = "b" + "ab".substring(n % 2, 1 + n % 2).repeat(n - 1);;
+        System.out.println("b" + StringUtils.repeat("ab".substring(n % 2, 1 + n % 2), n - 1));
         System.out.println(obj.freqAlphabets(s));
     }
 
