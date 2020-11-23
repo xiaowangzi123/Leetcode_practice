@@ -11,6 +11,9 @@ public class Solution0771 {
         Solution0771 obj = new Solution0771();
         String j = "aA", s = "aAASSS";
         System.out.println(obj.numJewelsInStones(j, s));
+
+        String ss = "Hello,  my name is John";
+        System.out.println(obj.countSegments(ss));
     }
 
 
@@ -23,8 +26,17 @@ public class Solution0771 {
                 }
             }
         }
-
         return count;
+    }
+
+    public int countSegments(String s) {
+        String[] arr = s.split(" ");
+        int len = arr.length;
+        for (String a : arr) {
+            if (a.length() == 0)
+                --len;
+        }
+        return len;
     }
 
 
