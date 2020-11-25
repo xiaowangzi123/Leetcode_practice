@@ -13,6 +13,8 @@ public class Solution1122 {
         Solution1122 obj = new Solution1122();
         int[] arr1 = {2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19}, arr2 = {2, 1, 4, 3, 9, 6};
         System.out.println(Arrays.toString(obj.relativeSortArray(arr1, arr2)));
+        //输出序列安装arr2排序，arr1中剩余元素从小到大排序
+        //[2, 2, 2, 1, 4, 3, 3, 9, 6, 7, 19]
     }
 
 
