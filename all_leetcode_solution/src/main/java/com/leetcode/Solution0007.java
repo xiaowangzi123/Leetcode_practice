@@ -12,12 +12,14 @@ public class Solution0007 {
         Solution0007 obj = new Solution0007();
         int target = 79;
         System.out.println(obj.reverse(target));
+        System.out.println(obj.reverse(120));
+        System.out.println(obj.reverse(1201));
     }
 
     public int reverse(int x) {
         int res = 0;
         while (x != 0) {
-            if (res > Integer.MAX_VALUE / 10 || res < Integer.MIN_VALUE / 10) {
+            if (res > Integer.MAX_VALUE || res < Integer.MIN_VALUE) {
                 return 0;
             }
             int digit = x % 10;
