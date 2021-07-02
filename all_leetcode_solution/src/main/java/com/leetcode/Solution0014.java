@@ -28,6 +28,7 @@ public class Solution0014 {
          * 比较相同列上的字符是否相同
          * 相同继续对下一列进行比较；不同时，当前字符串之前的部分就是最长公共前缀
          */
+
         if (strs == null || strs.length == 0) {
             return "";
         }
