@@ -16,6 +16,9 @@ public class Solution0020 {
         String s1 = "()[]{}";
         System.out.println(obj.isValid(s1));
 
+        String s2 = "()";
+        System.out.println(obj.isValid(s2));
+
         Map<String, Character> map = new HashMap<>();
         map.put("s", 's');
         System.out.println(map);
@@ -25,7 +28,9 @@ public class Solution0020 {
         if (s.isEmpty()) {
             return true;
         }
-
+        if (s.length()%2==1){
+            return false;
+        }
         Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
             if (c == '(') {
