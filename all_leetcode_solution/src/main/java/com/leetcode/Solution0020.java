@@ -25,7 +25,6 @@ public class Solution0020 {
             return false;
         }
 
-
         return false;
     }
 
