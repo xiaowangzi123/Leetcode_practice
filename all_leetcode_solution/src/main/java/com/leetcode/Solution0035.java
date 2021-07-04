@@ -26,7 +26,7 @@ public class Solution0035 {
                 return i;
             }
         }
-        for (int i = nums.length-1; i>=0&&i < nums.length; i--) {
+        for (int i = nums.length - 1; i >= 0 && i < nums.length; i--) {
             if (nums[i] < target) {
                 return i + 1;
             }
