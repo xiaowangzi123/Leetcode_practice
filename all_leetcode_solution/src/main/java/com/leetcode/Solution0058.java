@@ -17,11 +17,8 @@ public class Solution0058 {
     }
 
     public int lengthOfLastWord(String s) {
-        String[] temp = s.split(" ");
-        int i = 0;
-        for (String x : temp) {
-            i = Math.max(i, x.length());
-        }
-        return i;
+        s = s.trim();
+        int start = s.lastIndexOf(" ") + 1;
+        return s.substring(start).length();
     }
 }
