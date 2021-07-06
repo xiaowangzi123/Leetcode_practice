@@ -10,8 +10,15 @@ public class Solution0067 {
         Solution0067 obj = new Solution0067();
         String a = "1010", b = "1011";
         System.out.println(obj.addBinary(a, b));
+        System.out.println(obj.addBinary2(a, b));
     }
 
+    /**
+     * 如果字符串超过 3333 位，不能转化为 Integer
+     * 如果字符串超过 6565 位，不能转化为 Long
+     * 如果字符串超过 500000001500000001 位，不能转化为 BigInteger
+     *
+     */
     public String addBinary(String a, String b) {
         return Integer.toBinaryString(Integer.parseInt(a, 2) + Integer.parseInt(b, 2));
     }
