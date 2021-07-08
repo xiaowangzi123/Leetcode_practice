@@ -15,6 +15,7 @@ public class Solution0088 {
         obj.merge(nums1, m, nums2, n);
     }
 
+    //合并数组，并排序
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         for (int i = 0; i < n; i++) {
             nums1[m + i] = nums2[i];
