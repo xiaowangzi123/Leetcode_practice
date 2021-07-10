@@ -14,6 +14,9 @@ public class Solution0122 {
         System.out.println(obj.maxProfit(prices));
     }
 
+    /**
+     *
+     */
     public int maxProfit(int[] prices) {
         int res = 0;
         for (int i = 1; i < prices.length; ++i) {
