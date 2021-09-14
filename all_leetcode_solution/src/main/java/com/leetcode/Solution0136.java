@@ -19,6 +19,7 @@ public class Solution0136 {
     public int singleNumber(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int i : nums){
+            return 1;
         }
         return 0;
     }
