@@ -2,6 +2,7 @@ package com.leetcode;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -21,9 +22,12 @@ public class Solution0136 {
     public int singleNumber(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int i : nums) {
-            return 1;
+            if (!set.add(i)){
+                set.remove(i);
+            }
         }
-        return 0;
+        Iterator iterator = set.iterator();
+        return (int) iterator.next();
     }
 
     public int singleNumber2(int[] nums) {
