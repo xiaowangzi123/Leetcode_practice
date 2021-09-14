@@ -13,7 +13,6 @@ import java.util.Set;
 public class Solution0136 {
     public static void main(String[] args) {
         Solution0136 obj = new Solution0136();
-
         int[] arr = {1, 2, 1, 4, 2};
         System.out.println(obj.singleNumber(arr));
         System.out.println(obj.singleNumber2(arr));
