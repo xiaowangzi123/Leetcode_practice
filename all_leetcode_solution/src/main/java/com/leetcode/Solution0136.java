@@ -27,12 +27,10 @@ public class Solution0136 {
     }
 
     public int singleNumber2(int[] nums) {
-        Arrays.sort(nums);
-        for (int i=0; i < nums.length - 1; i++) {
-            if (nums[i] != nums[i+1]){
-                return i;
-            }
+        int res = 0;
+        for (int i : nums) {
+            res ^= i;
         }
-        return nums[nums.length-1];
+        return res;
     }
 }
