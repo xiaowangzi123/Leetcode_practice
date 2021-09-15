@@ -1,5 +1,6 @@
 package com.leetcode;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,9 +17,21 @@ public class Solution0219 {
 
 
         int[] arr2 = {1, 2, 3, 1,2,3};
+        System.out.println(obj.containsNearbyDuplicate2(arr, 2));
         System.out.println(obj.containsNearbyDuplicate2(arr2, 2));
+        
+        System.out.println("=------------------------------");
+        Set<Integer> set = new HashSet<>();
+        set.add(1);
+        set.add(4);
+        set.add(7);
+        System.out.println(set);
+        
+        set.remove(2);
+        System.out.println(set);
     }
 
+    //超时
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = 1; j < nums.length; j++) {
@@ -32,7 +45,6 @@ public class Solution0219 {
 
     /**
      * 思路
-     * 标签：哈希
      * 维护一个哈希表，里面始终最多包含 k 个元素，当出现重复值时则说明在 k 距离内存在重复元素
      * 每次遍历一个元素则将其加入哈希表中，如果哈希表的大小大于 k，则移除最前面的数字
      * 时间复杂度：O(n)O(n)，nn 为数组长度
@@ -45,7 +57,7 @@ public class Solution0219 {
             }
             set.add(nums[i]);
             if (set.size()>k){
-                set.remove(i-k);
+                set.remove(nums[i-k]);
             }
         }
         return false;
