@@ -49,6 +49,11 @@ public class Solution0075 {
         }
     }
 
+    /**
+     * 两次循环
+     * 第一次找出等于0的排在头部
+     * 第二次找出等于1的排在0的后面
+     */
     public void sortColors2(int[] nums) {
         int count = 0, n = nums.length;
         for (int i = 0; i < n; i++) {
