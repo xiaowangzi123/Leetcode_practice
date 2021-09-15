@@ -32,11 +32,11 @@ public class Solution0056 {
         if (intervals.length == 0) {
             return new int[0][2];
         }
-
+        //根据左端值对数组排序
         Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
 
         List<int[]> res = new ArrayList<int[]>();
-        for (int i = 0; i < intervals.length; ++i) {
+        for (int i = 0; i < intervals.length; i++) {
             int L = intervals[i][0], R = intervals[i][1];
             if (res.size() == 0 || res.get(res.size() - 1)[1] < L) {
                 res.add(new int[]{L, R});
@@ -44,8 +44,7 @@ public class Solution0056 {
                 res.get(res.size() - 1)[1] = Math.max(res.get(res.size() - 1)[1], R);
             }
         }
-        return res.toArray(new int[res.size()][]);
-
+        return res.toArray(new int[0][]);
     }
 
     public int[][] merge2(int[][] intervals) {
