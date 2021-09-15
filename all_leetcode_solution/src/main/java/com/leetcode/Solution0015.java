@@ -13,6 +13,10 @@ public class Solution0015 {
     public static void main(String[] args) {
         Solution0015 obj = new Solution0015();
         int[] arr = {-1, 0, 1, 2, -1, -4};
+        List<List<Integer>> lists = obj.threeSum(arr);
+        for (List<Integer> list:lists){
+            System.out.println(list);
+        }
     }
 
     /**
