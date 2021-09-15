@@ -15,8 +15,9 @@ public class Solution0056 {
         Solution0056 obj = new Solution0056();
         int[][] arr = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         int[][] res = obj.merge(arr);
-        System.out.println(arr.length);
+        System.out.println("length:"+arr.length);
         System.out.println(Arrays.deepToString(res));
+        System.out.println(res[2][1]);
         for (int[] i : res) {
             System.out.println(Arrays.toString(i));
         }
@@ -44,6 +45,10 @@ public class Solution0056 {
                 res.get(res.size() - 1)[1] = Math.max(res.get(res.size() - 1)[1], R);
             }
         }
+//        System.out.println(Arrays.toString(res.get(0)));  //[1, 6]
+//        System.out.println(res.get(0)[0]);   //1
+//        System.out.println(res.get(0)[1]);   //6
+        //
         return res.toArray(new int[0][]);
     }
 
