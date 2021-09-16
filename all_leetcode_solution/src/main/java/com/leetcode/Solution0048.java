@@ -25,7 +25,8 @@ public class Solution0048 {
             }
         }
 
-        //二维数组复制方法一
+        //二维数组复制
+        // 方法一
         /*for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 matrix[i][j] = temp[i][j];
