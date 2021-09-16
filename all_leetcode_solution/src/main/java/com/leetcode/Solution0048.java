@@ -21,7 +21,7 @@ public class Solution0048 {
         int[][] temp = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                temp[i][j] = matrix[j][n - i - 1];
+                temp[i][j] = matrix[n-j-1][i];
             }
         }
 
