@@ -31,7 +31,6 @@ public class Solution0119 {
         return lists.get(rowIndex);
     }
 
-
     public List<Integer> getRow2(int rowIndex) {
         List<Integer> list = new ArrayList<>(rowIndex);
         for (int i = 0; i <= rowIndex; i++) {
