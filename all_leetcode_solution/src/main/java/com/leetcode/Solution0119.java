@@ -29,4 +29,5 @@ public class Solution0119 {
         }
         return lists.get(rowIndex);
     }
+    
 }
