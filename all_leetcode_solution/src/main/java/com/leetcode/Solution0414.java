@@ -35,6 +35,7 @@ public class Solution0414 {
         System.out.println("1:" + obj.thirdMax2(arr6));
     }
 
+
     public int thirdMax(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
@@ -81,6 +82,7 @@ public class Solution0414 {
         });*/
 
         System.out.println(Arrays.toString(arr));
+        //考虑Integer.MIN_VALUE被减后的越界问题
 //        Arrays.sort(arr, (o1, o2) -> o2 - o1);
         Arrays.sort(arr, Collections.reverseOrder());
         System.out.println(Arrays.toString(arr));
