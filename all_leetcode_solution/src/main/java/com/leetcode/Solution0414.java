@@ -17,12 +17,14 @@ public class Solution0414 {
         int a = Integer.MIN_VALUE, b = Integer.MIN_VALUE, c = Integer.MIN_VALUE;
         for (int i : nums) {
             if (i > a) {
+                c = b;
+                b = a;
                 a = i;
-            }
-            if (i > b && i < a) {
+            } else if (i > b && i < a) {
+                c = b;
                 b = i;
-            }
-            if (i > c && i < b) {
+
+            } else if (i > c && i < b) {
                 c = i;
             }
         }
