@@ -43,8 +43,13 @@ public class Solution0048 {
          * 从源数组src取元素，范围为下标srcPos到srcPos+length-1，
          * 取出共length个元素，存放到目标数组中，存放位置为下标destPos到destPos+length-1。
          */
+       /* for (int i = 0; i < n; i++) {
+            System.arraycopy(temp[i], 0, matrix[i], 0, n);
+        }*/
+
+        //Arrays.copyOf() 占用空间少
         for (int i = 0; i < n; i++) {
-            System.arraycopy(temp[i], 0, matrix[i], 0, matrix[i].length);
+            matrix[i] = Arrays.copyOf(temp[i], n);
         }
     }
 
