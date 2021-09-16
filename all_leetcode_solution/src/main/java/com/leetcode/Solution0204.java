@@ -47,6 +47,7 @@ public class Solution0204 {
         return true;
     }
 
+    //厄拉多塞筛法
     public int countPrimes2(int n) {
         boolean[] isPrimes = new boolean[n];
         Arrays.fill(isPrimes, true);
