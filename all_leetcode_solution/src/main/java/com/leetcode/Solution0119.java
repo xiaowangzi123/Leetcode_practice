@@ -44,7 +44,6 @@ public class Solution0119 {
             }
             list = row;
         }
-
         return list;
     }
 }
