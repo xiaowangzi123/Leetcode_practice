@@ -1,9 +1,6 @@
 package com.leetcode;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author ：wyq
@@ -83,7 +80,8 @@ public class Solution0414 {
             }
         });*/
         System.out.println(Arrays.toString(arr));
-        Arrays.sort(arr, (o1, o2) -> o2 - o1);
+//        Arrays.sort(arr, (o1, o2) -> o2 - o1);
+        Arrays.sort(arr, Collections.reverseOrder());
         System.out.println(Arrays.toString(arr));
         if (arr.length == 1) {
             return arr[0];
