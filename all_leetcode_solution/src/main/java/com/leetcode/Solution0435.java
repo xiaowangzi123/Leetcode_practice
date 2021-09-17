@@ -32,7 +32,9 @@ public class Solution0435 {
 //        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
         /**
          *先根据数组第一个数大小进行升序排列
-         * 查找数组右边界值
+         * 设定第一个数组的右边界值，跟下一个数组的左边界值比较
+         * 如果右边界值小，说明没有重叠，继续查找
+         * 如果右边界值大，说明有重叠，选择两个数组中最小的右边界值
          */
         int count = 0, right = intervals[0][1];
         for (int i = 1; i < intervals.length; i++) {
