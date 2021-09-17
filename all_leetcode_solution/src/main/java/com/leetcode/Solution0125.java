@@ -16,7 +16,6 @@ public class Solution0125 {
         System.out.println(s2.reverse().hashCode());
         //Stringbuffer没有重写equals方法，比较是地址，两者地址一样
         System.out.println(s2.equals(s2.reverse()));
-
     }
 
     public boolean isPalindrome(String s) {
