@@ -14,21 +14,22 @@ public class Solution0435 {
         Solution0435 obj = new Solution0435();
         int[][] arr = {{1, 2}, {2, 3}, {3, 4}, {1, 3}};
         System.out.println(obj.eraseOverlapIntervals(arr));
+//        System.out.println(obj.eraseOverlapIntervals2(arr));
     }
 
     public int eraseOverlapIntervals(int[][] intervals) {
+        //cannot be cast to java.lang.Comparable
 //        Arrays.sort(intervals, Collections.reverseOrder());
 
-        Arrays.sort(intervals,new Comparator<Integer>(){
+        /*Arrays.sort(intervals,new Comparator<Integer>(){
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1-o2;
             }
-        });
-//        Arrays.sort(intervals, (o1, o2) -> o1[0]-o2[0]);
-
+        });*/
+        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
         int count = 0, right = intervals[0][1];
-        for (int i = 0; i < intervals.length; i++) {
+        for (int i = 1; i < intervals.length; i++) {
             if (right <= intervals[i][1]) {
                 right = intervals[i][1];
             } else {
@@ -38,4 +39,5 @@ public class Solution0435 {
         }
         return count;
     }
+
 }
