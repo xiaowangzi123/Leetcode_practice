@@ -13,7 +13,8 @@ public class Solution0435 {
     public static void main(String[] args) {
         Solution0435 obj = new Solution0435();
         int[][] arr = {{1, 2}, {2, 3}, {3, 4}, {1, 3}};
-        System.out.println(obj.eraseOverlapIntervals(arr));
+        int[][] arr2 = {{1, 2}, {1, 2}, {1, 2}, {1, 2}};
+        System.out.println(obj.eraseOverlapIntervals(arr2));
 //        System.out.println(obj.eraseOverlapIntervals2(arr));
     }
 
@@ -27,7 +28,11 @@ public class Solution0435 {
                 return o1[0]-o2[0];
             }
         });
+        //上面的简写模式
 //        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
+        /**
+         *
+         */
         int count = 0, right = intervals[0][1];
         for (int i = 1; i < intervals.length; i++) {
             if (right <= intervals[i][0]) {
