@@ -21,16 +21,16 @@ public class Solution0435 {
         //cannot be cast to java.lang.Comparable
 //        Arrays.sort(intervals, Collections.reverseOrder());
 
-        /*Arrays.sort(intervals,new Comparator<Integer>(){
+        Arrays.sort(intervals,new Comparator<int[]>(){
             @Override
-            public int compare(Integer o1, Integer o2) {
-                return o1-o2;
+            public int compare(int[] o1, int[] o2) {
+                return o1[0]-o2[0];
             }
-        });*/
-        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
+        });
+//        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
         int count = 0, right = intervals[0][1];
         for (int i = 1; i < intervals.length; i++) {
-            if (right <= intervals[i][1]) {
+            if (right <= intervals[i][0]) {
                 right = intervals[i][1];
             } else {
                 right = Math.min(right, intervals[i][1]);
