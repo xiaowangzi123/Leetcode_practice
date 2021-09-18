@@ -23,8 +23,10 @@ public class Solution0334 {
      * {2,1,5,0,4,6}
      * 1.先找出符合条件的不完整序列，{2,5}最小值2，中间值5
      * 2.后面有值比mid值大，存在有序数列，返回true
-     *   有值比min值小，替换min值
-     *   有值比min大，比mid小，替换mid值
+     *   后面有值比min值小，替换min值{0,5}
+     *   后面有值比min大，比mid小，替换mid值{0,4}
+     * 4.一直找出{0,4,6}，找出较小的替换大的，不影响要找的从小到大序列
+     * {0,4,6}替换了{2,5,6}
      */
     public boolean increasingTriplet(int[] nums) {
         int min = Integer.MAX_VALUE, mid = Integer.MAX_VALUE;
