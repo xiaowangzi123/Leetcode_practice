@@ -22,6 +22,7 @@ public class Solution0238 {
             res[i] = left;
             left *= nums[i];
         }
+        //right第i个元素右边的所有数乘积
         for (int i = n - 1; i >= 0; i--) {
             res[i] *= right;
             right *= nums[i];
