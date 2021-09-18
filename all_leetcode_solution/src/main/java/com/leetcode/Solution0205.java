@@ -11,7 +11,7 @@ import java.util.Map;
 public class Solution0205 {
     public static void main(String[] args) {
         Solution0205 obj = new Solution0205();
-        String s = "ccb", t = "aad";
+        String s = "ccc", t = "aaa";
         System.out.println(obj.isIsomorphic(s, t));
         System.out.println(obj.isIsomorphic2(s, t));
 

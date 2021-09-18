@@ -13,17 +13,21 @@ import java.util.Map;
 public class Solution0290 {
     public static void main(String[] args) {
         Solution0290 obj = new Solution0290();
-        String pattern = "abba", str = "dog dog dog dog";
-        System.out.println(obj.wordPattern(pattern,str));
+        String pattern = "dddd", str = "dog dog dog dog";
+        System.out.println(obj.wordPattern(pattern, str));
     }
+
     /**
      *
      */
     public boolean wordPattern(String pattern, String s) {
         Map<Character, String> map = new HashMap<>();
         String[] str = s.split(" ");
+        if (pattern.length()!=str.length){
+            return false;
+        }
         for (int i = 0; i < pattern.length(); i++) {
-            char sChar = s.charAt(i);
+            char sChar = pattern.charAt(i);
             String st = str[i];
             if (!map.containsKey(sChar)) {
                 if (map.containsValue(st)) {
@@ -31,7 +35,7 @@ public class Solution0290 {
                 }
                 map.put(sChar, st);
             } else {
-                if (st != map.get(sChar)) {
+                if (!st.equals(map.get(sChar))) {
                     return false;
                 }
             }
