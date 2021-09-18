@@ -26,7 +26,6 @@ public class Solution0290 {
      * 2.pattern.charAt(i)键存在，表明已有匹配结果在map表中
      * 查看map表中其对应的值与srt[i]是否一致，
      * 不一致返回false；一致继续循环体
-     *
      */
     public boolean wordPattern(String pattern, String s) {
         Map<Character, String> map = new HashMap<>();
