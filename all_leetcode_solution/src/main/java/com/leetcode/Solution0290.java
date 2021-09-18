@@ -18,6 +18,14 @@ public class Solution0290 {
     }
 
     /**
+     * map键值对，
+     * pattern.charAt(i)为键，s分割为字符数组str，srt[i]值为map值
+     * pattern.charAt(i)键不存在，查看srt[i]作为值是否存在
+     * 存在，表明不匹配，返回false；
+     * 不存在，将其存入map
+     * 2.pattern.charAt(i)键存在，表明已有匹配结果在map表中
+     * 查看map表中其对应的值与srt[i]是否一致，
+     * 不一致返回false；一致继续循环体
      *
      */
     public boolean wordPattern(String pattern, String s) {
