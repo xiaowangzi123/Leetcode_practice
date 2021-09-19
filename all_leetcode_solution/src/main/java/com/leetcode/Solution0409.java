@@ -59,6 +59,7 @@ public class Solution0409 {
         return res < s.length() ? res + 1 : res;
     }
 
+    //'z'值122，初始化时数组大小选择123
     public int longestPalindrome3(String s){
         int[] count = new int[123];
         int length = s.length();
