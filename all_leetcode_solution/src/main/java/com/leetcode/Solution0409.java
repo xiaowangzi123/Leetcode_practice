@@ -16,6 +16,7 @@ public class Solution0409 {
         String s = "ajelkjakljez";
         System.out.println(obj.longestPalindrome(s));
         System.out.println(obj.longestPalindrome2(s));
+        System.out.println(obj.longestPalindrome3(s));
 
         Map<Character, Integer> map = new HashMap<>();
         map.put('a', 23);
@@ -47,17 +48,28 @@ public class Solution0409 {
 
     //大小写字母中间有6个字符
     public int longestPalindrome2(String s) {
-        int[] cnt = new int[58];
+        int[] count = new int[58];
         for (char c : s.toCharArray()) {
-            cnt[c - 'A'] += 1;
+            count[c - 'A'] += 1;
         }
         int res = 0;
-        for (int i : cnt) {
-            if (i % 2 == 0) {
-                res += i;
-            } else {
-                res += (i - 1);
-            }
+        for (int i : count) {
+            res += (i / 2) * 2;
+        }
+        return res < s.length() ? res + 1 : res;
+    }
+
+    public int longestPalindrome3(String s){
+        int[] count = new int[123];
+        int length = s.length();
+        for (int i = 0; i < length; ++i) {
+            char c = s.charAt(i);
+            count[c]++;
+        }
+
+        int res = 0;
+        for (int i : count) {
+            res += (i / 2) * 2;
         }
         return res < s.length() ? res + 1 : res;
     }
