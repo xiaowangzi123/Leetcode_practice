@@ -17,7 +17,7 @@ public class Solution0459 {
         System.out.println(obj.repeatedSubstringPattern2(s2));
 
         String s3 = "ababba";
-        System.out.println(obj.repeatedSubstringPattern2(s3));
+        System.out.println(obj.repeateSubstringPattern3(s3));
 
 
     }
@@ -51,12 +51,23 @@ public class Solution0459 {
     //
     public boolean repeatedSubstringPattern2(String s) {
         String str = s + s;
-        String temp = str.substring(1, str.length() - 1);
-        return temp.contains(s);
+        return str.substring(1, str.length() - 1).contains(s);
     }
 
-    public boolean repeateSubstringpattern3(String){
-
+    public boolean repeateSubstringPattern3(String s) {
+        if (s == null || s.length() == 1) {
+            return false;
+        }
+        int len = s.length();
+        String temp = s;
+        while (len > 1) {
+            temp = temp.charAt(s.length() - 1) + temp.substring(0, s.length() - 1);
+            if (s.equals(temp)) {
+                return true;
+            }
+            len--;
+        }
+        return false;
     }
 
 
