@@ -5,9 +5,9 @@ package com.leetcode;
  * @date ：Created in 2021/9/19
  * @description：
  */
-public class Solution0276 {
+public class Solution0650 {
     public static void main(String[] args) {
-        Solution0276 obj = new Solution0276();
+        Solution0650 obj = new Solution0650();
         System.out.println(obj.minSteps(2));
         System.out.println(obj.minSteps2(8));
         System.out.println(obj.minSteps2(9));
