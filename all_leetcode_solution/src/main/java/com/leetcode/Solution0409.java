@@ -1,7 +1,9 @@
 package com.leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author ：wyq
@@ -17,7 +19,7 @@ public class Solution0409 {
         Map<Character, Integer> map = new HashMap<>();
         map.put('a', 23);
         System.out.println(map);
-        map.put('a', map.get('a')+1);
+        map.put('a', map.get('a') + 1);
         System.out.println(map);
     }
 
@@ -31,6 +33,14 @@ public class Solution0409 {
                 map.put(ch, 1);
             }
         }
-        return 0;
+        int count = 0;
+        Set<Map.Entry<Character, Integer>> entrySet = map.entrySet();
+        for (Map.Entry<Character, Integer> entry : entrySet) {
+            count += (entry.getValue() / 2)*2;
+        }
+        if (count != s.length()) {
+            count++;
+        }
+        return count;
     }
 }
