@@ -36,6 +36,13 @@ public class Solution0763 {
         return ans;
     }
 
+    /**
+     * 1.找出每个子序列中，第一个字母最后出现位置的索引end
+     * 2.遍历start到end位置中的每一个字母，找出此字母最后出现位置的索引
+     *     此索引大于end，替换当前end值
+     * 3.当i==end时，表明第一个要找的子序列结束，记录此时的end值
+     * 然后从当前位置的后一位开始计算start
+     */
     public List<Integer> partitionLabels2(String s) {
         List<Integer> ans = new ArrayList<>();
         int start = 0, end = 0;
