@@ -26,7 +26,6 @@ public class Solution0763 {
         for (int i = 0; i < s.length(); i++) {
             count[s.charAt(i) - 'a'] = i;
         }
-
         List<Integer> ans = new ArrayList<>();
         int start = 0, end = 0;
         for (int i = 0; i < s.length(); i++) {
