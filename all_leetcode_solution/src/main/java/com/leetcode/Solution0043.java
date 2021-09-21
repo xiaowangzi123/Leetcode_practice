@@ -27,22 +27,38 @@ public class Solution0043 {
         int m = num1.length(), n = num2.length();
         for (int i = n - 1; i >= 0; i--) {
             StringBuilder temp = new StringBuilder();
+
+            for (int j = n - 1; j > i; j--) {
+                temp.append("0");
+            }
+
+            int base = 0;
+            int y = num2.charAt(i) - '0';
+            for (int j = m - 1; j >= 0; j--) {
+                int x = num1.charAt(j) - '0';
+                temp.append((x * y + base) % 10);
+                base = (x * y + base) / 10;
+            }
+            if (base != 0) {
+                temp.append(base);
+            }
+            ans = addStrings(ans, temp.reverse().toString());
         }
         return ans;
     }
 
     public String addStrings(String num1, String num2) {
         StringBuilder sb = new StringBuilder();
-        int m = num1.length() - 1, n = num2.length() - 1, k = 0;
+        int m = num1.length() - 1, n = num2.length() - 1, base = 0;
         while (m >= 0 || n >= 0) {
             int i = m >= 0 ? num1.charAt(m) - '0' : 0;
             int j = n >= 0 ? num2.charAt(n) - '0' : 0;
-            sb.append((i + j + k) % 10);
-            k = (i + j + k) / 10;
+            sb.append((i + j + base) % 10);
+            base = (i + j + base) / 10;
             m--;
             n--;
         }
-        if (k == 1) {
+        if (base == 1) {
             sb.append(1);
         }
         return sb.reverse().toString();
