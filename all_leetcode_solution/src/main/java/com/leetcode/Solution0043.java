@@ -89,7 +89,7 @@ public class Solution0043 {
      *              5000
      *            --------
      *              6888
-     *   num1[i]*num2[j]的结果处于res的res[i+j]和res[i+j+1]
+     * num1[i]*num2[j]的结果处于res的res[i+j]和res[i+j+1]
      */
     public String multiply2(String num1, String num2) {
         if (num1.equals("0") || num2.equals("0")) {
