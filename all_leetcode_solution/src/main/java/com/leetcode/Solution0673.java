@@ -15,5 +15,6 @@ public class Solution0673 {
 
     public int findNumberOfLIS(int[] nums) {
 
+        return 0;
     }
 }
