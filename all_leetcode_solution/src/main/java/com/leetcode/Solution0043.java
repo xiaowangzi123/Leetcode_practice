@@ -57,6 +57,9 @@ public class Solution0043 {
         return ans;
     }
 
+    /**
+     * {@link Solution0415}
+     */
     public String addStrings(String num1, String num2) {
         StringBuilder sb = new StringBuilder();
         int m = num1.length() - 1, n = num2.length() - 1, base = 0;
@@ -72,6 +75,43 @@ public class Solution0043 {
             sb.append(1);
         }
         return sb.reverse().toString();
+    }
+
+    /**
+     *               123
+     *                56
+     *           ---------
+     *                18
+     *               120
+     *               600
+     *               150
+     *              1000
+     *              5000
+     *            --------
+     *              6888
+     *   num1[i]*num2[j]的结果处于res的res[i+j]和res[i+j+1]
+     */
+    public String multiply2(String num1, String num2) {
+        if (num1.equals("0") || num2.equals("0")) {
+            return "0";
+        }
+        int[] res = new int[num1.length() + num2.length()];
+        for (int i = num1.length() - 1; i >= 0; i--) {
+            int n1 = num1.charAt(i) - '0';
+            for (int j = num2.length() - 1; j >= 0; j--) {
+                int n2 = num2.charAt(j) - '0';
+                int sum = (res[i + j + 1] + n1 * n2);
+                res[i + j + 1] = sum % 10;
+                res[i + j] += sum / 10;
+            }
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < res.length; i++) {
+            if (i == 0 && res[i] == 0) continue;
+            result.append(res[i]);
+        }
+        return result.toString();
     }
 
 }
