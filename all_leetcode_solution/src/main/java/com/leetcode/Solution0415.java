@@ -4,6 +4,7 @@ package com.leetcode;
  * @author ：wyq
  * @date ：Created in 2021/9/19
  * @description：
+ * {}
  */
 public class Solution0415 {
     public static void main(String[] args) {
@@ -29,7 +30,7 @@ public class Solution0415 {
     }
 
     /**
-     *
+     *{@link Solution0043}
      */
     public String addStrings2(String num1, String num2) {
         StringBuilder sb = new StringBuilder();
