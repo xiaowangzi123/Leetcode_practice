@@ -51,6 +51,7 @@ public class Solution0043 {
             if (base != 0) {
                 temp.append(base);
             }
+            //num2的每一个元素与num1相乘的结果相加
             ans = addStrings(ans, temp.reverse().toString());
         }
         return ans;
@@ -67,9 +68,9 @@ public class Solution0043 {
             m--;
             n--;
         }
-        /*if (base == 1) {
+        if (base == 1) {
             sb.append(1);
-        }*/
+        }
         return sb.reverse().toString();
     }
 
