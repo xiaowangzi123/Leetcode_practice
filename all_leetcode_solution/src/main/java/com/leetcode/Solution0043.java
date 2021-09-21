@@ -14,20 +14,27 @@ public class Solution0043 {
 
     /**
      * 计算形式
-     * num1
+     *   num1
      * * num2
      * ------
      * result
+     * 1 2 3     1 2 3      1 2 3      1 2 3
+     * 4 5 6---->    6----->  5   ---->4
+     * -----     -----   --------   --------
+     *           7 3 8    6 1 5 0   49 2 0 0   ---->738+6150+49200=56088
      */
     public String multiply(String num1, String num2) {
+        //有一个是“0”，直接返回“0”
         if (num1.equals("0") || num2.equals("0")) {
             return "0";
         }
+        //ans存储结果
         String ans = "0";
         int m = num1.length(), n = num2.length();
         for (int i = n - 1; i >= 0; i--) {
             StringBuilder temp = new StringBuilder();
 
+            //num2的高进位乘以num1时，需要补0
             for (int j = n - 1; j > i; j--) {
                 temp.append("0");
             }
