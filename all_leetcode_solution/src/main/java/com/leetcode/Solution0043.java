@@ -39,7 +39,9 @@ public class Solution0043 {
                 temp.append("0");
             }
 
+            //base表示乘积结果的进位值
             int base = 0;
+            //用num2的每一个元素与num1相乘
             int y = num2.charAt(i) - '0';
             for (int j = m - 1; j >= 0; j--) {
                 int x = num1.charAt(j) - '0';
@@ -65,9 +67,9 @@ public class Solution0043 {
             m--;
             n--;
         }
-        if (base == 1) {
+        /*if (base == 1) {
             sb.append(1);
-        }
+        }*/
         return sb.reverse().toString();
     }
 
