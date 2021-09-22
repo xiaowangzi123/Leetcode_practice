@@ -17,7 +17,7 @@ public class Solution0005 {
         if (s == null || s.length() < 1) {
             return "";
         }
-        //回文子串的初始
+        //回文子串的初始和结束索引
         int start = 0, end = 0;
         for (int i = 0; i < s.length(); i++) {
             int odd = palindromeLength(s, i, i);
