@@ -11,6 +11,7 @@ public class Solution0005 {
         String s = "abcbacaed";
         System.out.println(obj.longestPalindrome(s));
         System.out.println(obj.longestPalindrome2(s));
+        System.out.println(obj.longestPalindrome3(s));
     }
 
 
@@ -45,6 +46,16 @@ public class Solution0005 {
         return r - l - 1;
     }
 
+    /**
+     * 动态规划
+     * 首先定义 P(i，j）
+     *       P(i,j)=true s[i,j]是回文串
+     *       P(i,j)=false& s[i,j]不是回文串
+     * 所以P(i,j)=(P(i+1,j−1)&&S[i]==S[j])
+     * 我们首先知道了i +1才会知道 i,所以我们只需要倒着遍历就行了。
+     *
+     * 求 长度为 11 和长度为 22 的 P(i,j)P(i,j) 时不能用上边的公式
+     */
     public String longestPalindrome2(String s) {
         int n = s.length();
         String res = "";
@@ -53,6 +64,21 @@ public class Solution0005 {
             for (int j = i; j < n; j++) {
                 dp[i][j] = s.charAt(i) == s.charAt(j) && (j - i < 2 || dp[i + 1][j - 1]); //j - i 代表长度减去 1
                 if (dp[i][j] &&  j - i + 1 > res.length()) {
+                    res = s.substring(i, j + 1);
+                }
+            }
+        }
+        return res;
+    }
+
+    public String longestPalindrome3(String s) {
+        int n = s.length();
+        String res = "";
+        boolean[] P = new boolean[n];
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= i; j--) {
+                P[j] = s.charAt(i) == s.charAt(j) && (j - i < 3 || P[j - 1]);
+                if (P[j] && j - i + 1 > res.length()) {
                     res = s.substring(i, j + 1);
                 }
             }
