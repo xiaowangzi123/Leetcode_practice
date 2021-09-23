@@ -134,10 +134,12 @@ public class Solution0043 {
                 ansArr[i + j + 1] += x * y;
             }
         }
+        //大于10需要进位
         for (int i = m + n - 1; i > 0; i--) {
             ansArr[i - 1] += ansArr[i] / 10;
             ansArr[i] %= 10;
         }
+        //
         int index = ansArr[0] == 0 ? 1 : 0;
         StringBuffer ans = new StringBuffer();
         while (index < m + n) {
