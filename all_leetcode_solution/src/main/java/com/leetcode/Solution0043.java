@@ -125,6 +125,7 @@ public class Solution0043 {
             return "0";
         }
         int m = num1.length(), n = num2.length();
+        //长度m与长度N的数据相乘，最多m+n位
         int[] ansArr = new int[m + n];
         for (int i = m - 1; i >= 0; i--) {
             int x = num1.charAt(i) - '0';
