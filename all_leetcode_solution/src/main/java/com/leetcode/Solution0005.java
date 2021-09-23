@@ -20,7 +20,9 @@ public class Solution0005 {
         //回文子串的初始和结束索引
         int start = 0, end = 0;
         for (int i = 0; i < s.length(); i++) {
+            //奇数长度的子串
             int odd = palindromeLength(s, i, i);
+            //偶数长度的子串
             int even = palindromeLength(s, i, i + 1);
             int len = Math.max(odd, even);
             //计算start和end值
