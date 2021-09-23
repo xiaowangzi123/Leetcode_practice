@@ -14,14 +14,14 @@ public class Solution0043 {
 
     /**
      * 计算形式
-     *   num1
+     * num1
      * * num2
      * ------
      * result
      * 1 2 3     1 2 3      1 2 3      1 2 3
      * 4 5 6---->    6----->  5   ---->4
      * -----     -----   --------   --------
-     *           7 3 8    6 1 5 0   49 2 0 0   ---->738+6150+49200=56088
+     * 7 3 8    6 1 5 0   49 2 0 0   ---->738+6150+49200=56088
      */
     public String multiply(String num1, String num2) {
         //有一个是“0”，直接返回“0”
@@ -78,17 +78,17 @@ public class Solution0043 {
     }
 
     /**
-     *               123
-     *                56
-     *           ---------
-     *                18
-     *               120
-     *               600
-     *               150
-     *              1000
-     *              5000
-     *            --------
-     *              6888
+     * 123
+     * 56
+     * ---------
+     * 18
+     * 120
+     * 600
+     * 150
+     * 1000
+     * 5000
+     * --------
+     * 6888
      * num1[i]*num2[j]的结果处于res的res[i+j]和res[i+j+1]
      */
     public String multiply2(String num1, String num2) {
@@ -114,4 +114,35 @@ public class Solution0043 {
         return result.toString();
     }
 
+
+    /**
+     * 做乘法
+     * num1[i]*num2[j]的结果位于ansArr[i+j+1]，
+     * 如果ansArr[i+j+1]≥10，则将进位部分加到ansArr[i+j]。
+     */
+    public String multiply3(String num1, String num2) {
+        if (num1.equals("0") || num2.equals("0")) {
+            return "0";
+        }
+        int m = num1.length(), n = num2.length();
+        int[] ansArr = new int[m + n];
+        for (int i = m - 1; i >= 0; i--) {
+            int x = num1.charAt(i) - '0';
+            for (int j = n - 1; j >= 0; j--) {
+                int y = num2.charAt(j) - '0';
+                ansArr[i + j + 1] += x * y;
+            }
+        }
+        for (int i = m + n - 1; i > 0; i--) {
+            ansArr[i - 1] += ansArr[i] / 10;
+            ansArr[i] %= 10;
+        }
+        int index = ansArr[0] == 0 ? 1 : 0;
+        StringBuffer ans = new StringBuffer();
+        while (index < m + n) {
+            ans.append(ansArr[index]);
+            index++;
+        }
+        return ans.toString();
+    }
 }
