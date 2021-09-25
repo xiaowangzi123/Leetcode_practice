@@ -108,7 +108,9 @@ public class Solution0043 {
 
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < res.length; i++) {
-            if (i == 0 && res[i] == 0) continue;
+            if (i == 0 && res[i] == 0) {
+                continue;
+            }
             result.append(res[i]);
         }
         return result.toString();
