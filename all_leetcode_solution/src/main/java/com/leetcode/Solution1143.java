@@ -18,6 +18,8 @@ public class Solution1143 {
      *
      * 当i=0时，任意的j,有cnt[0][j]=0
      * 当j=0时，任意的i,有cnt[i][0]=0
+     *
+     *
      */
     public int longestCommonSubsequence(String text1, String text2) {
         int m = text1.length(), n = text2.length();
