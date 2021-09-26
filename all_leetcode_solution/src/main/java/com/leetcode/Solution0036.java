@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import java.util.HashSet;
+
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/26
@@ -18,6 +20,7 @@ public class Solution0036 {
                 {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
                 {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
         System.out.println(obj.isValidSudoku(arr));
+        System.out.println(obj.isValidSudoku2(arr));
     }
 
     /**
@@ -35,9 +38,29 @@ public class Solution0036 {
                     rows[i][index]++;
                     columns[j][index]++;
                     subBox[i / 3][j / 3][index]++;
-                    if (rows[i][index] > 1 || columns[j][index] > 1 || subBox[i / 3][j / 3][index]>1) {
+                    if (rows[i][index] > 1 || columns[j][index] > 1 || subBox[i / 3][j / 3][index] > 1) {
                         return false;
                     }
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean isValidSudoku2(char[][] board) {
+        for (int i = 0; i < 9; i++) {
+            HashSet<Character> rows = new HashSet<>();
+            HashSet<Character> cols = new HashSet<>();
+            HashSet<Character> cube = new HashSet<>();
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] != '.' && !rows.add(board[i][j])) {
+                    return false;
+                }
+                if (board[j][i] != '.' && !cols.add(board[j][i])) {
+                    return false;
+                }
+                if (board[3 * (i / 3) + j / 3][3 * (i % 3) + j % 3] != '.' && !cube.add(board[3 * (i / 3) + j / 3][3 * (i % 3) + j % 3])) {
+                    return false;
                 }
             }
         }
