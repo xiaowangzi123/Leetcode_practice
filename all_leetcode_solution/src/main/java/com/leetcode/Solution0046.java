@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +15,7 @@ import java.util.List;
 class Solution0046 {
     public static void main(String[] args) {
         Solution0046 obj = new Solution0046();
-        int[] arr = {1,2,3};
+        int[] arr = {3, 1, 2};
         System.out.println(obj.permute(arr));
     }
 
@@ -25,6 +27,9 @@ class Solution0046 {
             output.add(num);
         }
 
+        List<Integer> out = Arrays.asList(ArrayUtils.toObject(nums));
+
+
         int n = nums.length;
         backtrack(n, output, res, 0);
         return res;
@@ -33,7 +38,7 @@ class Solution0046 {
     public void backtrack(int n, List<Integer> output, List<List<Integer>> res, int first) {
         // 所有数都填完了
         if (first == n) {
-            res.add(new ArrayList<Integer>(output));
+            res.add(new ArrayList<>(output));
         }
         for (int i = first; i < n; i++) {
             // 动态维护数组
