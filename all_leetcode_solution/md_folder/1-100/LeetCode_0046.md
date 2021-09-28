@@ -15,9 +15,12 @@
 示例 3：
 输入：nums = [1]
 输出：[[1]]
- 
 
 提示：
 1 <= nums.length <= 6
 -10 <= nums[i] <= 10
 nums 中的所有整数 互不相同
+
+
+
+![image-20210927232329306](C:\Users\yunqing3.wang\AppData\Roaming\Typora\typora-user-images\image-20210927232329306.png)
