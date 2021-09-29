@@ -23,8 +23,12 @@ public class Solution0069 {
     }
 
     public int mySqrt2(int x) {
-        if (x == 0) return 0;
-        if (x == 1) return 1;
+        if (x == 0) {
+            return 0;
+        }
+        if (x == 1) {
+            return 1;
+        }
         int l = 1, r = x / 2;
         while (l < r) {
             int mid = l + (r - l + 1) / 2;
