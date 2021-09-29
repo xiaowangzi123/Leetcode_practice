@@ -15,42 +15,65 @@ public class Solution0060 {
     }
 
     public String getPermutation(int n, int k) {
-        List<List<Integer>> ans = new ArrayList<>(k);
-        List<Integer> output = new ArrayList<>();
-        for (int i = 1; i <= n; i++) {
-            output.add(i);
-        }
+        List<ArrayDeque<Integer>> ans = new ArrayList<>(k);
 
         //标识某个数字是否被用过
         boolean[] used = new boolean[n + 1];
 
-        Deque<Integer> path = new ArrayDeque<>(n);
-        dfs(k, n, 0, path, used, ans);
+        Deque<Integer> deque = new ArrayDeque<>(n);
+        dfs(k, n, 0, deque, used, ans);
 
         StringBuilder builder = new StringBuilder();
         for (int i : ans.get(k - 1)) {
             builder.append(i);
         }
+//        return ans.get(k-1);
         return builder.toString();
     }
 
-    private void dfs(int k, int n, int depth, Deque<Integer> path, boolean[] used, List<List<Integer>> res) {
+    private void dfs(int k, int n, int depth, Deque<Integer> deque, boolean[] used, List<ArrayDeque<Integer>> res) {
         if (res.size() == k) {
             return;
         }
         if (depth == n) {
-            res.add(new ArrayList<>(path));
+            res.add(new ArrayDeque<>(deque));
             return;
         }
 
         for (int i = 1; i <= n; i++) {
             if (!used[i]) {
-                path.addLast(i);
+                deque.addLast(i);
                 used[i] = true;
-                dfs(k, n, depth + 1, path, used, res);
+                dfs(k, n, depth + 1, deque, used, res);
                 used[i] = false;
-                path.removeLast();
+                deque.removeLast();
             }
         }
+    }
+
+    public String getPermutation2(int n, int k) {
+        int[] factorial = new int[n];
+        factorial[0] = 1;
+        for (int i = 1; i < n; ++i) {
+            factorial[i] = factorial[i - 1] * i;
+        }
+
+        --k;
+        StringBuffer ans = new StringBuffer();
+        int[] valid = new int[n + 1];
+        Arrays.fill(valid, 1);
+        for (int i = 1; i <= n; ++i) {
+            int order = k / factorial[n - i] + 1;
+            for (int j = 1; j <= n; ++j) {
+                order -= valid[j];
+                if (order == 0) {
+                    ans.append(j);
+                    valid[j] = 0;
+                    break;
+                }
+            }
+            k %= factorial[n - i];
+        }
+        return ans.toString();
     }
 }
