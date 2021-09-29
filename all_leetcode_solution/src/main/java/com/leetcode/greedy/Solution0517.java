@@ -18,6 +18,7 @@ public class Solution0517 {
         //数组总和
         int tot = Arrays.stream(machines).sum();
         int n = machines.length;
+        //衣服数量不能平分返回-1
         if (tot % n != 0) {
             return -1;
         }
