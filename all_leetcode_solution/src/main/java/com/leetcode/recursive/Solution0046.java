@@ -1,6 +1,4 @@
-package com.leetcode;
-
-import org.apache.commons.lang3.ArrayUtils;
+package com.leetcode.recursive;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -15,6 +13,10 @@ class Solution0046 {
         Solution0046 obj = new Solution0046();
         int[] arr = {1, 2, 3};
         System.out.println(obj.permute(arr));
+
+        int[] arr2 = {1, 1, 3};
+        System.out.println(obj.permute2(arr2));
+
     }
 
     public List<List<Integer>> permute(int[] nums) {
@@ -54,31 +56,29 @@ class Solution0046 {
         if (nums == null || nums.length == 0) {
             return res;
         }
-        int len = nums.length;
+        int n = nums.length;
         //标识某个数字是否被用过
-        boolean[] used = new boolean[len];
-        Deque<Integer> path = new ArrayDeque<>(len);
-
-        dfs(nums, len, 0, path, used, res);
+        boolean[] used = new boolean[n];
+        Deque<Integer> path = new ArrayDeque<>(n);
+        dfs(nums, n, 0, path, used, res);
         return res;
     }
 
-    private void dfs(int[] nums, int len, int depth,
+    private void dfs(int[] nums, int length, int depth,
                      Deque<Integer> path, boolean[] used,
                      List<List<Integer>> res) {
-        if (depth == len) {
+        if (depth == length) {
             res.add(new ArrayList<>(path));
             return;
         }
 
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < length; i++) {
             if (!used[i]) {
                 path.addLast(nums[i]);
                 used[i] = true;
 
                 System.out.println("  递归之前 => " + path);
-                dfs(nums, len, depth + 1, path, used, res);
-
+                dfs(nums, length, depth + 1, path, used, res);
                 used[i] = false;
                 path.removeLast();
                 System.out.println("递归之后 => " + path);
