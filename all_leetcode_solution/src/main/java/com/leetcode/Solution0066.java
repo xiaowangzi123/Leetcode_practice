@@ -11,10 +11,12 @@ public class Solution0066 {
     public static void main(String[] args) {
         Solution0066 obj = new Solution0066();
         int[] nums = {1, 2, 9};
-        System.out.println(Arrays.toString(obj.plusOne2(nums)));
+        System.out.println(Arrays.toString(obj.plusOne(new int[]{1, 2, 9})));
+        System.out.println(Arrays.toString(obj.plusOne2(new int[]{1, 2, 9})));
 
         int[] nums2 = {9, 9, 9};
-        System.out.println(Arrays.toString(obj.plusOne2(nums2)));
+        System.out.println(Arrays.toString(obj.plusOne(new int[]{9, 9, 9})));
+        System.out.println(Arrays.toString(obj.plusOne2(new int[]{9, 9, 9})));
     }
 
     public int[] plusOne(int[] digits) {
