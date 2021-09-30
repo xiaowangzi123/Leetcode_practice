@@ -12,7 +12,7 @@ public class Solution0083 {
         Solution0083 obj = new Solution0083();
         ListNode list = new ListNode(1);
         list.next = new ListNode(1);
-        list.next.next = new ListNode(3);
+        list.next.next = new ListNode(1);
         System.out.println(obj.deleteDuplicates(list));
     }
 
@@ -21,11 +21,12 @@ public class Solution0083 {
             return head;
         }
         ListNode curr = head;
-        while (curr != null && curr.next != null) {
+        while (curr.next != null) {
             if (curr.val == curr.next.val) {
                 curr.next = curr.next.next;
+            }else {
+                curr = curr.next;
             }
-            curr = curr.next;
         }
         return head;
     }
