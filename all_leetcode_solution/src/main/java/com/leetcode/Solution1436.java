@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/1
- * @description :
+ * @description :set集合应用
  */
 public class Solution1436 {
     public static void main(String[] args) {
