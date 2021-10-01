@@ -15,12 +15,15 @@ public class Solution0078 {
         int[] arr = {1, 2, 3};
         System.out.println(obj.subsets(arr));
 
-        int[] arr2 = {1, 2, 0, 2, 0, 1};
-        System.out.println(Arrays.toString(arr2));
-        System.out.println(1<<3);
-        System.out.println(0&(1<<0));
-        System.out.println(0&(1<<1));
-        System.out.println(0&(1<<2));
+        int[] arr2 = {1, 2, 3};
+        System.out.println(obj.subsets2(arr2));
+
+        int[] arr3 = {1, 2};
+        System.out.println(obj.subsets3(arr3));
+        System.out.println(1 << 3);
+        System.out.println(0 & (1 << 0));
+        System.out.println(0 & (1 << 1));
+        System.out.println(0 & (1 << 2));
     }
 
     /**
@@ -51,8 +54,45 @@ public class Solution0078 {
         return ans;
     }
 
-    public List<List<Integer>> subsets2(int[] nums){
+    /**
+     * 前n个元素的子集f(n)，等于前n-1个元素的子集f(n-1)+{f(n-1)+an}
+     */
+    public List<List<Integer>> subsets2(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        //先把空子集加入
+        ans.add(temp);
 
+        //循环加入每一个元素
+        for (int num : nums) {
+            int t = ans.size();
+            for (int j = 0; j < t; j++) {
+                List<Integer> sub = new ArrayList<>(ans.get(j));
+                sub.add(num);
+                ans.add(sub);
+            }
+        }
+        return ans;
+    }
+
+    public List<List<Integer>> subsets3(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+
+        dfs(0, nums, ans);
+        return ans;
+
+    }
+
+    public void dfs(int cur, int[] nums, List<List<Integer>> ans) {
+        List<Integer> temp = new ArrayList<>();
+        if (cur == nums.length) {
+            ans.add(new ArrayList<>(temp));
+            return;
+        }
+        temp.add(nums[cur]);
+        dfs(cur + 1, nums, ans);
+        temp.remove(temp.size() - 1);
+        dfs(cur + 1, nums, ans);
     }
 
 }
