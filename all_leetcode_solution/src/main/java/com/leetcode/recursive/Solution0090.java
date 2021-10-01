@@ -23,8 +23,6 @@ public class Solution0090 {
 
         int[] arr3 = {1, 2, 2, 2};
         System.out.println("{1, 2, 2, 2}-->" + obj.subsetsWithDup2(arr3));
-        int[] arr4 = {1, 2};
-        System.out.println("{4}-->" + obj.subsets4(arr4));
 
         System.out.println(0 >> 1 & 1);
         System.out.println(1 >> 1 & 1);
@@ -69,9 +67,8 @@ public class Solution0090 {
     }
 
     /**
-     * 前n个元素的子集f(n)，等于前n-1个元素的子集f(n-1)+{f(n-1)+an}
-     * {1,2,3}前两个元素的子集{}{1}{2}{1,2}
-     * 加入元素3后，子集就是前两个元素子集{}{1}{2}{1,2}+{3}{1,3}{2,3}{1,2,3}
+     * 需要改进
+     * 此方法在多个连续数相同时，无法判断相同值的具体某一个是否加入子集
      */
     public List<List<Integer>> subsetsWithDup2(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
@@ -84,10 +81,11 @@ public class Solution0090 {
         for (int num : nums) {
             int t = ans.size();
             for (int j = 0; j < t; j++) {
-                if (j > 1 && nums[j] == nums[j - 1]) {
+                List<Integer> sub = new ArrayList<>(ans.get(j));
+                //此处需要修改
+                if (j > 1 && sub.contains(nums[j - 1])&& nums[j] == nums[j - 1]) {
                     break;
                 }
-                List<Integer> sub = new ArrayList<>(ans.get(j));
                 sub.add(num);
                 ans.add(sub);
             }
@@ -95,40 +93,17 @@ public class Solution0090 {
         return ans;
     }
 
-    /**
-     * 递归加入每一个元素
-     */
-    public List<List<Integer>> subsetsWithDup3(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        res.add(new ArrayList<>());
-        recursion(nums, 0, res);
-        return res;
-    }
-
-    public void recursion(int[] nums, int i, List<List<Integer>> res) {
-        if (i >= nums.length) {
-            return;
-        }
-        int size = res.size();
-        for (int j = 0; j < size; j++) {
-            List<Integer> newSub = new ArrayList<>(res.get(j));
-            newSub.add(nums[i]);
-            res.add(newSub);
-        }
-        recursion(nums, i + 1, res);
-    }
 
     /**
      * 回溯
      */
-    public List<List<Integer>> subsets4(int[] nums) {
+    public List<List<Integer>> subsetsWithDup3(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> sub = new ArrayList<>();
         ans.add(sub);
         Arrays.sort(nums);
         backtrack(nums, 0, sub, ans);
         return ans;
-
     }
 
     public void backtrack(int[] nums, int start, List<Integer> sub, List<List<Integer>> res) {
