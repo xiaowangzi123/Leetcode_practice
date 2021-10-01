@@ -23,7 +23,7 @@ public class Solution0078 {
 
         int[] arr3 = {1, 2};
         System.out.println(obj.subsets3(arr3));
-        System.out.println(obj.subsets3(arr3));
+        System.out.println(obj.subsets4(arr3));
         System.out.println(1 << 3);
         System.out.println(0 & (1 << 0));
         System.out.println(0 & (1 << 1));
@@ -81,10 +81,13 @@ public class Solution0078 {
         return ans;
     }
 
-    public List<List<Integer>> subsets3(int[] nums){
+    /**
+     * 递归加入每一个元素
+     */
+    public List<List<Integer>> subsets3(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         res.add(new ArrayList<>());
-        recursion(nums,0,res);
+        recursion(nums, 0, res);
         return res;
     }
 
@@ -103,25 +106,23 @@ public class Solution0078 {
 
     public List<List<Integer>> subsets4(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
-
-        dfs(0, nums, ans);
+        List<Integer> sub = new ArrayList<>();
+        ans.add(sub);
+        backtrack(nums, 0, sub, ans);
         return ans;
 
     }
 
-    public void dfs(int cur, int[] nums, List<List<Integer>> ans) {
-        if(cur>nums.length) {
-            return;
+    public void backtrack(int[] nums, int start, List<Integer> sub, List<List<Integer>> res) {
+        for (int j = start; j < nums.length; j++) {
+            if (j > start && nums[j] == nums[j - 1]) {
+                continue;
+            }
+            sub.add(nums[j]);
+            res.add(new ArrayList<>(sub));
+            backtrack(nums, j + 1, sub, res);
+            sub.remove(sub.size() - 1);
         }
-        List<Integer> temp = new ArrayList<>();
-        if (cur == nums.length) {
-            ans.add(new ArrayList<>(temp));
-            return;
-        }
-        temp.add(nums[cur]);
-        dfs(cur + 1, nums, ans);
-        temp.remove(temp.size() - 1);
-        dfs(cur + 1, nums, ans);
     }
 
 }
