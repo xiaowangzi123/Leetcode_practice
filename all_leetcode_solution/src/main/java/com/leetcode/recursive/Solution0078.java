@@ -1,6 +1,7 @@
 package com.leetcode.recursive;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,8 +21,8 @@ public class Solution0078 {
 
         int[] arr3 = {1, 2};
         System.out.println(obj.subsets3(arr3));
-        int[] arr4 = {1, 2, 2};
-        System.out.println("{4}-->"+obj.subsets4(arr4));
+        int[] arr4 = {1, 2};
+        System.out.println("{4}-->" + obj.subsets4(arr4));
         System.out.println(1 << 3);
         System.out.println(0 & (1 << 0));
         System.out.println(0 & (1 << 1));
@@ -116,14 +117,78 @@ public class Solution0078 {
 
     public void backtrack(int[] nums, int start, List<Integer> sub, List<List<Integer>> res) {
         for (int j = start; j < nums.length; j++) {
-            if (j > start && nums[j] == nums[j - 1]) {
+            //去掉重复值
+            /*if (j > start && nums[j] == nums[j - 1]) {
                 continue;
-            }
+            }*/
             sub.add(nums[j]);
             res.add(new ArrayList<>(sub));
             backtrack(nums, j + 1, sub, res);
             sub.remove(sub.size() - 1);
         }
     }
+
+
+    /**
+     * DFS，前序遍历
+     */
+    public static void preOrder(int[] nums, int i, ArrayList<Integer> subset, List<List<Integer>> res) {
+        if (i >= nums.length) {
+            return;
+        }
+        // 到了新的状态，记录新的路径，要重新拷贝一份
+        subset = new ArrayList<Integer>(subset);
+
+        // 这里
+        res.add(subset);
+        preOrder(nums, i + 1, subset, res);
+        subset.add(nums[i]);
+        preOrder(nums, i + 1, subset, res);
+    }
+
+    /**
+     * DFS，中序遍历
+     */
+    public static void inOrder(int[] nums, int i, ArrayList<Integer> subset, List<List<Integer>> res) {
+        if (i >= nums.length) {
+            return;
+        }
+        subset = new ArrayList<Integer>(subset);
+
+        inOrder(nums, i + 1, subset, res);
+        subset.add(nums[i]);
+        // 这里
+        res.add(subset);
+        inOrder(nums, i + 1, subset, res);
+    }
+
+    /**
+     * DFS，后序遍历
+     */
+    public static void postOrder(int[] nums, int i, ArrayList<Integer> subset, List<List<Integer>> res) {
+        if (i >= nums.length) {
+            return;
+        }
+        subset = new ArrayList<>(subset);
+
+        postOrder(nums, i + 1, subset, res);
+        subset.add(nums[i]);
+        postOrder(nums, i + 1, subset, res);
+        // 这里
+        res.add(subset);
+    }
+
+    public static void newPreOrder(int[] nums, int i, LinkedList<Integer> stack, List<List<Integer>> res) {
+        if (i >= nums.length) {
+            return;
+        }
+        stack.push(nums[i]);
+        // 这里
+        res.add(new ArrayList<Integer>(stack));
+        newPreOrder(nums, i + 1, stack, res);
+        stack.pop();
+        newPreOrder(nums, i + 1, stack, res);
+    }
+
 
 }
