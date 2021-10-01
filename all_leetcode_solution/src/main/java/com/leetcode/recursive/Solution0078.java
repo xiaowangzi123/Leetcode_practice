@@ -1,9 +1,6 @@
 package com.leetcode.recursive;
 
-import com.sun.jmx.remote.internal.ArrayQueue;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -23,7 +20,8 @@ public class Solution0078 {
 
         int[] arr3 = {1, 2};
         System.out.println(obj.subsets3(arr3));
-        System.out.println(obj.subsets4(arr3));
+        int[] arr4 = {1, 2, 2};
+        System.out.println("{4}-->"+obj.subsets4(arr4));
         System.out.println(1 << 3);
         System.out.println(0 & (1 << 0));
         System.out.println(0 & (1 << 1));
@@ -104,6 +102,9 @@ public class Solution0078 {
         recursion(nums, i + 1, res);
     }
 
+    /**
+     * 回溯
+     */
     public List<List<Integer>> subsets4(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> sub = new ArrayList<>();
