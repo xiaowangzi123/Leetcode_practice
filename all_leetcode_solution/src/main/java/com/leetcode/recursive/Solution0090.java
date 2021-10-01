@@ -9,21 +9,26 @@ import java.util.List;
  * @author ：wyq
  * @date ：Created in 2021/9/15
  * @description ：子集2 回溯的应用
+ * {@link Solution0078}
  */
 public class Solution0090 {
     public static void main(String[] args) {
         Solution0090 obj = new Solution0090();
-        int[] arr = {1, 2, 2};
+        int[] arr = {2, 2, 2};
         System.out.println(obj.subsetsWithDup(arr));
 
-        int[] arr2 = {1, 2, 2};
-        System.out.println(obj.subsetsWithDup(arr2));
-        System.out.println(obj.subsetsWithDup(arr2));
+        int[] arr2 = {1, 2, 2, 2};
+        System.out.println("{1, 2, 2, 2}-->" +obj.subsetsWithDup(arr2));
+        System.out.println(obj.subsetsWithDup2(arr2));
 
-        int[] arr3 = {1, 2};
-        System.out.println(obj.subsetsWithDup(arr3));
+        int[] arr3 = {1, 2, 2, 2};
+        System.out.println("{1, 2, 2, 2}-->" + obj.subsetsWithDup2(arr3));
         int[] arr4 = {1, 2};
         System.out.println("{4}-->" + obj.subsets4(arr4));
+
+        System.out.println(0 >> 1 & 1);
+        System.out.println(1 >> 1 & 1);
+        System.out.println(2 >> 1 & 1);
     }
 
     /**
@@ -39,13 +44,16 @@ public class Solution0090 {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
+        //排序，方便后续去除重复值
         Arrays.sort(nums);
         int n = nums.length;
         for (int i = 0; i < (1 << n); i++) {
             temp.clear();
             boolean flag = true;
             for (int j = 0; j < n; j++) {
+                //i & (1 << j))不为0，表明此处有值
                 if ((i & (1 << j)) != 0) {
+                    //nums[j]与nums[j-1]相等，且nums[j-1]没有加入子集中时，此时加入nums[j]会重复，需跳出循环
                     if (j > 0 && (i >> (j - 1) & 1) == 0 && nums[j] == nums[j - 1]) {
                         flag = false;
                         break;
@@ -53,7 +61,7 @@ public class Solution0090 {
                     temp.add(nums[j]);
                 }
             }
-            if (flag){
+            if (flag) {
                 ans.add(new ArrayList<>(temp));
             }
         }
@@ -65,16 +73,20 @@ public class Solution0090 {
      * {1,2,3}前两个元素的子集{}{1}{2}{1,2}
      * 加入元素3后，子集就是前两个元素子集{}{1}{2}{1,2}+{3}{1,3}{2,3}{1,2,3}
      */
-    public List<List<Integer>> subsets2(int[] nums) {
+    public List<List<Integer>> subsetsWithDup2(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
         //先把空子集加入
         ans.add(temp);
 
+        Arrays.sort(nums);
         //循环加入每一个元素
         for (int num : nums) {
             int t = ans.size();
             for (int j = 0; j < t; j++) {
+                if (j > 1 && nums[j] == nums[j - 1]) {
+                    break;
+                }
                 List<Integer> sub = new ArrayList<>(ans.get(j));
                 sub.add(num);
                 ans.add(sub);
@@ -86,7 +98,7 @@ public class Solution0090 {
     /**
      * 递归加入每一个元素
      */
-    public List<List<Integer>> subsets3(int[] nums) {
+    public List<List<Integer>> subsetsWithDup3(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         res.add(new ArrayList<>());
         recursion(nums, 0, res);
