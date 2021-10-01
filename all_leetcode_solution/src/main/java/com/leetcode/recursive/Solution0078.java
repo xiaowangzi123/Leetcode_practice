@@ -24,9 +24,34 @@ public class Solution0078 {
         int[] arr4 = {1, 2};
         System.out.println("{4}-->" + obj.subsets4(arr4));
         System.out.println(1 << 3);
+        System.out.println("---------<<<<<0<<<<<<----------------");
         System.out.println(0 & (1 << 0));
         System.out.println(0 & (1 << 1));
         System.out.println(0 & (1 << 2));
+        System.out.println("---------<<<<<1<<<<<<----------------");
+        System.out.println(1 & (1 << 0));
+        System.out.println(1 & (1 << 1));
+        System.out.println(1 & (1 << 2));
+        System.out.println("---------<<<<<2<<<<<<----------------");
+        System.out.println(2 & (1 << 0));
+        System.out.println(2 & (1 << 1));
+        System.out.println(2 & (1 << 2));
+
+        System.out.println("---------<<<<<3<<<<<<----------------");
+        System.out.println(3 & (1 << 0));
+        System.out.println(3 & (1 << 1));
+        System.out.println(3 & (1 << 2));
+
+        System.out.println("---------<<<<<4<<<<<<----------------");
+        System.out.println(4 & (1 << 0));
+        System.out.println(4 & (1 << 1));
+        System.out.println(4 & (1 << 2));
+
+        System.out.println("---------<<<<<5<<<<<<----------------");
+        System.out.println(5 & (1 << 0));
+        System.out.println(5 & (1 << 1));
+        System.out.println(5 & (1 << 2));
+
     }
 
     /**
@@ -48,6 +73,7 @@ public class Solution0078 {
         for (int i = 0; i < (1 << n); i++) {
             temp.clear();
             for (int j = 0; j < n; j++) {
+                //&运算结果不等于0，表明此处有值
                 if ((i & (1 << j)) != 0) {
                     temp.add(nums[j]);
                 }
