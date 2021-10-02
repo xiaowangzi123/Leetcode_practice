@@ -78,12 +78,29 @@ public class Solution0405 {
          */
         System.out.println(Integer.toBinaryString(-5/2));
         /**
-         * 11111111111111111111111111111101
+         * 补码：1111 1111 1111 1111 1111 1111 1111 1101
+         * 反码：1111 1111 1111 1111 1111 1111 1111 1100
+         * 原码：1000 0000 0000 0000 0000 0000 0000 0011
+         * 结果为-3
          */
         System.out.println(Integer.toBinaryString(-5>>1));
 
 
+        /**
+         *    5原码：0000 0000 0000 0000 0000 0000 0000 0101
+         * 左移两位：0000 0000 0000 0000 0000 0000 0001 0100
+         * 结果为10，相当于乘以2，但并不代表两者是一样的
+         * 5左移29位，变为负数-1610612736，其二进制表示如下：
+         *          1010 0000 0000 0000 0000 0000 0000 0000
+         * 左移超过32位时，对移动位数32取余，即左移34位和左移两位结果一致
+         */
+        System.out.println("----------左移 >>----------");
+        System.out.println(Integer.toBinaryString(5<<2));
+        System.out.println(Integer.toBinaryString(5<<34));
+        System.out.println(Integer.toBinaryString(5<<29));
+        System.out.println(5<<29);
 
+        System.out.println("----------右移运算符 >>----------");
     }
 
     public String toHex(int num) {
