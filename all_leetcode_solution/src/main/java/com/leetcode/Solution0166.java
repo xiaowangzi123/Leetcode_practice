@@ -13,10 +13,11 @@ import java.util.Map;
 public class Solution0166 {
     public static void main(String[] args) {
         Solution0166 obj = new Solution0166();
-        System.out.println(obj.fractionToDecimal(2, 3));
+        System.out.println(obj.fractionToDecimal(20, 3));
         System.out.println(obj.fractionToDecimal(2, 5));
         System.out.println(obj.fractionToDecimal(7, -12));
 
+        //不能用相乘或相除的结果是否大于0，来判断两数是否为一正一负
         int numerator = -1, denominator = -2147483648;
         System.out.println(numerator / denominator < 0); //false
         System.out.println(denominator / numerator < 0); //true
