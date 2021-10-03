@@ -18,7 +18,7 @@ public class Solution0167 {
         System.out.println(Arrays.toString(obj.twoSum2(numbers2, 18)));
     }
 
-    //双指针（此处的双指针优于二分查找）
+    //双指针（LeetCode上提交的双指针优于下面二分查找）
     public int[] twoSum(int[] numbers, int target) {
         int i = 0, j = numbers.length - 1;
         while (i < j) {
