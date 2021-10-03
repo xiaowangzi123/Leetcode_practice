@@ -1,18 +1,17 @@
 package com.leetcode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author ：wyq
  * @date ：Created in 2020/11/16
- * @description：
+ * @description ：区间汇总
  */
-public class Solution {
+public class Solution0228 {
     public static void main(String[] args) {
         int[] arr = {0, 1, 2, 3, 5, 6, 7, 9};
-        Solution obj = new Solution();
+        Solution0228 obj = new Solution0228();
         System.out.println(obj.summaryRanges(arr));
 
         //测试“”和String.valueOf()速度

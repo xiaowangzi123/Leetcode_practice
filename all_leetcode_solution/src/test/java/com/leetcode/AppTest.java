@@ -13,8 +13,11 @@ public class AppTest {
     private static int i;//代码总行数
     private static int j;//文件个数
     public static void main(String[] args) throws IOException {
-        File file = new File("F:\\Github\\Leetcode_practice");//需要统计行数的文件夹路径
-        traverseFiles(file);//调用递归方法查看.java文件，用于统计行数
+        //需要统计行数的文件夹路径
+        File file = new File("F:\\Github\\Leetcode_practice");
+
+        //调用递归方法查看.java文件，用于统计行数
+        traverseFiles(file);
         System.out.println("所写文件个数："+j);
         System.out.println("所写代码总行数："+i);
     }
@@ -32,8 +35,11 @@ public class AppTest {
                 while ((string = bufferedReader.readLine()) != null) {
                     i++;//读取行数
                 }
-            }else
+            }else{
                 return;
+            }
+            System.out.print(i+"--");
+            System.out.println(filename);
         }
 
         File[] files =file.listFiles();//读取文件夹的子文件或子文件夹
