@@ -44,6 +44,4 @@ public class Solution1122 {
         }
         return arr1;
     }
-
-
 }

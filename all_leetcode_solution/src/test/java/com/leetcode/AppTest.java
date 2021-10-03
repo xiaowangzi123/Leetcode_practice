@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /*
- * 对项目中所写的Java代码进行计数，看总共写了多少行代码
+ * 统计java文件行数
  * 遍历指定文件夹，是文件的前提下判断文件的后缀名是不是java,如果是java进行io操作去统计行数
  */
 public class AppTest {
@@ -27,6 +27,8 @@ public class AppTest {
         }
 
         if(!file.isDirectory()){//判断是否为文件
+            //记录之前i值
+            int start =i;
             String filename = file.getName();
             if(filename.endsWith(".java")){//判断是否是.java文件
                 j++;
@@ -38,8 +40,8 @@ public class AppTest {
             }else{
                 return;
             }
-            System.out.print(i+"--");
-            System.out.println(filename);
+            System.out.print(i-start+"--");
+            System.out.println(file);
         }
 
         File[] files =file.listFiles();//读取文件夹的子文件或子文件夹

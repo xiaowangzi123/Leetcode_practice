@@ -3,6 +3,8 @@ package com.leetcode.tree;
 import com.leetcode.bean.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -18,6 +20,7 @@ public class Solution0094 {
         TreeNode t1 = new TreeNode(1, null, t2);
 
         System.out.println(obj.inorderTraversal(t1));
+        System.out.println(obj.inorderTraversal2(t1));
 
 
     }
@@ -38,5 +41,21 @@ public class Solution0094 {
         middleRecursive(root.left, res);
         res.add(root.val);
         middleRecursive(root.right, res);
+    }
+
+    public List<Integer> inorderTraversal2(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
+        Deque<TreeNode> stack = new LinkedList<TreeNode>();
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            ans.add(root.val);
+            root = root.right;
+        }
+        return ans;
+
     }
 }
