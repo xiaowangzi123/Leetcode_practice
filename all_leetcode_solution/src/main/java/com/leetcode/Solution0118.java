@@ -1,15 +1,12 @@
 package com.leetcode;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/16
- * @description：
+ * @description : 杨辉三角
  */
 public class Solution0118 {
     public static void main(String[] args) {
@@ -56,23 +53,6 @@ public class Solution0118 {
                 arr.set(j, arr.get(j) + arr.get(j + 1));
             }
             res.add(new ArrayList<>(arr));
-        }
-
-        return res;
-    }
-
-    public List<List<Integer>> generate3(int numRows) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        ArrayList<Integer> arr = new ArrayList<Integer>();
-
-        for(int i=0; i<numRows; i++){
-            arr.add(0,1);
-
-            for(int j=1; j<arr.size()-1; ++j){
-                arr.set(j, arr.get(j)+arr.get(j+1));
-            }
-
-            res.add(new ArrayList<Integer>(arr));
         }
 
         return res;

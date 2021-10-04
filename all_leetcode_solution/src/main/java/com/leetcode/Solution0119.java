@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/16
- * @description：
+ * @description ：杨辉三角 II
  */
 public class Solution0119 {
     public static void main(String[] args) {
