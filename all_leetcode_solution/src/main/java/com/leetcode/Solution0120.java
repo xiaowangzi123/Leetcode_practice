@@ -46,12 +46,29 @@ public class Solution0120 {
 
 
         System.out.println(obj.minimumTotal(triangle));
+        System.out.println(obj.minimumTotal2(triangle));
+    }
+
+    public int minimumTotal(List<List<Integer>> triangle) {
+        if (triangle == null || triangle.size() == 0) {
+            return 0;
+        }
+        int n = triangle.size();
+        int[] res = new int[n + 1];
+
+        for (int i = n - 1; i >= 0; i--) {
+            List<Integer> list = triangle.get(i);
+            for (int j = 0; j < list.size(); j++) {
+                res[j] = Math.min(res[j], res[j + 1]) + list.get(j);
+            }
+        }
+        return res[0];
     }
 
     /**
      *
      */
-    public int minimumTotal(List<List<Integer>> triangle) {
+    public int minimumTotal2(List<List<Integer>> triangle) {
         if (triangle == null || triangle.size() == 0) {
             return 0;
         }
@@ -68,7 +85,4 @@ public class Solution0120 {
     }
 
 
-    public int minimumTotal2(List<List<Integer>> triangle) {
-
-    }
 }
