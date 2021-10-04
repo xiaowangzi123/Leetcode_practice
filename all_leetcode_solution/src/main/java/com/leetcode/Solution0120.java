@@ -52,6 +52,9 @@ public class Solution0120 {
      *
      */
     public int minimumTotal(List<List<Integer>> triangle) {
+        if (triangle == null || triangle.size() == 0) {
+            return 0;
+        }
         int n = triangle.size();
 
         int[][] dp = new int[n + 1][n + 1];
@@ -64,4 +67,8 @@ public class Solution0120 {
         return dp[0][0];
     }
 
+
+    public int minimumTotal2(List<List<Integer>> triangle) {
+
+    }
 }
