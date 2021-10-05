@@ -16,6 +16,10 @@ public class Solution0121 {
         System.out.println(obj.maxProfit2(arr));
     }
 
+    /**
+     * 只能一次买入，一次卖出
+     * 选择最小的价格买入，在最小价格后面选择一个最大的
+     */
     public int maxProfit(int[] prices) {
         int min = Integer.MAX_VALUE;
         int res = 0;
