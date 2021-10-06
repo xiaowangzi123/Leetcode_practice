@@ -15,10 +15,10 @@ public class Solution0128 {
         int[] arr3 = {};
         int[] arr4 = {0, -1};
 
-//        System.out.println(obj.longestConsecutive(arr));
-//        System.out.println(obj.longestConsecutive(arr2));
-//        System.out.println(obj.longestConsecutive(arr3));
-        System.out.println(obj.longestConsecutive(arr4));
+        System.out.println("4==" + obj.longestConsecutive(arr));
+        System.out.println("9==" + obj.longestConsecutive(arr2));
+        System.out.println("0==" + obj.longestConsecutive(arr3));
+        System.out.println("2==" + obj.longestConsecutive(arr4));
     }
 
     public int longestConsecutive(int[] nums) {
@@ -30,14 +30,23 @@ public class Solution0128 {
             set.add(i);
         }
         int count = 0, temp = set.first();
-        Iterator<Integer> iterator = set.iterator();
+
+        for (int i : set) {
+            if (i != temp) {
+                return count;
+            }
+            temp++;
+            count++;
+        }
+
+        /*Iterator<Integer> iterator = set.iterator();
         while (iterator.hasNext()) {
             if (iterator.next() != temp) {
                 return count - 1;
             }
             temp++;
             count++;
-        }
+        }*/
         return count;
     }
 }
