@@ -36,6 +36,7 @@ public class Solution0414 {
     }
 
 
+
     public int thirdMax(int[] nums) {
         if (nums.length == 1) {
             return nums[0];
@@ -66,7 +67,7 @@ public class Solution0414 {
     }
 
     public int thirdMax2(int[] nums) {
-        Set<Integer> set = new HashSet<>();
+        HashSet<Integer> set = new HashSet<>();
         for (int i : nums) {
             set.add(i);
         }
@@ -88,9 +89,21 @@ public class Solution0414 {
         System.out.println(Arrays.toString(arr));
         if (arr.length == 1) {
             return arr[0];
-        }else if (arr.length == 2) {
+        } else if (arr.length == 2) {
             return Math.max(arr[0], arr[1]);
-        }else
-        return arr[2];
+        } else {
+            return arr[2];
+        }
+    }
+
+    public int thirdMax3(int[] nums) {
+        TreeSet<Integer> treeSet = new TreeSet<>();
+        for (int i : nums) {
+            treeSet.add(i);
+            if (treeSet.size() > 3) {
+                treeSet.remove(treeSet.first());
+            }
+        }
+        return treeSet.size()==3?treeSet.first():treeSet.last();
     }
 }
