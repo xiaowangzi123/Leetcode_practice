@@ -16,12 +16,21 @@ public class Solution0136 {
         int[] arr = {1, 2, 1, 4, 2};
         System.out.println(obj.singleNumber(arr));
         System.out.println(obj.singleNumber2(arr));
+
+        //^当两位相同时返回0，不同时返回1。
+        System.out.println("1^1:" + (1 ^ 1));
+        System.out.println("1^0:" + (1 ^ 0));
+        System.out.println("0^1:" + (0 ^ 1));
+        System.out.println("0^0:" + (0 ^ 0));
+        System.out.println("0^2:" + (0 ^ 2));
+        System.out.println(2 ^ 2 ^ 1 ^ 3 ^ 1 ^ 0);
+        System.out.println(0 ^ 1 ^ 3);
     }
 
     public int singleNumber(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int i : nums) {
-            if (!set.add(i)){
+            if (!set.add(i)) {
                 set.remove(i);
             }
         }
