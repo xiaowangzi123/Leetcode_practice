@@ -21,14 +21,11 @@ public class Solution0137 {
         for (int i : nums) {
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
-
-//        Entry<Integer, Integer> entry = map.entrySet();
         for (Map.Entry<Integer, Integer> en : map.entrySet()) {
             if (en.getValue() == 1) {
                 return en.getKey();
             }
         }
-
         return 0;
     }
 }
