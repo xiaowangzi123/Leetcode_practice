@@ -16,6 +16,7 @@ public class Solution0136 {
         int[] arr = {1, 2, 1, 4, 2};
         System.out.println(obj.singleNumber(arr));
         System.out.println(obj.singleNumber2(arr));
+        System.out.println(obj.singleNumber3(arr));
 
         //^当两位相同时返回0，不同时返回1。
         System.out.println("1^1:" + (1 ^ 1));
@@ -44,5 +45,18 @@ public class Solution0136 {
             res ^= i;
         }
         return res;
+    }
+
+    public int singleNumber3(int[] nums) {
+        if(nums.length==1){
+            return nums[0];
+        }
+        Arrays.sort(nums);
+        for(int i=0; i<nums.length-1; i+=2){
+            if(nums[i] != nums[i+1]){
+                return nums[i];
+            }
+        }
+        return nums[nums.length-1];
     }
 }
