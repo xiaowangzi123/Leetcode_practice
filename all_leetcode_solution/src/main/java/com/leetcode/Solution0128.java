@@ -18,7 +18,7 @@ public class Solution0128 {
         int[] arr6 = {2};
         int[] arr7 = {0, 1, 1, 2};
 
-        System.out.println("4==" + obj.longestConsecutive2(arr));
+        /*System.out.println("4==" + obj.longestConsecutive2(arr));
         System.out.println("9==" + obj.longestConsecutive2(arr2));
         System.out.println("0==" + obj.longestConsecutive2(arr3));
         System.out.println("2==" + obj.longestConsecutive2(arr4));
@@ -33,7 +33,15 @@ public class Solution0128 {
         System.out.println("2==" + obj.longestConsecutive3(arr4));
         System.out.println("7==" + obj.longestConsecutive3(arr5));
         System.out.println("1==" + obj.longestConsecutive3(arr6));
-        System.out.println("3==" + obj.longestConsecutive3(arr7));
+        System.out.println("3==" + obj.longestConsecutive3(arr7));*/
+
+        System.out.println("4==" + obj.longestConsecutive4(arr));
+        System.out.println("9==" + obj.longestConsecutive4(arr2));
+        System.out.println("0==" + obj.longestConsecutive4(arr3));
+        System.out.println("2==" + obj.longestConsecutive4(arr4));
+        System.out.println("7==" + obj.longestConsecutive4(arr5));
+        System.out.println("1==" + obj.longestConsecutive4(arr6));
+        System.out.println("3==" + obj.longestConsecutive4(arr7));
     }
 
     public int longestConsecutive(int[] nums) {
@@ -103,6 +111,7 @@ public class Solution0128 {
         return count;
     }
 
+    //重复问题没有解决
     public int longestConsecutive3(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
@@ -112,6 +121,29 @@ public class Solution0128 {
         for (int i = 1; i < nums.length; i++) {
             int j = i, tempCount = 0;
             while (j < nums.length && nums[j] == nums[j - 1] + 1) {
+                j++;
+                tempCount++;
+                count = Math.max(tempCount + 1, count);
+            }
+        }
+        return count;
+    }
+
+    //超时
+    public int longestConsecutive4(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        TreeSet<Integer> set = new TreeSet<>();
+        for (int i : nums) {
+            set.add(i);
+        }
+
+        List<Integer> list = new ArrayList<>(set);
+        int count = 1;
+        for (int i = 1; i < list.size(); i++) {
+            int j = i, tempCount = 0;
+            while (j < list.size() && list.get(j) == list.get(j - 1) + 1) {
                 j++;
                 tempCount++;
                 count = Math.max(tempCount + 1, count);
