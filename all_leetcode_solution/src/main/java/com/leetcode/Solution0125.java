@@ -29,12 +29,19 @@ public class Solution0125 {
         long t1 = System.currentTimeMillis();
         obj.isPalindrome(ss);
         long t2 = System.currentTimeMillis();
-        System.out.println("t2 - t1:"+(t2 - t1));
+        System.out.println("t2 - t1:"+(t2 - t1)/1000);
 
         long t3 = System.currentTimeMillis();
         obj.isPalindrome2(ss);
         long t4 = System.currentTimeMillis();
-        System.out.println("t4 - t3:"+(t4 - t3));
+        System.out.println("t4 - t3:"+(t4 - t3)/1000);
+
+        long t5 = System.currentTimeMillis();
+        obj.isPalindrome3(ss);
+        long t6 = System.currentTimeMillis();
+        System.out.println("t6 - t5:"+(t6 - t5)/1000);
+
+
 
     }
 
@@ -62,5 +69,26 @@ public class Solution0125 {
         }
         StringBuffer s2 = new StringBuffer(s1).reverse();
         return s1.toString().equals(s2.toString());
+    }
+
+    //双指针
+    public boolean isPalindrome3(String s){
+        StringBuffer s1 = new StringBuffer();
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (Character.isLetterOrDigit(ch)) {
+                s1.append(Character.toLowerCase(ch));
+            }
+        }
+
+        int l=0,r=s1.length()-1;
+        while (l<r){
+            if (s1.charAt(l)!=s1.charAt(r)){
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
     }
 }
