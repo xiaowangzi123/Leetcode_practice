@@ -15,12 +15,25 @@ public class Solution0128 {
         int[] arr3 = {};
         int[] arr4 = {0, -1};
         int[] arr5 = {9, 1, 10, 7, 11, 2, 0, 5, 8, -1, 6};
+        int[] arr6 = {2};
+        int[] arr7 = {0, 1, 1, 2};
 
-        System.out.println("4==" + obj.longestConsecutive(arr));
-        System.out.println("9==" + obj.longestConsecutive(arr2));
-        System.out.println("0==" + obj.longestConsecutive(arr3));
-        System.out.println("2==" + obj.longestConsecutive(arr4));
-        System.out.println("6==" + obj.longestConsecutive(arr5));
+        System.out.println("4==" + obj.longestConsecutive2(arr));
+        System.out.println("9==" + obj.longestConsecutive2(arr2));
+        System.out.println("0==" + obj.longestConsecutive2(arr3));
+        System.out.println("2==" + obj.longestConsecutive2(arr4));
+        System.out.println("7==" + obj.longestConsecutive2(arr5));
+        System.out.println("1==" + obj.longestConsecutive2(arr6));
+        System.out.println("3==" + obj.longestConsecutive2(arr7));
+
+        System.out.println("---------------------------");
+        System.out.println("4==" + obj.longestConsecutive3(arr));
+        System.out.println("9==" + obj.longestConsecutive3(arr2));
+        System.out.println("0==" + obj.longestConsecutive3(arr3));
+        System.out.println("2==" + obj.longestConsecutive3(arr4));
+        System.out.println("7==" + obj.longestConsecutive3(arr5));
+        System.out.println("1==" + obj.longestConsecutive3(arr6));
+        System.out.println("3==" + obj.longestConsecutive3(arr7));
     }
 
     public int longestConsecutive(int[] nums) {
@@ -80,8 +93,8 @@ public class Solution0128 {
                 int temp = num;
                 int curCount = 1;
                 while (set.contains(temp + 1)) {
-                    temp ++;
-                    curCount ++;
+                    temp++;
+                    curCount++;
                 }
                 count = Math.max(count, curCount);
             }
@@ -90,4 +103,20 @@ public class Solution0128 {
         return count;
     }
 
+    public int longestConsecutive3(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        Arrays.sort(nums);
+        int count = 1;
+        for (int i = 1; i < nums.length; i++) {
+            int j = i, tempCount = 0;
+            while (j < nums.length && nums[j] == nums[j - 1] + 1) {
+                j++;
+                tempCount++;
+                count = Math.max(tempCount + 1, count);
+            }
+        }
+        return count;
+    }
 }
