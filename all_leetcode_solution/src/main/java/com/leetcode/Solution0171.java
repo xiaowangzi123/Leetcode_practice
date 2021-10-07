@@ -64,6 +64,8 @@ public class Solution0171 {
      * ZA:26*26+1=677
      * ZY:26*26+25=701
      * AAA:1*26^2+1*26^1+1*26^0=703
+     *
+     * 高位累加
      */
     public int titleToNumber2(String s) {
         int sum = 0;
@@ -73,7 +75,7 @@ public class Solution0171 {
         return sum;
     }
 
-    //2147483647==-2147483076 越界
+    //方法一的变形
     public int titleToNumber3(String columnTitle) {
         int ans = 0, n = columnTitle.length();
         for (int i = n - 1; i >= 0; i--) {
