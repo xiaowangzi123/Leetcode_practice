@@ -46,7 +46,7 @@ public class Solution0169 {
     }
 
     public int majorityElement2(int[] nums) {
-        int res = 0, max = 0;
+        int res = 0, max = nums.length / 2;
         Map<Integer, Integer> map = new HashMap<>();
         for (int i : nums) {
             map.put(i, map.getOrDefault(i, 0) + 1);
@@ -86,23 +86,5 @@ public class Solution0169 {
         Arrays.sort(nums);
 
         return nums[nums.length / 2];
-    }
-
-
-    //方法二改进，找出某个数出现次数超过一半
-    public int majorityElement25(int[] nums) {
-        int res = 0, max = nums.length / 2;
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i : nums) {
-            map.put(i, map.getOrDefault(i, 0) + 1);
-        }
-
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > max) {
-                max = entry.getValue();
-                res = entry.getKey();
-            }
-        }
-        return res;
     }
 }
