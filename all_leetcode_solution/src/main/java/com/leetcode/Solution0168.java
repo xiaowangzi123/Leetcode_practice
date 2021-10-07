@@ -6,6 +6,8 @@ import java.util.Arrays;
  * @author ：wyq
  * @date ：Created in 2021/7/11
  * @description : Excel表列名称
+ *
+ * {@link Solution0171}
  */
 public class Solution0168 {
     public static void main(String[] args) {
@@ -17,6 +19,8 @@ public class Solution0168 {
         System.out.println("FXSHRXW==" + obj.convertToTitle(2147483647));
 
         System.out.println((char) (27 % 26 + 'A'));
+        System.out.println((char) (26 % 26 + '@'));
+        System.out.println((char) (27 % 26 + '@'));
     }
 
     public String convertToTitle(int columnNumber) {
