@@ -23,6 +23,14 @@ public class Solution0171 {
         System.out.println("ZY/701==" + obj.titleToNumber2("ZY"));
         System.out.println("AAA/703==" + obj.titleToNumber2("AAA"));
         System.out.println("FXSHRXW/2147483647==" + obj.titleToNumber2("FXSHRXW"));
+        System.out.println("-----------------------------");
+
+        System.out.println("Z/26==" + obj.titleToNumber3("Z"));
+        System.out.println("AB/28==" + obj.titleToNumber3("AB"));
+        System.out.println("AZ/52==" + obj.titleToNumber3("AZ"));
+        System.out.println("ZY/701==" + obj.titleToNumber3("ZY"));
+        System.out.println("AAA/703==" + obj.titleToNumber3("AAA"));
+        System.out.println("FXSHRXW/2147483647==" + obj.titleToNumber3("FXSHRXW"));
 
         System.out.println('B' - 'A');
         System.out.println('Z' - 'A');
@@ -66,13 +74,11 @@ public class Solution0171 {
     }
 
     //2147483647==-2147483076 越界
-    public int titleToNumber2222(String columnTitle) {
-        int ans = 0;
-        double mult = 0;
-        for (int i = columnTitle.length() - 1; i >= 0; i--) {
+    public int titleToNumber3(String columnTitle) {
+        int ans = 0, n = columnTitle.length();
+        for (int i = n - 1; i >= 0; i--) {
             int a = columnTitle.charAt(i) - 'A' + 1;
-            mult = Math.pow(26, mult);
-            ans += a * mult;
+            ans += a * Math.pow(26, n - i -1);
         }
         return ans;
     }
