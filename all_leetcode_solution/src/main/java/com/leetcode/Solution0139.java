@@ -2,10 +2,7 @@ package com.leetcode;
 
 import com.sun.org.glassfish.external.statistics.impl.StringStatisticImpl;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author :wyq
@@ -19,16 +16,22 @@ public class Solution0139 {
         List<String> wordDict = new ArrayList<>();
         wordDict.add("leet");
         wordDict.add("code");
-        System.out.println(obj.wordBreak(s, wordDict));
-        System.out.println(obj.wordBreak2(s, wordDict));
+//        System.out.println(obj.wordBreak(s, wordDict));
+//        System.out.println(obj.wordBreak2(s, wordDict));
+
+
+        String s2 ="catsandog";
+        List<String> wordDict2 = new ArrayList<String>(Arrays.asList("cats", "dog", "sand", "and", "cat"));
+        System.out.println(obj.wordBreak(s2, wordDict2));
 
         System.out.println(wordDict.contains("code"));
     }
 
 
     /**
-     * dp[i] 表示字符串s前i个字符组成的字符串s[0..i−1]是否能被空格拆分成若干个字典中出现的单词
+     * dp[i]表示字符串s前i个字符组成的字符串s[0..i−1]是否能被空格拆分成若干个字典中出现的单词
      * 对于边界条件，我们定义dp[0]=true表示空串且合法
+     * 如果s[0…j-1]和s[j…i]都合法，则两个字符串拼接成的字符串s[0…i]也合法
      */
     public boolean wordBreak(String s, List<String> wordDict) {
         int n = s.length();
@@ -38,11 +41,11 @@ public class Solution0139 {
         dp[0] = true;
         for (int i = 1; i <= n; i++) {
             for (int j = 0; j < i; j++) {
-                if (dp[j] && wordDict.contains(s.substring(j, i))) {
+                String temp = s.substring(j, i);
+                if (dp[j] && wordDict.contains(temp)) {
                     dp[i] = true;
                     break;
                 }
-
             }
         }
         return dp[s.length()];
