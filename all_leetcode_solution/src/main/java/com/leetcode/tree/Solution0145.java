@@ -49,20 +49,29 @@ public class Solution0145 {
         res.add(root.val);
     }
 
+
+    //迭代
     public List<Integer> postorderTraversal2(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
         if (root == null) {
             return ans;
         }
         Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode preNode = null;
         while (root != null || !stack.isEmpty()) {
             while (root != null) {
                 stack.push(root);
                 root = root.left;
             }
             root = stack.pop();
-            root = root.right;
-            ans.add(root.val);
+            if (root.right == null || root.right == preNode) {
+                ans.add(root.val);
+                preNode = root;
+                root = null;
+            } else {
+                stack.push(root);
+                root = root.right;
+            }
         }
         return ans;
 
