@@ -20,24 +20,24 @@ public class Solution0015 {
         }
 
         System.out.println("-------for--------------");
-        for (int i=0; i<lists.size();i++){
+        for (int i = 0; i < lists.size(); i++) {
             System.out.println(lists.get(i));
         }
 
         System.out.println("-------Iterator--------------");
         Iterator<List<Integer>> it = lists.iterator();
-        while (it.hasNext()){
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
 
         System.out.println("-------ListIterator--------------");
         ListIterator<List<Integer>> listIt = lists.listIterator();
-        while (listIt.hasNext()){
+        while (listIt.hasNext()) {
             System.out.println(listIt.next());
         }
 
         System.out.println("-------Lambda--------------");
-        lists.forEach(item->System.out.println(item));
+        lists.forEach(item -> System.out.println(item));
     }
 
     /**
@@ -78,17 +78,17 @@ public class Solution0015 {
                     list.add(nums[R]);
                     lists.add(list);
                     while (L < R && nums[L + 1] == nums[L]) {
-                        ++L;
+                        L++;
                     }
                     while (L < R && nums[R - 1] == nums[R]) {
-                        --R;
+                        R--;
                     }
-                    ++L;
-                    --R;
+                    L++;
+                    R--;
                 } else if (tmp < 0) {
-                    ++L;
+                    L++;
                 } else {
-                    --R;
+                    R--;
                 }
             }
         }
