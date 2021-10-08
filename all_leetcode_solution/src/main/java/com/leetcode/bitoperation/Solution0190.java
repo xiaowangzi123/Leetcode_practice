@@ -19,11 +19,17 @@ public class Solution0190 {
         System.out.println(Integer.toString(25, 10));
         System.out.println(Integer.toString(25, 16));
         System.out.println("----------------------");
-//        System.out.println(Integer.reverse(Integer.parseInt(s)));
-//        System.out.println(obj.reverseBits(Integer.parseInt(s)));
-//        System.out.println(obj.anserseBits(Integer.valueOf(s)));
+        //1100100
+        System.out.println(Integer.toBinaryString(100));
+        //1100 1000 0000 0000 0000 0000 0000 000
+        System.out.println(Integer.toBinaryString(Integer.reverseBytes(100)));
+        System.out.println(Integer.reverseBytes(100));
 
-
+        System.out.println(Integer.reverse(100));
+        System.out.println(Integer.toBinaryString(Integer.reverse(100)));
+        
+        System.out.println("--------------------");
+        System.out.println(Integer.toBinaryString(100));
         System.out.println(obj.reverseBits(100));
         System.out.println(obj.reverseBits2(100));
         System.out.println(obj.reverseBits3(100));
@@ -54,7 +60,7 @@ public class Solution0190 {
     }
 
     //Integer.reverse()方法源码
-    public static int reverseBits3(int i) {
+    public  int reverseBits3(int i) {
         i = (i & 0x55555555) << 1 | (i >>> 1) & 0x55555555;
         i = (i & 0x33333333) << 2 | (i >>> 2) & 0x33333333;
         i = (i & 0x0f0f0f0f) << 4 | (i >>> 4) & 0x0f0f0f0f;
