@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.sorting;
 
 import java.util.*;
 
