@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/14
- * @description：
+ * @description ：多数元素
  */
 public class Solution0169 {
     public static void main(String[] args) {
