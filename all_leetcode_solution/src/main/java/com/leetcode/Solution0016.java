@@ -14,6 +14,10 @@ public class Solution0016 {
         System.out.println(obj.threeSumClosest(arr, 0));
         System.out.println(obj.threeSumClosest2(arr, 0));
 
+        int[] arr2 = {-1, 2, 1, -4};
+        System.out.println(obj.threeSumClosest(arr2, 1));
+        System.out.println(obj.threeSumClosest2(arr2, 1));
+
     }
 
     /**
@@ -63,14 +67,17 @@ public class Solution0016 {
             int left = i + 1, right = n - 1;
             while (left < right) {
                 int sum = nums[i] + nums[left] + nums[right];
+                //和与target相等，直接返回
                 if (sum == target) {
                     return sum;
                 }
                 if (Math.abs(ans - target) > Math.abs(sum - target)) {
                     ans = sum;
                 }
+                //sum小于target，右边界向左移动一位
                 if (sum > target) {
                     right--;
+                    //相邻两个值相等，跳过相同值
                     while (left < right && nums[right] == nums[right + 1]) {
                         right--;
                     }
