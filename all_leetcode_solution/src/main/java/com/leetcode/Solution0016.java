@@ -12,6 +12,7 @@ public class Solution0016 {
         Solution0016 obj = new Solution0016();
         int[] arr = {-1, 0, 1, 2, -1, -4};
         System.out.println(obj.threeSumClosest(arr, 0));
+        System.out.println(obj.threeSumClosest2(arr, 0));
 
     }
 
@@ -21,10 +22,10 @@ public class Solution0016 {
      * 2.在数组nums中，进行遍历，每遍历一个值利用其下标i，形成一个固定值 nums[i]
      * 3.再使用前指针指向L=i+1处，后指针指向R=nums.length-1处
      * 4.根据 sum =nums[i]+nums[L]+nums[R]的结果，判断sum与目标target的距离，如果更近则更新结果ans
-     *   4.1同时判断sum与 target 的大小关系，因为数组有序，
-     *   4.2如果 sum > target 则 end--，
-     *   4.3如果 sum < target 则 start++，
-     *   4.4如果 sum == target 则说明距离为 0 直接返回结果
+     * 4.1同时判断sum与 target 的大小关系，因为数组有序，
+     * 4.2如果 sum > target 则 end--，
+     * 4.3如果 sum < target 则 start++，
+     * 4.4如果 sum == target 则说明距离为 0 直接返回结果
      */
     public int threeSumClosest(int[] nums, int target) {
         //排序
@@ -42,8 +43,42 @@ public class Solution0016 {
                     R--;
                 } else if (sum < target) {
                     L++;
-                }else {
+                } else {
                     return ans;
+                }
+            }
+        }
+        return ans;
+    }
+
+    public int threeSumClosest2(int[] nums, int target) {
+        int n = nums.length, ans = nums[0] + nums[1] + nums[2];
+        Arrays.sort(nums);
+
+        for (int i = 0; i < n; i++) {
+            //如果两数相等跳过当前，继续下一循环
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            int left = i + 1, right = n - 1;
+            while (left < right) {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum == target) {
+                    return sum;
+                }
+                if (Math.abs(ans - target) > Math.abs(sum - target)) {
+                    ans = sum;
+                }
+                if (sum > target) {
+                    right--;
+                    while (left < right && nums[right] == nums[right + 1]) {
+                        right--;
+                    }
+                } else {
+                    left++;
+                    while (left < right && nums[left - 1] == nums[left]) {
+                        left++;
+                    }
                 }
             }
         }
