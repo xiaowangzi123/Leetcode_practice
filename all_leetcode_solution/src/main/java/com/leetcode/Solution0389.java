@@ -14,6 +14,7 @@ public class Solution0389 {
         String s = "abcd", t = "abcde";
         System.out.println(obj.findTheDifference(s, t));
         System.out.println(obj.findTheDifference2(s, t));
+        System.out.println(obj.findTheDifference3(s, t));
 
 
     }
@@ -51,5 +52,17 @@ public class Solution0389 {
         return 0;
     }
 
+    public char findTheDifference3(String s, String t) {
+        int ans1 = 0, ans2 = 0;
+        for (int i = 0; i < s.length(); i++) {
+            ans1 += s.charAt(i);
+        }
+
+        for (int i = 0; i < t.length(); i++) {
+            ans2 += t.charAt(i);
+        }
+
+        return (char) (ans2-ans1);
+    }
 
 }
