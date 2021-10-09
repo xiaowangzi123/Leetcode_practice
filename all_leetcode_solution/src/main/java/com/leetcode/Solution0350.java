@@ -73,17 +73,17 @@ public class Solution0350 {
         int[] ans = new int[nums1.length + nums2.length];
         int index = 0;
         for (int num : nums2) {
-            int n = map.getOrDefault(num,0);
-            if (n>0){
-                ans[index++]=num;
+            int n = map.getOrDefault(num, 0);
+            if (n > 0) {
+                ans[index++] = num;
                 n--;
-                if (n>0){
-                    map.put(num,n);
-                }else {
+                if (n > 0) {
+                    map.put(num, n);
+                } else {
                     map.remove(num);
                 }
             }
         }
-        return Arrays.copyOfRange(ans,0,index);
+        return Arrays.copyOfRange(ans, 0, index);
     }
 }
