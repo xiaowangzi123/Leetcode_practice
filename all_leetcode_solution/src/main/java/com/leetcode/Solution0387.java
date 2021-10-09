@@ -11,58 +11,37 @@ import java.util.Map;
 public class Solution0387 {
     public static void main(String[] args) {
         Solution0387 obj = new Solution0387();
-        String ransomNote = "a", magazine = "b";
-        System.out.println(obj.canConstruct(ransomNote, magazine));
-        System.out.println(obj.canConstruct2(ransomNote, magazine));
+        String s = "leetcode";
+        System.out.println(obj.firstUniqChar(s));
+        System.out.println(obj.firstUniqChar2(s));
 
-        System.out.println("---------------");
-        StringBuilder s1 = new StringBuilder("abcdefghijklmn");
-        System.out.println(s1.toString());
-        int n = s1.indexOf("d");
-        //        s1.replace(0, 1, "A");
-        System.out.println(n);
-        s1.delete(3,4);
-        System.out.println(s1);
-        System.out.println(s1.indexOf("o"));
     }
 
-    public boolean canConstruct(String ransomNote, String magazine) {
-        int n1 = ransomNote.length(), n2 = magazine.length();
+    public int firstUniqChar(String s) {
+        int[] count = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            count[s.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (count[s.charAt(i) - 'a'] == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int firstUniqChar2(String s) {
         Map<Character, Integer> map = new HashMap<>();
-        for (int i = 0; i < n2; i++) {
-            char ch = magazine.charAt(i);
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
-
-        for (int i = 0; i < n1; i++) {
-            char ch = ransomNote.charAt(i);
-            int n = map.getOrDefault(ch, 0);
-            if (n > 0) {
-                n--;
-                if (n > 0) {
-                    map.put(ch, n);
-                } else {
-                    map.remove(ch);
-                }
-            } else {
-                return false;
+        for (int i=0;i<s.length();i++){
+            if (map.get(s.charAt(i))==1){
+                return i;
             }
         }
-        return true;
-    }
-
-    public boolean canConstruct2(String ransomNote, String magazine) {
-        StringBuilder s2= new StringBuilder(magazine);
-        for (int i=0;i<ransomNote.length();i++){
-            char ch = ransomNote.charAt(i);
-            int n = s2.indexOf(String.valueOf(ch));
-            if (n==-1){
-                return false;
-            }else {
-                s2.delete(n,n+1);
-            }
-        }
-        return true;
+        return -1;
     }
 
 }
