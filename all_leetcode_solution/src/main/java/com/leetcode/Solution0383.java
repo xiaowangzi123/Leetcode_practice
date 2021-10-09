@@ -23,7 +23,7 @@ public class Solution0383 {
         int n = s1.indexOf("d");
         //        s1.replace(0, 1, "A");
         System.out.println(n);
-        s1.delete(3,4);
+        s1.delete(3, 4);
         System.out.println(s1);
         System.out.println(s1.indexOf("o"));
     }
@@ -54,14 +54,14 @@ public class Solution0383 {
     }
 
     public boolean canConstruct2(String ransomNote, String magazine) {
-        StringBuilder s2= new StringBuilder(magazine);
-        for (int i=0;i<ransomNote.length();i++){
+        StringBuilder s2 = new StringBuilder(magazine);
+        for (int i = 0; i < ransomNote.length(); i++) {
             char ch = ransomNote.charAt(i);
             int n = s2.indexOf(String.valueOf(ch));
-            if (n==-1){
+            if (n == -1) {
                 return false;
-            }else {
-                s2.delete(n,n+1);
+            } else {
+                s2.delete(n, n + 1);
             }
         }
         return true;
