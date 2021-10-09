@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/22
- * @description：
+ * @description ：最长回文子串
  */
 public class Solution0005 {
     public static void main(String[] args) {
