@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/9
- * @description :
+ * @description : 分糖果
  */
 public class Solution0575 {
     public static void main(String[] args) {
@@ -19,6 +19,7 @@ public class Solution0575 {
         System.out.println(obj.distributeCandies2(candies));
     }
 
+    //HashSet应用
     public int distributeCandies(int[] candyType) {
         Set<Integer> kinds = new HashSet<>();
         for (int i : candyType) {
