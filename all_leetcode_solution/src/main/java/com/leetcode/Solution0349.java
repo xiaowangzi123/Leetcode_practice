@@ -14,6 +14,7 @@ public class Solution0349 {
         System.out.println(Arrays.toString(obj.intersection(nums1, nums2)));
         System.out.println(Arrays.toString(obj.intersection2(nums1, nums2)));
         System.out.println(Arrays.toString(obj.intersection3(nums1, nums2)));
+        System.out.println(Arrays.toString(obj.intersection4(nums1, nums2)));
         System.out.println("----------------------------");
 
 
@@ -76,4 +77,27 @@ public class Solution0349 {
     }
 
 
+    public int[] intersection4(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+
+        int n1 = nums1.length, n2 = nums2.length;
+        int[] ans = new int[n1];
+
+        int count = 0, i = 0, j = 0;
+        while (i < n1 && j < n2) {
+            if (nums1[i] == nums2[j]) {
+                if (i == 0 || nums1[i] != ans[count - 1]) {
+                    ans[count++] = nums1[i];
+                }
+                i++;
+                j++;
+            } else if (nums1[i] < nums2[j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+        return Arrays.copyOfRange(ans,0,count);
+    }
 }
