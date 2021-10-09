@@ -15,6 +15,17 @@ public class Solution0383 {
         Solution0383 obj = new Solution0383();
         String ransomNote = "a", magazine = "b";
         System.out.println(obj.canConstruct(ransomNote, magazine));
+        System.out.println(obj.canConstruct2(ransomNote, magazine));
+
+        System.out.println("---------------");
+        StringBuilder s1 = new StringBuilder("abcdefghijklmn");
+        System.out.println(s1.toString());
+        int n = s1.indexOf("d");
+        //        s1.replace(0, 1, "A");
+        System.out.println(n);
+        s1.delete(3,4);
+        System.out.println(s1);
+        System.out.println(s1.indexOf("o"));
     }
 
     public boolean canConstruct(String ransomNote, String magazine) {
@@ -25,22 +36,35 @@ public class Solution0383 {
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
-        for (int i=0;i<n1;i++){
+        for (int i = 0; i < n1; i++) {
             char ch = ransomNote.charAt(i);
-            int n = map.getOrDefault(ch,0);
-            if (n>0){
+            int n = map.getOrDefault(ch, 0);
+            if (n > 0) {
                 n--;
-                if (n>0){
+                if (n > 0) {
                     map.put(ch, n);
-                }else {
+                } else {
                     map.remove(ch);
                 }
-            }else {
+            } else {
                 return false;
             }
         }
         return true;
+    }
 
+    public boolean canConstruct2(String ransomNote, String magazine) {
+        StringBuilder s2= new StringBuilder(magazine);
+        for (int i=0;i<ransomNote.length();i++){
+            char ch = ransomNote.charAt(i);
+            int n = s2.indexOf(String.valueOf(ch));
+            if (n==-1){
+                return false;
+            }else {
+                s2.delete(n,n+1);
+            }
+        }
+        return true;
     }
 
 }
