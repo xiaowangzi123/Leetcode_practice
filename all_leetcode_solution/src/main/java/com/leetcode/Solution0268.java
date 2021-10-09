@@ -13,6 +13,15 @@ public class Solution0268 {
         int[] nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
         System.out.println(obj.missingNumber(nums));
         System.out.println(obj.missingNumber2(nums));
+        System.out.println(obj.missingNumber3(nums));
+        System.out.println(obj.missingNumber4(nums));
+        System.out.println("-------------------------");
+
+        //没有缺数字，输出下一位
+        System.out.println(obj.missingNumber(new int[]{0, 1, 2, 3}));
+        System.out.println(obj.missingNumber2(new int[]{0, 1, 2, 3}));
+        System.out.println(obj.missingNumber3(new int[]{0, 1, 2, 3}));
+        System.out.println(obj.missingNumber4(new int[]{0, 1, 2, 3}));
 
         System.out.println("-------------------------");
         System.out.println(1 ^ 1);
@@ -26,7 +35,7 @@ public class Solution0268 {
     //
     public int missingNumber(int[] nums) {
         int len = nums.length;
-        int sum = (0 + len) * (len + 1) / 2;
+        int sum = len * (len + 1) / 2;
         for (int i = 0; i < len; i++) {
             sum -= nums[i];
         }
@@ -56,5 +65,23 @@ public class Solution0268 {
             }
         }
         return left;
+    }
+
+    //效率低
+    public int missingNumber4(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        if (nums[0] != 0) {
+            return 0;
+        }
+        if (nums[n-1]!=n){
+            return n;
+        }
+        for (int i = 1; i < n; i++) {
+            if (nums[i]!=i){
+                return i;
+            }
+        }
+        return -1;
     }
 }
