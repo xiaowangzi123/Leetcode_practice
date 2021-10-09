@@ -14,6 +14,7 @@ public class Solution0350 {
         int[] nums1 = {1, 2, 2, 1}, nums2 = {2, 2};
         System.out.println(Arrays.toString(obj.intersect(nums1, nums2)));
         System.out.println(Arrays.toString(obj.intersect2(nums1, nums2)));
+        System.out.println(Arrays.toString(obj.intersect3(nums1, nums2)));
         System.out.println("----------------------------");
 
 
@@ -56,11 +57,33 @@ public class Solution0350 {
             }
         }
 
-        return res.stream().mapToInt(i->i).toArray();
+        return res.stream().mapToInt(i -> i).toArray();
         /*int[] arr = new int[res.size()];
         for (int x = 0; x < res.size(); x++) {
             arr[x] = (int) res.get(x);
         }
         return arr;*/
+    }
+
+    public int[] intersect3(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i : nums1) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        int[] ans = new int[nums1.length + nums2.length];
+        int index = 0;
+        for (int num : nums2) {
+            int n = map.getOrDefault(num,0);
+            if (n>0){
+                ans[index++]=num;
+                n--;
+                if (n>0){
+                    map.put(num,n);
+                }else {
+                    map.remove(num);
+                }
+            }
+        }
+        return Arrays.copyOfRange(ans,0,index);
     }
 }
