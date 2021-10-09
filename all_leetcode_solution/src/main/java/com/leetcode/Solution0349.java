@@ -10,7 +10,8 @@ import java.util.*;
 public class Solution0349 {
     public static void main(String[] args) {
         Solution0349 obj = new Solution0349();
-        int[] nums1 = {4, 9, 5}, nums2 = {9, 4, 9, 8, 4};
+//        int[] nums1 = {4, 9, 5}, nums2 = {9, 4, 9, 8, 4};
+        int[] nums1 = {1,2,2,1}, nums2 = {2,2};
         System.out.println(Arrays.toString(obj.intersection(nums1, nums2)));
         System.out.println(Arrays.toString(obj.intersection2(nums1, nums2)));
         System.out.println(Arrays.toString(obj.intersection3(nums1, nums2)));
@@ -87,7 +88,7 @@ public class Solution0349 {
         int count = 0, i = 0, j = 0;
         while (i < n1 && j < n2) {
             if (nums1[i] == nums2[j]) {
-                if (i == 0 || nums1[i] != ans[count - 1]) {
+                if (count == 0 || nums1[i] != ans[count - 1]) {
                     ans[count++] = nums1[i];
                 }
                 i++;
