@@ -17,8 +17,8 @@ public class Solution0748 {
         String[] words = {"looks", "pest", "stew", "show"};*/
 
         //"husband"
-        String licensePlate="Ah71752";
-        String[] words = {"suggest","letter","of","husband","easy","education","drug","prevent","writer","old"};
+        String licensePlate = "Ah71752";
+        String[] words = {"suggest", "letter", "of", "husband", "easy", "education", "drug", "prevent", "writer", "old"};
 
         System.out.println(obj.shortestCompletingWord(licensePlate, words));
 
@@ -47,9 +47,20 @@ public class Solution0748 {
 
     public boolean compareWords(Map<Character, Integer> map1, Map<Character, Integer> map2) {
         for (Map.Entry<Character, Integer> entry : map1.entrySet()) {
-            if (map2.containsKey(entry.getKey()) && map2.get(entry.getKey()) < entry.getValue()) {
+            char key1 = entry.getKey();
+            int value1 = entry.getValue();
+            boolean b1 = map2.containsKey(key1);
+
+            if (!b1){
                 return false;
             }
+            boolean b2 = map2.get(key1)<value1;
+            if (b2){
+                return false;
+            }
+            /*if (map2.containsKey(entry.getKey()) && map2.get(entry.getKey()) < entry.getValue()) {
+                return false;
+            }*/
         }
         return true;
     }
