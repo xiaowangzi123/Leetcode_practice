@@ -32,7 +32,7 @@ public class Solution0720 {
     /**
      * 对数组排序，再利用Set对字母存储，小的单词一定包含在后面大的单词里面。后面只需要取前缀相同的
      * 对字母排序后，第一个单词一定是共有的，后面只需在此基础上添加
-     * 结果有几个的话，按字母排序取第一个
+     * 取单词最长的，结果有几个的话，按字母排序取第一个
      */
     public String longestWord(String[] words) {
         Arrays.sort(words);
@@ -40,7 +40,9 @@ public class Solution0720 {
         String ans = "";
         for (String word : words) {
             if (word.length() == 1 || set.contains(word.substring(0, word.length() - 1))) {
+                //取单词最长的
                 ans = word.length() > ans.length() ? word : ans;
+                //把单词前缀都加入集合
                 set.add(word);
             }
         }
