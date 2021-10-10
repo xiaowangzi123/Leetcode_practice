@@ -47,7 +47,7 @@ public class Solution0599 {
                     count = temp;
                     ans.clear();
                     ans.add(list2[i]);
-                }else if(temp==count){
+                } else if (temp == count) {
                     ans.add(list2[i]);
                 }
             }
