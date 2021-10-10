@@ -1,9 +1,13 @@
 package com.leetcode.string;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author ：wyq
  * @date ：Created in 2020/11/19
- * @description：
+ * @description :宝石与石头
  */
 public class Solution0771 {
 
@@ -11,9 +15,8 @@ public class Solution0771 {
         Solution0771 obj = new Solution0771();
         String j = "aA", s = "aAASSS";
         System.out.println(obj.numJewelsInStones(j, s));
+        System.out.println(obj.numJewelsInStones2(j, s));
 
-        String ss = "Hello,  my name is John";
-        System.out.println(obj.countSegments(ss));
     }
 
 
@@ -29,15 +32,20 @@ public class Solution0771 {
         return count;
     }
 
-    public int countSegments(String s) {
-        String[] arr = s.split(" ");
-        int len = arr.length;
-        for (String a : arr) {
-            if (a.length() == 0)
-                --len;
+    public int numJewelsInStones2(String jewels, String stones) {
+        Set<Character> set = new HashSet<>();
+        for (char ch : jewels.toCharArray()) {
+            set.add(ch);
         }
-        return len;
-    }
 
+        int count = 0;
+        for (char ch : stones.toCharArray()) {
+            if (set.contains(ch)){
+                count++;
+            }
+        }
+
+        return count;
+    }
 
 }
