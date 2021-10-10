@@ -74,11 +74,11 @@ public class Solution0268 {
         if (nums[0] != 0) {
             return 0;
         }
-        if (nums[n-1]!=n){
+        if (nums[n - 1] != n) {
             return n;
         }
         for (int i = 1; i < n; i++) {
-            if (nums[i]!=i){
+            if (nums[i] != i) {
                 return i;
             }
         }
