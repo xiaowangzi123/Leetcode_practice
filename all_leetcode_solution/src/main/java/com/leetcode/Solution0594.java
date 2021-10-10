@@ -1,5 +1,6 @@
 package com.leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -14,6 +15,7 @@ public class Solution0594 {
         Solution0594 obj = new Solution0594();
         int[] arr = {1, 3, 2, 2, 5, 2, 3, 7};
         System.out.println(obj.findLHS(arr));
+        System.out.println(obj.findLHS2(arr));
     }
 
     public int findLHS(int[] nums) {
@@ -27,6 +29,22 @@ public class Solution0594 {
             if (map.containsKey(entry.getKey() + 1)) {
                 //将当前key值对应的value以及key+1对应的value与ans比较，大的保留
                 ans = Math.max(ans, entry.getValue() + map.get(entry.getKey() + 1));
+            }
+        }
+        return ans;
+    }
+
+
+    //{1, 2, 2, 2, 3, 3, 5, 7}
+    public int findLHS2(int[] nums) {
+        Arrays.sort(nums);
+        int ans = 0, index = 0;
+        for (int i = 1; i < nums.length; i++) {
+            while (nums[i] - nums[index] > 1) {
+                index++;
+            }
+            if (nums[i] - nums[index] == 1) {
+                ans = Math.max(ans, i - index + 1);
             }
         }
         return ans;
