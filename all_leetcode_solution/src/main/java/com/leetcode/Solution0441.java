@@ -26,6 +26,7 @@ public class Solution0441 {
         System.out.println(Integer.MAX_VALUE);
         System.out.println(Integer.MAX_VALUE / 2);
 
+        //加不加括号值不一样
         System.out.println((long) (1804289383 * 2));
         System.out.println((long) 1804289383 * 2);
     }
