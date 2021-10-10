@@ -11,9 +11,22 @@ public class Solution0720 {
     public static void main(String[] args) {
         Solution0720 obj = new Solution0720();
 //        String[] words = {"w", "wo", "wor", "worl", "world"};
-        String[] words = {"a", "banana", "app", "appl", "ap", "apply", "apple"};
+//        String[] words = {"a", "banana", "app", "appl", "ap", "apply", "apple"};
+        //"latte"
+        String[] words = {"m","mo","moc","moch","mocha","l","la","lat","latt","latte","c","ca","cat"};
+
+        //"yodn"
+//        String[] words = {"yo","ew","fc","zrc","yodn","fcm","qm","qmo","fcmz","z","ewq","yod","ewqz","y"};
         System.out.println(obj.longestWord(words));
 
+        if ("latte".compareTo("cat")>0){
+            System.out.println("latte");
+        }
+
+        TreeSet<String> treeSet = new TreeSet<>();
+        treeSet.add("latte");
+        treeSet.add("cat");
+        System.out.println(treeSet);
     }
 
     /**
@@ -28,7 +41,7 @@ public class Solution0720 {
         for (String word : words) {
             if (word.length() == 1 || set.contains(word.substring(0, word.length() - 1))) {
                 ans = word.length() > ans.length() ? word : ans;
-                set.add(ans);
+                set.add(word);
             }
         }
         return ans;
