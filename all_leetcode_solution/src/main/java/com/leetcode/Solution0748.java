@@ -13,8 +13,8 @@ public class Solution0748 {
        /* String licensePlate = "1s3 PSt";
         String[] words = {"step", "steps", "stripe", "stepple"};*/
         //"pest"
-        /*String licensePlate = "1s3 456";
-        String[] words = {"looks", "pest", "stew", "show"};*/
+//        String licensePlate = "1s3 456";
+//        String[] words = {"looks", "pest", "stew", "show"};
 
         //"husband"
         String licensePlate = "Ah71752";
@@ -38,8 +38,12 @@ public class Solution0748 {
         for (String word : words) {
             Map<Character, Integer> wordMap = stringTomap(word);
             boolean flag = compareWords(license, wordMap);
-            if ((word.length() < ans.length() || ans.length() == 0) && flag) {
-                ans = word;
+            if (flag) {
+                if (ans.length() == 0) {
+                    ans = word;
+                } else {
+                    ans = word.length() < ans.length() ? word : ans;
+                }
             }
         }
         return ans;
@@ -47,20 +51,12 @@ public class Solution0748 {
 
     public boolean compareWords(Map<Character, Integer> map1, Map<Character, Integer> map2) {
         for (Map.Entry<Character, Integer> entry : map1.entrySet()) {
-            char key1 = entry.getKey();
-            int value1 = entry.getValue();
-            boolean b1 = map2.containsKey(key1);
-
-            if (!b1){
+            if (!map2.containsKey(entry.getKey())) {
                 return false;
             }
-            boolean b2 = map2.get(key1)<value1;
-            if (b2){
+            if (map2.get(entry.getKey()) < entry.getValue()) {
                 return false;
             }
-            /*if (map2.containsKey(entry.getKey()) && map2.get(entry.getKey()) < entry.getValue()) {
-                return false;
-            }*/
         }
         return true;
     }
