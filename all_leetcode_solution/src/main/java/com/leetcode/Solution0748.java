@@ -10,8 +10,15 @@ import java.util.*;
 public class Solution0748 {
     public static void main(String[] args) {
         Solution0748 obj = new Solution0748();
-        String licensePlate = "1s3 PSt";
-        String[] words = {"step", "steps", "stripe", "stepple"};
+       /* String licensePlate = "1s3 PSt";
+        String[] words = {"step", "steps", "stripe", "stepple"};*/
+        //"pest"
+        /*String licensePlate = "1s3 456";
+        String[] words = {"looks", "pest", "stew", "show"};*/
+
+        //"husband"
+        String licensePlate="Ah71752";
+        String[] words = {"suggest","letter","of","husband","easy","education","drug","prevent","writer","old"};
 
         System.out.println(obj.shortestCompletingWord(licensePlate, words));
 
@@ -30,20 +37,17 @@ public class Solution0748 {
         Map<Character, Integer> license = stringTomap(licensePlate);
         for (String word : words) {
             Map<Character, Integer> wordMap = stringTomap(word);
-            boolean flag = compareWords(license,wordMap);
-            if (flag) {
-                ans = ans.length() > word.length() ? ans : word;
+            boolean flag = compareWords(license, wordMap);
+            if ((word.length() < ans.length() || ans.length() == 0) && flag) {
+                ans = word;
             }
         }
-
         return ans;
     }
 
     public boolean compareWords(Map<Character, Integer> map1, Map<Character, Integer> map2) {
         for (Map.Entry<Character, Integer> entry : map1.entrySet()) {
-            char ch1=entry.getKey();
-            int m1=entry.getValue();
-            if (map2.containsKey(entry.getKey()) || map2.get(entry.getKey()) < entry.getValue()) {
+            if (map2.containsKey(entry.getKey()) && map2.get(entry.getKey()) < entry.getValue()) {
                 return false;
             }
         }
