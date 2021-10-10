@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/10
- * @description :
+ * @description :最长的单词
  */
 public class Solution0720 {
     public static void main(String[] args) {
