@@ -16,6 +16,7 @@ public class Solution0594 {
         int[] arr = {1, 3, 2, 2, 5, 2, 3, 7};
         System.out.println(obj.findLHS(arr));
         System.out.println(obj.findLHS2(arr));
+        System.out.println(obj.findLHS3(arr));
     }
 
     public int findLHS(int[] nums) {
@@ -24,13 +25,19 @@ public class Solution0594 {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
         int ans = 0;
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+        /*for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             //如果map的key集中包含当前值+1,符合条件
             if (map.containsKey(entry.getKey() + 1)) {
                 //将当前key值对应的value以及key+1对应的value与ans比较，大的保留
                 ans = Math.max(ans, entry.getValue() + map.get(entry.getKey() + 1));
             }
+        }*/
+        for (int key : map.keySet()) {
+            if (map.containsKey(key + 1)) {
+                ans = Math.max(ans, map.get(key) + map.get(key + 1));
+            }
         }
+
         return ans;
     }
 
@@ -50,12 +57,13 @@ public class Solution0594 {
         return ans;
     }
 
+    //超时
     public int findLHS3(int[] nums) {
-        int ans = 0;
-        for (int i = 0; i < nums.length; i++) {
+        int ans = 0, n = nums.length;
+        for (int i = 0; i < n; i++) {
             int temp = 0;
             boolean flag = false;
-            for (int j = 0; j < nums.length; j++) {
+            for (int j = 0; j < n; j++) {
                 if (nums[j] == nums[i]) {
                     temp++;
                 } else if (nums[j] + 1 == nums[i]) {
