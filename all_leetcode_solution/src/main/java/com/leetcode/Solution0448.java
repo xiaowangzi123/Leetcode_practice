@@ -39,7 +39,7 @@ public class Solution0448 {
 
     public List<Integer> findDisappearedNumbers2(int[] nums) {
         List<Integer> ans = new ArrayList<>();
-        TreeSet<Integer> set = new TreeSet<>();
+        HashSet<Integer> set = new HashSet<>();
         for (int num : nums) {
             set.add(num);
         }
@@ -48,9 +48,6 @@ public class Solution0448 {
                 ans.add(i);
             }
         }
-        /*if (ans.size() == 0) {
-            ans.add(set.last() + 1);
-        }*/
         return ans;
     }
 }
