@@ -17,6 +17,7 @@ public class Solution0645 {
         System.out.println(Arrays.toString(obj.findErrorNums2(arr)));
     }
 
+    //多余数据在前，缺失数据在后
     public int[] findErrorNums(int[] nums) {
         List<Integer> ans = new ArrayList<>();
         HashSet<Integer> set = new HashSet<>();
