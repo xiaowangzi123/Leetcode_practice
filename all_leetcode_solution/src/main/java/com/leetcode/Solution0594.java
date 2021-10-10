@@ -49,4 +49,24 @@ public class Solution0594 {
         }
         return ans;
     }
+
+    public int findLHS3(int[] nums) {
+        int ans = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int temp = 0;
+            boolean flag = false;
+            for (int j = 0; j < nums.length; j++) {
+                if (nums[j] == nums[i]) {
+                    temp++;
+                } else if (nums[j] + 1 == nums[i]) {
+                    temp++;
+                    flag = true;
+                }
+            }
+            if (flag) {
+                ans = Math.max(ans, temp);
+            }
+        }
+        return ans;
+    }
 }
