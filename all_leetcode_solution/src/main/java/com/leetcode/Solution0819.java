@@ -44,19 +44,6 @@ public class Solution0819 {
         }
         System.out.println(Arrays.toString(list.toArray()));
 */
-        /*List<StringBuilder> list = new ArrayList<>();
-        StringBuilder word = new StringBuilder();
-        for (int i = 0; i < paragraph.length(); i++) {
-            char ch = paragraph.charAt(i);
-            if (Character.isLetter(ch)) {
-                word.append(paragraph.charAt(i));
-            }
-            if ((i == paragraph.length() - 1 || !Character.isLetter(ch)) && word.length() > 0) {
-                list.add(word);
-                word = new StringBuilder();
-            }
-        }
-        System.out.println(list);*/
 
         int i = 0;
         List<StringBuilder> list = new ArrayList<>();
