@@ -14,6 +14,9 @@ public class Solution0884 {
 
         System.out.println(Arrays.toString(obj.uncommonFromSentences(A, B)));
 
+        String[] st = {"is", "apple"};
+        System.out.println(Arrays.asList(st).contains("is"));
+
     }
 
     public String[] uncommonFromSentences(String s1, String s2) {
@@ -28,7 +31,7 @@ public class Solution0884 {
         }
         List<String> ans = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (entry.getValue()==1){
+            if (entry.getValue() == 1) {
                 ans.add(entry.getKey());
             }
         }
