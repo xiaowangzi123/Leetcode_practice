@@ -17,6 +17,7 @@ public class Solution0888 {
         System.out.println(Arrays.toString(obj.fairCandySwap(arr, arr2)));
         System.out.println(Arrays.toString(obj.fairCandySwap2(arr, arr2)));
         System.out.println(Arrays.toString(obj.fairCandySwap3(arr, arr2)));
+        System.out.println(Arrays.toString(obj.fairCandySwap4(arr, arr2)));
         System.out.println("-------------------");
 
         System.out.println(Arrays.stream(arr).sum());
@@ -76,6 +77,29 @@ public class Solution0888 {
                 ans[1] = bobSizes[i];
             }
 
+        }
+        return ans;
+    }
+
+    public int[] fairCandySwap4(int[] aliceSizes, int[] bobSizes) {
+        int sum1 = Arrays.stream(aliceSizes).sum();
+        int sum2 = Arrays.stream(bobSizes).sum();
+        int[] ans = new int[2];
+        int x = (sum1 - sum2) / 2, i = 0, j = 0;
+
+        Arrays.sort(aliceSizes);
+        Arrays.sort(bobSizes);
+        while (i < aliceSizes.length && j < bobSizes.length) {
+            int temp = aliceSizes[i] - bobSizes[j];
+            if (temp == x) {
+                ans[0] = aliceSizes[i];
+                ans[1] = bobSizes[j];
+                break;
+            } else if (temp < x) {
+                i++;
+            } else {
+                j++;
+            }
         }
         return ans;
     }
