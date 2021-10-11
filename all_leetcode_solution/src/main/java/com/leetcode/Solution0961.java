@@ -1,7 +1,9 @@
 package com.leetcode;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author :wyq
@@ -13,6 +15,7 @@ public class Solution0961 {
         Solution0961 obj = new Solution0961();
         int[] arr = {5, 1, 5, 2, 5, 3, 5, 4};
         System.out.println(obj.repeatedNTimes(arr));
+        System.out.println(obj.repeatedNTimes2(arr));
 
     }
 
@@ -24,6 +27,16 @@ public class Solution0961 {
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if (entry.getValue() > 1) {
                 return entry.getKey();
+            }
+        }
+        return -1;
+    }
+
+    public int repeatedNTimes2(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int i : nums) {
+            if (!set.add(i)) {
+                return i;
             }
         }
         return -1;
