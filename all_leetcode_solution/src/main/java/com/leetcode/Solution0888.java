@@ -31,8 +31,15 @@ public class Solution0888 {
     }
 
     public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
-        int sum1 = Arrays.stream(aliceSizes).sum();
-        int sum2 = Arrays.stream(bobSizes).sum();
+//        int sum1 = Arrays.stream(aliceSizes).sum();
+//        int sum2 = Arrays.stream(bobSizes).sum();
+        int sum1 = 0, sum2 = 0;
+        for (int i : aliceSizes) {
+            sum1 += i;
+        }
+        for (int i : bobSizes) {
+            sum2 += i;
+        }
         int x = (sum1 - sum2) / 2;
         int[] ans = new int[2];
         for (int i = 0; i < aliceSizes.length; i++) {
@@ -48,8 +55,15 @@ public class Solution0888 {
 
     //超时
     public int[] fairCandySwap2(int[] aliceSizes, int[] bobSizes) {
-        int sum1 = Arrays.stream(aliceSizes).sum();
-        int sum2 = Arrays.stream(bobSizes).sum();
+//        int sum1 = Arrays.stream(aliceSizes).sum();
+//        int sum2 = Arrays.stream(bobSizes).sum();
+        int sum1 = 0, sum2 = 0;
+        for (int i : aliceSizes) {
+            sum1 += i;
+        }
+        for (int i : bobSizes) {
+            sum2 += i;
+        }
         int x = (sum1 - sum2) / 2;
         int[] ans = new int[2];
         for (int i = 0; i < aliceSizes.length; i++) {
@@ -63,8 +77,15 @@ public class Solution0888 {
     }
 
     public int[] fairCandySwap3(int[] aliceSizes, int[] bobSizes) {
-        int sum1 = Arrays.stream(aliceSizes).sum();
-        int sum2 = Arrays.stream(bobSizes).sum();
+//        int sum1 = Arrays.stream(aliceSizes).sum();
+//        int sum2 = Arrays.stream(bobSizes).sum();
+        int sum1 = 0, sum2 = 0;
+        for (int i : aliceSizes) {
+            sum1 += i;
+        }
+        for (int i : bobSizes) {
+            sum2 += i;
+        }
         int x = (sum1 - sum2) / 2;
         int[] ans = new int[2];
         HashSet<Integer> set1 = new HashSet<>();
@@ -82,8 +103,15 @@ public class Solution0888 {
     }
 
     public int[] fairCandySwap4(int[] aliceSizes, int[] bobSizes) {
-        int sum1 = Arrays.stream(aliceSizes).sum();
-        int sum2 = Arrays.stream(bobSizes).sum();
+//        int sum1 = Arrays.stream(aliceSizes).sum();
+//        int sum2 = Arrays.stream(bobSizes).sum();
+        int sum1 = 0, sum2 = 0;
+        for (int i : aliceSizes) {
+            sum1 += i;
+        }
+        for (int i : bobSizes) {
+            sum2 += i;
+        }
         int[] ans = new int[2];
         int x = (sum1 - sum2) / 2, i = 0, j = 0;
 
