@@ -1,8 +1,6 @@
 package com.leetcode;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author :wyq
@@ -14,6 +12,8 @@ public class Solution0819 {
         Solution0819 obj = new Solution0819();
         String paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.";
         String[] banned = {"hit"};
+
+        System.out.println(obj.mostCommonWord(paragraph, banned));
 
         String regex = ",\\s+|\\s+|,|\\.";
 //        String regex = "\\.|,|,\\s+|\\s+";
@@ -29,10 +29,22 @@ public class Solution0819 {
             banSet.add(str);
         }
 
+        String ans = "";
+        Map<String, Integer> map = new HashMap<>();
+        int count = 0;
         //分割字符串
-        String regex = ",|，|\\s+";
-
-
-        return null;
+        String regex = ",\\s+|\\s+|,|\\.";
+        String[] paras = paragraph.split(regex);
+        for (String para : paras) {
+            para = para.toLowerCase();
+            if (para.length() != 0 && !banSet.contains(para)) {
+                map.put(para, map.getOrDefault(para, 0) + 1);
+                if (map.get(para) > count) {
+                    ans = para;
+                    count = map.get(para);
+                }
+            }
+        }
+        return ans;
     }
 }
