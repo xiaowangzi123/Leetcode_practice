@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/23
- * @description：
+ * @description : 3的n次方
  */
 public class Solution0362 {
     public static void main(String[] args) {

@@ -17,6 +17,9 @@ public class Solution0914 {
 
         System.out.println(obj.hasGroupsSizeX(arr));
         System.out.println("-------------------");
+
+        System.out.println(obj.gongYueShu(9, 6));
+        System.out.println(obj.gongYueShu2(9, 6));
     }
 
     public boolean hasGroupsSizeX(int[] deck) {
@@ -38,12 +41,49 @@ public class Solution0914 {
                         break;
                     }
                 }
-                if (flag){
+                if (flag) {
                     return true;
                 }
             }
 
         }
         return false;
+    }
+
+
+    public boolean hasGroupsSizeX2(int[] deck) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : deck) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        return false;
+    }
+
+    /**
+     * 更相减损数
+     * 比较a,b大小，大数减小数，把差赋给大数，
+     * 再次比较，相减，赋值，直到a,b相等，
+     * 即为最大约数
+     */
+    public int gongYueShu(int a, int b) {
+        while (a != b) {
+            a = a > b ? a - b : a;
+            b = b > a ? b - a : b;
+        }
+        return a;
+    }
+
+    /**
+     * 辗转相除法
+     * a对b取余，b赋值给a 余数赋值给b，直到 b == 0
+     */
+    public int gongYueShu2(int a, int b) {
+        while (b != 0) {
+            int temp = a % b;
+            a = b;
+            b = temp;
+        }
+        return a;
     }
 }
