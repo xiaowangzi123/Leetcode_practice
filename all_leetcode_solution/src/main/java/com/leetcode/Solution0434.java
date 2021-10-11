@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/7
- * @description :
+ * @description : 统计单词个数
  */
 public class Solution0434 {
     public static void main(String[] args) {
