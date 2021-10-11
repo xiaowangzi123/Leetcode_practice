@@ -29,8 +29,8 @@ public class Solution0819 {
 
 
         System.out.println("------------分割字符串--------------------");
-        //分割字符串
-        List<String> list = new ArrayList<>();
+        //分割字符串(String)
+        /*List<String> list = new ArrayList<>();
         String word = "";
         for (int i = 0; i < paragraph.length(); i++) {
             char ch = paragraph.charAt(i);
@@ -43,32 +43,36 @@ public class Solution0819 {
             }
         }
         System.out.println(Arrays.toString(list.toArray()));
-
+*/
         /*List<StringBuilder> list = new ArrayList<>();
         StringBuilder word = new StringBuilder();
         for (int i = 0; i < paragraph.length(); i++) {
             char ch = paragraph.charAt(i);
             if (Character.isLetter(ch)) {
                 word.append(paragraph.charAt(i));
-            } else if (!Character.isLetter(ch) && word.length() > 0) {
+            }
+            if ((i == paragraph.length() - 1 || !Character.isLetter(ch)) && word.length() > 0) {
                 list.add(word);
                 word = new StringBuilder();
             }
-        }*/
+        }
+        System.out.println(list);*/
 
-        /*int i = 0;
+        int i = 0;
+        List<StringBuilder> list = new ArrayList<>();
         StringBuilder word = new StringBuilder();
         while (i < paragraph.length()) {
             char ch = paragraph.charAt(i);
             if (Character.isLetter(ch)) {
                 word.append(ch);
-            } else if (!Character.isLetter(ch) && word.length() > 0) {
+            }
+            if ((i == paragraph.length() - 1 || !Character.isLetter(ch)) && word.length() > 0) {
                 list.add(word);
                 word = new StringBuilder();
             }
             i++;
         }
-        System.out.println(Arrays.toString(list.toArray()));*/
+        System.out.println(Arrays.toString(list.toArray()));
 
 
         System.out.println("------------正则--------------------");
