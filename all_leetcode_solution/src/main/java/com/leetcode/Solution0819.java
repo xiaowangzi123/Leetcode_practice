@@ -36,7 +36,8 @@ public class Solution0819 {
             char ch = paragraph.charAt(i);
             if (Character.isLetter(ch)) {
                 word += paragraph.charAt(i);
-            } else if ((i == paragraph.length() || !Character.isLetter(ch)) && word.length() > 0) {
+            }
+            if ((i == paragraph.length() - 1 || !Character.isLetter(ch)) && word.length() > 0) {
                 list.add(word);
                 word = "";
             }
@@ -92,7 +93,8 @@ public class Solution0819 {
             char ch = paragraph.charAt(i);
             if (Character.isLetter(ch)) {
                 word += paragraph.charAt(i);
-            } else if (!Character.isLetter(ch) && word.length() > 0) {
+            }
+            if ((i == paragraph.length() - 1 || !Character.isLetter(ch)) && word.length() > 0) {
                 list.add(word);
                 word = "";
             }
