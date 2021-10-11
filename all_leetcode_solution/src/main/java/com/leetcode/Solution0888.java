@@ -16,6 +16,7 @@ public class Solution0888 {
 
         System.out.println(Arrays.toString(obj.fairCandySwap(arr, arr2)));
         System.out.println(Arrays.toString(obj.fairCandySwap2(arr, arr2)));
+        System.out.println(Arrays.toString(obj.fairCandySwap3(arr, arr2)));
         System.out.println("-------------------");
 
         System.out.println(Arrays.stream(arr).sum());
@@ -53,7 +54,26 @@ public class Solution0888 {
         for (int i = 0; i < aliceSizes.length; i++) {
             if (Arrays.asList(Arrays.stream(bobSizes).boxed().toArray(Integer[]::new)).contains(aliceSizes[i] - x)) {
                 ans[0] = aliceSizes[i];
-                ans[1] = aliceSizes[i]-x;
+                ans[1] = aliceSizes[i] - x;
+            }
+
+        }
+        return ans;
+    }
+
+    public int[] fairCandySwap3(int[] aliceSizes, int[] bobSizes) {
+        int sum1 = Arrays.stream(aliceSizes).sum();
+        int sum2 = Arrays.stream(bobSizes).sum();
+        int x = (sum1 - sum2) / 2;
+        int[] ans = new int[2];
+        HashSet<Integer> set1 = new HashSet<>();
+        for (int a : aliceSizes) {
+            set1.add(a);
+        }
+        for (int i = 0; i < bobSizes.length; i++) {
+            if (set1.contains(bobSizes[i] + x)) {
+                ans[0] = bobSizes[i] + x;
+                ans[1] = bobSizes[i];
             }
 
         }
