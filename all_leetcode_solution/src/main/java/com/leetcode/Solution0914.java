@@ -12,14 +12,16 @@ import java.util.*;
 public class Solution0914 {
     public static void main(String[] args) {
         Solution0914 obj = new Solution0914();
-//        int[] arr = {1, 2, 3, 4, 4, 3, 2, 1};
-        int[] arr = {1, 2, 3, 4, 4, 3, 1};
+        int[] arr = {1, 2, 3, 4, 4, 3, 2, 1};
+//        int[] arr = {1, 2, 3, 4, 4, 3, 1};
 
         System.out.println(obj.hasGroupsSizeX(arr));
+        System.out.println(obj.hasGroupsSizeX2(arr));
         System.out.println("-------------------");
 
-        System.out.println(obj.gongYueShu(9, 6));
-        System.out.println(obj.gongYueShu2(9, 6));
+        System.out.println(obj.gongYueShu(9, 5));
+        System.out.println(obj.gongYueShu2(9, 5));
+        System.out.println(obj.gongYueShu3(9, 5));
     }
 
     public boolean hasGroupsSizeX(int[] deck) {
@@ -57,7 +59,23 @@ public class Solution0914 {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
-        return false;
+        int ans = 0;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            ans = gcd(ans, entry.getValue());
+        }
+        return ans>=2;
+    }
+
+    public int gcd(int a, int b) {
+        if (a == 0) {
+            return b;
+        }
+        while (b != 0) {
+            int temp = a % b;
+            a = b;
+            b = temp;
+        }
+        return a;
     }
 
     /**
@@ -85,5 +103,16 @@ public class Solution0914 {
             b = temp;
         }
         return a;
+    }
+
+    //共同除法
+    public int gongYueShu3(int a, int b) {
+        int r = 1;
+        for (int i = 2; i <= a && i <= b; i++) {
+            if (a % i == 0 && b % i == 0) {
+                r = i;
+            }
+        }
+        return r;
     }
 }
