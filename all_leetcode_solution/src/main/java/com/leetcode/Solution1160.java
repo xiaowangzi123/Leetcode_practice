@@ -17,6 +17,7 @@ public class Solution1160 {
         String chars = "atach";
 
         System.out.println(obj.countCharacters(words, chars));
+        System.out.println(obj.countCharacters2(words, chars));
     }
 
     public int countCharacters(String[] words, String chars) {
@@ -35,6 +36,32 @@ public class Solution1160 {
             boolean flag = true;
             for (int j = 0; j < 26; j++) {
                 if (temp[j] > res[j]) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                ans += words[i].length();
+            }
+        }
+
+        return ans;
+    }
+
+    public int countCharacters2(String[] words, String chars) {
+        int ans = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (char ch : chars.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        for (int i = 0; i < words.length; i++) {
+            Map<Character, Integer> temp = new HashMap<>();
+            for (char ch : words[i].toCharArray()) {
+                temp.put(ch, temp.getOrDefault(ch, 0) + 1);
+            }
+            boolean flag = true;
+            for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+                if (temp.getOrDefault(entry.getKey(), 0) > entry.getValue()) {
                     flag = false;
                     break;
                 }
