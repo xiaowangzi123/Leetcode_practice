@@ -32,6 +32,7 @@ public class Solution1128 {
         for (int[] a : dominoes) {
             Arrays.sort(a);
             int temp = a[0] * 10 + a[1];
+            //如果有符合条件的，可以和以前相同的结果都配对，所以加上
             ans += count[temp];
             count[temp]++;
         }
