@@ -26,9 +26,20 @@ public class Solution1128 {
         System.out.println(s1.toString().equals(s3.reverse().toString()));
     }
 
+    public int numEquivDominoPairs(int[][] dominoes) {
+        int ans = 0;
+        int[] count = new int[100];
+        for (int[] a : dominoes) {
+            Arrays.sort(a);
+            int temp = a[0] * 10 + a[1];
+            ans += count[temp];
+            count[temp]++;
+        }
+        return ans;
+    }
 
     //两层for循环超时
-    public int numEquivDominoPairs(int[][] dominoes) {
+    public int numEquivDominoPairs2(int[][] dominoes) {
         int count = 0;
         for (int i = 0; i < dominoes.length; i++) {
             for (int j = i + 1; j < dominoes.length; j++) {
