@@ -15,10 +15,19 @@ public class Solution1128 {
         Solution1128 obj = new Solution1128();
         int[][] arr = {{1, 2}, {2, 1}, {3, 4}, {5, 6}};
         System.out.println(obj.numEquivDominoPairs(arr));
+
+
+        int[] a = {3, 5}, b = {3, 5}, c = {5, 3};
+        StringBuilder s1 = new StringBuilder(a[0] + "" + a[1]);
+        StringBuilder s2 = new StringBuilder(b[0] + "" + b[1]);
+        StringBuilder s3 = new StringBuilder(c[0] + "" + c[1]);
+        System.out.println(s1.toString());
+        System.out.println(s1.toString().equals(s2.toString()));
+        System.out.println(s1.toString().equals(s3.reverse().toString()));
     }
 
 
-    //超时
+    //两层for循环超时
     public int numEquivDominoPairs(int[][] dominoes) {
         int count = 0;
         for (int i = 0; i < dominoes.length; i++) {
@@ -32,7 +41,7 @@ public class Solution1128 {
         return count;
     }
 
-    public boolean isEqualeNums(int[] a, int[] b) {
+    public boolean isEqualeNums2(int[] a, int[] b) {
         if (a.length != 2 || b.length != 2) {
             return false;
         }
@@ -43,5 +52,20 @@ public class Solution1128 {
             return true;
         }
         return false;
+    }
+
+    public boolean isEqualeNums3(int[] a, int[] b) {
+        StringBuilder s1 = new StringBuilder(a[0] + "" + a[1]);
+        StringBuilder s2 = new StringBuilder(b[0] + "" + b[1]);
+        if (s1.toString().equals(s2.toString()) || s1.toString().equals(s2.reverse().toString())) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isEqualeNums(int[] a, int[] b) {
+        Arrays.sort(a);
+        Arrays.sort(b);
+        return a[0] * 10 + a[1] == b[0] * 10 + b[1];
     }
 }
