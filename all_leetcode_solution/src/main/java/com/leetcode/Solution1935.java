@@ -52,11 +52,8 @@ public class Solution1935 {
                 }
                 flag = false;
             }
-            /*if (flag) {
-                count++;
-            }*/
         }
-        // 判断最后一个单词状态并更新数目
+        //判断最后一个单词状态并更新数目(最后一个单词后没有空格)
         if (flag) {
             count++;
         }
