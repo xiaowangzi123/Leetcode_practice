@@ -13,9 +13,11 @@ import java.util.Map;
 public class Solution1935 {
     public static void main(String[] args) {
         Solution1935 obj = new Solution1935();
-        String text = "hello world", brokenLetters = "ad";
+//        String text = "hello world", brokenLetters = "ad";
+        String text = "leet code", brokenLetters = "lt";
 
         System.out.println(obj.canBeTypedWords(text, brokenLetters));
+        System.out.println(obj.canBeTypedWords2(text, brokenLetters));
     }
 
     public int canBeTypedWords(String text, String brokenLetters) {
@@ -50,7 +52,7 @@ public class Solution1935 {
                 if (flag) {
                     count++;
                 }
-                flag = false;
+                flag = true;
             }
         }
         //判断最后一个单词状态并更新数目(最后一个单词后没有空格)
