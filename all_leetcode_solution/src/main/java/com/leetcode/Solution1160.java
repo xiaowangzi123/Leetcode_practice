@@ -60,8 +60,8 @@ public class Solution1160 {
                 temp.put(ch, temp.getOrDefault(ch, 0) + 1);
             }
             boolean flag = true;
-            for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-                if (temp.getOrDefault(entry.getKey(), 0) > entry.getValue()) {
+            for (Map.Entry<Character, Integer> entry : temp.entrySet()) {
+                if (map.getOrDefault(entry.getKey(), 0) < entry.getValue()) {
                     flag = false;
                     break;
                 }
