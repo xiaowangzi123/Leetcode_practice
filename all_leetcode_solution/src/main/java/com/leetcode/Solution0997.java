@@ -11,10 +11,15 @@ import java.util.Map;
 public class Solution0997 {
     public static void main(String[] args) {
         Solution0997 obj = new Solution0997();
-        int n = 3;
-        int[][] trust = {{1, 3}, {2, 3}, {3, 1}};
+//        int n = 3;
+//        int[][] trust = {{1, 3}, {2, 3}, {3, 1}};
+
+        int n = 4;
+        int[][] trust = {{1, 3}, {1, 4}, {2, 3}, {2, 4}, {4, 3}};
+
         System.out.println(obj.findJudge(n, trust));
         System.out.println(obj.findJudge2(n, trust));
+        System.out.println(obj.findJudge3(n, trust));
 
     }
 
@@ -48,7 +53,10 @@ public class Solution0997 {
     }
 
     /**
-     *
+     * 小镇的法官谁都不信任，信任人数为0；
+     * 小镇上的所有人都信任法官，信任法官的人数为n-1
+     * p[i][0]:表示第i个人信任多少人
+     * p[i][1]:表示第i个人有多少人信任自己
      */
     public int findJudge2(int n, int[][] trust) {
         int[][] people = new int[n + 1][2];
@@ -67,9 +75,24 @@ public class Solution0997 {
     }
 
     /**
-     *
+     * flag[i]:表示第i个人是否有信任的人
+     * count[i]:表示第i人被多少人信任
+     * flag[i]=false && count[i]=n-1，表明第i人是法官
      */
-    public int findJudge3(int n, int[][] trust){
+    public int findJudge3(int n, int[][] trust) {
+        boolean[] flag = new boolean[n + 1];
+        int[] count = new int[n + 1];
 
+        for (int[] t : trust) {
+            flag[t[0]] = true;
+            count[t[1]] += 1;
+        }
+
+        for (int i = 1; i <= n; i++) {
+            if (!flag[i] && count[i] == n - 1) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
