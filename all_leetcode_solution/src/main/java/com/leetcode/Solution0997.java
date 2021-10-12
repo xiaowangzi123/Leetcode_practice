@@ -14,6 +14,7 @@ public class Solution0997 {
         int n = 3;
         int[][] trust = {{1, 3}, {2, 3}, {3, 1}};
         System.out.println(obj.findJudge(n, trust));
+        System.out.println(obj.findJudge2(n, trust));
 
     }
 
@@ -44,6 +45,31 @@ public class Solution0997 {
             }
         }
         return -1;
+    }
+
+    /**
+     *
+     */
+    public int findJudge2(int n, int[][] trust) {
+        int[][] people = new int[n + 1][2];
+        for (int[] person : trust) {
+            int out = person[0];
+            int in = person[1];
+            people[out][0]++;
+            people[in][1]++;
+        }
+        for (int i = 1; i <= n; i++) {
+            if (people[i][0] == 0 && people[i][1] == n - 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     *
+     */
+    public int findJudge3(int n, int[][] trust){
 
     }
 }
