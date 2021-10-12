@@ -1,6 +1,7 @@
 package com.leetcode;
 
 import java.nio.file.attribute.FileOwnerAttributeView;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,11 +13,14 @@ import java.util.Map;
 public class Solution1189 {
     public static void main(String[] args) {
         Solution1189 obj = new Solution1189();
-        String text = "nlaebolko";
-//        String text = "loonbalxballpoon";
+//        String text = "nlaebolko";
+        String text = "loonbalxballpoon";
 
         System.out.println(obj.maxNumberOfBalloons(text));
         System.out.println(obj.maxNumberOfBalloons2(text));
+        System.out.println(obj.maxNumberOfBalloons3(text));
+
+        System.out.println(Arrays.stream(new int[1]).count());
     }
 
     public int maxNumberOfBalloons(String text) {
@@ -67,6 +71,21 @@ public class Solution1189 {
         min = Math.min(l / 2, min);
         min = Math.min(o / 2, min);
         min = Math.min(n, min);
+
+        return min;
+    }
+
+    public int maxNumberOfBalloons3(String text) {
+        int min = Integer.MAX_VALUE;
+        Map<Character, Integer> temp = new HashMap<>();
+        for (char ch : text.toCharArray()) {
+            temp.put(ch, temp.getOrDefault(ch, 0) + 1);
+        }
+        min = Math.min(min, temp.getOrDefault('a', 0));
+        min = Math.min(min, temp.getOrDefault('b', 0));
+        min = Math.min(min, temp.getOrDefault('l', 0) / 2);
+        min = Math.min(min, temp.getOrDefault('o', 0) / 2);
+        min = Math.min(min, temp.getOrDefault('n', 0));
 
         return min;
     }
