@@ -38,4 +38,30 @@ public class Solution1935 {
     }
 
 
+    public int canBeTypedWords2(String text, String brokenLetters) {
+        int count = 0;
+        boolean flag = true;
+        for (char ch : text.toCharArray()) {
+            if (brokenLetters.contains(ch + "")) {
+                //找到单词中的不能输入字母
+                flag = false;
+            } else if (ch == ' ') {
+                //为空说明某一单词检索结束
+                if (flag) {
+                    count++;
+                }
+                flag = false;
+            }
+            /*if (flag) {
+                count++;
+            }*/
+        }
+        // 判断最后一个单词状态并更新数目
+        if (flag) {
+            count++;
+        }
+        return count;
+    }
+
+
 }
