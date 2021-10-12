@@ -1,6 +1,8 @@
 package com.leetcode.array;
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @author ：wyq
@@ -36,12 +38,46 @@ public class Solution1122 {
         }
 
         // 处理剩余不是arr2中的元素
-        for (int i=0; i<count.length; i++) {
+        for (int i = 0; i < count.length; i++) {
             while (count[i] > 0) {
                 arr1[index++] = i;
                 count[i]--;
             }
         }
         return arr1;
+    }
+
+    public int[] relativeSortArray2(int[] arr1, int[] arr2) {
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
+        for (int num : arr1) {
+            list.add(num);
+        }
+        for (int i = 0; i < arr2.length; i++) {
+            map.put(arr2[i], i);
+        }
+        Collections.sort(list, (x, y) -> {
+            if (map.containsKey(x) || map.containsKey(y)) {
+                return map.getOrDefault(x, 1001) - map.getOrDefault(y, 1001);
+            }
+            return x - y;
+        });
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = list.get(i);
+        }
+        return arr1;
+    }
+
+    public int[] relativeSortArray3(int[] arr1, int[] arr2) {
+        Map<Integer, Integer> numPostions = IntStream.range(0, arr2.length).boxed().collect(Collectors.toMap(i -> arr2[i], i -> i));
+        return Arrays.stream(arr1).boxed().sorted((o1, o2) -> {
+            int a1 = numPostions.getOrDefault(o1, 1001);
+            int a2 = numPostions.getOrDefault(o2, 1001);
+            if (a1 != 1001 || a2 != 1001) {
+                return a1 - a2;
+            }
+
+            return o1 - o2;
+        }).mapToInt(o -> o).toArray();
     }
 }
