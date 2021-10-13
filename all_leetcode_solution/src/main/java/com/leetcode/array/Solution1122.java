@@ -47,6 +47,13 @@ public class Solution1122 {
         return arr1;
     }
 
+    /**
+     * 重写的public int compareTo(Student o){}
+     * 返回值	含义
+     * 1.负整数	当前对象的值 < 比较对象的值 ， 位置排在前
+     * 2.零	    当前对象的值 = 比较对象的值 ， 位置不变
+     * 3.正整数	当前对象的值 > 比较对象的值 ， 位置排在后
+     */
     public int[] relativeSortArray2(int[] arr1, int[] arr2) {
         Map<Integer, Integer> map = new HashMap<>();
         List<Integer> list = new ArrayList<>();
