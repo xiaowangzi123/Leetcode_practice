@@ -63,15 +63,14 @@ public class Solution1496 {
 
 
     public boolean isPathCrossing2(String path) {
-        Set<Integer> vis = new HashSet<Integer>();
+        Set<Integer> set = new HashSet<>();
 
         int x = 0, y = 0;
-        vis.add(getHash(x, y));
+        set.add(getHash(x, y));
 
         int length = path.length();
-        for (int i = 0; i < length; i++) {
-            char dir = path.charAt(i);
-            switch (dir) {
+        for (char ch : path.toCharArray()) {
+            switch (ch) {
                 case 'N':
                     y++;
                     break;
@@ -88,11 +87,10 @@ public class Solution1496 {
                     break;
             }
             int hashValue = getHash(x, y);
-            if (!vis.add(hashValue)) {
+            if (!set.add(hashValue)) {
                 return true;
             }
         }
-
         return false;
     }
 
