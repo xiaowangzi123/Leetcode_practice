@@ -14,8 +14,10 @@ import java.util.stream.Collectors;
 public class Solution1496 {
     public static void main(String[] args) {
         Solution1496 obj = new Solution1496();
-        String path = "NES";
-        System.out.println(obj.isPathCrossing(path));
+//        String path = "NES";
+//        String path = "NESWW";
+        System.out.println(obj.isPathCrossing("NES"));
+        System.out.println(obj.isPathCrossing("NESWW"));
 
         StringBuilder sb = new StringBuilder();
         sb.append(0);
@@ -26,21 +28,22 @@ public class Solution1496 {
 
     public boolean isPathCrossing(String path) {
         Set<String> set = new HashSet<>();
+        set.add("00");
         int x = 0, y = 0;
         for (char ch : path.toCharArray()) {
             String st = "";
             switch (ch) {
                 case 'N':
-                    x--;
+                    y++;
                     break;
                 case 'S':
-                    x++;
-                    break;
-                case 'W':
                     y--;
                     break;
+                case 'W':
+                    x--;
+                    break;
                 case 'E':
-                    y++;
+                    x++;
                     break;
                 default:
                     break;
