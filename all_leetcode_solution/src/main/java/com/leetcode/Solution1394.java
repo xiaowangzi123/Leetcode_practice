@@ -34,4 +34,17 @@ public class Solution1394 {
         }
         return max > 0 ? max : -1;
     }
+
+    public int findLucky2(int[] arr) {
+        int[] count = new int[501];
+        for (int i = 0; i <= arr.length; i++) {
+            count[arr[i]]++;
+        }
+        for (int i = 500; i >= 0; i--) {
+            if (count[i] == i) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
