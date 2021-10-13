@@ -17,7 +17,10 @@ public class Solution1496 {
 //        String path = "NES";
 //        String path = "NESWW";
         System.out.println(obj.isPathCrossing("NES"));
+        System.out.println(obj.isPathCrossing2("NES"));
+
         System.out.println(obj.isPathCrossing("NESWW"));
+        System.out.println(obj.isPathCrossing2("NESWW"));
 
         StringBuilder sb = new StringBuilder();
         sb.append(0);
@@ -59,4 +62,45 @@ public class Solution1496 {
     }
 
 
+    public boolean isPathCrossing2(String path) {
+        Set<Integer> vis = new HashSet<Integer>();
+
+        int x = 0, y = 0;
+        vis.add(getHash(x, y));
+
+        int length = path.length();
+        for (int i = 0; i < length; i++) {
+            char dir = path.charAt(i);
+            switch (dir) {
+                case 'N':
+                    y++;
+                    break;
+                case 'S':
+                    y--;
+                    break;
+                case 'W':
+                    x--;
+                    break;
+                case 'E':
+                    x++;
+                    break;
+                default:
+                    break;
+            }
+            int hashValue = getHash(x, y);
+            if (!vis.add(hashValue)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * 因为y的取值范围在 [-10^4, 10^4]内，共有20001种可能性，
+     * 所以下面哈希函数就不会造成冲突
+     */
+    public int getHash(int x, int y) {
+        return x * 20001 + y;
+    }
 }
