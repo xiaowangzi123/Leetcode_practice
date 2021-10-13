@@ -13,11 +13,13 @@ public class Solution1399 {
         Solution1399 obj = new Solution1399();
 //        System.out.println(obj.countLargestGroup(2));
         System.out.println(obj.countLargestGroup(13));
+        System.out.println(obj.countLargestGroup2(13));
         System.out.println(obj.countLargestGroup(15));
+        System.out.println(obj.countLargestGroup2(15));
 
         System.out.println("-------------------------");
-        
-        System.out.println(10/10);
+
+        System.out.println(10 / 10);
 
         System.out.println(obj.getSums(10));
         System.out.println(obj.getSums2(10));
@@ -46,6 +48,33 @@ public class Solution1399 {
             }
         }
         return count;
+    }
+
+
+    /**
+     * 1<=n<=10000
+     * n的最大各个位数之和是9+9+9+9=36
+     * 可以初始化一个37位数组。
+     * 次方法有n大小的局限性
+     */
+    public int countLargestGroup2(int n) {
+        int max = 0, cnt = 0;
+        int[] count = new int[37];
+        for (int i = 1; i <= n; i++) {
+            int temp = 0, k = i;
+            while (k > 0) {
+                temp += k % 10;
+                k /= 10;
+            }
+            count[temp]++;
+            max = Math.max(count[temp], max);
+        }
+        for (int i:count){
+            if (max==i){
+                cnt++;
+            }
+        }
+        return cnt;
     }
 
 
