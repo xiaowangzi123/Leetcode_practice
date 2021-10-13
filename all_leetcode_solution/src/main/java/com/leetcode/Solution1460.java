@@ -1,6 +1,7 @@
 package com.leetcode;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author :wyq
@@ -26,8 +27,21 @@ public class Solution1460 {
         return true;
     }
 
-    //数组中有元素相同时，无法正确输出结果
     public boolean canBeEqual2(int[] target, int[] arr) {
+        List<Integer> list = Arrays.stream(target).boxed().collect(Collectors.toList());
+        for (int a:arr){
+            if (list.contains(a)){
+                list.remove(list.indexOf(a));
+            }
+        }
+        if (list.size()!=0){
+            return false;
+        }
+        return true;
+    }
+
+    //数组中有元素相同时，无法正确输出结果
+    public boolean canBeEqual222(int[] target, int[] arr) {
         Set<Integer> set = new HashSet<>();
         for (int i : target) {
             set.add(i);
