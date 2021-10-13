@@ -12,7 +12,8 @@ public class Solution1394 {
     public static void main(String[] args) {
         Solution1394 obj = new Solution1394();
 //        int[] arr = {2, 2, 3, 4};
-        int[] arr = {2, 2, 2, 3, 3};
+//        int[] arr = {2, 2, 2, 3, 3};
+        int[] arr = {1, 2, 2, 3, 3, 3};
         System.out.println(obj.findLucky(arr));
 
 
@@ -24,11 +25,13 @@ public class Solution1394 {
         for (int num : arr) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
+        //返回最大的
+        int max = 0;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if (entry.getKey().equals(entry.getValue())) {
-                return entry.getKey();
+                max = Math.max(max, entry.getKey());
             }
         }
-        return -1;
+        return max > 0 ? max : -1;
     }
 }
