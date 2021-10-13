@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/12
- * @description :
+ * @description :共用字符
  */
 public class Solution1002 {
     public static void main(String[] args) {

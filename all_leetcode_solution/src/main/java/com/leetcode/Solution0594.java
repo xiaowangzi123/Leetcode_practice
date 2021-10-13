@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/10
- * @description :
+ * @description :最长和谐子序列
  */
 public class Solution0594 {
     public static void main(String[] args) {

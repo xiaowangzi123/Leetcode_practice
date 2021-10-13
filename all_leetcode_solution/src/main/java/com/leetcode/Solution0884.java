@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/11
- * @description :
+ * @description :公平的糖果交换
  */
 public class Solution0884 {
     public static void main(String[] args) {

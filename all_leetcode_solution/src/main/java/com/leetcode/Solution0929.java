@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/11
- * @description :
+ * @description :唯一的邮箱地址
  */
 public class Solution0929 {
     public static void main(String[] args) {

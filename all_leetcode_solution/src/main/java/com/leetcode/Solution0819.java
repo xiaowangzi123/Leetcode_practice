@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/11
- * @description :
+ * @description :最常见单词
  */
 public class Solution0819 {
     public static void main(String[] args) {

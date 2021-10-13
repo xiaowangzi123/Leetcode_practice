@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/11
- * @description :
+ * @description :验证外星语词典
  */
 public class Solution0953 {
     public static void main(String[] args) {

@@ -16,10 +16,14 @@ public class Solution1275 {
         int[][] moves = {{0, 0}, {2, 0}, {1, 1}, {2, 1}, {2, 2}};
 
         System.out.println(obj.tictactoe(moves));
+        System.out.println(obj.tictactoe2(moves));
+        System.out.println(obj.tictactoe3(moves));
 
-        System.out.println(0^1);
-        System.out.println(1^1);
-        System.out.println(0^0);
+        System.out.println("---------------------------");
+        System.out.println(0 ^ 1);
+        System.out.println(0 ^ 0);
+        System.out.println(1 ^ 0);
+        System.out.println(1 ^ 1);
     }
 
     /**
@@ -28,7 +32,7 @@ public class Solution1275 {
      * 可以使用一个9位二进制数代表行走的结果，规定：
      * 井字棋坐标[i,j]对应于数字的第3i+j位
      * a(00),a(01),a(02),a(10),a(11),a(12),a(20),a(21),a(22)
-     *   0     1    2    3     4      5     6     7      8
+     * 0     1    2    3     4      5     6     7      8
      * 每走一步棋等价于与对应的位进行(异)或运算
      * 判断游戏结果的方法：
      * 将一方的数字num与赢面对应的数字k进行与运算，若结果为k，此方获胜
@@ -42,7 +46,6 @@ public class Solution1275 {
      * 3种横的赢面数字是公比为8的等比数列
      * 3种竖的赢面数字是公比为2的等比数列
      * 所有赢面数字分别为7, 56(即7*8), 448(即7*8^2), 73, 146(即73*2), 292(即73*2^2), 273, 84
-     *
      */
     public String tictactoe(int[][] moves) {
         int a = 0, b = 0, len = moves.length;
@@ -96,10 +99,11 @@ public class Solution1275 {
             }
         }
         // 未胜时，棋盘未下满则继续
-        if (moves.length < 9) {
-            return "Pending";
-        }
         // 未胜时，棋盘下满则平局结束
-        return "Draw";
+        return moves.length < 9 ? "Pending" : "Draw";
+    }
+
+    public String tictactoe3(int[][] moves) {
+        return null;
     }
 }

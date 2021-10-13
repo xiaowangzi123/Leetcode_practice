@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/10
- * @description :
+ * @description :两个列表的最小索引总和
  */
 public class Solution0599 {
     public static void main(String[] args) {
