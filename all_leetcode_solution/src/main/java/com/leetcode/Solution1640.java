@@ -10,8 +10,11 @@ import java.util.Map;
  */
 public class Solution1640 {
     public static void main(String[] args) {
+        Solution1640 obj = new Solution1640();
         int[] arr = {91, 4, 64, 78};
         int[][] pieces = {{78}, {4, 64}, {91}};
+        System.out.println(obj.canFormArray(arr, pieces));
+        System.out.println(obj.canFormArray2(arr, pieces));
     }
 
     /**
@@ -28,7 +31,7 @@ public class Solution1640 {
             map.put(p[0], p);
         }
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; ) {
             if (!map.containsKey(arr[i])) {
                 return false;
             }
@@ -38,6 +41,26 @@ public class Solution1640 {
                     return false;
                 }
                 i++;
+            }
+        }
+        return true;
+    }
+
+    public boolean canFormArray2(int[] arr, int[][] pieces) {
+        Map<Integer, int[]> map = new HashMap<>();
+        for (int[] piece : pieces) {
+            map.put(piece[0], piece);
+        }
+
+        for (int i = 0; i < arr.length;) {
+            if (!map.containsKey(arr[i])) {
+                return false;
+            }
+            int[] array = map.get(arr[i]);
+            for (int j = 0; j < array.length; j++, i++) {
+                if (arr[i] != array[j]) {
+                    return false;
+                }
             }
         }
         return true;
