@@ -14,6 +14,7 @@ public class Solution1748 {
 
         int[] nums = {1, 2, 3, 2};
         System.out.println(obj.sumOfUnique(nums));
+        System.out.println(obj.sumOfUnique2(nums));
     }
 
 
@@ -26,6 +27,21 @@ public class Solution1748 {
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if (entry.getValue() == 1) {
                 sum += entry.getKey();
+            }
+        }
+        return sum;
+    }
+
+    public int sumOfUnique2(int[] nums) {
+        int sum = 0;
+        int[] count = new int[101];
+        for (int num : nums) {
+            count[num]++;
+        }
+
+        for (int i = 1; i < 101; i++) {
+            if (count[i] == 1) {
+                sum += i;
             }
         }
         return sum;
