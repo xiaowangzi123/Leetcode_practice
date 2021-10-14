@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import com.sun.media.sound.EmergencySoundbank;
+
 import java.util.*;
 
 /**
@@ -17,6 +19,13 @@ public class Solution1805 {
         System.out.println("-----------------------------");
 
         System.out.println("001".replace("0", ""));
+        System.out.println("00100".replace("0", ""));
+        System.out.println("-----------------------------");
+        System.out.println("00100".replaceAll("^0+", ""));
+        System.out.println("00100".replace("^0+", ""));
+        System.out.println("00100".replaceFirst("^0*",""));
+        System.out.println("00100".replaceFirst("0*",""));
+        System.out.println("00100".replace("^0*",""));
     }
 
 
@@ -25,7 +34,7 @@ public class Solution1805 {
         String[] str = word.split("[a-z]");
         for (String s : str) {
             if (!s.equals("")) {
-                set.add(s.replace("0", ""));
+                set.add(s.replaceFirst("^0*",""));
             }
         }
         return set.size();
