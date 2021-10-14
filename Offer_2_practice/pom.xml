@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>num_0485_MaxConsecutiveOnes</artifactId>
+    <artifactId>Offer_2_practice</artifactId>
 
-    <name>num_0485_MaxConsecutiveOnes</name>
+    <name>num_1588_SumofAllOddLengthSubarrays</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -25,7 +25,8 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13</version>
+            <version>4.12</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

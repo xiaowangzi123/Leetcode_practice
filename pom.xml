@@ -19,7 +19,6 @@
 
     <modules>
         <module>all_leetcode_solution</module>
-        <module>num_0485_MaxConsecutiveOnes</module>
         <module>num_0506_RelativeRanks</module>
         <module>num_0521_LongestUncommonSubsequenceI</module>
         <module>num_0620_NotBoringMovies</module>
@@ -32,6 +31,8 @@
         <module>num_1480_RunningSumof1dArray</module>
         <module>num_1572_MatrixDiagonalSum</module>
         <module>num_1588_SumofAllOddLengthSubarrays</module>
+        <module>Offer_1_practice</module>
+        <module>Offer_2_practice</module>
     </modules>
 
     <properties>
