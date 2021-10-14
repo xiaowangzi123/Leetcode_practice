@@ -11,6 +11,7 @@ public class Solution1796 {
     public static void main(String[] args) {
         Solution1796 obj = new Solution1796();
         System.out.println(obj.secondHighest("dfa12321afd"));
+        System.out.println(obj.secondHighest2("dfa12321afd"));
         System.out.println("-----------------------------");
 
     }
@@ -32,6 +33,23 @@ public class Solution1796 {
                 second = i;
             }
         }
+        return second;
+    }
+
+    public int secondHighest2(String s) {
+        int first = -1, second = -1;
+        for (char ch : s.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                int temp = ch - '0';
+                if (first < temp) {
+                    second = first;
+                    first = temp;
+                } else if (second < temp) {
+                    second = temp;
+                }
+            }
+        }
+
         return second;
     }
 }
