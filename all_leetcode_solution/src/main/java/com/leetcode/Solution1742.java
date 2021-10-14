@@ -37,6 +37,8 @@ public class Solution1742 {
 
     /**
      * 1 <= lowLimit <= highLimit <= 10^5
+     * 各位数相加最大值为99999的位数相加45,
+     * 初始化数组46
      */
     public int countBalls2(int lowLimit, int highLimit) {
         int max = 0;
