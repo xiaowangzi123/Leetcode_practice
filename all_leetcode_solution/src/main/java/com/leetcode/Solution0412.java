@@ -25,9 +25,10 @@ public class Solution0412 {
             if (i % 3 == 0) {
                 sb.append("Fizz");
             }
-            if ((i % 5 == 0)) {
+            if (i % 5 == 0) {
                 sb.append("Buzz");
-            } else {
+            }
+            if(sb.length()==0) {
                 sb.append(i);
             }
             ans.add(sb.toString());
