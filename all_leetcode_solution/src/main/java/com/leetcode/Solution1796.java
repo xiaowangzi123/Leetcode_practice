@@ -13,9 +13,12 @@ public class Solution1796 {
         System.out.println(obj.secondHighest("dfa12321afd"));
         System.out.println(obj.secondHighest2("dfa12321afd"));
         System.out.println("-----------------------------");
+        System.out.println(obj.secondHighest("abc1111"));
+        System.out.println(obj.secondHighest2("abc1111"));
 
     }
 
+    //set集合去除了重复数据，这样写正确
     public int secondHighest(String s) {
         int first = -1, second = -1;
         Set<Integer> set = new HashSet<>();
@@ -36,6 +39,7 @@ public class Solution1796 {
         return second;
     }
 
+    //有重复数据，改进方法如下
     public int secondHighest2(String s) {
         int first = -1, second = -1;
         for (char ch : s.toCharArray()) {
@@ -49,7 +53,24 @@ public class Solution1796 {
                 }
             }
         }
+        return second;
+    }
 
+    public int secondHighest3(String s) {
+        int first = -1, second = -1;
+        for (char ch : s.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                int temp = ch - '0';
+                if (first == -1) {
+                    first = temp;
+                } else if (first < temp) {
+                    second = first;
+                    first = temp;
+                } else if (second < temp && temp < first) {
+                    second = temp;
+                }
+            }
+        }
         return second;
     }
 }
