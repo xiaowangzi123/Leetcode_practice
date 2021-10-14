@@ -20,7 +20,3 @@ arr2 中的每个元素都出现在 arr1 中
 0 <= arr1[i], arr2[i] <= 1000
 arr2 中的元素 arr2[i] 各不相同
 arr2 中的每个元素 arr2[i] 都出现在 arr1 中
-
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/relative-sort-array
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
