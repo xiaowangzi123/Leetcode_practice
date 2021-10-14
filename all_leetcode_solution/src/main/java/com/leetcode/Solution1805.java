@@ -18,14 +18,7 @@ public class Solution1805 {
         System.out.println(obj.numDifferentIntegers("gi851a851q8510v"));
         System.out.println("-----------------------------");
 
-        System.out.println("001".replace("0", ""));
-        System.out.println("00100".replace("0", ""));
-        System.out.println("-----------------------------");
-        System.out.println("00100".replaceAll("^0+", ""));
-        System.out.println("00100".replace("^0+", ""));
-        System.out.println("00100".replaceFirst("^0*",""));
-        System.out.println("00100".replaceFirst("0*",""));
-        System.out.println("00100".replace("^0*",""));
+
     }
 
 
