@@ -14,12 +14,10 @@ public class Solution1763 {
     public static void main(String[] args) {
         Solution1763 obj = new Solution1763();
 
-        String s = "YazaAay";
+//        String s = "YazaAay";
+//        String s = "Bb";
+        String s = "dDzeE";
         System.out.println(obj.longestNiceSubstring(s));
-        System.out.println("----------------------------");
-
-        System.out.println(Character.isLowerCase('Y'));
-        System.out.println(s.substring(3, 6));
         System.out.println("-----------------------------");
         
         System.out.println(obj.isLongFineString("b"));
@@ -30,8 +28,8 @@ public class Solution1763 {
     public String longestNiceSubstring(String s) {
         String ans = "";
         int l = 0;
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i + 1; j < s.length(); j++) {
+        for (int i = 0; i <= s.length(); i++) {
+            for (int j = i + 1; j <= s.length(); j++) {
                 String temp = s.substring(i, j);
                 boolean flag = isLongFineString(temp);
                 if (flag && j - i > l) {
