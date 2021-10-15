@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/14
- * @description :仅执行一次字符串交换能否使两个字符串相等
+ * @description :检查是否区域内所有整数都被覆盖
  */
 public class Solution1893 {
     public static void main(String[] args) {
