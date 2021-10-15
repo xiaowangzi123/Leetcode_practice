@@ -54,7 +54,7 @@ public class Solution2032 {
         }
         for (int i = 1; i < 101; i++) {
             if (count[i] + count2[i] + count3[i] > 1) {
-                ans.add(nums1[i]);
+                ans.add(i);
             }
         }
         return ans;
