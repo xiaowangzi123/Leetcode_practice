@@ -5,17 +5,17 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/10
- * @description :
+ * @description :找到所有数组中消失的数字
  */
 public class Solution0448 {
     public static void main(String[] args) {
         Solution0448 obj = new Solution0448();
         //{5,6}
-//        int[] arr = {4, 3, 2, 7, 8, 2, 3, 1};
+        int[] arr = {4, 3, 2, 7, 8, 2, 3, 1};
         //{2}
 //        int[] arr = {1, 1};
         //{}
-        int[] arr = {1, 2};
+//        int[] arr = {1, 2};
         System.out.println(obj.findDisappearedNumbers(arr));
         System.out.println(obj.findDisappearedNumbers2(arr));
     }
@@ -50,4 +50,5 @@ public class Solution0448 {
         }
         return ans;
     }
+
 }

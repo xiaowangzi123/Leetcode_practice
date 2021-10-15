@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/17
- * @description：
+ * @description :最小操作次数使数组元素相等
  */
 public class Solution0453 {
     public static void main(String[] args) {
