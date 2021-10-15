@@ -1,17 +1,15 @@
 package com.leetcode;
 
-import sun.awt.dnd.SunDragSourceContextPeer;
-
-import java.util.*;
+import java.util.Arrays;
 
 /**
  * @author :wyq
  * @date ：Created in 2021/10/14
  * @description :仅执行一次字符串交换能否使两个字符串相等
  */
-public class Solution1790 {
+public class Solution1893 {
     public static void main(String[] args) {
-        Solution1790 obj = new Solution1790();
+        Solution1893 obj = new Solution1893();
         int[][] ranges = {{1, 2}, {3, 4}, {5, 6}};
         int left = 2, right = 5;
         System.out.println(obj.isCovered(ranges, left, right));
