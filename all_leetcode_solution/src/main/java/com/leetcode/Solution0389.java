@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/9
- * @description :
+ * @description :找不同
  */
 public class Solution0389 {
     public static void main(String[] args) {

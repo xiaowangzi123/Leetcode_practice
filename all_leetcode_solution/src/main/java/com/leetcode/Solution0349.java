@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/9
- * @description :
+ * @description : 两个数组的交集
  */
 public class Solution0349 {
     public static void main(String[] args) {
@@ -51,15 +51,13 @@ public class Solution0349 {
 
     public int[] intersection2(int[] nums1, int[] nums2) {
         Set<Integer> set1 = new HashSet<>(), set2 = new HashSet<>();
-        List<Integer> list = new ArrayList<>();
         for (int i : nums1) {
-            list.add(i);
+            set1.add(i);
         }
         for (int i : nums2) {
             set2.add(i);
         }
-        list.retainAll(set2);
-        set1.addAll(list);
+        set1.retainAll(set2);
 
         return set1.stream().mapToInt(i -> i).toArray();
     }
