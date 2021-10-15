@@ -13,7 +13,11 @@ import java.util.Map;
 public class Solution0506 {
     public static void main(String[] args) {
         Solution0506 obj = new Solution0506();
-        int[] arr = {5, 4, 3, 2, 1};
+        //["Gold Medal", "Silver Medal", "Bronze Medal", "4", "5"]
+//        int[] arr = {5, 4, 3, 2, 1};
+
+        //["Gold Medal","5","Bronze Medal","Silver Medal","4"]
+        int[] arr = {10, 3, 8, 9, 4};
         System.out.println(Arrays.toString(obj.findRelativeRanks(arr)));
         System.out.println(Arrays.toString(obj.findRelativeRanks2(arr)));
 
@@ -27,23 +31,22 @@ public class Solution0506 {
         for (int i = 0; i < n; i++) {
             map.put(score[i], i);
         }
-
         //分数排序
         Arrays.sort(score);
         int j = n - 1;
-        for (int i = 0; i < n; i++) {
-            while (j >= 0) {
-                if (j == n - 1) {
-                    ans[map.get(score[j])] = "Gold Medal";
-                } else if (j == n - 2) {
-                    ans[map.get(score[j])] = "Silver Medal";
-                } else if (j == n - 3) {
-                    ans[map.get(score[j])] = "Bronze Medal";
-                } else {
-                    ans[map.get(score[j])] = i + 1 + "";
-                }
-                j--;
+        while (j >= 0) {
+            int num = score[j];
+            int value = map.get(num);
+            if (j == n - 1) {
+                ans[value] = "Gold Medal";
+            } else if (j == n - 2) {
+                ans[value] = "Silver Medal";
+            } else if (j == n - 3) {
+                ans[value] = "Bronze Medal";
+            } else {
+                ans[value] = n - j + "";
             }
+            j--;
         }
         return ans;
     }
