@@ -10,7 +10,9 @@ import java.util.*;
 public class Solution2032 {
     public static void main(String[] args) {
         Solution2032 obj = new Solution2032();
-        int[] nums1 = {1, 1, 3, 2}, nums2 = {2, 3}, nums3 = {3};
+//        int[] nums1 = {1, 1, 3, 2}, nums2 = {2, 3}, nums3 = {3};
+        int[] nums1 = {1, 3}, nums2 = {2, 3}, nums3 = {1,2};
+
         System.out.println(obj.twoOutOfThree(nums1, nums2, nums3));
         System.out.println(obj.twoOutOfThree2(nums1, nums2, nums3));
 
@@ -31,8 +33,18 @@ public class Solution2032 {
             set3.add(num);
         }
 
-        set2.retainAll(set3);
+        HashSet<Integer> s1 = new HashSet<>(set);
+
+        //交集
         set.retainAll(set2);
+        set2.retainAll(set3);
+        set3.retainAll(s1);
+
+        //并集
+        set.addAll(set2);
+        set.addAll(set3);
+
+        ans.addAll(set);
         return ans;
     }
 
