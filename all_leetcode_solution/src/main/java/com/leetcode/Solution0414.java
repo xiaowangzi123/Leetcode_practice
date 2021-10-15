@@ -58,7 +58,6 @@ public class Solution0414 {
                 c = i;
             }
         }
-        System.out.println("abc:" + a + "=" + b + "=" + c);
         if (b == c) {
             return a;
         } else {
@@ -82,11 +81,9 @@ public class Solution0414 {
             }
         });*/
 
-        System.out.println(Arrays.toString(arr));
         //考虑Integer.MIN_VALUE被减后的越界问题
 //        Arrays.sort(arr, (o1, o2) -> o2 - o1);
         Arrays.sort(arr, Collections.reverseOrder());
-        System.out.println(Arrays.toString(arr));
         if (arr.length == 1) {
             return arr[0];
         } else if (arr.length == 2) {
