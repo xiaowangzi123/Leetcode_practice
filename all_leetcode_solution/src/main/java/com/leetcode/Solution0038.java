@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/15
- * @description :
+ * @description :外观数列
  */
 public class Solution0038 {
     public static void main(String[] args) {
@@ -16,7 +16,14 @@ public class Solution0038 {
         System.out.println(obj.countAndSay(6));
     }
 
-
+    /**
+     * 1
+     * 11
+     * 21
+     * 1211
+     * 111221
+     * 312211
+     */
     public String countAndSay(int n) {
         String str = "1";
         for (int i = 2; i <= n; ++i) {
@@ -28,7 +35,7 @@ public class Solution0038 {
                 while (index < str.length() && str.charAt(index) == str.charAt(start)) {
                     index++;
                 }
-                sb.append(Integer.toString(index - start)).append(str.charAt(start));
+                sb.append((index - start)).append(str.charAt(start));
                 start = index;
             }
             str = sb.toString();
