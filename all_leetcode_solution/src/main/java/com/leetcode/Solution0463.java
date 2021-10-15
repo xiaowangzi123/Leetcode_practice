@@ -20,6 +20,7 @@ public class Solution0463 {
         int count = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
+                //等于1，值加上4；上面或前面值为1时，需要减去2
                 if (grid[i][j] == 1) {
                     count += 4;
                     if (i > 0 && grid[i - 1][j] == 1) {
