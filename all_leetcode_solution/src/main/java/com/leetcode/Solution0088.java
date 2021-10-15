@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author ：wyq
  * @date ：Created in 2021/7/8
- * @description：
+ * @description :合并两个有序数组
  */
 public class Solution0088 {
     public static void main(String[] args) {

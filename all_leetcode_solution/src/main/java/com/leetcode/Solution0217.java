@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/14
- * @description：
+ * @description: 存在重复元素
  */
 public class Solution0217 {
     public static void main(String[] args) {
@@ -25,13 +25,13 @@ public class Solution0217 {
         Set<Integer> set2 = new HashSet<>();
         System.out.println(set2.add(1));
         System.out.println(set2.add(1));
-        
+
     }
 
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int i : nums) {
-            if (!set.add(i)){
+            if (!set.add(i)) {
                 return true;
             }
         }
@@ -40,8 +40,8 @@ public class Solution0217 {
 
     public boolean containsDuplicate2(int[] nums) {
         Arrays.sort(nums);
-        for (int i=0; i<nums.length-1; i++){
-            if (nums[i]==nums[i+1]){
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
                 return true;
             }
         }
