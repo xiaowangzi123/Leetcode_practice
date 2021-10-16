@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/16
- * @description :
+ * @description :范围求和 II
  */
 public class Solution0598 {
     public static void main(String[] args) {
@@ -14,6 +14,7 @@ public class Solution0598 {
         System.out.println(obj.maxCount2(m, n, operations));
     }
 
+    //超出内存限制
     public int maxCount(int m, int n, int[][] ops) {
         int count = 0;
         int[][] ans = new int[m][n];
