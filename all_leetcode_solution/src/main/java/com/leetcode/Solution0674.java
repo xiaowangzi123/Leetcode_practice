@@ -11,13 +11,14 @@ public class Solution0674 {
     public static void main(String[] args) {
         Solution0674 obj = new Solution0674();
 //        int[] arr = {1, 3, 5, 4, 7};
-        int[] arr = {2, 2, 2, 2, 2};
-//        int[] arr = {1,3,2};
+//        int[] arr = {2, 2, 2, 2, 2};
+        int[] arr = {1,3,2};
         System.out.println(obj.findLengthOfLCIS(arr));
         System.out.println(obj.findLengthOfLCIS2(arr));
         System.out.println(obj.findLengthOfLCIS3(arr));
     }
 
+    //改进参考方法3
     public int findLengthOfLCIS(int[] nums) {
         int count = 0, start = 0, index = 0, n = nums.length;
         while (index < n) {
