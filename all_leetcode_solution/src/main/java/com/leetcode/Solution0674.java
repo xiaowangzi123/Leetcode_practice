@@ -13,6 +13,7 @@ public class Solution0674 {
 //        int[] arr = {1, 3, 5, 4, 7};
         int[] arr = {2, 2, 2, 2, 2};
         System.out.println(obj.findLengthOfLCIS(arr));
+        System.out.println(obj.findLengthOfLCIS2(arr));
     }
 
     public int findLengthOfLCIS(int[] nums) {
@@ -27,5 +28,16 @@ public class Solution0674 {
             }
         }
         return count + 1;
+    }
+
+    public int findLengthOfLCIS2(int[] nums) {
+        int count = 0, index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i - 1] >= nums[i]) {
+                index = i;
+            }
+            count = Math.max(count, i - index + 1);
+        }
+        return count;
     }
 }
