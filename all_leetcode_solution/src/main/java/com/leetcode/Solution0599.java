@@ -58,13 +58,12 @@ public class Solution0599 {
         return ans.toArray(new String[0]);
     }
 
-
-    //测试没问题，LeetCode无法通过
     public String[] findRestaurant3(String[] list1, String[] list2) {
         int temp = Integer.MAX_VALUE;
         List<String> ans = new ArrayList<>();
         for (int i = 0; i < list1.length; i++) {
             for (int j = 0; j < list2.length; j++) {
+                //equals换成==，测试没问题，LeetCode无法通过
                 if (list1[i].equals(list2[j])) {
                     if (temp > i + j) {
                         temp = i + j;
