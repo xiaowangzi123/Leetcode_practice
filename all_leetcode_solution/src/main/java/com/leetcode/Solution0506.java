@@ -19,7 +19,11 @@ public class Solution0506 {
         //["Gold Medal","5","Bronze Medal","Silver Medal","4"]
         int[] arr = {10, 3, 8, 9, 4};
         System.out.println(Arrays.toString(obj.findRelativeRanks(arr)));
-        System.out.println(Arrays.toString(obj.findRelativeRanks2(arr)));
+
+
+        //不能用同一个测试用例，调用上述方法后，对数组进行了排序
+        int[] arr2 = {10, 3, 8, 9, 4};
+        System.out.println(Arrays.toString(obj.findRelativeRanks2(arr2)));
 
     }
 
@@ -35,16 +39,18 @@ public class Solution0506 {
         Arrays.sort(score);
         int j = n - 1;
         while (j >= 0) {
+            //排序后，第j位的值
             int num = score[j];
-            int value = map.get(num);
+            //排序前，值对应的索引
+            int index = map.get(num);
             if (j == n - 1) {
-                ans[value] = "Gold Medal";
+                ans[index] = "Gold Medal";
             } else if (j == n - 2) {
-                ans[value] = "Silver Medal";
+                ans[index] = "Silver Medal";
             } else if (j == n - 3) {
-                ans[value] = "Bronze Medal";
+                ans[index] = "Bronze Medal";
             } else {
-                ans[value] = n - j + "";
+                ans[index] = n - j + "";
             }
             j--;
         }
@@ -54,10 +60,10 @@ public class Solution0506 {
     public String[] findRelativeRanks2(int[] score) {
         int n = score.length;
         String[] ans = new String[n];
-        int[] clone = Arrays.copyOf(score, n); //复制score数组并进行排序
+        int[] clone = Arrays.copyOf(score, n);
         Arrays.sort(clone);
         for (int i = 0; i < score.length; i++) {
-            int rank = n - Arrays.binarySearch(clone, score[i]); //n - 排序后的下标 == 名次
+            int rank = n - Arrays.binarySearch(clone, score[i]);
             if (rank == 1) {
                 ans[i] = "Gold Medal";
             } else if (rank == 2) {
@@ -70,4 +76,5 @@ public class Solution0506 {
         }
         return ans;
     }
+
 }
