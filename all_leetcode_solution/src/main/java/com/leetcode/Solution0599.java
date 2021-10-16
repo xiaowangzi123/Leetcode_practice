@@ -10,14 +10,17 @@ import java.util.*;
 public class Solution0599 {
     public static void main(String[] args) {
         Solution0599 obj = new Solution0599();
-//        String[] s1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
-//        String[] s2 = {"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"};
-
         String[] s1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
-        String[] s2 = {"KFC", "Shogun", "Burger King"};
+        String[] s2 = {"Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"};
+
+//["Shogun","Tapioca Express","Burger King","KFC"]
+//["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+//        String[] s1 = {"Shogun", "Tapioca Express", "Burger King", "KFC"};
+//        String[] s2 = {"KFC", "Shogun", "Burger King"};
 
         System.out.println(Arrays.toString(obj.findRestaurant(s1, s2)));
         System.out.println(Arrays.toString(obj.findRestaurant2(s1, s2)));
+        System.out.println(Arrays.toString(obj.findRestaurant3(s1, s2)));
     }
 
     //不能满足最少的索引和
@@ -52,6 +55,28 @@ public class Solution0599 {
                 }
             }
         }
+        return ans.toArray(new String[0]);
+    }
+
+
+    //测试没问题，LeetCode无法通过
+    public String[] findRestaurant3(String[] list1, String[] list2) {
+        int temp = Integer.MAX_VALUE;
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < list1.length; i++) {
+            for (int j = 0; j < list2.length; j++) {
+                if (list1[i].equals(list2[j])) {
+                    if (temp > i + j) {
+                        temp = i + j;
+                        ans.clear();
+                        ans.add(list1[i]);
+                    } else if (temp == i + j) {
+                        ans.add(list1[i]);
+                    }
+                }
+            }
+        }
+
         return ans.toArray(new String[0]);
     }
 }
