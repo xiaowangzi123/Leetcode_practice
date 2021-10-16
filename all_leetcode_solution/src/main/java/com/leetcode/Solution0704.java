@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/16
- * @description :
+ * @description : 二分查找
  */
 public class Solution0704 {
     public static void main(String[] args) {
