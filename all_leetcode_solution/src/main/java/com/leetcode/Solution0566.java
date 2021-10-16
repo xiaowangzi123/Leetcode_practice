@@ -10,16 +10,21 @@ import java.util.Arrays;
 public class Solution0566 {
     public static void main(String[] args) {
         Solution0566 obj = new Solution0566();
-        int[] arr = {1, 4, 3, 2};
-        System.out.println(obj.arrayPairSum(arr));
+        int[][] mat = {{1, 2}, {3, 4}};
+        int r = 1, c = 4;
+        System.out.println(Arrays.deepToString(obj.matrixReshape(mat, r, c)));
     }
 
-    public int arrayPairSum(int[] nums) {
-        int ans = 0;
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length; i += 2) {
-            ans += nums[i];
+    public int[][] matrixReshape(int[][] mat, int r, int c) {
+        int n = mat.length;
+        int m = mat[0].length;
+        if (r * c != n * m) {
+            return mat;
         }
-        return ans;
+        int[][] res = new int[r][c];
+        for (int i = 0; i < r * c; i++) {
+            res[i / c][i % c] = mat[i / m][i % m];
+        }
+        return res;
     }
 }
