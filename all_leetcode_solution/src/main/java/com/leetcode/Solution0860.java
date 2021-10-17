@@ -16,6 +16,7 @@ public class Solution0860 {
         Solution0860 obj = new Solution0860();
         int[] bills = {5, 5, 5, 10, 20, 20};
         System.out.println(obj.lemonadeChange(bills));
+        System.out.println(obj.lemonadeChange2(bills));
     }
 
     public boolean lemonadeChange(int[] bills) {
@@ -41,6 +42,31 @@ public class Solution0860 {
             }
         }
 
+        return true;
+    }
+
+    public boolean lemonadeChange2(int[] bills) {
+        int five = 0, ten = 0;
+        for (int num : bills) {
+            if (num == 5) {
+                five++;
+            } else if (num == 10) {
+                if (five <= 0) {
+                    return false;
+                }
+                five--;
+                ten++;
+            } else if (num == 20) {
+                if (five > 0 && ten > 0) {
+                    five--;
+                    ten--;
+                } else if (five > 3) {
+                    five -= 3;
+                } else {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 }
