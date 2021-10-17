@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/17
- * @description :
+ * @description : 最大的三角面积
  */
 public class Solution0812 {
     public static void main(String[] args) {
