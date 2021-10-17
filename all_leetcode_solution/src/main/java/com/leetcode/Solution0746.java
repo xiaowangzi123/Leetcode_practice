@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/17
- * @description :
+ * @description :最小花费爬楼梯
  */
 public class Solution0746 {
     public static void main(String[] args) {
