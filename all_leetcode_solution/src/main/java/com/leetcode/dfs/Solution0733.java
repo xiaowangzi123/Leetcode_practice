@@ -10,8 +10,10 @@ import java.util.Arrays;
 public class Solution0733 {
     public static void main(String[] args) {
         Solution0733 obj = new Solution0733();
-        int[][] image = {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}};
-        int sr = 1, sc = 1, newColor = 2;
+//        int[][] image = {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}};
+//        int sr = 1, sc = 1, newColor = 2;
+        int[][] image ={{0,0,0},{0,1,1}};
+        int sr = 1, sc = 1, newColor = 1;
 
         System.out.println(Arrays.deepToString(obj.floodFill(image, sr, sc, newColor)));
 
@@ -20,7 +22,10 @@ public class Solution0733 {
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         //初始像素值
         int currColor = image[sr][sc];
-        dfs(image, sr, sc, currColor, newColor);
+        //初始像素值与新颜色相同，直接返回
+        if (currColor!=newColor){
+            dfs(image, sr, sc, currColor, newColor);
+        }
 
         return image;
     }
