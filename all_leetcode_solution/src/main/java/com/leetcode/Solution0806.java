@@ -17,11 +17,11 @@ public class Solution0806 {
 
         int[] widths = {4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
         String s = "bbbcccdddaaa";
-        System.out.println(Arrays.toString(obj.numberOfLines(widths, s)));
+        System.out.println(Arrays.toString(obj.numberOfLines2(widths, s)));
 
-        System.out.println(Math.ceil(2.1));
     }
 
+    //不满100时，下一字符放不下时，会放在下一行
     public int[] numberOfLines(int[] widths, String s) {
         int len = 0;
         for (char ch : s.toCharArray()) {
@@ -29,5 +29,18 @@ public class Solution0806 {
             len += cnt;
         }
         return new int[]{(int) Math.ceil((double) len / 100), len % 100};
+    }
+
+    public int[] numberOfLines2(int[] widths, String s) {
+        int line = 1, length = 0;
+        for (char ch : s.toCharArray()) {
+            int count = widths[ch - 'a'];
+            length += count;
+            if (length > 100) {
+                line++;
+                length = count;
+            }
+        }
+        return new int[]{line, length};
     }
 }
