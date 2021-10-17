@@ -11,6 +11,7 @@ public class Solution0746 {
         int[] cost = {10, 15, 20};
 //        int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
         System.out.println(obj.minCostClimbingStairs(cost));
+        System.out.println(obj.minCostClimbingStairs2(cost));
 
     }
 
@@ -37,5 +38,16 @@ public class Solution0746 {
             dp[i] = Math.min(dp[i - 2] + cost[i - 1], dp[i - 1] + cost[i]);
         }
         return dp[n - 1];
+    }
+
+    public int minCostClimbingStairs2(int[] cost) {
+        int n = cost.length;
+        int ans = 0, a = 0, b = Math.min(cost[0], cost[1]);
+        for (int i = 2; i < n; i++) {
+            ans = Math.min(a + cost[i - 1], b + cost[i]);
+            a = b;
+            b = ans;
+        }
+        return ans;
     }
 }
