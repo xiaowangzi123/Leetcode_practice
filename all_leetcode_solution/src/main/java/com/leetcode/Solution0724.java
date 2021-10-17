@@ -13,8 +13,8 @@ public class Solution0724 {
     }
 
     public int pivotIndex(int[] nums) {
-        int sum1 = 0, sum2 = 0;
         for (int i = 0; i < nums.length; i++) {
+            int sum1 = 0, sum2 = 0;
             for (int j = 0; j < i; j++) {
                 sum1 += nums[j];
             }
