@@ -30,9 +30,9 @@ public class Solution0812 {
      * A:(x1, y1) , B:(x2, y2) , C:(x3, y3)
      * S三角形=0.5∗((x1∗y2+x2∗y3+x3∗y1)−(y1∗x2+y2∗x3+y3∗x1))
      */
-    public double area(int[] P, int[] Q, int[] R) {
-        return 0.5 * Math.abs(P[0] * Q[1] + Q[0] * R[1] + R[0] * P[1]
-                - P[1] * Q[0] - Q[1] * R[0] - R[1] * P[0]);
+    public double area(int[] a, int[] b, int[] c) {
+        return 0.5 * Math.abs(a[0] * b[1] + b[0] * c[1] + c[0] * a[1]
+                - a[1] * b[0] - b[1] * c[0] - c[1] * a[0]);
     }
 
 }
