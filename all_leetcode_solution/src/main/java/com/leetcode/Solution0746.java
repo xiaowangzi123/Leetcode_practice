@@ -13,6 +13,7 @@ public class Solution0746 {
         int[] cost = {1, 100};
         System.out.println(obj.minCostClimbingStairs(cost));
         System.out.println(obj.minCostClimbingStairs2(cost));
+        System.out.println(obj.minCostClimbingStairs3(cost));
 
     }
 
@@ -60,6 +61,15 @@ public class Solution0746 {
         return ans;
     }
 
+    /**
+     * dp[i] 表示达到第i个台阶顶部的最小花费
+     * 1.第0个台阶，直接跨过去，花费dp[0]=0
+     * 2.第1个台阶(即第0级台阶的顶部)，花费dp[1]=0
+     * 3.第i个台阶(即第i-1级台阶的顶部)，两种情况到达
+     * 3.1.到达第i-2级台阶，花费dp[i-2],直接两步到达第i个台阶，花费dp[i-2]+cost[i-2]
+     * 3.2.到达第i-1级台阶，花费dp[i-1],跨一步到达第i个台阶，花费dp[i-1]+cost[i-1]
+     * 两者取较小值
+     */
     public int minCostClimbingStairs3(int[] cost) {
         int n = cost.length;
         int[] dp = new int[n + 1];
