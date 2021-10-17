@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/17
- * @description :
+ * @description : 至少是其他数字两倍的最大数
  */
 public class Solution0747 {
     public static void main(String[] args) {
