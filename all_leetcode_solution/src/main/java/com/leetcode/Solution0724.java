@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/17
- * @description :
+ * @description : 寻找数组的中心下标
  */
 public class Solution0724 {
     public static void main(String[] args) {
