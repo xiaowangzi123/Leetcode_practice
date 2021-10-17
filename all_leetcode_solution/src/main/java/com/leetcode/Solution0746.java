@@ -8,8 +8,9 @@ package com.leetcode;
 public class Solution0746 {
     public static void main(String[] args) {
         Solution0746 obj = new Solution0746();
-        int[] cost = {10, 15, 20};
+//        int[] cost = {10, 15, 20};
 //        int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+        int[] cost = {1, 100};
         System.out.println(obj.minCostClimbingStairs(cost));
         System.out.println(obj.minCostClimbingStairs2(cost));
 
@@ -40,14 +41,33 @@ public class Solution0746 {
         return dp[n - 1];
     }
 
+    /**
+     * 数组长度为2时，答案为0，错误
+     * 单独判断为2时情况
+     */
     public int minCostClimbingStairs2(int[] cost) {
         int n = cost.length;
         int ans = 0, a = 0, b = Math.min(cost[0], cost[1]);
+        if (n == 2) {
+            return b;
+        }
         for (int i = 2; i < n; i++) {
             ans = Math.min(a + cost[i - 1], b + cost[i]);
             a = b;
             b = ans;
         }
+
         return ans;
     }
+
+    public int minCostClimbingStairs3(int[] cost) {
+        int n = cost.length;
+        int[] dp = new int[n + 1];
+        dp[0] = dp[1] = 0;
+        for (int i = 2; i <= n; i++) {
+            dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+        }
+        return dp[n];
+    }
+
 }
