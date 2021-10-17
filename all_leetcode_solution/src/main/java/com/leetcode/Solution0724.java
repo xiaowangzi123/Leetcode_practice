@@ -33,7 +33,11 @@ public class Solution0724 {
 
 
     public int pivotIndex2(int[] nums) {
-        int sum = Arrays.stream(nums).sum();
+//        int sum = Arrays.stream(nums).sum();
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+        }
         int sum1 = 0;
         for (int i = 0; i < nums.length; i++) {
             if (sum1 * 2 + nums[i] == sum) {
