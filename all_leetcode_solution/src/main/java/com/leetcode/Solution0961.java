@@ -41,7 +41,12 @@ public class Solution0961 {
         return -1;
     }
 
-    //{3,3,5,9}失败
+    /**
+     * 数组长度至少为4
+     * {3,3,5,9}，直接返回nums[nums.length/2]，错误
+     * 判断前两个元素是否相同
+     * 2n个元素，n个重复，如果长度为4，排序后，重复元素排钱两位或后两位
+     */
     public int repeatedNTimes3(int[] nums) {
         Arrays.sort(nums);
         return nums[0] == nums[1] ? nums[0] : nums[nums.length / 2];
