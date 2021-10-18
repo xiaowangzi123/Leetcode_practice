@@ -19,6 +19,7 @@ public class Solution0944 {
             for (int j = 0; j < strs.length - 1; j++) {
                 if (strs[j].charAt(i) > strs[j + 1].charAt(i)) {
                     count++;
+                    break;//只要确定第一个不符合，后续这一列不用继续遍历
                 }
             }
         }
