@@ -8,9 +8,9 @@ package com.leetcode;
 public class Solution0941 {
     public static void main(String[] args) {
         Solution0941 obj = new Solution0941();
-//        int[] arr = {1, 2, 3, 1};
-        int[] arr = {2, 3, 3};
-        System.out.println(obj.validMountainArray(arr));
+        int[] arr = {1, 2, 3, 1};
+//        int[] arr = {2, 3, 3};
+        System.out.println(obj.validMountainArray2(arr));
     }
 
     public boolean validMountainArray(int[] arr) {
@@ -40,5 +40,22 @@ public class Solution0941 {
         }
 
         return false;
+    }
+
+
+    public boolean validMountainArray2(int[] arr) {
+        int n = arr.length;
+        int index = 0;
+        while (index < n - 1 && arr[index] < arr[index + 1]) {
+            index++;
+        }
+        if (index == 0 || index == n - 1) {
+            return false;
+        }
+        while (index < n - 1 && arr[index] > arr[index + 1]) {
+            index++;
+        }
+
+        return index == n - 1;
     }
 }
