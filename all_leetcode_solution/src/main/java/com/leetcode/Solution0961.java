@@ -1,21 +1,20 @@
 package com.leetcode;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author :wyq
  * @date ：Created in 2021/10/11
- * @description :
+ * @description : 重复 N 次的元素
  */
 public class Solution0961 {
     public static void main(String[] args) {
         Solution0961 obj = new Solution0961();
-        int[] arr = {5, 1, 5, 2, 5, 3, 5, 4};
+//        int[] arr = {5, 1, 5, 2, 5, 3, 5, 4};
+        int[] arr = {3, 3, 5, 9};
         System.out.println(obj.repeatedNTimes(arr));
         System.out.println(obj.repeatedNTimes2(arr));
+        System.out.println(obj.repeatedNTimes3(arr));
 
     }
 
@@ -40,6 +39,12 @@ public class Solution0961 {
             }
         }
         return -1;
+    }
+
+    //{3,3,5,9}失败
+    public int repeatedNTimes3(int[] nums) {
+        Arrays.sort(nums);
+        return nums[0] == nums[1] ? nums[0] : nums[nums.length / 2];
     }
 
 
