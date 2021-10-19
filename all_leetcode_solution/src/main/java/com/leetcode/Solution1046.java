@@ -1,6 +1,6 @@
 package com.leetcode;
 
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * @author :wyq
@@ -11,7 +11,8 @@ public class Solution1046 {
     public static void main(String[] args) {
         Solution1046 obj = new Solution1046();
         int[] arr = {2, 7, 4, 1, 8, 1};
-        System.out.println(obj.lastStoneWeight(arr));
+//        int[] arr = {1, 3};
+        System.out.println(obj.lastStoneWeight2(arr));
     }
 
     public int lastStoneWeight(int[] stones) {
@@ -19,7 +20,7 @@ public class Solution1046 {
         for (int num : stones) {
             queue.offer(num);
         }
-        while (queue.size() > 2) {
+        while (queue.size() >= 2) {
             int a = queue.poll();
             int b = queue.poll();
             if (a > b) {
@@ -27,5 +28,28 @@ public class Solution1046 {
             }
         }
         return queue.size() == 0 ? 0 : queue.peek();
+    }
+
+    public int lastStoneWeight2(int[] stones) {
+
+        List<Integer> list = new ArrayList<>();
+        for (int i : stones) {
+            list.add(i);
+        }
+        Collections.sort(list);
+        while (list.size() > 1) {
+            int n = list.size();
+            int a = list.get(n - 1);
+            int b = list.get(n - 2);
+            if (a == b) {
+                list.remove(n - 1);
+                list.remove(n - 2);
+            } else if (a > b) {
+                list.remove(n - 1);
+                list.set(n - 2, a - b);
+                Collections.sort(list);
+            }
+        }
+        return list.size() == 0 ? 0 : list.get(0);
     }
 }
