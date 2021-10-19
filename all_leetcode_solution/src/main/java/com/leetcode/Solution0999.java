@@ -39,8 +39,8 @@ public class Solution0999 {
         int[] dirX = {0, 0, -1, 1};
         int[] dirY = {1, -1, 0, 0};
         //最多走7步，要不碰到象或者卒或者到达边界
-        int step = 1;
         for (int i = 0; i < 4; i++) {
+            int step = 1;
             while (step < 8) {
                 int a = x + step * dirX[i];
                 int b = y + step * dirY[i];
