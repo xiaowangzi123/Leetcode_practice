@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/19
- * @description :
+ * @description : 可以被一步捕获的棋子数
  */
 public class Solution0999 {
     public static void main(String[] args) {
