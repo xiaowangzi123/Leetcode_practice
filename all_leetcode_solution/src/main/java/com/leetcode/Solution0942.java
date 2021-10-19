@@ -14,7 +14,7 @@ public class Solution0942 {
     }
 
     public int[] diStringMatch(String s) {
-        int n = s.length(), min = 0, max = n + 1;
+        int n = s.length(), min = 0, max = n;
         int[] ans = new int[n + 1];
         for (int i = 0; i < n; i++) {
             if ('I' == s.charAt(i)) {
