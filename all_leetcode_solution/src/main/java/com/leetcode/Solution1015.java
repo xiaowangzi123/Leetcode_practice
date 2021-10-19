@@ -22,7 +22,7 @@ public class Solution1015 {
             return false;
         }
         int sum1 = 0, index = 0;
-        while (index < arr.length) {
+        while (index < arr.length-2) {
             sum1 += arr[index];
             if (sum1 == sum / 3) {
                 break;
