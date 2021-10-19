@@ -25,9 +25,9 @@ public class Solution1005 {
             }
             k--;
         }
-        /*for (int num : nums) {
+        for (int num : nums) {
             sum += num;
-        }*/
-        return Arrays.stream(nums).sum();
+        }
+        return sum;
     }
 }
