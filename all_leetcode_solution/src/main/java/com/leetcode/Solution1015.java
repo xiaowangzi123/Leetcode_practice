@@ -30,13 +30,14 @@ public class Solution1015 {
             index++;
         }
 
-        int sum2 = 0, index2 = index + 1;
-        while (index2 < arr.length - 1) {
-            sum2 += arr[index2];
+        index++;
+        int sum2 = 0;
+        while (index < arr.length - 1) {
+            sum2 += arr[index];
             if (sum2 == sum / 3) {
                 return true;
             }
-            index2++;
+            index++;
         }
         return false;
     }
