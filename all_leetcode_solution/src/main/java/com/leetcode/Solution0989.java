@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/19
- * @description :
+ * @description :数组形式的整数加法
  */
 public class Solution0989 {
     public static void main(String[] args) {

@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/11
- * @description :
+ * @description : 找到小镇的法官
  */
 public class Solution0997 {
     public static void main(String[] args) {
