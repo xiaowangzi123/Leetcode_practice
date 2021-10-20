@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author :wyq
  * @date ：Created in 2021/9/29
- * @description :
+ * @description : 加一
  */
 public class Solution0066 {
     public static void main(String[] args) {
@@ -13,10 +13,12 @@ public class Solution0066 {
         int[] nums = {1, 2, 9};
         System.out.println(Arrays.toString(obj.plusOne(new int[]{1, 2, 9})));
         System.out.println(Arrays.toString(obj.plusOne2(new int[]{1, 2, 9})));
+        System.out.println(Arrays.toString(obj.plusOne3(new int[]{1, 2, 9})));
 
         int[] nums2 = {9, 9, 9};
         System.out.println(Arrays.toString(obj.plusOne(new int[]{9, 9, 9})));
         System.out.println(Arrays.toString(obj.plusOne2(new int[]{9, 9, 9})));
+        System.out.println(Arrays.toString(obj.plusOne3(new int[]{9, 9, 9})));
     }
 
     public int[] plusOne(int[] digits) {
@@ -49,6 +51,25 @@ public class Solution0066 {
 
         digits = new int[digits.length + 1];
         digits[0] = 1;
+        return digits;
+    }
+
+    public int[] plusOne3(int[] digits) {
+        int n = digits.length, temp = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            if (i == n - 1) {
+                digits[i]++;
+            } else {
+                digits[i] += temp;
+            }
+            temp = digits[i] / 10;
+            digits[i] = digits[i] % 10;
+        }
+        if (temp==1){
+            digits = new int[n + 1];
+            digits[0] = 1;
+        }
+
         return digits;
     }
 }
