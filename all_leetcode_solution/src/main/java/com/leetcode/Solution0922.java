@@ -12,6 +12,7 @@ public class Solution0922 {
         Solution0922 obj = new Solution0922();
         int[] arr = {4, 2, 5, 7};
         System.out.println(Arrays.toString(obj.sortArrayByParityII(arr)));
+        System.out.println(Arrays.toString(obj.sortArrayByParityII2(arr)));
     }
 
     public int[] sortArrayByParityII(int[] nums) {
@@ -21,9 +22,28 @@ public class Solution0922 {
             if (nums[i] % 2 == 0) {
                 ans[index] = nums[i];
                 index += 2;
-            }else {
+            } else {
                 ans[index1] = nums[i];
                 index1 += 2;
+            }
+        }
+        return ans;
+    }
+
+    public int[] sortArrayByParityII2(int[] nums) {
+        int n = nums.length, index = 0;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (nums[i] % 2 == 0) {
+                ans[index] = nums[i];
+                index += 2;
+            }
+        }
+        index = 1;
+        for (int num : nums) {
+            if (num % 2 == 1) {
+                ans[index] = num;
+                index += 2;
             }
         }
         return ans;
