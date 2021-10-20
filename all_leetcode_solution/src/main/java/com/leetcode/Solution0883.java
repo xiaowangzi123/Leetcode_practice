@@ -31,6 +31,6 @@ public class Solution0883 {
             count += b + c;
         }
 
-        return count;
+        return count + a;
     }
 }
