@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/18
- * @description :
+ * @description : 按奇偶排序数组
  */
 public class Solution0905 {
     public static void main(String[] args) {
