@@ -21,8 +21,7 @@ public class Solution0922 {
             if (nums[i] % 2 == 0) {
                 ans[index] = nums[i];
                 index += 2;
-            }
-            if (nums[i] % 2 == 1) {
+            }else {
                 ans[index1] = nums[i];
                 index1 += 2;
             }
