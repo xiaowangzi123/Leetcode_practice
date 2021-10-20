@@ -22,14 +22,16 @@ public class Solution1089 {
 
     public void duplicateZeros(int[] arr) {
         int n = arr.length;
-        int count = 0;
-        for (int i : arr) {
-            if (i == 0) {
-                count++;
+        int index = 0;
+        while (index < n) {
+            if (arr[index] == 0) {
+                for (int i = n - 1; i > index; i--) {
+                    arr[i]=arr[i-1];
+                }
+                index++;
             }
+            index++;
         }
-
-
     }
 
     public void duplicateZeros2(int[] arr) {
