@@ -12,8 +12,9 @@ import java.util.List;
 public class Solution1260 {
     public static void main(String[] args) {
         Solution1260 obj = new Solution1260();
-        int[][] grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        System.out.println(obj.shiftGrid(grid, 1));
+//        int[][] grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] grid ={{3,8,1,9},{19,7,2,5},{4,6,11,10},{12,0,21,13}};
+        System.out.println(obj.shiftGrid(grid, 4));
     }
 
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
@@ -36,9 +37,9 @@ public class Solution1260 {
         }
         index = 0;
         List<Integer> list = new ArrayList<>();
-        while (index < 9) {
+        while (index < m*n) {
             list.add(arr[index]);
-            if (index % 3 == 2) {
+            if (index % n == n-1) {
                 ans.add(new ArrayList<>(list));
                 list.clear();
             }
