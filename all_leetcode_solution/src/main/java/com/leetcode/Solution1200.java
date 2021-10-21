@@ -26,6 +26,10 @@ public class Solution1200 {
             int temp = arr[i] - arr[i - 1];
             if (temp < min) {
                 min = temp;
+                ans.clear();
+                list.add(arr[i - 1]);
+                list.add(arr[i]);
+            }else if (temp==min){
                 list.add(arr[i - 1]);
                 list.add(arr[i]);
             }
