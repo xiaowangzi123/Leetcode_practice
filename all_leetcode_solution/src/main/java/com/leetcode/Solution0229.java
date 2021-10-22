@@ -1,9 +1,6 @@
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author :wyq
@@ -13,8 +10,10 @@ import java.util.Map;
 public class Solution0229 {
     public static void main(String[] args) {
         Solution0229 obj = new Solution0229();
-        int[] arr = {3, 2, 3};
+//        int[] arr = {3, 2, 3};
+        int[] arr = {1, 2};
         System.out.println(obj.majorityElement(arr));
+        System.out.println(obj.majorityElement2(arr));
     }
 
     public List<Integer> majorityElement(int[] nums) {
@@ -31,4 +30,24 @@ public class Solution0229 {
         }
         return ans;
     }
+
+
+    public List<Integer> majorityElement2(int[] nums) {
+        List<Integer> ans = new ArrayList<>();
+        Arrays.sort(nums);
+        int n = nums.length, count = 0, temp = nums[0];
+        for (int num : nums) {
+            if (temp == num) {
+                count++;
+                if (count > n / 3) {
+                    ans.add(num);
+                }
+            } else {
+                temp = num;
+                count = 1;
+            }
+        }
+        return ans;
+    }
+
 }
