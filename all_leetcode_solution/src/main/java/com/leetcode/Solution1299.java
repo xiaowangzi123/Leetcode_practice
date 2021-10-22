@@ -12,12 +12,13 @@ public class Solution1299 {
         Solution1299 obj = new Solution1299();
         int[] arr = {17, 18, 5, 4, 6, 1};
         System.out.println(Arrays.toString(obj.replaceElements(arr)));
+        System.out.println(Arrays.toString(obj.replaceElements2(arr)));
     }
 
     public int[] replaceElements(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
-            arr[i]=arr[i+1];
+            arr[i] = arr[i + 1];
             for (int j = i + 1; j < n; j++) {
                 if (arr[i] < arr[j]) {
                     arr[i] = arr[j];
@@ -26,5 +27,15 @@ public class Solution1299 {
         }
         arr[n - 1] = -1;
         return arr;
+    }
+
+    public int[] replaceElements2(int[] arr) {
+        int n = arr.length;
+        int[] ans = new int[n];
+        ans[n - 1] = -1;
+        for (int i = n - 2; i >= 0; i--) {
+            ans[i] = Math.max(ans[i + 1], arr[i + 1]);
+        }
+        return ans;
     }
 }
