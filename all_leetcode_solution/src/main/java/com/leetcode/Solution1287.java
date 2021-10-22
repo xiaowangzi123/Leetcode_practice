@@ -15,6 +15,7 @@ public class Solution1287 {
         Solution1287 obj = new Solution1287();
         int[] arr = {1, 2, 2, 6, 6, 6, 6, 7, 10};
         System.out.println(obj.findSpecialInteger(arr));
+        System.out.println(obj.findSpecialInteger2(arr));
     }
 
     public int findSpecialInteger(int[] arr) {
@@ -26,6 +27,22 @@ public class Solution1287 {
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if (entry.getValue() > n / 4) {
                 return entry.getKey();
+            }
+        }
+        return -1;
+    }
+
+    public int findSpecialInteger2(int[] arr) {
+        int count = 0, temp = arr[0];
+        for (int num : arr) {
+            if (temp == num) {
+                count++;
+                if (count > arr.length / 4) {
+                    return num;
+                }
+            } else {
+                temp = num;
+                count = 1;
             }
         }
         return -1;
