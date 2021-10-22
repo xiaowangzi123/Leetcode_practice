@@ -24,6 +24,11 @@ public class Solution1313 {
                 nums[i]--;
             }
         }
-        return ans.stream().mapToInt(Integer::intValue).toArray();
+//        return ans.stream().mapToInt(Integer::intValue).toArray();
+        int[] arr = new int[ans.size()];
+        for (int i=0;i<ans.size();i++){
+            arr[i]=ans.get(i);
+        }
+        return arr;
     }
 }
