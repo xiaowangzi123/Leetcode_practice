@@ -12,7 +12,8 @@ public class Solution1299 {
         Solution1299 obj = new Solution1299();
         int[] arr = {17, 18, 5, 4, 6, 1};
         System.out.println(Arrays.toString(obj.replaceElements(arr)));
-        System.out.println(Arrays.toString(obj.replaceElements2(arr)));
+        int[] arr2 = {17, 18, 5, 4, 6, 1};
+        System.out.println(Arrays.toString(obj.replaceElements2(arr2)));
     }
 
     public int[] replaceElements(int[] arr) {
