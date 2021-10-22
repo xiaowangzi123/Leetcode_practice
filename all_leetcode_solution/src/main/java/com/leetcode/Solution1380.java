@@ -21,6 +21,8 @@ public class Solution1380 {
     /**
      * 在同一行的所有元素中最小
      * 在同一列的所有元素中最
+     * 1.rows[i]第i行最小的元素
+     * 2.cols[j]第j列最大的元素
      */
     public List<Integer> luckyNumbers(int[][] matrix) {
         List<Integer> ans = new ArrayList<>();
