@@ -13,7 +13,7 @@ public class Solution1260 {
     public static void main(String[] args) {
         Solution1260 obj = new Solution1260();
 //        int[][] grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        int[][] grid ={{3,8,1,9},{19,7,2,5},{4,6,11,10},{12,0,21,13}};
+        int[][] grid = {{3, 8, 1, 9}, {19, 7, 2, 5}, {4, 6, 11, 10}, {12, 0, 21, 13}};
         System.out.println(obj.shiftGrid(grid, 4));
     }
 
@@ -28,7 +28,7 @@ public class Solution1260 {
             }
         }
         while (k > 0) {
-            for (int i = arr.length - 1; i >0; i--) {
+            for (int i = arr.length - 1; i > 0; i--) {
                 int temp = arr[i];
                 arr[i] = arr[i - 1];
                 arr[i - 1] = temp;
@@ -37,9 +37,9 @@ public class Solution1260 {
         }
         index = 0;
         List<Integer> list = new ArrayList<>();
-        while (index < m*n) {
+        while (index < m * n) {
             list.add(arr[index]);
-            if (index % n == n-1) {
+            if (index % n == n - 1) {
                 ans.add(new ArrayList<>(list));
                 list.clear();
             }
