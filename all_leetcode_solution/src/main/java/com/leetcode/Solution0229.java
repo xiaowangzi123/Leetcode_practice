@@ -39,12 +39,12 @@ public class Solution0229 {
         for (int num : nums) {
             if (temp == num) {
                 count++;
-                if (count > n / 3) {
-                    ans.add(num);
-                }
             } else {
                 temp = num;
                 count = 1;
+            }
+            if (count > n / 3 && !ans.contains(num)) {
+                ans.add(num);
             }
         }
         return ans;
