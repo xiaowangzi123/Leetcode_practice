@@ -14,6 +14,7 @@ public class Solution0229 {
         int[] arr = {1, 2};
         System.out.println(obj.majorityElement(arr));
         System.out.println(obj.majorityElement2(arr));
+        System.out.println(obj.majorityElement3(arr));
     }
 
     public List<Integer> majorityElement(int[] nums) {
@@ -48,6 +49,24 @@ public class Solution0229 {
             }
         }
         return ans;
+    }
+
+    public List<Integer> majorityElement3(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length, count = 0, temp = nums[0];
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (temp == num) {
+                count++;
+            } else {
+                temp = num;
+                count = 1;
+            }
+            if (count > n / 3) {
+                set.add(num);
+            }
+        }
+        return new ArrayList<>(set);
     }
 
 }
