@@ -14,6 +14,7 @@ public class Solution1389 {
         Solution1389 obj = new Solution1389();
         int[] nums = {0, 1, 2, 3, 4}, index = {0, 1, 2, 2, 1};
         System.out.println(Arrays.toString(obj.createTargetArray(nums, index)));
+        System.out.println(Arrays.toString(obj.createTargetArray2(nums, index)));
     }
 
     public int[] createTargetArray(int[] nums, int[] index) {
@@ -25,6 +26,22 @@ public class Solution1389 {
         int[] ans = new int[n];
         for (int i = 0; i < n; i++) {
             ans[i] = list.get(i);
+        }
+        return ans;
+    }
+
+    public int[] createTargetArray2(int[] nums, int[] index) {
+        int n = index.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < index.length; i++) {
+            if (index[i] < i) {
+                for (int j = n - 1; j > index[i]; j--) {
+                    ans[j] = ans[j - 1];
+                }
+                ans[index[i]] = nums[i];
+            } else {
+                ans[i] = nums[i];
+            }
         }
         return ans;
     }
