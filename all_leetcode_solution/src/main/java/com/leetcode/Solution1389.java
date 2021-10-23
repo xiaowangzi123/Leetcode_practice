@@ -34,10 +34,13 @@ public class Solution1389 {
         int n = index.length;
         int[] ans = new int[n];
         for (int i = 0; i < index.length; i++) {
+            //如果有插入的情况
             if (index[i] < i) {
+                //数组整体后移一位
                 for (int j = n - 1; j > index[i]; j--) {
                     ans[j] = ans[j - 1];
                 }
+                //插入当前值
                 ans[index[i]] = nums[i];
             } else {
                 ans[i] = nums[i];
