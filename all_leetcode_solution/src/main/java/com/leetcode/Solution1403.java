@@ -14,6 +14,11 @@ public class Solution1403 {
         System.out.println(obj.minSubsequence(arr));
     }
 
+    /**
+     * 最小子序列之和大于剩余元素之和
+     * 要求元素之和最大，长度最短
+     * 所以应该选择较大的数，才能满足和最大的同时，所需要的元素数最少
+     */
     public List<Integer> minSubsequence(int[] nums) {
         List<Integer> ans = new ArrayList<>();
         int sum = 0, sum1 = 0;
