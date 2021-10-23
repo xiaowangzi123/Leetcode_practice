@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import java.util.Arrays;
+
 /**
  * @author :wyq
  * @date ：Created in 2021/10/23
@@ -10,13 +12,14 @@ public class Solution1437 {
         Solution1437 obj = new Solution1437();
         int[] arr = {1, 0, 0, 0, 1, 0, 0, 1};
         System.out.println(obj.kLengthApart(arr, 2));
+        System.out.println(obj.kLengthApart2(arr, 2));
     }
 
     public boolean kLengthApart(int[] nums, int k) {
         int index = -1;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 1) {
-                if (index != -1 && i - index - 1 < 2) {
+                if (index != -1 && i - index - 1 < k) {
                     return false;
                 }
                 index = i;
@@ -24,4 +27,20 @@ public class Solution1437 {
         }
         return true;
     }
+
+    public boolean kLengthApart2(int[] nums, int k) {
+        int index = -1, i = 0;
+        while (i < nums.length) {
+            if (nums[i] == 1) {
+                if (index >= 0 && i - index - 1 < k) {
+                    return false;
+                }
+                index = i;
+            }
+            i++;
+        }
+        return true;
+    }
+
+
 }
