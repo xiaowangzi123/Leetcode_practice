@@ -36,6 +36,12 @@ public class Solution1385 {
     }
 
 
+    /**
+     * 对数组2排序
+     * 找第一个大于arr1[i]的元素arr2[j]
+     * 用arr1[i]与arr2[j-1]的绝对值和d比较
+     * 以及用arr1[i]与arr2[j]的绝对值和d比较，两者都符合条件，则count加一
+     */
     public int findTheDistanceValue2(int[] arr1, int[] arr2, int d) {
         int count = 0, n2 = arr2.length;
         Arrays.sort(arr2);
