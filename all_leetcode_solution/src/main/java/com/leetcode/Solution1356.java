@@ -24,11 +24,9 @@ public class Solution1356 {
             temp[i][0] = arr[i];
             temp[i][1] = Integer.bitCount(arr[i]);
         }
-//        Arrays.sort(arr, (o1, o2) -> (map.get(o1).equals(map.get(o2)) ? (o1-o2) : (map.get(o1) - map.get(o2))));
-
-        Arrays.sort(temp, (a, b) -> (a[1] == b[1] ? a[1] - b[1] : a[0] - b[0]));
+        Arrays.sort(temp, (a, b) -> (a[1] == b[1] ? a[0] - b[0] : a[1] - b[1]));
         for (int i = 0; i < n; i++) {
-            arr[i]=temp[i][0];
+            arr[i] = temp[i][0];
         }
         return arr;
     }
