@@ -22,11 +22,13 @@ public class Solution1260 {
         int m = grid.length, n = grid[0].length;
         int[] arr = new int[m * n];
         int index = 0;
+        //二维数组转为一维数组
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 arr[index++] = grid[i][j];
             }
         }
+        //for循环每个元素向前移动一位，k表示执行k次循环
         while (k > 0) {
             for (int i = arr.length - 1; i > 0; i--) {
                 int temp = arr[i];
@@ -37,6 +39,7 @@ public class Solution1260 {
         }
         index = 0;
         List<Integer> list = new ArrayList<>();
+        //一位数组转为二维数组
         while (index < m * n) {
             list.add(arr[index]);
             if (index % n == n - 1) {
