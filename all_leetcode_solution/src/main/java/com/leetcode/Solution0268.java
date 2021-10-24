@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/9
- * @description :
+ * @description : 丢失的数字
  */
 public class Solution0268 {
     public static void main(String[] args) {
@@ -26,13 +26,17 @@ public class Solution0268 {
         System.out.println("-------------------------");
         System.out.println(1 ^ 1);
         System.out.println(1 ^ 0);
-        System.out.println(0 ^ 1);
+        System.out.println(1 ^ 9);
+        System.out.println(0 ^ 2);
         System.out.println(0 ^ 0);
         System.out.println(1 ^ 1 ^ 2);
 
     }
 
-    //
+    /**
+     * 长度为n,不缺少数字时，和为n(n+1)/2
+     * 减去数组长度即为缺失的数字
+     */
     public int missingNumber(int[] nums) {
         int len = nums.length;
         int sum = len * (len + 1) / 2;
@@ -42,13 +46,16 @@ public class Solution0268 {
         return sum;
     }
 
+    /**
+     * ^相同为0，相异为1
+     */
     public int missingNumber2(int[] nums) {
-//        Arrays.sort(nums);
-        int tem = 0, i = 0;
+        Arrays.sort(nums);
+        int temp = 0, i = 0;
         for (; i < nums.length; i++) {
-            tem = tem ^ i ^ nums[i];
+            temp ^= i ^ nums[i];
         }
-        return tem ^ i;
+        return temp ^ i;
     }
 
     public int missingNumber3(int[] nums) {
