@@ -11,7 +11,7 @@ import java.util.Comparator;
 public class Solution1030 {
     public static void main(String[] args) {
         Solution1030 obj = new Solution1030();
-        System.out.println(Arrays.deepToString(obj.allCellsDistOrder2(1, 2, 0, 0)));
+        System.out.println(Arrays.deepToString(obj.allCellsDistOrder(1, 2, 0, 0)));
     }
 
     public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
