@@ -20,7 +20,9 @@ public class Solution0520 {
      * 第1个是大写，第0个不能出现小写
      */
     public boolean detectCapitalUse(String word) {
-
+        if (word.length()<2){
+            return true;
+        }
         boolean flag = Character.isUpperCase(word.charAt(1));
         for (int i = 2; i < word.length(); i++) {
             if (flag) {
