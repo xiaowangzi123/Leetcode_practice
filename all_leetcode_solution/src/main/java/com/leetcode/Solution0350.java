@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/9
- * @description :
+ * @description : 两个数组的交集 II
  */
 public class Solution0350 {
     public static void main(String[] args) {
@@ -57,12 +57,12 @@ public class Solution0350 {
             }
         }
 
-        return res.stream().mapToInt(i -> i).toArray();
-        /*int[] arr = new int[res.size()];
+//        return res.stream().mapToInt(i -> i).toArray();
+        int[] arr = new int[res.size()];
         for (int x = 0; x < res.size(); x++) {
             arr[x] = (int) res.get(x);
         }
-        return arr;*/
+        return arr;
     }
 
     public int[] intersect3(int[] nums1, int[] nums2) {
