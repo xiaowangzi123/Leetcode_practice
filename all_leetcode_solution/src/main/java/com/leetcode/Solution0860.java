@@ -1,15 +1,12 @@
 package com.leetcode;
 
-import java.lang.reflect.MalformedParameterizedTypeException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * @author :wyq
  * @date ：Created in 2021/10/17
- * @description :
+ * @description : 柠檬水找零
  */
 public class Solution0860 {
     public static void main(String[] args) {
