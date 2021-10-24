@@ -10,6 +10,7 @@ import javafx.beans.binding.When;
 public class Solution0520 {
     public static void main(String[] args) {
         Solution0520 obj = new Solution0520();
+//        System.out.println(obj.detectCapitalUse("D"));
         System.out.println(obj.detectCapitalUse("D"));
     }
 
@@ -20,20 +21,17 @@ public class Solution0520 {
      * 第1个是大写，第0个不能出现小写
      */
     public boolean detectCapitalUse(String word) {
-        if (word.length()<2){
+        if (word.length() < 2) {
             return true;
         }
         boolean flag = Character.isUpperCase(word.charAt(1));
-        for (int i = 2; i < word.length(); i++) {
+        for (int i = 0; i < word.length(); i++) {
             if (flag) {
-                if (Character.isLowerCase(word.charAt(0))) {
+                if (i != 1 && Character.isLowerCase(word.charAt(i))) {
                     return false;
                 }
-                if (Character.isLowerCase(word.charAt(i))) {
-                    return false;
-                }
-            }else {
-                if (Character.isUpperCase(word.charAt(i))){
+            } else {
+                if (i > 1 && Character.isUpperCase(word.charAt(i))) {
                     return false;
                 }
             }
