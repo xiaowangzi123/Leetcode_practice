@@ -13,12 +13,13 @@ public class Solution1624 {
         Solution1624 obj = new Solution1624();
         System.out.println(obj.maxLengthBetweenEqualCharacters("abca"));
         System.out.println(obj.maxLengthBetweenEqualCharacters("cbzxy"));
-        
+
         System.out.println("-------------");
         String st = "abcdefa";
         System.out.println(st.indexOf("a"));
-        System.out.println(st.indexOf("g"));
         System.out.println(st.lastIndexOf("a"));
+        System.out.println(st.indexOf("b"));
+        System.out.println(st.lastIndexOf("b"));
     }
 
 
@@ -26,11 +27,8 @@ public class Solution1624 {
         int max = -1;
         for (char ch : s.toCharArray()) {
             int index = s.indexOf(ch), index2 = s.lastIndexOf(ch);
-            if (index2 != -1) {
-                max = Math.max(max, index2 - index - 1);
-            }
+            max = Math.max(max, index2 - index - 1);
         }
-
         return max;
     }
 }

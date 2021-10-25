@@ -6,7 +6,7 @@ import java.util.logging.Level;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/13
- * @description :两个相同字符之间的最长子字符串
+ * @description :按照频率将数组升序排序
  */
 public class Solution1636 {
     public static void main(String[] args) {
