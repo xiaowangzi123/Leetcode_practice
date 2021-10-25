@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/17
- * @description：
+ * @description ：搜索二维矩阵 II
  */
 public class Solution0240 {
     public static void main(String[] args) {
@@ -15,6 +15,9 @@ public class Solution0240 {
                 {18, 21, 23, 26, 30}};
         System.out.println(ojb.searchMatrix(matrix, 19));
         System.out.println(ojb.searchMatrix2(matrix, 19));
+
+        int[][] matrix2 = {{1, 1}};
+        System.out.println(ojb.searchMatrix3(matrix, 17));
     }
 
     public boolean searchMatrix(int[][] matrix, int target) {
@@ -28,6 +31,9 @@ public class Solution0240 {
         return false;
     }
 
+    /**
+     * 二分查找
+     */
     public boolean searchMatrix2(int[][] matrix, int target) {
         int column = 0, row = matrix.length - 1;
         while (row >= 0 && column < matrix[0].length) {
@@ -37,6 +43,20 @@ public class Solution0240 {
                 column++;
             } else {
                 return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean searchMatrix3(int[][] matrix, int target) {
+        int i = 0, j = matrix[0].length - 1;
+        while (j >= 0 && i < matrix.length) {
+            if (matrix[i][j] == target) {
+                return true;
+            } else if (matrix[i][j] > target) {
+                j--;
+            } else {
+                i++;
             }
         }
         return false;

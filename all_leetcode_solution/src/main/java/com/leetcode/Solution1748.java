@@ -18,6 +18,7 @@ public class Solution1748 {
     }
 
 
+    //出现一次的元素，相加之和
     public int sumOfUnique(int[] nums) {
         int sum = 0;
         Map<Integer, Integer> map = new HashMap<>();
