@@ -10,7 +10,7 @@ public class Solution0541 {
         Solution0541 obj = new Solution0541();
         String s = "abcdefg";
         System.out.println(obj.reverseStr(s, 2));
-        System.out.println(s.substring(6,7));
+        System.out.println(obj.reverseStr2(s, 2));
 
     }
 
