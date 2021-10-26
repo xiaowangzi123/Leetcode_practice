@@ -12,7 +12,8 @@ import java.util.List;
 public class Solution0696 {
     public static void main(String[] args) {
         Solution0696 obj = new Solution0696();
-        System.out.println(obj.countBinarySubstrings("00110001111"));
+        System.out.println(obj.countBinarySubstrings("101"));
+        System.out.println(obj.countBinarySubstrings("00110011"));
     }
 
     /**
@@ -30,8 +31,14 @@ public class Solution0696 {
                 temp = s.charAt(i);
                 index = 1;
             }
+            if (i == s.length() - 1) {
+                list.add(index);
+            }
         }
 
+        for (int i = 1; i < list.size(); i++) {
+            count += Math.min(list.get(i - 1), list.get(i));
+        }
         return count;
     }
 }
