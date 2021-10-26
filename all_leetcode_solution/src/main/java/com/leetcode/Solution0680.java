@@ -12,24 +12,21 @@ public class Solution0680 {
 //        String s = "aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga";
         String s = "cupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupucu";
         System.out.println(obj.validPalindrome(s));
+        System.out.println("abcdefg".substring(1, 7));
     }
 
     public boolean validPalindrome(String s) {
-        boolean b1 = false, b2 = false;
         int i = 0, j = s.length() - 1;
         while (i < j) {
-            if (s.charAt(i) == s.charAt(j)) {
-                i++;
-                j--;
-            } else if (s.charAt(i + 1) == s.charAt(j)) {
-                b1 = isPalindrome(s.substring(i + 1, j));
-            } else if (s.charAt(i) == s.charAt(j - 1)) {
-                b2 = isPalindrome(s.substring(i, j - 1));
-            } else {
-                return false;
+            if (s.charAt(i) != s.charAt(j)) {
+                String s1 = s.substring(i + 1, j);
+                String s2 = s.substring(i, j - 1);
+                return isPalindrome(s1) || isPalindrome(s2);
             }
+            i++;
+            j--;
         }
-        return b1||b2;
+        return true;
     }
 
 
