@@ -15,6 +15,7 @@ public class Solution0696 {
         System.out.println(obj.countBinarySubstrings("101"));
         System.out.println(obj.countBinarySubstrings("00110011"));
         System.out.println(obj.countBinarySubstrings2("00110011"));
+        System.out.println(obj.countBinarySubstrings3("00110011"));
     }
 
     /**
@@ -58,6 +59,21 @@ public class Solution0696 {
         int ans = 0;
         for (int i = 1; i < list.size(); i++) {
             ans += Math.min(list.get(i - 1), list.get(i));
+        }
+        return ans;
+    }
+
+    public int countBinarySubstrings3(String s) {
+        int ans = 0, index = 0, pre = 0, n = s.length();
+        while (index < n) {
+            int count = 0;
+            char temp = s.charAt(index);
+            while (index < n && temp == s.charAt(index)) {
+                index++;
+                count++;
+            }
+            ans += Math.min(pre, count);
+            pre = count;
         }
         return ans;
     }
