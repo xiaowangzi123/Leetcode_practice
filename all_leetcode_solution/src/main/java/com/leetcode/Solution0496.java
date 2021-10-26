@@ -10,10 +10,11 @@ import java.util.*;
 public class Solution0496 {
     public static void main(String[] args) {
         Solution0496 obj = new Solution0496();
-//        int[] nums1 = {4, 1, 2}, nums2 = {1, 3, 4, 2};
-        int[] nums1 = {7, 1, 2}, nums2 = {2, 3, 5, 1, 0, 7, 6};
+        int[] nums1 = {4, 1, 2}, nums2 = {1, 3, 4, 2};
+//        int[] nums1 = {7, 1, 2}, nums2 = {2, 3, 5, 1, 0, 7, 6};
         System.out.println(Arrays.toString(obj.nextGreaterElement(nums1, nums2)));
         System.out.println(Arrays.toString(obj.nextGreaterElement2(nums1, nums2)));
+        System.out.println(Arrays.toString(obj.nextGreaterElement3(nums1, nums2)));
     }
 
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
@@ -61,5 +62,22 @@ public class Solution0496 {
         }
 
         return ans;
+    }
+
+    public int[] nextGreaterElement3(int[] nums1, int[] nums2) {
+        int n1 = nums1.length, n2 = nums2.length;
+        int[] res = new int[n1];
+        for (int i = 0; i < n1; i++) {
+            int j = 0;
+            while (j < n2 && nums1[i] != nums2[j]) {
+                j++;
+            }
+            int k = j + 1;
+            while (k < n2 && nums2[k] < nums1[i]) {
+                k++;
+            }
+            res[i] = k < n2 ? nums2[k] : -1;
+        }
+        return res;
     }
 }
