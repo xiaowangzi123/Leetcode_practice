@@ -19,8 +19,8 @@ public class Solution0680 {
         int i = 0, j = s.length() - 1;
         while (i < j) {
             if (s.charAt(i) != s.charAt(j)) {
-                String s1 = s.substring(i + 1, j);
-                String s2 = s.substring(i, j - 1);
+                String s1 = s.substring(i + 1, j + 1);
+                String s2 = s.substring(i, j);
                 return isPalindrome(s1) || isPalindrome(s2);
             }
             i++;
