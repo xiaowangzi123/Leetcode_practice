@@ -9,15 +9,23 @@ public class Solution0541 {
     public static void main(String[] args) {
         Solution0541 obj = new Solution0541();
         String s = "abcdefg";
-        System.out.println(obj.reverseStr(s,2));
+        System.out.println(obj.reverseStr(s, 2));
+        System.out.println(s.substring(6,7));
+
     }
 
     public String reverseStr(String s, int k) {
-        StringBuilder sb = new StringBuilder();
-        for (int i=k-1;i>=0;i--){
-            sb.append(s.charAt(i));
+        StringBuilder ans = new StringBuilder();
+        int n = s.length(), j = 0;
+        while (j <= n / k) {
+            if (j % 2 == 0) {
+                StringBuilder temp = new StringBuilder(s.substring(j * k, Math.min(j * k + k, n)));
+                ans.append(temp.reverse());
+            } else {
+                ans.append(s, j * k, Math.min(j * k + k, n));
+            }
+            j++;
         }
-        sb.append(s.substring(k));
-        return sb.toString();
+        return ans.toString();
     }
 }
