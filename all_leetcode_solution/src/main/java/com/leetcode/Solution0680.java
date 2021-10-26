@@ -12,7 +12,6 @@ public class Solution0680 {
 //        String s = "aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga";
         String s = "cupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupucu";
         System.out.println(obj.validPalindrome(s));
-        System.out.println("abcdefg".substring(1, 7));
     }
 
     public boolean validPalindrome(String s) {
