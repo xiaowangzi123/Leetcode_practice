@@ -72,11 +72,11 @@ public class Solution0496 {
             while (j < n2 && nums1[i] != nums2[j]) {
                 j++;
             }
-            int k = j + 1;
-            while (k < n2 && nums2[k] < nums1[i]) {
-                k++;
+            j++;
+            while (j < n2 && nums2[j] < nums1[i]) {
+                j++;
             }
-            res[i] = k < n2 ? nums2[k] : -1;
+            res[i] = j < n2 ? nums2[j] : -1;
         }
         return res;
     }
