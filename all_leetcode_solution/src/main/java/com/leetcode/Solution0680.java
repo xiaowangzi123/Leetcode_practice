@@ -15,23 +15,34 @@ public class Solution0680 {
     }
 
     public boolean validPalindrome(String s) {
-        int i = 0, j = s.length() - 1, count = 0;
+        boolean b1 = false, b2 = false;
+        int i = 0, j = s.length() - 1;
         while (i < j) {
             if (s.charAt(i) == s.charAt(j)) {
                 i++;
                 j--;
             } else if (s.charAt(i + 1) == s.charAt(j)) {
-                count++;
-                i += 2;
-                j--;
+                b1 = isPalindrome(s.substring(i + 1, j));
             } else if (s.charAt(i) == s.charAt(j - 1)) {
-                count++;
-                i++;
-                j -= 2;
+                b2 = isPalindrome(s.substring(i, j - 1));
             } else {
                 return false;
             }
         }
-        return count < 2;
+        return b1||b2;
+    }
+
+
+    //判断是否为回文字符
+    public boolean isPalindrome(String s) {
+        int l = 0, r = s.length() - 1;
+        while (l < r) {
+            if (s.charAt(l) != s.charAt(r)) {
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
     }
 }
