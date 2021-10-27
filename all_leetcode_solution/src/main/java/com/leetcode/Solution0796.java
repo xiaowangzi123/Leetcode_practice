@@ -8,7 +8,7 @@ package com.leetcode;
 public class Solution0796 {
     public static void main(String[] args) {
         Solution0796 obj = new Solution0796();
-        String s = "abcde", goal = "cdeab";
+        String s = "abcde", goal = "bcdea";
         System.out.println(obj.rotateString(s, goal));
     }
 
@@ -18,8 +18,8 @@ public class Solution0796 {
             return false;
         }
         int k = 0;
-        boolean flag = true;
         while (k < n) {
+            boolean flag = true;
             for (int i = 0; i < n; i++) {
                 if (s.charAt((i + k) % n) != goal.charAt(i)) {
                     flag = false;
