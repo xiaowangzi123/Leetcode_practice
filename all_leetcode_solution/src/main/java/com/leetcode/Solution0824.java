@@ -1,6 +1,7 @@
 package com.leetcode;
 
 import java.nio.channels.SeekableByteChannel;
+import java.util.Arrays;
 
 /**
  * @author :wyq
@@ -16,7 +17,7 @@ public class Solution0824 {
 
     public String toGoatLatin(String sentence) {
         String[] strs = sentence.split(" ");
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         for (int i = 0; i < strs.length; i++) {
             char ch = Character.toLowerCase(strs[i].charAt(0));
             if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
@@ -24,13 +25,17 @@ public class Solution0824 {
             } else {
                 strs[i] = strs[i].substring(1) + strs[i].charAt(0) + "ma";
             }
+            ans.append(strs[i]);
             int count = i + 1;
             while (count > 0) {
-                ans += 'a';
+                ans.append('a');
                 count--;
+            }
+            if (i!=strs.length-1){
+                ans.append(" ");
             }
         }
 
-        return ans;
+        return ans.toString();
     }
 }
