@@ -21,21 +21,21 @@ public class Solution0824 {
         for (int i = 0; i < strs.length; i++) {
             char ch = Character.toLowerCase(strs[i].charAt(0));
             if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
-                strs[i] += "ma";
+                ans.append(strs[i]);
             } else {
-                strs[i] = strs[i].substring(1) + strs[i].charAt(0) + "ma";
+                ans.append(strs[i].substring(1));
+                ans.append(strs[i].charAt(0));
             }
-            ans.append(strs[i]);
+            ans.append("ma");
             int count = i + 1;
             while (count > 0) {
                 ans.append('a');
                 count--;
             }
-            if (i!=strs.length-1){
+            if (i != strs.length - 1) {
                 ans.append(" ");
             }
         }
-
         return ans.toString();
     }
 }
