@@ -12,8 +12,8 @@ import java.util.Set;
 public class Solution0869 {
     public static void main(String[] args) {
         Solution0869 obj = new Solution0869();
+        System.out.println(obj.reorderedPowerOf2(10));
         System.out.println(obj.reorderedPowerOf22(16));
-        System.out.println(obj.reorderedPowerOf22(10));
         Set<String> set = new HashSet<>();
         char[] ch1 = {'1', '2'};
         char[] ch2 = {'3', '2'};
@@ -43,17 +43,21 @@ public class Solution0869 {
         for (String s : set) {
             String temp = String.valueOf(n);
             char[] chs = temp.toCharArray();
-            boolean flag = true;
+            Arrays.sort(chs);
             if (s.length() == chs.length) {
-                for (int i = 0; i < s.length(); i++) {
-                    if (s.charAt(i) != chs[i]) {
+                boolean flag = true;
+                char[] sChar = s.toCharArray();
+                Arrays.sort(sChar);
+                for (int i = 0; i < sChar.length; i++) {
+                    if (sChar[i] != chs[i]) {
                         flag = false;
                     }
                 }
+                if (flag) {
+                    return true;
+                }
             }
-            if (flag) {
-                return true;
-            }
+
         }
 
         return false;
