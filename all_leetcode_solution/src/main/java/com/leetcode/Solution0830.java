@@ -11,21 +11,21 @@ import java.util.List;
 public class Solution0830 {
     public static void main(String[] args) {
         Solution0830 obj = new Solution0830();
-        String s = "abbxxxxzzy";
+        String s = "aaa";
         System.out.println(obj.largeGroupPositions(s));
+        String s1 = "abbxxxxzzy";
+        System.out.println(obj.largeGroupPositions(s1));
     }
 
     public List<List<Integer>> largeGroupPositions(String s) {
         List<List<Integer>> ans = new ArrayList<>();
-        int n = s.length(), i = 0, start = 0;
-        char temp = s.charAt(0);
+        int n = s.length(), i = 0, start = -1;
         while (i < n) {
             List<Integer> list = new ArrayList<>();
-            if (temp != s.charAt(i)) {
-                temp = s.charAt(i);
+            if (i == n - 1 || s.charAt(i) != s.charAt(i + 1)) {
                 if (i - start > 2) {
-                    list.add(start);
-                    list.add(i - 1);
+                    list.add(start + 1);
+                    list.add(i);
                     ans.add(list);
                 }
                 start = i;
