@@ -32,7 +32,6 @@ public class Solution0830 {
             }
             i++;
         }
-
         return ans;
     }
 }
