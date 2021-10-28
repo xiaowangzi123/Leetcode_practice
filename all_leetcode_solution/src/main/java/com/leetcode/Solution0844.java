@@ -8,7 +8,8 @@ package com.leetcode;
 public class Solution0844 {
     public static void main(String[] args) {
         Solution0844 obj = new Solution0844();
-        String s = "ab#c", t = "ad#c";
+//        String s = "ab#c", t = "ad#c";
+        String s = "y#fo##f", t = "y#f#o##f";
         System.out.println(obj.backspaceCompare(s, t));
         System.out.println(s.substring(0, 2));
     }
@@ -20,8 +21,10 @@ public class Solution0844 {
     public String getNewString(String s) {
         StringBuilder sb = new StringBuilder();
         for (char ch : s.toCharArray()) {
-            if (ch == '#' && sb.length() > 0) {
-                sb.deleteCharAt(sb.length() - 1);
+            if (ch == '#') {
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
             } else {
                 sb.append(ch);
             }
