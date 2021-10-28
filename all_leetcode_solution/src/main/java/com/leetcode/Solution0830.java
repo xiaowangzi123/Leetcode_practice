@@ -12,9 +12,9 @@ public class Solution0830 {
     public static void main(String[] args) {
         Solution0830 obj = new Solution0830();
         String s = "aaa";
-        System.out.println(obj.largeGroupPositions(s));
+        System.out.println(obj.largeGroupPositions2(s));
         String s1 = "abbxxxxzzy";
-        System.out.println(obj.largeGroupPositions(s1));
+        System.out.println(obj.largeGroupPositions2(s1));
     }
 
     public List<List<Integer>> largeGroupPositions(String s) {
@@ -31,6 +31,25 @@ public class Solution0830 {
                 start = i;
             }
             i++;
+        }
+        return ans;
+    }
+
+    public List<List<Integer>> largeGroupPositions2(String s) {
+        List<List<Integer>> ans = new ArrayList<>();
+        int n = s.length(), i = 0, count = 1;
+        while (i < n) {
+            List<Integer> list = new ArrayList<>();
+            if (i == n - 1 || s.charAt(i) != s.charAt(i + 1)) {
+                if (count > 2) {
+                    list.add(i - count + 1);
+                    list.add(i);
+                    ans.add(list);
+                }
+                count = 0;
+            }
+            i++;
+            count++;
         }
         return ans;
     }
