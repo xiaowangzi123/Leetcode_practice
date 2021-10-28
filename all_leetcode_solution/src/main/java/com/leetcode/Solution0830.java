@@ -46,10 +46,20 @@ public class Solution0830 {
                     list.add(i);
                     ans.add(list);
                 }
-                count = 0;
+                count = 1;
+            } else {
+                count++;
             }
             i++;
-            count++;
+        }
+        return ans;
+    }
+
+    public List<List<Integer>> largeGroupPositions3(String s) {
+        List<List<Integer>> ans = new ArrayList<>();
+        int n = s.length(), count = 1;
+        for (int i = 0; i < n; i++) {
+
         }
         return ans;
     }
