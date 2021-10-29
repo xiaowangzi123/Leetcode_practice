@@ -9,7 +9,7 @@ public class Solution0925 {
     public static void main(String[] args) {
         Solution0925 obj = new Solution0925();
 //        String name = "alex", typed = "aaleex";
-        String name = "saeed", typed = "ssaaedd";
+        String name = "saeed", typed = "ssaaeeedd";
 //        String name = "laiden", typed = "laidene";
         System.out.println(obj.isLongPressedName(name, typed));
     }
