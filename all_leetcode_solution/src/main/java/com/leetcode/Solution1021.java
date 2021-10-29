@@ -13,9 +13,10 @@ public class Solution1021 {
     public static void main(String[] args) {
         Solution1021 obj = new Solution1021();
         String st = "(()())(())";
+        System.out.println(obj.removeOuterParentheses(st));
         System.out.println(obj.removeOuterParentheses2(st));
         System.out.println("---------------");
-        System.out.println(obj.removeOuterParentheses3("(()())(())"));
+        System.out.println(obj.removeOuterParentheses3("(()())(())(()(()))"));
     }
 
     public String removeOuterParentheses(String s) {
@@ -25,7 +26,7 @@ public class Solution1021 {
             if (c == ')') {
                 count--;
             }
-            if (count >= 1) {
+            if (count > 0) {
                 sb.append(c);
             }
             if (c == '(') {
@@ -35,6 +36,9 @@ public class Solution1021 {
         return sb.toString();
     }
 
+    /**
+     * 跳过最外层的括号
+     */
     public String removeOuterParentheses2(String s) {
         StringBuilder sb = new StringBuilder();
         int count = 0;
@@ -55,21 +59,26 @@ public class Solution1021 {
         return sb.toString();
     }
 
+    /**
+     * 1.遇到左括号(就入栈当前index
+     * 2.遇到右括号)就弹出栈顶元素
+     * 3.栈为空表明符合条件,截取中间对应的字符串
+     */
     public String removeOuterParentheses3(String s) {
 //        ArrayDeque<Integer> stack = new ArrayDeque<>();
         LinkedList<Integer> stack = new LinkedList<>();
-        StringBuilder ret = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {
                 stack.add(i);
             } else {
-                int temp = stack.removeLast();
+                int index = stack.removeLast();
                 if (stack.isEmpty()) {
-                    ret.append(s, temp + 1, i);
+                    sb.append(s, index + 1, i);
                 }
             }
         }
-        return ret.toString();
+        return sb.toString();
     }
 
 
