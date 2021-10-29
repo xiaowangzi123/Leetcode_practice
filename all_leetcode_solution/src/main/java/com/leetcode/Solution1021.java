@@ -1,5 +1,6 @@
 package com.leetcode;
 
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -55,13 +56,14 @@ public class Solution1021 {
     }
 
     public String removeOuterParentheses3(String s) {
+//        ArrayDeque<Integer> stack = new ArrayDeque<>();
         LinkedList<Integer> stack = new LinkedList<>();
         StringBuilder ret = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {
                 stack.add(i);
             } else {
-                int temp = stack.removeFirst();
+                int temp = stack.removeLast();
                 if (stack.isEmpty()) {
                     ret.append(s, temp + 1, i);
                 }
@@ -69,4 +71,6 @@ public class Solution1021 {
         }
         return ret.toString();
     }
+
+
 }
