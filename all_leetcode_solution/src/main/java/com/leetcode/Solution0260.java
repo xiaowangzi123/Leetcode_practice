@@ -1,9 +1,7 @@
 package com.leetcode;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author :wyq
@@ -15,6 +13,7 @@ public class Solution0260 {
         Solution0260 obj = new Solution0260();
         int[] arr = {1, 2, 1, 3, 2, 5};
         System.out.println(Arrays.toString(obj.singleNumber(arr)));
+        System.out.println(Arrays.toString(obj.singleNumber2(arr)));
     }
 
     public int[] singleNumber(int[] nums) {
@@ -30,6 +29,21 @@ public class Solution0260 {
                 ans[i] = entry.getKey();
                 i++;
             }
+        }
+        return ans;
+    }
+
+    public int[] singleNumber2(int[] nums) {
+        int[] ans = new int[2];
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (!set.add(num)) {
+                set.remove(num);
+            }
+        }
+        int i = 0;
+        for (int s : set) {
+            ans[i++] = s;
         }
         return ans;
     }
