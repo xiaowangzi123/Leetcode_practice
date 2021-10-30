@@ -17,12 +17,16 @@ public class Solution1047 {
     public String removeDuplicates(String s) {
         ArrayDeque<Character> stack = new ArrayDeque<>();
         for (char i : s.toCharArray()) {
-            if (!stack.isEmpty() && stack.peekLast()==i){
+            if (!stack.isEmpty() && stack.peekLast() == i) {
                 stack.pollLast();
-            }else {
+            } else {
                 stack.add(i);
             }
         }
-        return stack.toString();
+        StringBuilder sb = new StringBuilder();
+        for (char ch:stack){
+            sb.append(ch);
+        }
+        return sb.toString();
     }
 }
