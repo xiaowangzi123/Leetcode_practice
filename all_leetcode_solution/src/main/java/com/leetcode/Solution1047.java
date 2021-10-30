@@ -12,6 +12,7 @@ public class Solution1047 {
         Solution1047 obj = new Solution1047();
         String s = "abbaca";
         System.out.println(obj.removeDuplicates(s));
+        System.out.println(obj.removeDuplicates2(s));
     }
 
     public String removeDuplicates(String s) {
@@ -26,6 +27,18 @@ public class Solution1047 {
         StringBuilder sb = new StringBuilder();
         for (char ch:stack){
             sb.append(ch);
+        }
+        return sb.toString();
+    }
+
+    public String removeDuplicates2(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char i : s.toCharArray()) {
+            if (sb.length()>0 && sb.charAt(sb.length()-1)==i) {
+                sb.deleteCharAt(sb.length()-1);
+            } else {
+                sb.append(i);
+            }
         }
         return sb.toString();
     }
