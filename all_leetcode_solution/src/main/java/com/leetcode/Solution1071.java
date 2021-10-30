@@ -19,8 +19,7 @@ public class Solution1071 {
             return "";
         }
         int index = gongYueShu(str1.length(), str2.length());
-        String ans = str1.substring(0, index);
-        return ans;
+        return str1.substring(0, index);
     }
 
     public int gongYueShu(int a, int b) {
