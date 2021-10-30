@@ -14,7 +14,26 @@ public class Solution1071 {
         System.out.println(ans);
     }
 
+
     public String gcdOfStrings(String str1, String str2) {
+        int len1 = str1.length(), len2 = str2.length();
+        String temp = str1.substring(0, gongYueShu(len1, len2));
+        if (check(temp, str1) && check(temp, str2)) {
+            return temp;
+        }
+        return "";
+    }
+
+    public boolean check(String t, String s) {
+        int len = s.length() / t.length();
+        StringBuffer ans = new StringBuffer();
+        for (int i = 1; i <= len; ++i) {
+            ans.append(t);
+        }
+        return ans.toString().equals(s);
+    }
+
+    public String gcdOfStrings2(String str1, String str2) {
         if (!(str1 + str2).equals(str2 + str1)) {
             return "";
         }
