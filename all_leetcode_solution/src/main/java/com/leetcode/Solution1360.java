@@ -7,13 +7,14 @@ import java.util.Calendar;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/31
- * @description : 日期之间隔几天cxxc
+ * @description : 日期之间隔几天
  */
 public class Solution1360 {
     public static void main(String[] args) {
         Solution1360 obj = new Solution1360();
 //        String date1 = "2019-06-29", date2 = "2019-06-30";
-        String date1 = "2020-01-15", date2 = "2019-12-31";
+//        String date1 = "2020-01-15", date2 = "2019-12-31";
+        String date1 = "2023-01-13", date2 = "2044-02-11";
         System.out.println(obj.daysBetweenDates(date1, date2));
     }
 
@@ -31,12 +32,16 @@ public class Solution1360 {
 
     public int getSumsOfDate(String date) {
         String[] d = date.split("-");
-        int count = 0, year = Integer.valueOf(d[0]), month = Integer.valueOf(d[1]), day = Integer.valueOf(d[2]);
+        int year = Integer.valueOf(d[0]);
+        int month = Integer.valueOf(d[1]);
+        int day = Integer.valueOf(d[2]);
         int[] months = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
         if (isLeapYear(year)) {
             months[1] = 29;
         }
+
+        int count = 0;
         for (int i = 1971; i < year; i++) {
             if (isLeapYear(i)) {
                 count += 366;
