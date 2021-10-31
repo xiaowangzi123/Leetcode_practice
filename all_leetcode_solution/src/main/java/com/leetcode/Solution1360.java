@@ -12,12 +12,13 @@ import java.util.Calendar;
 public class Solution1360 {
     public static void main(String[] args) {
         Solution1360 obj = new Solution1360();
-        String date1 = "2019-06-29", date2 = "2019-06-30";
+//        String date1 = "2019-06-29", date2 = "2019-06-30";
+        String date1 = "2020-01-15", date2 = "2019-12-31";
         System.out.println(obj.daysBetweenDates(date1, date2));
     }
 
     public int daysBetweenDates(String date1, String date2) {
-        return Math.abs(getSumsOfDate(date1)-getSumsOfDate(date2));
+        return Math.abs(getSumsOfDate(date1) - getSumsOfDate(date2));
     }
 
 
@@ -32,11 +33,12 @@ public class Solution1360 {
         String[] d = date.split("-");
         int count = 0, year = Integer.valueOf(d[0]), month = Integer.valueOf(d[1]), day = Integer.valueOf(d[2]);
         int[] months = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
         if (isLeapYear(year)) {
             months[1] = 29;
         }
-        for (int i = 1970; i < year; i++) {
-            if (isLeapYear(year)) {
+        for (int i = 1971; i < year; i++) {
+            if (isLeapYear(i)) {
                 count += 366;
             } else {
                 count += 365;
@@ -44,9 +46,6 @@ public class Solution1360 {
         }
 
         for (int i = 1; i < month; i++) {
-            if (i == 1 && isLeapYear(year)) {
-                count += 1;
-            }
             count += months[i - 1];
         }
 
