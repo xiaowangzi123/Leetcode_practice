@@ -12,6 +12,7 @@ public class Solution1550 {
         int[] arr = {1, 2, 34, 3, 4, 5, 7, 23, 12};
         System.out.println(obj.threeConsecutiveOdds(arr));
         System.out.println(obj.threeConsecutiveOdds2(arr));
+        System.out.println(obj.threeConsecutiveOdds3(arr));
     }
 
     public boolean threeConsecutiveOdds(int[] arr) {
@@ -35,6 +36,21 @@ public class Solution1550 {
                 count = 0;
             }
             index++;
+        }
+        return false;
+    }
+
+    public boolean threeConsecutiveOdds3(int[] arr) {
+        int count = 0;
+        for (int i : arr) {
+            if (i % 2 == 1) {
+                count++;
+                if (count >= 3) {
+                    return true;
+                }
+            } else {
+                count = 0;
+            }
         }
         return false;
     }
