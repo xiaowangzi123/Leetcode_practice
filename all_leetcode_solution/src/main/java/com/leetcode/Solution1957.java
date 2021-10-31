@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author :wyq
  * @date ：Created in 2021/11/1
@@ -13,7 +16,7 @@ public class Solution1957 {
     }
 
     public String makeFancyString(String s) {
-        if (s.length()<3){
+        if (s.length() < 3) {
             return s;
         }
         StringBuilder sb = new StringBuilder();
@@ -27,4 +30,5 @@ public class Solution1957 {
 
         return sb.toString();
     }
+
 }
