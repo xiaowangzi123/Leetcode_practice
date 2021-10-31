@@ -60,6 +60,7 @@ public class Solution1360 {
     }
 
 
+    //效率并没有实质的变化，反而增加了空间开销
     public int daysBetweenDates2(String date1, String date2) {
         String[] d1 = date1.split("-"), d2 = date2.split("-");
         int year1 = Integer.valueOf(d1[0]), year2 = Integer.valueOf(d2[0]);
