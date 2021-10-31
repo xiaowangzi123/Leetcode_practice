@@ -28,7 +28,12 @@ public class Solution1507 {
         String month = map.get(arr[1]);
         String day = arr[0].substring(0, arr[0].length() - 2);
         StringBuilder sb = new StringBuilder();
-        sb.append(year).append("-").append(month).append("-").append(day);
+        sb.append(year).append("-").append(month).append("-");
+        if (day.length()==1){
+            sb.append('0').append(day);
+        }else {
+            sb.append(day);
+        }
 //        return String.format("%d-%02d-%02d", year, month, day);
         return sb.toString();
     }
