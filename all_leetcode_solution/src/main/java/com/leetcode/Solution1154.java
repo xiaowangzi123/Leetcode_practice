@@ -1,5 +1,9 @@
 package com.leetcode;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * @author :wyq
  * @date ：Created in 2021/10/30
@@ -11,6 +15,7 @@ public class Solution1154 {
 //        String date = "2019-01-09";
         String date = "2004-03-01";
         System.out.println(obj.dayOfYear(date));
+        System.out.println(obj.dayOfYear2(date));
     }
 
     /**
@@ -28,5 +33,19 @@ public class Solution1154 {
         }
         count += day;
         return count;
+    }
+
+    /**
+     * 效率慢
+     */
+    public int dayOfYear2(String date) {
+        Calendar cal = Calendar.getInstance();
+        try {
+            cal.setTime(new SimpleDateFormat("yyyy-MM-dd").parse(date));
+            return cal.get(Calendar.DAY_OF_YEAR);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 }
