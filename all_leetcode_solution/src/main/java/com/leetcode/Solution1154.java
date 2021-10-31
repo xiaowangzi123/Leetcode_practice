@@ -16,6 +16,7 @@ public class Solution1154 {
         String date = "2004-03-01";
         System.out.println(obj.dayOfYear(date));
         System.out.println(obj.dayOfYear2(date));
+        System.out.println(obj.dayOfYear3(date));
     }
 
     /**
@@ -47,5 +48,44 @@ public class Solution1154 {
             e.printStackTrace();
         }
         return -1;
+    }
+
+    public int dayOfYear3(String date) {
+        String[] d = date.split("-");
+        int count = 0, year = Integer.valueOf(d[0]), month = Integer.valueOf(d[1]), day = Integer.valueOf(d[2]);
+        switch (month) {
+            case 12:
+                count += 31;
+            case 11:
+                count += 30;
+            case 10:
+                count += 31;
+            case 9:
+                count += 30;
+            case 8:
+                count += 31;
+            case 7:
+                count += 31;
+            case 6:
+                count += 30;
+            case 5:
+                count += 31;
+            case 4:
+                count += 30;
+            case 3:
+                count += 31;
+            case 2:
+                if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+                    count += 29;
+                }else {
+                    count += 28;
+                }
+            case 1:
+                count += 31;
+            default:
+                break;
+        }
+        count += day;
+        return count;
     }
 }
