@@ -9,10 +9,11 @@ public class Solution1332 {
     public static void main(String[] args) {
         Solution1332 obj = new Solution1332();
         System.out.println(obj.removePalindromeSub("ababaa"));
+        System.out.println(obj.removePalindromeSub2("ababaa"));
     }
 
     public int removePalindromeSub(String s) {
-        if (isPalindrome(s)){
+        if (isPalindrome(s)) {
             return 1;
         }
         return 2;
@@ -26,5 +27,18 @@ public class Solution1332 {
             }
         }
         return true;
+    }
+
+
+    public int removePalindromeSub2(String s) {
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return 2;
+            }
+            i++;
+            j--;
+        }
+        return 1;
     }
 }
