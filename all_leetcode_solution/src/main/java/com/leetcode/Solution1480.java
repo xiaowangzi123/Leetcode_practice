@@ -5,12 +5,12 @@ import java.util.Arrays;
 /**
  * @author ：wyq
  * @date ：Created in 2020/11/12
- * @description：
+ * @description： 一维数组的动态和
  */
-public class Solution {
+public class Solution1480 {
     public static void main(String[] args) {
+        Solution1480 obj = new Solution1480();
         int[] arr = {1, 4, 7, 2, 6};
-        Solution obj = new Solution();
         System.out.println(Arrays.toString(obj.runningSum(arr)));
 
         int[] arr2 = {1, 4, 7, 2, 6};
