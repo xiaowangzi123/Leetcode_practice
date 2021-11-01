@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author ：wyq
  * @date ：Created in 2020/11/19
@@ -25,5 +28,19 @@ public class Solution0771 {
         return count;
     }
 
+    public int numJewelsInStones2(String jewels, String stones) {
+        Set<Character> set = new HashSet<>();
+        for (char ch : jewels.toCharArray()) {
+            set.add(ch);
+        }
+
+        int count = 0;
+        for (char ch : stones.toCharArray()) {
+            if (set.contains(ch)) {
+                count++;
+            }
+        }
+        return count;
+    }
 
 }
