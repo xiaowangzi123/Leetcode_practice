@@ -13,6 +13,7 @@ public class Solution0771 {
         Solution0771 obj = new Solution0771();
         String j = "aA", s = "aAASSS";
         System.out.println(obj.numJewelsInStones(j, s));
+        System.out.println(obj.numJewelsInStones2(j, s));
     }
 
 
