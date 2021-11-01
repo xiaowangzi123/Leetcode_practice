@@ -23,7 +23,7 @@ public class Solution1374 {
     }
 
     public String generateTheString2(int n) {
-        String repeated = new String(new char[n]).replace("\0", "ab".substring(n % 2, 1 + n % 2));
+        String repeated = new String(new char[n-1]).replace("\0", "ab".substring(n % 2, 1 + n % 2));
         return repeated;
     }
 }
