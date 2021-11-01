@@ -43,11 +43,7 @@ public class Solution1431 {
 
         List<Boolean> res = new ArrayList<>();
         for (int a : candies) {
-            if (a + extraCandies >= max) {
-                res.add(true);
-            } else {
-                res.add(false);
-            }
+            res.add(a + extraCandies >= max);
         }
         return res;
     }
