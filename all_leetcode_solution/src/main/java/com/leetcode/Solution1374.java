@@ -11,12 +11,19 @@ public class Solution1374 {
     public static void main(String[] args) {
         Solution1374 obj = new Solution1374();
         System.out.println(obj.generateTheString(3));
+        System.out.println(obj.generateTheString(4));
         System.out.println(obj.generateTheString(5));
+        System.out.println(obj.generateTheString2(4));
+        System.out.println(obj.generateTheString2(5));
     }
 
     public String generateTheString(int n) {
 //        return "b" + "ab".substring(n % 2, 1 + n % 2).repeat(n - 1);
-        return "b" + StringUtils.repeat("ab".substring(n % 2, 1 + n % 2),n-1);
+        return "b" + StringUtils.repeat("ab".substring(n % 2, 1 + n % 2), n - 1);
+    }
 
+    public String generateTheString2(int n) {
+        String repeated = new String(new char[n]).replace("\0", "ab".substring(n % 2, 1 + n % 2));
+        return repeated;
     }
 }
