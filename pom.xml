@@ -19,8 +19,6 @@
 
     <modules>
         <module>all_leetcode_solution</module>
-        <module>num_0506_RelativeRanks</module>
-        <module>num_0521_LongestUncommonSubsequenceI</module>
         <module>num_0620_NotBoringMovies</module>
         <module>num_0706_DesignHashMap</module>
         <module>Offer_1_practice</module>
