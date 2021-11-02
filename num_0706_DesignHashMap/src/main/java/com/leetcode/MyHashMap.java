@@ -7,6 +7,7 @@ import java.util.LinkedList;
  * 设计哈希映射
  */
 public class MyHashMap {
+
     private class Pair {
         private int key;
         private int value;
