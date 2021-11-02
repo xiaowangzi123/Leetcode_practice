@@ -18,18 +18,23 @@ public class Solution0042 {
         int ans = 0;
         int size = height.length;
         for (int i = 1; i < size - 1; i++) {
-            int lmax = 0, rmax = 0;
+            int lMax = 0, rMax = 0;
             for (int j = i; j >= 0; j--) {
-                lmax = Math.max(lmax, height[j]);
+                lMax = Math.max(lMax, height[j]);
             }
             for (int j = i; j < size; j++) {
-                rmax = Math.max(rmax, height[j]);
+                rMax = Math.max(rMax, height[j]);
             }
-            ans += Math.min(lmax, rmax) - height[i];
+            ans += Math.min(lMax, rMax) - height[i];
         }
         return ans;
     }
 
+    /**
+     * @author: wyq
+     * @create time: 2021/11/3
+     * @description: TODO
+     */
     public int trap2(int[] height) {
         int ans = 0;
         int i = 0, j = height.length - 1;
