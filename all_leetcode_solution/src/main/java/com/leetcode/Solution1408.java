@@ -13,7 +13,8 @@ import java.util.List;
 public class Solution1408 {
     public static void main(String[] args) {
         Solution1408 obj = new Solution1408();
-        String[] words = {"mass", "as", "hero", "superhero"};
+//        String[] words = {"mass", "as", "hero", "superhero"};
+        String[] words = {"leetcoder", "leetcode", "od", "hamlet", "am"};
         System.out.println(obj.stringMatching(words));
 
         System.out.println("--------------------------");
@@ -33,11 +34,10 @@ public class Solution1408 {
                 }
                 if (words[i].contains(word)) {
                     ans.add(word);
+                    break;
                 }
-
             }
         }
-
         return ans;
     }
 }
