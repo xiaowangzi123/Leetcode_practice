@@ -4,9 +4,24 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * 设计哈希映射
+ * @author : wyq
+ * @date : 2021-11-02
+ * @describe  :设计哈希映射
  */
 public class MyHashMap {
+    public static void main(String[] args) {
+        MyHashMap map = new MyHashMap();
+        map.put(1, 1);
+        map.put(2, 2);
+        System.out.println(map.get(1));
+        System.out.println(map.get(3));
+
+        map.put(2,1);
+        System.out.println(map.get(2));
+
+        map.remove(2);
+        System.out.println(map.get(2));
+    }
 
     private class Pair {
         private int key;
