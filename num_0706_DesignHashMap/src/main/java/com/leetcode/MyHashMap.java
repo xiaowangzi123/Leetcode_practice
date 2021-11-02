@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * Hello world!
+ * 设计哈希映射
  */
 public class MyHashMap {
     private class Pair {
