@@ -66,6 +66,7 @@ public class Solution0914 {
         return ans >= 2;
     }
 
+    //公约数
     public int gcd(int a, int b) {
         if (a == 0) {
             return b;
