@@ -29,6 +29,8 @@ public class Solution1351 {
         return res;
     }
 
+
+    //优化，数组非递增排序，找到第一个小于0，后续都小于0
     public int countNegatives2(int[][] grid) {
         int m = grid.length, n = grid[0].length;
         int res = 0;
