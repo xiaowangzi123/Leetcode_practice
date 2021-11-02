@@ -12,7 +12,7 @@ public class Solution0733 {
         Solution0733 obj = new Solution0733();
 //        int[][] image = {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}};
 //        int sr = 1, sc = 1, newColor = 2;
-        int[][] image ={{0,0,0},{0,1,1}};
+        int[][] image = {{0, 0, 0}, {0, 1, 1}};
         int sr = 1, sc = 1, newColor = 1;
 
         System.out.println(Arrays.deepToString(obj.floodFill(image, sr, sc, newColor)));
@@ -23,7 +23,7 @@ public class Solution0733 {
         //初始像素值
         int currColor = image[sr][sc];
         //初始像素值与新颜色相同，直接返回
-        if (currColor!=newColor){
+        if (currColor != newColor) {
             dfs(image, sr, sc, currColor, newColor);
         }
 
