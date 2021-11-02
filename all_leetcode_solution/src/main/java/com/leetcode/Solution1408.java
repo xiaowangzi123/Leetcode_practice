@@ -30,13 +30,13 @@ public class Solution1408 {
 
     public List<String> stringMatching(String[] words) {
         List<String> ans = new ArrayList<>();
-        for (String word : words) {
-            for (int i = 0; i < words.length; i++) {
-                if (word.length() >= words[i].length()) {
+        for (int i = 0; i < words.length; i++) {
+            for (int j = 0; j < words.length; j++) {
+                if (words[i].length() >= words[j].length()) {
                     continue;
                 }
-                if (words[i].contains(word)) {
-                    ans.add(word);
+                if (words[j].contains(words[i])) {
+                    ans.add(words[i]);
                     break;
                 }
             }
