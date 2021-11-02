@@ -30,11 +30,41 @@ public class Solution1417 {
         char[] ans = new char[s.length()];
         for (char ch : s.toCharArray()) {
             if (Character.isLetter(ch)) {
-                ans[letter]=ch;
-                letter+=2;
-            }else {
-                ans[digit]=ch;
-                digit+=2;
+                ans[letter] = ch;
+                letter += 2;
+            } else {
+                ans[digit] = ch;
+                digit += 2;
+            }
+        }
+        return new String(ans);
+    }
+
+    //Character.isLetter()效率低
+    public String reformat2(String s) {
+        int digit = 0, letter = 0;
+        for (char ch : s.toCharArray()) {
+            if ('0' <= ch && ch <= '9') {
+                digit++;
+            } else {
+                letter++;
+            }
+        }
+        if (Math.abs(digit - letter) > 1) {
+            return "";
+        }
+
+        digit = (digit >= letter) ? 0 : 1;
+        letter = (digit == 0) ? 1 : 0;
+
+        char[] ans = new char[s.length()];
+        for (char ch : s.toCharArray()) {
+            if ('0' <= ch && ch <= '9') {
+                ans[digit] = ch;
+                digit += 2;
+            } else {
+                ans[letter] = ch;
+                letter += 2;
             }
         }
         return new String(ans);
