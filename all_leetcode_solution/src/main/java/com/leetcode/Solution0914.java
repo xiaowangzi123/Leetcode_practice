@@ -63,7 +63,7 @@ public class Solution0914 {
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             ans = gcd(ans, entry.getValue());
         }
-        return ans>=2;
+        return ans >= 2;
     }
 
     public int gcd(int a, int b) {
@@ -105,7 +105,7 @@ public class Solution0914 {
         return a;
     }
 
-    //共同除法
+    //共同相除法
     public int gongYueShu3(int a, int b) {
         int r = 1;
         for (int i = 2; i <= a && i <= b; i++) {
