@@ -28,6 +28,7 @@ public class Solution1446 {
         return ans;
     }
 
+    //双指针
     public int maxPower2(String s) {
         int ans = 1, n = s.length();
         int i = 0, j = 1;
