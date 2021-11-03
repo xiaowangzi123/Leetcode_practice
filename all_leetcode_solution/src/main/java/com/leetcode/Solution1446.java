@@ -12,12 +12,12 @@ public class Solution1446 {
     }
 
     public int maxPower(String s) {
-        int ans = 0, count = 0, index = 0;
+        int ans = 0, count = 1;
         for (int i = 0; i < s.length() - 2; i++) {
             if (s.charAt(i) == s.charAt(i + 1)) {
                 count++;
             } else {
-                count = 0;
+                count = 1;
             }
             ans = Math.max(count, ans);
         }
