@@ -20,20 +20,13 @@ public class Solution1422 {
     }
 
     public int maxScore(String s) {
-        int count = 0, index = 0;
-        while (index < s.length() && s.charAt(index) == '0') {
-            index++;
+        int ans = 0, n = s.length();
+        for (int i = 1; i < s.length(); i++) {
+            int zero = getZeroCount(s.substring(0, i));
+            int one = getOneoCount(s.substring(i, n));
+            ans = Math.max(ans, zero + one);
         }
-        if (index == 0 || index == s.length()) {
-            return s.length() - 1;
-        }
-        count = index;
-        for (int i = index; i < s.length(); i++) {
-            if (s.charAt(i) == '1') {
-                count++;
-            }
-        }
-        return count;
+        return ans;
     }
 
     public int maxScore2(String s) {
@@ -53,5 +46,26 @@ public class Solution1422 {
             ans = Math.max(count, ans);
         }
         return ans;
+    }
+
+
+    public int getZeroCount(String s) {
+        int count = 0;
+        for (char ch : s.toCharArray()) {
+            if (ch == '0') {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getOneoCount(String s) {
+        int count = 0;
+        for (char ch : s.toCharArray()) {
+            if (ch == '1') {
+                count++;
+            }
+        }
+        return count;
     }
 }
