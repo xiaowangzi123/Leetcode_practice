@@ -11,8 +11,8 @@ public class Solution1455 {
 //        String sentence = "i love eating burger", searchWord = "burg";
         String sentence = "hellohello hellohellohello", searchWord = "ell";
 
-
         System.out.println(obj.isPrefixOfWord(sentence, searchWord));
+        System.out.println(obj.isPrefixOfWord2(sentence, searchWord));
     }
 
     public int isPrefixOfWord(String sentence, String searchWord) {
@@ -20,6 +20,17 @@ public class Solution1455 {
         for (int i = 0; i < str.length; i++) {
             int temp = str[i].indexOf(searchWord);
             if (temp == 0) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+
+    public int isPrefixOfWord2(String sentence, String searchWord) {
+        String[] str = sentence.split(" +");
+        for (int i = 0; i < str.length; i++) {
+            int len = searchWord.length();
+            if (str[i].length() >= len && str[i].substring(0, len).equals(searchWord)) {
                 return i + 1;
             }
         }
