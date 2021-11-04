@@ -13,6 +13,7 @@ public class Solution1544 {
     public static void main(String[] args) {
         Solution1544 obj = new Solution1544();
         System.out.println(obj.makeGood("leEeetcode"));
+        System.out.println(obj.makeGood2("leEeetcode"));
         System.out.println('a' == 'A' + 32);
     }
 
@@ -43,6 +44,23 @@ public class Solution1544 {
         StringBuilder ans = new StringBuilder();
         for (char c : stack) {
             ans.append(c);
+        }
+        return ans.toString();
+    }
+
+    public String makeGood2(String s) {
+        StringBuilder ans = new StringBuilder();
+        for (char ch : s.toCharArray()) {
+            if (ans.length() > 0) {
+                char temp = ans.charAt(ans.length()-1);
+                if (Character.toLowerCase(ch)==Character.toLowerCase(temp) && temp!=ch){
+                    ans.deleteCharAt(ans.length()-1);
+                }else {
+                    ans.append(ch);
+                }
+            } else {
+                ans.append(ch);
+            }
         }
         return ans.toString();
     }
