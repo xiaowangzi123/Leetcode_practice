@@ -9,7 +9,9 @@ public class Solution0367 {
     public static void main(String[] args) {
         Solution0367 obj = new Solution0367();
         System.out.println(obj.isPerfectSquare(1));
-        System.out.println(obj.isPerfectSquare(16));
+        System.out.println(obj.isPerfectSquare2(1));
+        System.out.println(obj.isPerfectSquare3(1));
+        System.out.println(obj.isPerfectSquare4(1));
         System.out.println("---------------");
         System.out.println(obj.isPerfectSquare(2147483647));
         System.out.println(obj.isPerfectSquare2(2147483647));
