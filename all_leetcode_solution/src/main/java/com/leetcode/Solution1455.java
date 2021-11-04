@@ -8,14 +8,18 @@ package com.leetcode;
 public class Solution1455 {
     public static void main(String[] args) {
         Solution1455 obj = new Solution1455();
-        String sentence = "i love eating burger", searchWord = "burg";
+//        String sentence = "i love eating burger", searchWord = "burg";
+        String sentence = "hellohello hellohellohello", searchWord = "ell";
+
+
         System.out.println(obj.isPrefixOfWord(sentence, searchWord));
     }
 
     public int isPrefixOfWord(String sentence, String searchWord) {
         String[] str = sentence.split(" +");
         for (int i = 0; i < str.length; i++) {
-            if (str[i].contains(searchWord)) {
+            int temp = str[i].indexOf(searchWord);
+            if (temp == 0) {
                 return i + 1;
             }
         }
