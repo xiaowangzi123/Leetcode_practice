@@ -14,6 +14,7 @@ public class Solution0367 {
         System.out.println(obj.isPerfectSquare(2147483647));
         System.out.println(obj.isPerfectSquare2(2147483647));
         System.out.println(obj.isPerfectSquare3(2147483647));
+        System.out.println(obj.isPerfectSquare4(2147483647));
     }
 
     /**
@@ -21,7 +22,7 @@ public class Solution0367 {
      * 2147483647
      */
     public boolean isPerfectSquare(int num) {
-        for (int i = 0; i <= Math.sqrt(num); i++) {
+        for (int i = 1; i <= Math.sqrt(num); i++) {
             if (i * i == num) {
                 return true;
             }
@@ -34,6 +35,7 @@ public class Solution0367 {
         return x * x == num;
     }
 
+    //二分查找,超时
     public boolean isPerfectSquare3(int num) {
         int l = 0, r = num;
         while (l <= r) {
@@ -44,6 +46,20 @@ public class Solution0367 {
                 l = mid + 1;
             } else {
                 r = mid - 1;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 1+3+5=9=3^2
+     */
+    public boolean isPerfectSquare4(int num) {
+        int sum = 0;
+        for (int i = 1; i <= Math.sqrt(num)*2; i+=2) {
+            sum += i;
+            if (sum == num) {
+                return true;
             }
         }
         return false;
