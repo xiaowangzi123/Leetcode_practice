@@ -9,6 +9,7 @@ public class Solution1576 {
     public static void main(String[] args) {
         Solution1576 obj = new Solution1576();
         System.out.println(obj.modifyString("?"));
+        System.out.println(obj.modifyString2("?"));
         System.out.println("-------------");
         System.out.println(obj.returnDiff('b', 'a'));
         System.out.println(obj.returnDiff(' ', 'a'));
@@ -39,5 +40,23 @@ public class Solution1576 {
             ans++;
         }
         return ans;
+    }
+
+
+    public String modifyString2(String s) {
+        int n = s.length();
+        char[] ans = s.toCharArray();
+        for (int i = 0; i < n; i++) {
+            if (ans[i] == '?') {
+                char a = (i == 0 ? ' ' : ans[i - 1]);
+                char b = (i == n - 1 ? ' ' : ans[i + 1]);
+                char temp = 'a';
+                while (temp == a || temp == b) {
+                    temp++;
+                }
+                ans[i] = temp;
+            }
+        }
+        return new String(ans);
     }
 }
