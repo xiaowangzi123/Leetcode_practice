@@ -23,7 +23,7 @@ public class Solution1544 {
         for (char ch : s.toCharArray()) {
             if (!stack.isEmpty()) {
                 char temp = stack.peekLast();
-                if ((temp != ch) && (temp == (ch + 32) || temp == (ch - 32))) {
+                if (temp != ch && (temp == (ch + 32) || temp == (ch - 32))) {
                     stack.pollLast();
                 } else {
                     stack.add(ch);
