@@ -52,10 +52,10 @@ public class Solution1544 {
         StringBuilder ans = new StringBuilder();
         for (char ch : s.toCharArray()) {
             if (ans.length() > 0) {
-                char temp = ans.charAt(ans.length()-1);
-                if (Character.toLowerCase(ch)==Character.toLowerCase(temp) && temp!=ch){
-                    ans.deleteCharAt(ans.length()-1);
-                }else {
+                char temp = ans.charAt(ans.length() - 1);
+                if (temp != ch && (temp == (ch + 32) || temp == (ch - 32))) {
+                    ans.deleteCharAt(ans.length() - 1);
+                } else {
                     ans.append(ch);
                 }
             } else {
