@@ -12,6 +12,8 @@ public class Solution1556 {
         System.out.println(obj.thousandSeparator(123));
         System.out.println(obj.thousandSeparator(12345));
         System.out.println(obj.thousandSeparator(123456789));
+        System.out.println(obj.thousandSeparator2(12345));
+        System.out.println(obj.thousandSeparator2(123456789));
     }
 
     public String thousandSeparator(int n) {
@@ -28,6 +30,17 @@ public class Solution1556 {
                 sb.append(".");
                 count = 0;
             }
+        }
+        return sb.reverse().toString();
+    }
+
+    public String thousandSeparator2(int n) {
+        StringBuilder sb = new StringBuilder(String.valueOf(n));
+        sb.reverse();
+        int i = 3;
+        while (i < sb.length()) {
+            sb.insert(i, '.');
+            i += 4;
         }
         return sb.reverse().toString();
     }
