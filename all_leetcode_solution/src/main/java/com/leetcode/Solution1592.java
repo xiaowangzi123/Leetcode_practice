@@ -42,7 +42,7 @@ public class Solution1592 {
             int num = space / (list.size() - 1);
             for (int i = 0; i < list.size(); i++) {
                 sb.append(list.get(i));
-                for (int j = 0; j < num; j++) {
+                for (int j = 0; j < num && space > 0; j++) {
                     sb.append(' ');
                     space--;
                 }
