@@ -23,18 +23,10 @@ public class Solution1544 {
         for (char ch : s.toCharArray()) {
             if (!stack.isEmpty()) {
                 char temp = stack.peekLast();
-                if ('a' <= temp && temp <= 'z') {
-                    if ('A' <= ch && ch <= 'Z' && temp == (ch + 32)) {
-                        stack.pollLast();
-                    } else {
-                        stack.add(ch);
-                    }
+                if ((temp != ch) && (temp == (ch + 32) || temp == (ch - 32))) {
+                    stack.pollLast();
                 } else {
-                    if ('a' <= ch && ch <= 'z' && temp == (ch - 32)) {
-                        stack.pollLast();
-                    } else {
-                        stack.add(ch);
-                    }
+                    stack.add(ch);
                 }
             } else {
                 stack.add(ch);
