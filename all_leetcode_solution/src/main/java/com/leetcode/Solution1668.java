@@ -13,6 +13,8 @@ public class Solution1668 {
 //        "aaab aaaab aaaba aaaba aaaba aaaba aaaba"
 //        "aaaba"
         System.out.println(obj.maxRepeating(sequence, word));
+        System.out.println(obj.maxRepeating2(sequence, word));
+        System.out.println(obj.maxRepeating3(sequence, word));
     }
 
     public int maxRepeating(String sequence, String word) {
