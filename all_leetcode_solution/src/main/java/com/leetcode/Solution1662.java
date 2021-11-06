@@ -21,6 +21,6 @@ public class Solution1662 {
         for (String s : word2) {
             s2.append(s);
         }
-        return s1.equals(s2);
+        return s1.toString().equals(s2.toString());
     }
 }
