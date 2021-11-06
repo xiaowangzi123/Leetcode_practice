@@ -34,13 +34,13 @@ public class Solution1768 {
     public String mergeAlternately2(String word1, String word2) {
         int n1 = word1.length(), n2 = word2.length();
         char[] ans = new char[n1 + n2];
-        int i = 0;
+        int i = 0, index = 0;
         while (i < n1 || i < n2) {
             if (i < n1) {
-                ans[i] = word1.charAt(i);
+                ans[index++] = word1.charAt(i);
             }
             if (i < n2) {
-                ans[i] = word2.charAt(i);
+                ans[index++] = word2.charAt(i);
             }
             i++;
         }
