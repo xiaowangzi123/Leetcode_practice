@@ -18,7 +18,7 @@ public class Solution1796 {
 
     }
 
-    //set集合去除了重复数据，这样写正确
+    //set集合去除了重复数据，这样写不正确
     public int secondHighest(String s) {
         int first = -1, second = -1;
         Set<Integer> set = new HashSet<>();

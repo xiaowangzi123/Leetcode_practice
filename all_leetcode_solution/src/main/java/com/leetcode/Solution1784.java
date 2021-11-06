@@ -13,6 +13,7 @@ public class Solution1784 {
     }
 
     /**
+     * 最多出现一次连续的1片段
      * 第一个字符为1，后续出现"01"就出现了两次连续为1的片段，返回false
      */
     public boolean checkOnesSegment(String s) {
