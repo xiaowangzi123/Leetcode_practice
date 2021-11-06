@@ -12,6 +12,7 @@ public class Solution1768 {
         Solution1768 obj = new Solution1768();
         String word1 = "1234", word2 = "ab";
         System.out.println(obj.mergeAlternately(word1, word2));
+        System.out.println(obj.mergeAlternately2(word1, word2));
     }
 
     public String mergeAlternately(String word1, String word2) {
@@ -28,5 +29,21 @@ public class Solution1768 {
             i++;
         }
         return ans.toString();
+    }
+
+    public String mergeAlternately2(String word1, String word2) {
+        int n1 = word1.length(), n2 = word2.length();
+        char[] ans = new char[n1 + n2];
+        int i = 0;
+        while (i < n1 || i < n2) {
+            if (i < n1) {
+                ans[i] = word1.charAt(i);
+            }
+            if (i < n2) {
+                ans[i] = word2.charAt(i);
+            }
+            i++;
+        }
+        return new String(ans);
     }
 }
