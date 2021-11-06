@@ -10,6 +10,7 @@ public class Solution1816 {
         Solution1816 obj = new Solution1816();
         String s = "Hello how are you Contestant";
         System.out.println(obj.truncateSentence(s, 4));
+        System.out.println(obj.truncateSentence2(s, 4));
     }
 
     public String truncateSentence(String s, int k) {
@@ -23,5 +24,14 @@ public class Solution1816 {
             }
         }
         return s.substring(0, i);
+    }
+
+    public String truncateSentence2(String s, int k) {
+        String[] str = s.split(" ");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < k - 1; i++) {
+            sb.append(str[i]).append(" ");
+        }
+        return sb.append(str[k-1]).toString();
     }
 }
