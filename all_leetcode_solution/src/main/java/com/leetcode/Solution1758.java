@@ -9,6 +9,7 @@ public class Solution1758 {
     public static void main(String[] args) {
         Solution1758 obj = new Solution1758();
         System.out.println(obj.minOperations("0100"));
+        System.out.println(obj.minOperations2("0100"));
         System.out.println("0100".charAt(1) % 2 == 1);
     }
 
@@ -22,10 +23,24 @@ public class Solution1758 {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) % 2 == i % 2) {
                 a++;
-            }else {
+            } else {
                 b++;
             }
         }
         return Math.min(a, b);
+    }
+
+    public int minOperations2(String s) {
+        int zero = 0, one = 0;
+        char flag = '1';
+        for (char str : s.toCharArray()) {
+            if (str == flag) {
+                zero++;
+            } else {
+                one++;
+            }
+            flag = flag == '0' ? '1' : '0';
+        }
+        return Math.min(zero, one);
     }
 }
