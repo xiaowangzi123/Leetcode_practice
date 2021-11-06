@@ -16,20 +16,24 @@ public class Solution1704 {
     }
 
     public boolean halvesAreAlike(String s) {
-        Set<Character> set = new HashSet<>(Arrays.asList('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'));
+//        Set<Character> set = new HashSet<>(Arrays.asList('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'));
         int a = 0, b = 0;
         int i = 0, j = s.length() - 1;
         while (i < j) {
-            if (set.contains(s.charAt(i))) {
+            if (isVowel(s.charAt(i))) {
                 a++;
             }
-            if (set.contains(s.charAt(j))) {
+            if (isVowel(s.charAt(j))) {
                 b++;
             }
             i++;
             j--;
         }
         return a == b;
+    }
+
+    public boolean isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
     }
 
 }
