@@ -16,7 +16,7 @@ public class Solution1758 {
     /**
      * 偶数位放0，奇数位放1，统计需要变化次数
      * 偶数位放1，奇数位放0，统计需要变化次数
-     * 去两者之间的最小值
+     * 取两者之间的最小值
      */
     public int minOperations(String s) {
         int a = 0, b = 0;
