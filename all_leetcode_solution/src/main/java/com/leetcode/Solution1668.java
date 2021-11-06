@@ -17,7 +17,7 @@ public class Solution1668 {
         while (sequence.contains(word)) {
             int i = sequence.indexOf(word);
             count++;
-            sequence.substring(0, i + word.length());
+            sequence = sequence.substring(i + word.length());
         }
         return count;
     }
