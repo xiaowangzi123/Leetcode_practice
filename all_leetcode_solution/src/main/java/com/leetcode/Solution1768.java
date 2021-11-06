@@ -17,16 +17,15 @@ public class Solution1768 {
     public String mergeAlternately(String word1, String word2) {
         StringBuilder ans = new StringBuilder();
         int n1 = word1.length(), n2 = word2.length();
-        int i = 0, j = 0;
-        while (i < n1 || j < n2) {
+        int i = 0;
+        while (i < n1 || i < n2) {
             if (i < n1) {
                 ans.append(word1.charAt(i));
             }
-            if (j < n2) {
-                ans.append(word2.charAt(j));
+            if (i < n2) {
+                ans.append(word2.charAt(i));
             }
             i++;
-            j++;
         }
         return ans.toString();
     }
