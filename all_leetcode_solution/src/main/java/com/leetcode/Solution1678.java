@@ -9,6 +9,7 @@ public class Solution1678 {
     public static void main(String[] args) {
         Solution1678 obj = new Solution1678();
         System.out.println(obj.interpret("G()(al)"));
+        System.out.println(obj.interpret2("G()(al)"));
     }
 
     public String interpret(String command) {
@@ -17,7 +18,7 @@ public class Solution1678 {
             if (command.charAt(i) == 'G') {
                 sb.append('G');
                 i++;
-            } else if (command.charAt(i) == '(' && command.charAt(i+1) == ')') {
+            } else if (command.charAt(i) == '(' && command.charAt(i + 1) == ')') {
                 sb.append('o');
                 i += 2;
             } else {
@@ -26,5 +27,11 @@ public class Solution1678 {
             }
         }
         return sb.toString();
+    }
+
+    public String interpret2(String command) {
+        command = command.replace("()", "o");
+        command = command.replace("(al)", "al");
+        return command;
     }
 }
