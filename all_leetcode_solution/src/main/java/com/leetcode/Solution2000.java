@@ -10,6 +10,7 @@ public class Solution2000 {
         Solution2000 obj = new Solution2000();
         String word = "abcdefd";
         System.out.println(obj.reversePrefix(word, 'd'));
+        System.out.println(obj.reversePrefix2(word, 'd'));
     }
 
     public String reversePrefix(String word, char ch) {
@@ -22,7 +23,16 @@ public class Solution2000 {
             i++;
             j--;
         }
+        return new String(ans);
+    }
 
+    public String reversePrefix2(String word, char ch) {
+        char[] ans = word.toCharArray();
+        for (int i = 0, j = word.indexOf(ch); i < j; i++, j--) {
+            char temp = ans[i];
+            ans[i] = ans[j];
+            ans[j] = temp;
+        }
         return new String(ans);
     }
 }
