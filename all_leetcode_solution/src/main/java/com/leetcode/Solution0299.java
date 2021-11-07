@@ -23,7 +23,7 @@ public class Solution0299 {
             }
         }
         for (int i = 0; i < 10; i++) {
-            cow = Math.min(cnt1[i], cnt2[i]);
+            cow += Math.min(cnt1[i], cnt2[i]);
         }
         return bulls + "A" + cow + "B";
     }
