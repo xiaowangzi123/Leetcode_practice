@@ -8,7 +8,8 @@ package com.leetcode;
 public class Solution1974 {
     public static void main(String[] args) {
         Solution1974 obj = new Solution1974();
-        System.out.println(obj.minTimeToType("abc"));
+//        System.out.println(obj.minTimeToType("abc"));
+        System.out.println(obj.minTimeToType("bza"));
     }
 
     public int minTimeToType(String word) {
@@ -17,7 +18,9 @@ public class Solution1974 {
             if (i == 0) {
                 ans += Math.min(word.charAt(i) - 'a', 26 - word.charAt(i) + 'a') + 1;
             } else {
-                ans += Math.min(word.charAt(i) - word.charAt(i - 1), 26 - word.charAt(i) + word.charAt(i - 1)) + 1;
+                int a = Math.abs(word.charAt(i) - word.charAt(i - 1));
+                int b = Math.abs(26 - word.charAt(i) + word.charAt(i - 1));
+                ans += Math.min(a, b) + 1;
             }
         }
         return ans;
