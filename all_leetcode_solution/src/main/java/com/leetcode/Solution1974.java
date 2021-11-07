@@ -13,9 +13,12 @@ public class Solution1974 {
 
     public int minTimeToType(String word) {
         int ans = 0;
-        for (char c : word.toCharArray()) {
-            int min = Math.min(c - 'a', 26 - c + 'a');
-            ans += min + 1;
+        for (int i = 0; i < word.length(); i++) {
+            if (i == 0) {
+                ans += Math.min(word.charAt(i) - 'a', 26 - word.charAt(i) + 'a') + 1;
+            } else {
+                ans += Math.min(word.charAt(i) - word.charAt(i - 1), 26 - word.charAt(i) + word.charAt(i - 1)) + 1;
+            }
         }
         return ans;
     }
