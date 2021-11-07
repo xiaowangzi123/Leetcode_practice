@@ -12,12 +12,12 @@ public class Solution2042 {
         Solution2042 obj = new Solution2042();
         String s = "sunset is at 7 51 pm overnight lows will be in the low 50 and 60 s";
         System.out.println(obj.areNumbersAscending(s));
+        System.out.println(obj.areNumbersAscending2(s));
     }
 
     //遍历
     public boolean areNumbersAscending(String s) {
-        int max = Integer.MIN_VALUE;
-        int i = 0, n = s.length();
+        int i = 0, n = s.length(), max = Integer.MIN_VALUE;
         while (i < n) {
             if (!Character.isDigit(s.charAt(i))) {
                 i++;
@@ -40,7 +40,16 @@ public class Solution2042 {
 
     public boolean areNumbersAscending2(String s) {
         int max = Integer.MIN_VALUE;
-        for (int i = 0; i < s.length(); i++) {
+        String[] st = s.split(" ");
+        for (String str : st) {
+            if ('0' <= str.charAt(0) && str.charAt(0) <= '9') {
+                int temp = Integer.valueOf(str);
+                if (temp > max) {
+                    max = temp;
+                } else {
+                    return false;
+                }
+            }
         }
         return true;
     }
