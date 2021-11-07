@@ -1,8 +1,5 @@
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author :wyq
  * @date ：Created in 2021/11/7
