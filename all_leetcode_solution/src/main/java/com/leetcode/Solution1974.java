@@ -19,8 +19,7 @@ public class Solution1974 {
                 ans += Math.min(word.charAt(i) - 'a', 26 - word.charAt(i) + 'a') + 1;
             } else {
                 int a = Math.abs(word.charAt(i) - word.charAt(i - 1));
-                int b = Math.abs(26 - word.charAt(i) + word.charAt(i - 1));
-                ans += Math.min(a, b) + 1;
+                ans += Math.min(a, 26 - a) + 1;
             }
         }
         return ans;
