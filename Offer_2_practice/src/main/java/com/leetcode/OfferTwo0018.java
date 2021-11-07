@@ -4,6 +4,8 @@ package com.leetcode;
  * @author :wyq
  * @date ：Created in 2021/11/8
  * @description : 有效的回文
+ * 和LeetCode0125一样
+ * {@link  com.leetcode.Solution0125}
  */
 public class OfferTwo0018 {
     public static void main(String[] args) {
