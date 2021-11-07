@@ -8,7 +8,8 @@ package com.leetcode;
 public class Solution1869 {
     public static void main(String[] args) {
         Solution1869 obj = new Solution1869();
-        System.out.println(obj.checkZeroOnes("1101"));
+//        System.out.println(obj.checkZeroOnes("1101"));
+        System.out.println(obj.checkZeroOnes("01111110"));
     }
 
     public boolean checkZeroOnes(String s) {
@@ -27,6 +28,6 @@ public class Solution1869 {
             }
             i++;
         }
-        return one > zero;
+        return oMax > zMax;
     }
 }
