@@ -15,11 +15,9 @@ public class Solution1844 {
 
     public String replaceDigits(String s) {
         char[] ch = s.toCharArray();
-        for (int i = 0; i < ch.length; i += 2) {
-            if (i % 2 == 1) {
-                int temp = ch[i - 1] - '0';
-                ch[i] = (char) (ch[i - 1] + temp);
-            }
+        for (int i = 1; i < ch.length; i += 2) {
+            int temp = ch[i] - '0';
+            ch[i] = (char) (ch[i - 1] + temp);
         }
         return new String(ch);
     }
