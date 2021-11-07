@@ -29,9 +29,12 @@ public class Solution1816 {
     public String truncateSentence2(String s, int k) {
         String[] str = s.split(" ");
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < k - 1; i++) {
-            sb.append(str[i]).append(" ");
+        for (int i = 0; i < k; i++) {
+            sb.append(str[i]);
+            if (i != k - 1) {
+                sb.append(" ");
+            }
         }
-        return sb.append(str[k-1]).toString();
+        return sb.toString();
     }
 }
