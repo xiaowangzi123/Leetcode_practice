@@ -8,7 +8,8 @@ package com.leetcode;
 public class Solution2047 {
     public static void main(String[] args) {
         Solution2047 obj = new Solution2047();
-        String sentence = "cat and  dog";
+//        String sentence = "cat and  dog";
+        String sentence = " o6 t";
         System.out.println(obj.countValidWords(sentence));
         System.out.println("---------------");
 
@@ -23,7 +24,7 @@ public class Solution2047 {
 
     public int countValidWords(String sentence) {
         int count = 0;
-        String[] strs = sentence.split(" +");
+        String[] strs = sentence.trim().split(" +");
         for (String s : strs) {
             if (isValidToken(s)) {
                 count++;
