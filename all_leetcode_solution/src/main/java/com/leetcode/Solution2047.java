@@ -24,9 +24,9 @@ public class Solution2047 {
 
     public int countValidWords(String sentence) {
         int count = 0;
-        String[] strs = sentence.trim().split(" +");
+        String[] strs = sentence.split(" +");
         for (String s : strs) {
-            if (isValidToken(s)) {
+            if (s.length()>0 && isValidToken(s)) {
                 count++;
             }
         }
