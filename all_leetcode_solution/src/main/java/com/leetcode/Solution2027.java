@@ -8,7 +8,9 @@ package com.leetcode;
 public class Solution2027 {
     public static void main(String[] args) {
         Solution2027 obj = new Solution2027();
+        System.out.println(obj.minimumMoves("XXX"));
         System.out.println(obj.minimumMoves("XXOX"));
+        System.out.println(obj.minimumMoves("OOOO"));
     }
 
     public int minimumMoves(String s) {
@@ -16,7 +18,7 @@ public class Solution2027 {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == 'X') {
                 count++;
-                i++;
+                i += 2;
             }
         }
         return count;
