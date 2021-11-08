@@ -11,10 +11,24 @@ public class Solution0058 {
     public static void main(String[] args) {
         Solution0058 obj = new Solution0058();
 
+        System.out.println(obj.reverseWords("the sky is blue"));
+        System.out.println("----------------------");
         System.out.println(obj.reverseLeftWords("abcdefg", 2));
         System.out.println(obj.reverseLeftWords2("abcdefg", 2));
+        System.out.println("||" + " abc ".trim() + "||");
     }
 
+    public String reverseWords(String s) {
+        String[] st = s.trim().split(" +");
+        StringBuilder sb = new StringBuilder();
+        for (int i = st.length - 1; i >= 0; i--) {
+            sb.append(st[i]);
+            if (i!=0){
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
+    }
 
     public String reverseLeftWords(String s, int n) {
         return s.substring(n) + s.substring(0, n);
