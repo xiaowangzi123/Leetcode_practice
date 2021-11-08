@@ -7,9 +7,9 @@ package com.leetcode;
  * 剑指 Offer 58 - I. 翻转单词顺序
  * 剑指 Offer 58 - II. 左旋转字符串
  */
-public class Solution0058 {
+public class OfferOne0058 {
     public static void main(String[] args) {
-        Solution0058 obj = new Solution0058();
+        OfferOne0058 obj = new OfferOne0058();
 
         System.out.println(obj.reverseWords("  the sky is blue  "));
         System.out.println(obj.reverseWords2("th  bl  "));
