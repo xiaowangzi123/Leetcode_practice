@@ -16,6 +16,7 @@ public class Solution1464 {
         System.out.println(obj.maxProduct2(arr));
     }
 
+    //第一第二大的数
     public int maxProduct(int[] nums) {
         int max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE;
         for (int a : nums) {
