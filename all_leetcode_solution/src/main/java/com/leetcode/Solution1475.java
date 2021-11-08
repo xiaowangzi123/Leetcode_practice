@@ -1,6 +1,5 @@
 package com.leetcode;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -14,7 +13,7 @@ public class Solution1475 {
         int[] arr = {8, 4, 6, 2, 3};
 //        System.out.println(Arrays.toString(obj.finalPrices(arr)));
 //        int[] arr2 = {5, 4, 3, 2, 1};
-        int[] arr2 = {1,2,3,4,5};
+        int[] arr2 = {1, 2, 3, 4, 5};
         System.out.println(Arrays.toString(obj.finalPrices(arr2)));
     }
 
@@ -29,7 +28,6 @@ public class Solution1475 {
                 prices[i] = prices[i] - prices[j];
             }
         }
-
         return prices;
     }
 }
