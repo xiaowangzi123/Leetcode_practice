@@ -30,6 +30,10 @@ public class OfferOne0050 {
         return ' ';
     }
 
+    /**
+     * LinkedHashMap插入数据有序，可以直接遍历map查第一个出现一次的
+     * HashMap无序，想找到第一个出现一次的，需要按照数组顺序进行遍历
+     */
     public char firstUniqChar2(String s) {
         Map<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) {
