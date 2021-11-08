@@ -14,6 +14,7 @@ public class OfferOne0050 {
         OfferOne0050 obj = new OfferOne0050();
         System.out.println(obj.firstUniqChar(""));
         System.out.println(obj.firstUniqChar("baccdeff"));
+        System.out.println(obj.firstUniqChar2("baccdeff"));
     }
 
     public char firstUniqChar(String s) {
@@ -24,6 +25,19 @@ public class OfferOne0050 {
         for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             if (entry.getValue() == 1) {
                 return entry.getKey();
+            }
+        }
+        return ' ';
+    }
+
+    public char firstUniqChar2(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        for (char c : s.toCharArray()) {
+            if (map.get(c) == 1) {
+                return c;
             }
         }
         return ' ';
