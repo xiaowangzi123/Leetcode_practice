@@ -11,7 +11,8 @@ public class Solution0058 {
     public static void main(String[] args) {
         Solution0058 obj = new Solution0058();
 
-        System.out.println(obj.reverseWords("the sky is blue"));
+        System.out.println(obj.reverseWords("  the sky is blue  "));
+        System.out.println(obj.reverseWords2("th  bl  "));
         System.out.println("----------------------");
         System.out.println(obj.reverseLeftWords("abcdefg", 2));
         System.out.println(obj.reverseLeftWords2("abcdefg", 2));
@@ -23,11 +24,28 @@ public class Solution0058 {
         StringBuilder sb = new StringBuilder();
         for (int i = st.length - 1; i >= 0; i--) {
             sb.append(st[i]);
-            if (i!=0){
+            if (i != 0) {
                 sb.append(" ");
             }
         }
         return sb.toString();
+    }
+
+    public String reverseWords2(String s) {
+        StringBuilder sb = new StringBuilder();
+        int i = s.length() - 1, j = i;
+        while (i >= 0) {
+            while (i >= 0 && s.charAt(i) != ' ') {
+                i--;
+            }
+            sb.append(s, i + 1, j + 1).append(" ");
+            while (i >= 0 && s.charAt(i) == ' ') {
+                i--;
+            }
+            j = i;
+        }
+
+        return sb.toString().trim();
     }
 
     public String reverseLeftWords(String s, int n) {
