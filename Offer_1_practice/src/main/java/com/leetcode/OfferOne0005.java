@@ -5,9 +5,9 @@ package com.leetcode;
  * @date ：Created in 2021/11/8
  * @description : 替换空格
  */
-public class OfferTwo0005 {
+public class OfferOne0005 {
     public static void main(String[] args) {
-        OfferTwo0005 obj = new OfferTwo0005();
+        OfferOne0005 obj = new OfferOne0005();
         System.out.println(obj.replaceSpace("We are happy."));
     }
 
