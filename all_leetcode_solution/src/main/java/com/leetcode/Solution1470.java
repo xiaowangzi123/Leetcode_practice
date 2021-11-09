@@ -16,12 +16,11 @@ public class Solution1470 {
 
     //此处参数n=nums.length/2
     public int[] shuffle(int[] nums, int n) {
-        int len = nums.length;
+        int index = 0, len = nums.length;
         int[] res = new int[len];
-        int j = 0;
-        for (int i = 0; i < len/2; i++) {
-            res[j++] = nums[i];
-            res[j++] = nums[n++];
+        for (int i = 0; i < len / 2; i++) {
+            res[index++] = nums[i];
+            res[index++] = nums[n++];
         }
         return res;
     }
