@@ -16,6 +16,7 @@ public class Solution1560 {
         System.out.println(obj.mostVisited(2, arr2));
         int[] arr3 = {16, 8};
         System.out.println(obj.mostVisited(17, arr3));
+        System.out.println(obj.mostVisited2(17, arr3));
     }
 
     public List<Integer> mostVisited(int n, int[] rounds) {
@@ -33,11 +34,11 @@ public class Solution1560 {
                     max = Math.max(max, map.get(j));
                 }
             } else {
-                for (int j = rounds[i - 1] + 1; j <= n; j++) {
+                for (int j = 1; j <= rounds[i]; j++) {
                     map.put(j, map.getOrDefault(j, 0) + 1);
                     max = Math.max(max, map.get(j));
                 }
-                for (int j = 1; j <= rounds[i]; j++) {
+                for (int j = rounds[i - 1] + 1; j <= n; j++) {
                     map.put(j, map.getOrDefault(j, 0) + 1);
                     max = Math.max(max, map.get(j));
                 }
@@ -50,6 +51,24 @@ public class Solution1560 {
             }
         }
         Collections.sort(ans);
+        return ans;
+    }
+
+    public List<Integer> mostVisited2(int n, int[] rounds) {
+        List<Integer> ans = new ArrayList<>();
+        int len = rounds.length, i = rounds[0], j = rounds[len - 1];
+        if (i < j) {
+            for (int k = i; k <= j; k++) {
+                ans.add(k);
+            }
+        } else {
+            for (int k = 1; k <= j; k++) {
+                ans.add(k);
+            }
+            for (int k = i; k <= n; k++) {
+                ans.add(k);
+            }
+        }
         return ans;
     }
 }
