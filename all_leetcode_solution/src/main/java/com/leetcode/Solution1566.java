@@ -9,14 +9,18 @@ public class Solution1566 {
     public static void main(String[] args) {
         Solution1566 obj = new Solution1566();
         int[] arr = {1, 2, 4, 4, 4, 4};
-//        System.out.println(obj.containsPattern(arr, 1, 3));
-//        System.out.println(obj.containsPattern(arr, 2, 3));
+        System.out.println(obj.containsPattern(arr, 1, 3));
+        System.out.println(obj.containsPattern(arr, 2, 3));
         System.out.println("--------------");
 
         int[] arr2 = {4, 4};
-        System.out.println(obj.containsPattern(arr2, 1, 2));
+        System.out.println(obj.containsPattern2(arr2, 1, 2));
     }
 
+    /**
+     * j代表要找的序列长度
+     * 如果长度j==m*k,表明找到了复合条件的子序列
+     */
     public boolean containsPattern(int[] arr, int m, int k) {
         int n = arr.length;
         for (int i = 0; i <= n - m * k; i++) {
@@ -38,14 +42,14 @@ public class Solution1566 {
 
     public boolean containsPattern2(int[] arr, int m, int k) {
         int n = arr.length;
-        for (int l = 0; l <= n - m * k; ++l) {
-            int offset;
-            for (offset = 0; offset < m * k; ++offset) {
-                if (arr[l + offset] != arr[l + offset % m]) {
+        for (int i = 0; i <= n - m * k; i++) {
+            int j = 0;
+            for (; j < m * k; j++) {
+                if (arr[i + j] != arr[i + j % m]) {
                     break;
                 }
             }
-            if (offset == m * k) {
+            if (j == m * k) {
                 return true;
             }
         }
