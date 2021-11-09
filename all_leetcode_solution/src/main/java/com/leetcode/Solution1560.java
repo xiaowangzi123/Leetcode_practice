@@ -14,6 +14,7 @@ public class Solution1560 {
         System.out.println(obj.mostVisited(4, arr));
         int[] arr2 = {2, 1, 2, 1, 2, 1, 2, 1, 2};
         System.out.println(obj.mostVisited(2, arr2));
+        System.out.println(obj.mostVisited2(2, arr2));
         int[] arr3 = {16, 8};
         System.out.println(obj.mostVisited(17, arr3));
         System.out.println(obj.mostVisited2(17, arr3));
@@ -54,10 +55,14 @@ public class Solution1560 {
         return ans;
     }
 
+    /**
+     * 跑一圈各个扇区经过的次数是一样的
+     * 只需要考虑起点和终点位置
+     */
     public List<Integer> mostVisited2(int n, int[] rounds) {
         List<Integer> ans = new ArrayList<>();
         int len = rounds.length, i = rounds[0], j = rounds[len - 1];
-        if (i < j) {
+        if (i <= j) {
             for (int k = i; k <= j; k++) {
                 ans.add(k);
             }
