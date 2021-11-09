@@ -10,7 +10,8 @@ import java.util.Arrays;
 public class Solution1491 {
     public static void main(String[] args) {
         Solution1491 obj = new Solution1491();
-        int[] arr = {4000, 3000, 1000, 2000};
+//        int[] arr = {4000, 3000, 1000, 2000};
+        int[] arr = {48000, 59000, 99000, 13000, 78000, 45000, 31000, 17000, 39000, 37000, 93000, 77000, 33000, 28000, 4000, 54000, 67000, 6000, 1000, 11000};
         System.out.println(obj.average(arr));
         System.out.println(obj.average2(arr));
 
@@ -33,6 +34,6 @@ public class Solution1491 {
             min = Math.min(min, salary[i]);
             max = Math.max(max, salary[i]);
         }
-        return (sum - min - max) / (n - 2);
+        return (double) (sum - min - max) / (n - 2);
     }
 }
