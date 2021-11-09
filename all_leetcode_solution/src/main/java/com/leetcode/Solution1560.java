@@ -1,9 +1,6 @@
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author :wyq
@@ -15,8 +12,10 @@ public class Solution1560 {
         Solution1560 obj = new Solution1560();
         int[] arr = {1, 3, 1, 2};
         System.out.println(obj.mostVisited(4, arr));
-        int[] arr2 = {2,1,2,1,2,1,2,1,2};
+        int[] arr2 = {2, 1, 2, 1, 2, 1, 2, 1, 2};
         System.out.println(obj.mostVisited(2, arr2));
+        int[] arr3 = {16, 8};
+        System.out.println(obj.mostVisited(17, arr3));
     }
 
     public List<Integer> mostVisited(int n, int[] rounds) {
@@ -50,6 +49,7 @@ public class Solution1560 {
                 ans.add(entry.getKey());
             }
         }
+        Collections.sort(ans);
         return ans;
     }
 }
