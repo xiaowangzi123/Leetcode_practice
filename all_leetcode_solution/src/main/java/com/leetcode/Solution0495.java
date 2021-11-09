@@ -25,4 +25,18 @@ public class Solution0495 {
 
         return count + duration;
     }
+
+
+    public int findPoisonedDuration2(int[] arr, int d) {
+        int count = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] - arr[i - 1] > d) {
+                count += d;
+            } else {
+                count += arr[i] - arr[i-1];
+            }
+        }
+
+        return count + d;
+    }
 }
