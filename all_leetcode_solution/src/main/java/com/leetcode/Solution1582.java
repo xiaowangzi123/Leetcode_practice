@@ -13,7 +13,9 @@ public class Solution1582 {
     }
 
     /**
-     * 计算每一行的和，形成数组a[m],a[i]
+     * 计算每一行的和，形成数组a[m],a[i]表示第i行的总和
+     * b[i]表示第i列的总和
+     * 遍历矩阵，当m(i,j)为1，且a[i]+b[j]=2时，符合条件
      */
     public int numSpecial(int[][] mat) {
         int count = 0, m = mat.length, n = mat[0].length;
@@ -27,7 +29,7 @@ public class Solution1582 {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (mat[i][j] == 1 && a[i] + b[j] == 1) {
+                if (mat[i][j] == 1 && a[i] + b[j] == 2) {
                     count++;
                 }
             }
