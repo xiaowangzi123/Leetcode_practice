@@ -13,7 +13,8 @@ public class Solution1608 {
         Solution1608 obj = new Solution1608();
 //        int[] arr = {3, 5};
         int[] arr = {0, 4, 3, 0, 4};
-        System.out.println(obj.specialArray(arr));
+//        System.out.println(obj.specialArray(arr));
+        System.out.println(obj.specialArray2(arr));
     }
 
     /**
@@ -28,6 +29,22 @@ public class Solution1608 {
                 index--;
             }
             if (n - index == x) {
+                return x;
+            }
+        }
+        return -1;
+    }
+
+    public int specialArray2(int[] nums) {
+        int n = nums.length;
+        int count = 0;
+        for (int x = 0; x <= n; x++) {
+            for (int i = 0; i < n; i++) {
+                if (nums[i] >= x) {
+                    count++;
+                }
+            }
+            if (count == x) {
                 return x;
             }
         }
