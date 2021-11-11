@@ -16,12 +16,15 @@ public class Solution1608 {
         System.out.println(obj.specialArray(arr));
     }
 
+    /**
+     *
+     */
     public int specialArray(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
         for (int x = n; x >= 0; x--) {
             int index = n;
-            while (index > 0 && nums[index-1] >= x) {
+            while (index > 0 && nums[index - 1] >= x) {
                 index--;
             }
             if (n - index == x) {
