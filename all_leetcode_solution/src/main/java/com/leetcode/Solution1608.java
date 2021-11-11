@@ -37,8 +37,8 @@ public class Solution1608 {
 
     public int specialArray2(int[] nums) {
         int n = nums.length;
-        int count = 0;
         for (int x = 0; x <= n; x++) {
+            int count = 0;
             for (int i = 0; i < n; i++) {
                 if (nums[i] >= x) {
                     count++;
