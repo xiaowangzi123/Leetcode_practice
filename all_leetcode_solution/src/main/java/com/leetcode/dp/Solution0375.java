@@ -38,12 +38,12 @@ public class Solution0375 {
         }
         for (int j = 2; j < n + 1; j++) {
             for (int i = j - 1; i > 0; i--) {
-                dp[i][j] = Math.min(i + dp[i + 1][j], j + dp[i][j - 1]);
+//                dp[i][j] = Math.min(i + dp[i + 1][j], j + dp[i][j - 1]);
                 for (int k = i + 1; k < j; k++) {
                     dp[i][j] = Math.min(k + Math.max(dp[i][k - 1], dp[k + 1][j]), dp[i][j]);
                 }
-//                dp[i][j] = Math.min(dp[i][j], i + dp[i + 1][j]);
-//                dp[i][j] = Math.min(dp[i][j], j + dp[i][j - 1]);
+                dp[i][j] = Math.min(dp[i][j], i + dp[i + 1][j]);
+                dp[i][j] = Math.min(dp[i][j], j + dp[i][j - 1]);
             }
         }
         return dp[1][n];
