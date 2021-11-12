@@ -21,9 +21,9 @@ public class Solution1710 {
             if (arr[0] < truckSize) {
                 truckSize -= arr[0];
                 count += arr[0] * arr[1];
-            }else {
-                count+=truckSize*arr[1];
-                break;
+            } else {
+                count += truckSize * arr[1];
+                return count;
             }
         }
         return count;
