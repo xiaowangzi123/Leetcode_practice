@@ -69,9 +69,10 @@ public class Solution1700 {
         for (int i = 0; i < n; i++) {
             if (sandwiches[i] == 0 && ans[0] > 0) {
                 ans[0]--;
-            }
-            if (sandwiches[i] == 1 && ans[1] > 0) {
+            } else if (sandwiches[i] == 1 && ans[1] > 0) {
                 ans[1]--;
+            } else {
+                break;
             }
         }
 
