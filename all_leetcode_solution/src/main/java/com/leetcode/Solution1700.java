@@ -15,19 +15,17 @@ public class Solution1700 {
     public int countStudents(int[] students, int[] sandwiches) {
         int n = students.length;
         int[] ans = new int[2];
+        for (int i : students) {
+            ans[i]++;
+        }
         for (int i = 0; i < n; i++) {
-            if (students[i] == 0) {
-                ans[0]++;
-            }else {
-                ans[1]++;
-            }
-            if (sandwiches[i]==0){
-                ans[0]--;
-            }else {
-                ans[1]--;
+            if (sandwiches[ans[i]] > 0) {
+                ans[i]--;
+            } else {
+                return n - i;
             }
         }
 
-        return Math.abs(ans[0]) + Math.abs(ans[1]);
+        return 0;
     }
 }
