@@ -13,6 +13,7 @@ public class Solution1700 {
         int[] students = {1, 1, 1, 0, 0, 1}, sandwiches = {1, 0, 0, 0, 1, 1};
         System.out.println(obj.countStudents(students, sandwiches));
         System.out.println(obj.countStudents2(students, sandwiches));
+        System.out.println(obj.countStudents3(students, sandwiches));
     }
 
     /**
@@ -56,5 +57,24 @@ public class Solution1700 {
         }
 
         return stack.size();
+    }
+
+
+    public int countStudents3(int[] students, int[] sandwiches) {
+        int n = students.length;
+        int[] ans = new int[2];
+        for (int i : students) {
+            ans[i]++;
+        }
+        for (int i = 0; i < n; i++) {
+            if (sandwiches[i] == 0 && ans[0] > 0) {
+                ans[0]--;
+            }
+            if (sandwiches[i] == 1 && ans[1] > 0) {
+                ans[1]--;
+            }
+        }
+
+        return ans[0] + ans[1];
     }
 }
