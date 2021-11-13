@@ -20,6 +20,7 @@
     <modules>
         <module>all_leetcode_solution</module>
         <module>leetcode_competition_programing</module>
+        <module>num_0677_MapSumPairs</module>
         <module>num_0706_DesignHashMap</module>
         <module>Offer_1_practice</module>
         <module>Offer_2_practice</module>
