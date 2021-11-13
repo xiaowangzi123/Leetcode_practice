@@ -1,9 +1,5 @@
 package com.leetcode;
 
-import jdk.internal.org.objectweb.asm.tree.InnerClassNode;
-
-import java.awt.*;
-import java.awt.event.MouseWheelListener;
 import java.util.Arrays;
 
 /**
