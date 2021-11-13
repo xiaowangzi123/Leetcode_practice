@@ -12,6 +12,9 @@ public class Solution1732 {
         System.out.println(obj.largestAltitude(arr));
     }
 
+    /**
+     * 0和gain各个元素之和就是山脉的真实海拔
+     */
     public int largestAltitude(int[] gain) {
         int high = 0, start = 0;
         for (int i = 0; i < gain.length; i++) {
