@@ -18,6 +18,6 @@ public class Solution1732 {
             high = Math.max(high, start);
             start += gain[i];
         }
-        return high;
+        return Math.max(high, start);
     }
 }
