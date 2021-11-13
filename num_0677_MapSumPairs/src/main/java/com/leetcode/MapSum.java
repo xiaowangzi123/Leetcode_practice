@@ -21,13 +21,13 @@ public class MapSum {
     }
 
     public int sum(String prefix) {
-        int count = 0;
-        for (String s : map.keySet()) {
-            if (s.startsWith(prefix)) {
-                count++;
+        int ans = 0;
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (entry.getKey().startsWith(prefix)) {
+                ans += entry.getValue();
             }
         }
-        return count;
+        return ans;
     }
 
 }
