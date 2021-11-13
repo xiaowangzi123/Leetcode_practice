@@ -15,8 +15,8 @@ public class Solution1732 {
     public int largestAltitude(int[] gain) {
         int high = 0, start = 0;
         for (int i = 0; i < gain.length; i++) {
-            high = Math.max(high, gain[i] - start);
-            start = gain[i];
+            high = Math.max(high, start);
+            start += gain[i];
         }
         return high;
     }
