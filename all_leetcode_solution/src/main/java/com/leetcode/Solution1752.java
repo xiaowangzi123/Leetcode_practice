@@ -10,7 +10,9 @@ import java.util.Arrays;
 public class Solution1752 {
     public static void main(String[] args) {
         Solution1752 obj = new Solution1752();
-        int[] num = {3, 4, 5, 1, 2};
+//        int[] num = {3, 4, 5, 1, 2};
+        int[] num = {2, 1, 3, 4};
+//        int[] num = {1, 3, 1};
         System.out.println(obj.check(num));
 //        int[] nums = {1,1,1};
         int[] nums = {3, 4, 3};
@@ -24,14 +26,15 @@ public class Solution1752 {
 
         for (int i = 0; i < n; i++) {
             int count = 0, index = 0;
-            while (arr[index++] == nums[(i + index) % n]) {
+            while (nums[(i + index) % n] == arr[index]) {
+                index++;
                 count++;
                 if (count == n) {
                     return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
     /**
