@@ -37,6 +37,26 @@ public class Solution1752 {
         return false;
     }
 
+    public boolean check11(int[] nums) {
+        int n = nums.length;
+        int[] arr = Arrays.copyOf(nums, n);
+        Arrays.sort(arr);
+
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            //速度比上面的while慢
+            for (int j = 0; j < n; j++) {
+                if (nums[(i + j) % n] == arr[j]) {
+                    count++;
+                    if (count == n) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     /**
      * 1无变化，第一个元素不大于最后一个元素，flag=false
      * 2有翻转变化，第一个元素不小于最后一个元素 flag=true
