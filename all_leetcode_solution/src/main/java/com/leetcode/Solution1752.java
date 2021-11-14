@@ -60,4 +60,23 @@ public class Solution1752 {
         }
         return true;
     }
+
+    /**
+     * 数组未变化时，不能出现一次nums[i] < nums[i - 1]
+     * 数组有变化时，不能出现两次nums[i] < nums[i - 1]
+     */
+    public boolean check3(int[] nums) {
+        int n = nums.length, count = 0;
+        int limit = nums[0] >= nums[n - 1] ? 1 : 0;
+
+        for (int i = 1; i < n; i++) {
+            if (nums[i] < nums[i - 1]) {
+                count++;
+                if (count > limit) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
