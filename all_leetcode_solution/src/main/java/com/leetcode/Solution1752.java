@@ -26,7 +26,8 @@ public class Solution1752 {
 
         for (int i = 0; i < n; i++) {
             int count = 0, index = 0;
-            while (nums[(i + index) % n] == arr[index++]) {
+            while (nums[(i + index) % n] == arr[index]) {
+                index++;
                 count++;
                 if (count == n) {
                     return true;
