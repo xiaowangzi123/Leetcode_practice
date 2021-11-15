@@ -118,6 +118,7 @@ public class Solution0391 {
         long b = getPoint(maxA, maxB);
         long c = getPoint(minX, minY);
         long d = getPoint(maxA, minY);
+        //如果面积不相等，或者最外围四个点出现次数不为1，返回false
         if (area != (long) (maxA - minX) * (maxB - minY)
                 || map.getOrDefault(a, 0) != 1
                 || map.getOrDefault(b, 0) != 1
@@ -126,11 +127,13 @@ public class Solution0391 {
             return false;
         }
 
+        //删除最外围坐标点
         map.remove(a);
         map.remove(b);
         map.remove(c);
         map.remove(d);
 
+        //剩余坐标点出现的次数为2或4，其他次数返回false
         for (Map.Entry<Long, Integer> entry : map.entrySet()) {
             int value = entry.getValue();
             if (value != 2 && value != 4) {
