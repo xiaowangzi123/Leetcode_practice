@@ -44,4 +44,14 @@ public class Solution1800 {
         }
         return max;
     }
+
+    //代码行数减少了，但是效率不如上一个方法
+    public int maxAscendingSum3(int[] nums) {
+        int sum = nums[0], max = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            sum = (i > 0 && nums[i - 1] < nums[i])?sum += nums[i]:nums[i];
+            max = Math.max(sum, max);
+        }
+        return max;
+    }
 }
