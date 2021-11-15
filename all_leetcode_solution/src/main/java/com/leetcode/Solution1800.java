@@ -14,7 +14,7 @@ public class Solution1800 {
     }
 
     public int maxAscendingSum(int[] nums) {
-        int sum = nums[0], max = Integer.MIN_VALUE;
+        int sum = nums[0], max = nums[0];
         int i = 1, n = nums.length;
         while (i < n) {
             while (i < n && nums[i - 1] < nums[i]) {
