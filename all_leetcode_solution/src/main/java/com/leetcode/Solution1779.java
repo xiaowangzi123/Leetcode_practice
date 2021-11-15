@@ -10,14 +10,20 @@ public class Solution1779 {
         Solution1779 obj = new Solution1779();
         int[][] points = {{1, 2}, {3, 1}, {2, 4}, {2, 3}, {4, 4}};
         System.out.println(obj.nearestValidPoint(3, 4, points));
+        int[][] points2 = {{3, 4}};
+        System.out.println(obj.nearestValidPoint(3, 4, points2));
+
     }
 
     public int nearestValidPoint(int x, int y, int[][] points) {
         int index = -1, min = Integer.MAX_VALUE;
         for (int i = 0; i < points.length; i++) {
-            int temp = Math.abs(x - points[i][0]) + Math.abs(y - points[i][1]);
-            if (temp < min) {
-                min = temp;
+            if (points[i][0] == x && Math.abs(y - points[i][1]) < min) {
+                min = Math.abs(y - points[i][1]);
+                index = i;
+            }
+            if (y == points[i][1] && Math.abs(x - points[i][0]) < min) {
+                min = Math.abs(x - points[i][0]);
                 index = i;
             }
         }
