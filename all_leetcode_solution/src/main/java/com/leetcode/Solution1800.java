@@ -21,6 +21,7 @@ public class Solution1800 {
                 i++;
             }
             max = Math.max(sum, max);
+            sum = nums[i];
             i++;
         }
 
