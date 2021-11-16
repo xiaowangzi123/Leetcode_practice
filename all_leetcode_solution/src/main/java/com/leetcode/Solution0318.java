@@ -43,4 +43,16 @@ public class Solution0318 {
         }
         return false;
     }
+
+    //超时
+    public boolean haveCommon2(String s1, String s2) {
+        for (char c1 : s1.toCharArray()) {
+            for (char c2 : s2.toCharArray()) {
+                if (c1 == c2) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
