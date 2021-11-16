@@ -55,4 +55,16 @@ public class Solution0318 {
         }
         return false;
     }
+
+    //超时
+    public boolean haveCommon3(String s1, String s2) {
+        for (int i=0;i<s1.length();i++) {
+            for (int j=0;j<s2.length();j++) {
+                if (s1.charAt(i)==s2.charAt(j)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
