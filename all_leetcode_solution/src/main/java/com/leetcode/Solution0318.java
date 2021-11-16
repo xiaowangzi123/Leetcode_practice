@@ -16,7 +16,7 @@ public class Solution0318 {
     }
 
     public int maxProduct(String[] words) {
-        int n = words.length, max = Integer.MIN_VALUE;
+        int n = words.length, max = 0;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 if (!haveCommon(words[i], words[j])) {
@@ -24,7 +24,7 @@ public class Solution0318 {
                 }
             }
         }
-        return 0;
+        return max;
     }
 
     /**
