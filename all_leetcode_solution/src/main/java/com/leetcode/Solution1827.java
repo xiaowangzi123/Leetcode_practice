@@ -16,6 +16,7 @@ public class Solution1827 {
         int[] nums = {4881, 2593, 6819, 9256, 4135};
 //        int[] nums = {7, 3, 10, 20, 5};
         System.out.println(obj.minOperations2(nums));
+        System.out.println(obj.minOperations3(nums));
     }
 
     /**
@@ -54,6 +55,10 @@ public class Solution1827 {
         return ans;
     }
 
+    /**
+     * a[i-1]>=a[i]时，需要处理
+     * a[i-1]<a[i]时符合条件，不需要处理
+     */
     public int minOperations3(int[] nums) {
         int n = nums.length, ans = 0;
         for (int i = 1; i < n; i++) {
