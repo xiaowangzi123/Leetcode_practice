@@ -26,7 +26,7 @@ public class Solution1827 {
                 break;
             }
         }
-        count = ((n - index) * (temp + nums[n - 1])) / 2 - sum;
+        count = (n - index) * (temp * 2 + n - index - 1) / 2 - sum;
 
         return count;
     }
