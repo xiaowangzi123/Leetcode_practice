@@ -10,10 +10,10 @@ import java.util.Arrays;
 public class Solution1827 {
     public static void main(String[] args) {
         Solution1827 obj = new Solution1827();
-        int[] nums = {1, 1, 1};
+//        int[] nums = {1, 1, 1};
 //        int[] nums = {1, 5, 2, 4, 1};
 //        int[] nums = {1, 5, 6};
-//        int[] nums = {4881, 2593, 6819, 9256, 4135};
+        int[] nums = {4881, 2593, 6819, 9256, 4135};
 //        int[] nums = {7, 3, 10, 20, 5};
         System.out.println(obj.minOperations2(nums));
     }
@@ -46,12 +46,9 @@ public class Solution1827 {
         int n = nums.length, ans = 0;
         int[] arr = nums.clone();
         for (int i = 1; i < n; i++) {
-            if (nums[i - 1] >= arr[i]) {
-                arr[i] = nums[i - 1] + 1;
+            if (nums[i] <= arr[i - 1]) {
+                arr[i] = arr[i - 1] + 1;
             }
-        }
-
-        for (int i = 1; i < n; i++) {
             ans += arr[i] - nums[i];
         }
         return ans;
