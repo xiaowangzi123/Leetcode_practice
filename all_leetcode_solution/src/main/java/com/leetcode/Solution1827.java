@@ -53,4 +53,16 @@ public class Solution1827 {
         }
         return ans;
     }
+
+    public int minOperations3(int[] nums) {
+        int n = nums.length, ans = 0;
+        for (int i = 1; i < n; i++) {
+            int temp = nums[i - 1] - nums[i];
+            if (temp >= 0) {
+                ans += temp + 1;
+                nums[i] = nums[i - 1] + 1;
+            }
+        }
+        return ans;
+    }
 }
