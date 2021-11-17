@@ -9,7 +9,9 @@ public class Solution1827 {
     public static void main(String[] args) {
         Solution1827 obj = new Solution1827();
 //        int[] nums = {1, 1, 1};
-        int[] nums = {1, 5, 2, 4, 1};
+//        int[] nums = {1, 5, 2, 4, 1};
+//        int[] nums = {1, 5, 6};
+        int[] nums = {1, 5, 6};
         System.out.println(obj.minOperations(nums));
     }
 
@@ -26,7 +28,9 @@ public class Solution1827 {
                 break;
             }
         }
-        count = (n - index) * (temp * 2 + n - index - 1) / 2 - sum;
+        if (sum > 0) {
+            count = (n - index) * (temp * 2 + n - index - 1) / 2 - sum;
+        }
 
         return count;
     }
