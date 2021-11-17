@@ -8,19 +8,25 @@ package com.leetcode;
 public class Solution1827 {
     public static void main(String[] args) {
         Solution1827 obj = new Solution1827();
-        int[] nums = {1, 1, 1};
+//        int[] nums = {1, 1, 1};
+        int[] nums = {1, 5, 2, 4, 1};
         System.out.println(obj.minOperations(nums));
     }
 
     public int minOperations(int[] nums) {
         int count = 0, temp = 0, index = 0;
+        int sum = 0, n = nums.length;
         for (int i = 1; i < nums.length; i++) {
             if (nums[i - 1] >= nums[i]) {
                 temp = nums[i - 1];
                 index = i - 1;
+                for (int j = i - 1; j < nums.length; j++) {
+                    sum += nums[j];
+                }
+                break;
             }
-            count += (temp + index - i - nums[i]);
         }
+        count = ((n - index) * (temp + nums[n - 1])) / 2 - sum;
 
         return count;
     }
