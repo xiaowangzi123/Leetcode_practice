@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import java.util.Arrays;
+
 /**
  * @author :wyq
  * @date ：Created in 2021/11/17
@@ -8,13 +10,18 @@ package com.leetcode;
 public class Solution1827 {
     public static void main(String[] args) {
         Solution1827 obj = new Solution1827();
-//        int[] nums = {1, 1, 1};
+        int[] nums = {1, 1, 1};
 //        int[] nums = {1, 5, 2, 4, 1};
 //        int[] nums = {1, 5, 6};
-        int[] nums = {1, 5, 6};
-        System.out.println(obj.minOperations(nums));
+//        int[] nums = {4881, 2593, 6819, 9256, 4135};
+//        int[] nums = {7, 3, 10, 20, 5};
+        System.out.println(obj.minOperations2(nums));
     }
 
+    /**
+     * TODO
+     * 思路待改进
+     */
     public int minOperations(int[] nums) {
         int count = 0, temp = 0, index = 0;
         int sum = 0, n = nums.length;
@@ -33,5 +40,20 @@ public class Solution1827 {
         }
 
         return count;
+    }
+
+    public int minOperations2(int[] nums) {
+        int n = nums.length, ans = 0;
+        int[] arr = nums.clone();
+        for (int i = 1; i < n; i++) {
+            if (nums[i - 1] >= arr[i]) {
+                arr[i] = nums[i - 1] + 1;
+            }
+        }
+
+        for (int i = 1; i < n; i++) {
+            ans += arr[i] - nums[i];
+        }
+        return ans;
     }
 }
