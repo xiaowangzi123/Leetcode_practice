@@ -10,6 +10,12 @@ import com.leetcode.bean.TreeNode;
 public class Solution0563 {
     public static void main(String[] args) {
         Solution0563 obj = new Solution0563();
+        TreeNode t2 = new TreeNode(2, null, null);
+        TreeNode t3 = new TreeNode(3, null, null);
+        TreeNode t1 = new TreeNode(1, t2, t3);
+        
+        System.out.println(obj.findTilt(t1));
+        
     }
 
     int ans = 0;
