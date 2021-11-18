@@ -15,20 +15,22 @@ public class Solution1854 {
     }
 
     public int maximumPopulation(int[][] logs) {
-        Arrays.sort(logs, (a, b) -> a[0] - b[0]);
-        int min = logs[0][0], max = 1, count = 1;
+//        Arrays.sort(logs, (a, b) -> a[0] - b[0]);
+        int index = 0, max = 0, count = 0;
 
-        for (int i = 1; i < logs.length; i++) {
-            if (logs[i][0] < logs[i - 1][1]) {
-                count++;
-            } else {
-                if (count > max) {
-                    min = logs[i][0];
-                }
-                count = 1;
-            }
-            max = Math.max(max, count);
+        int[] arr = new int[101];
+        for (int[] log : logs) {
+            arr[log[0] - 1950]++;
+            arr[log[1] - 1950]--;
         }
-        return min;
+
+        for (int i = 0; i < 101; i++) {
+            count += arr[i];
+            if (count > max) {
+                max = count;
+                index = i;
+            }
+        }
+        return index + 1950;
     }
 }
