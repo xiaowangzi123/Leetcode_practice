@@ -12,6 +12,8 @@ public class Solution0397 {
     public static void main(String[] args) {
         Solution0397 obj = new Solution0397();
         System.out.println(obj.integerReplacement(7));
+        System.out.println(obj.integerReplacement2(7));
+        System.out.println(obj.integerReplacement3(7));
         System.out.println(obj.integerReplacement(8));
     }
 
@@ -38,5 +40,27 @@ public class Solution0397 {
             }
         }
         return map.get(n);
+    }
+
+    public int integerReplacement3(int n) {
+        int ans = 0;
+        while (n != 1) {
+            if (n % 2 == 0) {
+                ans++;
+                n /= 2;
+            } else if (n % 4 == 1) {
+                ans += 2;
+                n /= 2;
+            } else {
+                if (n == 3) {
+                    ans += 2;
+                    n = 1;
+                } else {
+                    ans += 2;
+                    n = n / 2 + 1;
+                }
+            }
+        }
+        return ans;
     }
 }
