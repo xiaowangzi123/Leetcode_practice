@@ -12,6 +12,7 @@ public class Solution1854 {
         Solution1854 obj = new Solution1854();
         int[][] logs = {{1950, 1961}, {1960, 1971}, {1970, 1981}};
         System.out.println(obj.maximumPopulation(logs));
+        System.out.println(obj.maximumPopulation2(logs));
     }
 
     public int maximumPopulation(int[][] logs) {
@@ -32,5 +33,22 @@ public class Solution1854 {
             }
         }
         return index + 1950;
+    }
+
+    public int maximumPopulation2(int[][] logs) {
+        int index = 0, max = 0;
+        for (int i = 1950; i <= 2050; i++) {
+            int count = 0;
+            for (int[] log : logs) {
+                if (log[0] <= i && i < log[1]) {
+                    count++;
+                }
+            }
+            if (count > max) {
+                max = count;
+                index = i;
+            }
+        }
+        return index;
     }
 }
