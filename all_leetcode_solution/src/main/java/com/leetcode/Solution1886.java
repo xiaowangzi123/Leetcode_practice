@@ -15,6 +15,10 @@ public class Solution1886 {
         System.out.println(obj.findRotation(mat, target));
     }
 
+    /**
+     * 矩阵不旋转就相等，直接返回true
+     *
+     */
     public boolean findRotation(int[][] mat, int[][] target) {
         if (Arrays.deepEquals(mat,target)){
             return true;
