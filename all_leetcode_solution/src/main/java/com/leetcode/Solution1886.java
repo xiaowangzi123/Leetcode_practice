@@ -16,6 +16,9 @@ public class Solution1886 {
     }
 
     public boolean findRotation(int[][] mat, int[][] target) {
+        if (Arrays.deepEquals(mat,target)){
+            return true;
+        }
         int[][] ans;
         for (int k = 0; k < 3; k++) {
             ans = turnMatrix(mat);
