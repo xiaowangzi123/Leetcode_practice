@@ -42,6 +42,10 @@ public class Solution0397 {
         return map.get(n);
     }
 
+    /**
+     * 贪心算法
+     * 1.n为偶数时，只有一种方式将n替换为n/2
+     */
     public int integerReplacement3(int n) {
         int ans = 0;
         while (n != 1) {
