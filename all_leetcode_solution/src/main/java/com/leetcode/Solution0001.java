@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author ：wyq
  * @date ：Created in 2020/11/21
- * @description：
+ * @description ： 1. 两数之和
  */
 public class Solution0001 {
     public static void main(String[] args) {
@@ -15,10 +15,13 @@ public class Solution0001 {
         System.out.println(Arrays.toString(obj.twoSum(nums, target)));
     }
 
+    /**
+     * 暴力遍历数组
+     */
     public int[] twoSum(int[] nums, int target) {
         int[] res = new int[2];
         for (int i = 0; i < nums.length; i++) {
-            for (int j = i+1; j < nums.length; j++) {
+            for (int j = i + 1; j < nums.length; j++) {
                 if (nums[i] + nums[j] == target) {
                     res[0] = i;
                     res[1] = j;
@@ -26,6 +29,17 @@ public class Solution0001 {
             }
         }
         return res;
+    }
+
+    public int[] twoSum2(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return new int[0];
     }
 
 
