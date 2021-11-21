@@ -13,10 +13,12 @@ public class Solution0047 {
         int[] arr = {1, 1, 2};
         System.out.println(obj.permuteUnique(arr));
         System.out.println(obj.permuteUnique2(arr));
+        System.out.println(obj.permuteUnique3(arr));
 
         int[] arr2 = {1, 1, 2, 1};
         System.out.println(obj.permuteUnique(arr2));
         System.out.println(obj.permuteUnique2(arr2));
+        System.out.println(obj.permuteUnique3(arr2));
 
     }
 
@@ -84,4 +86,36 @@ public class Solution0047 {
             }
         }
     }
+
+
+    public List<List<Integer>> permuteUnique3(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> ans = new ArrayList<>();
+        boolean[] used = new boolean[nums.length];
+        backTrace3(ans, new ArrayList<>(), nums, used);
+        return new ArrayList<>(ans);
+    }
+
+    public void backTrace3(List<List<Integer>> ans, List<Integer> temp, int[] nums, boolean[] used) {
+        if (temp.size() == nums.length) {
+            ans.add(new ArrayList<>(temp));
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                if (used[i]) {
+                    continue;
+                }
+                if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
+                    continue;
+                }
+                used[i] = true;
+                temp.add(nums[i]);
+                backTrace3(ans, temp, nums, used);
+                used[i] = false;
+                temp.remove(temp.size() - 1);
+            }
+        }
+    }
+
+
+
 }
