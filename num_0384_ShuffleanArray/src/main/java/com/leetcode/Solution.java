@@ -1,6 +1,8 @@
 package com.leetcode;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
 
 /**
  * @author: wyq
@@ -11,23 +13,35 @@ public class Solution {
     public static void main(String[] args) {
         Solution obj = new Solution(new int[]{1, 2, 3});
         System.out.println(Arrays.toString(obj.reset()));
+        System.out.println(Arrays.toString(obj.shuffle()));
+        System.out.println(Arrays.toString(obj.reset()));
+        System.out.println("-------------");
     }
 
     int[] arr;
-    int[] arr2;
+    int[] original;
 
     public Solution(int[] nums) {
         this.arr = nums;
-        this.arr2 = nums.clone();
+        this.original = nums.clone();
     }
 
     public int[] reset() {
-        System.arraycopy(arr2, 0, arr, 0, arr.length);
+        System.arraycopy(original, 0, arr, 0, arr.length);
         return arr;
     }
 
+    /**
+     * 参考Collections.shuffle();
+     */
     public int[] shuffle() {
-
+        Random random = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            int j = i + random.nextInt(arr.length - i);
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
         return arr;
     }
 }
