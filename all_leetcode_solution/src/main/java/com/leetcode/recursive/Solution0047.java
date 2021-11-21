@@ -12,9 +12,11 @@ public class Solution0047 {
         Solution0047 obj = new Solution0047();
         int[] arr = {1, 1, 2};
         System.out.println(obj.permuteUnique(arr));
+        System.out.println(obj.permuteUnique2(arr));
 
         int[] arr2 = {1, 1, 2, 1};
         System.out.println(obj.permuteUnique(arr2));
+        System.out.println(obj.permuteUnique2(arr2));
 
     }
 
@@ -55,6 +57,31 @@ public class Solution0047 {
             used[i] = false;
             path.removeLast();
 
+        }
+    }
+
+    public List<List<Integer>> permuteUnique2(int[] nums) {
+        Set<List<Integer>> ans = new HashSet<>();
+        int len = nums.length;
+        //标识某个数字是否被用过
+        boolean[] used = new boolean[len];
+        backTrack2(ans, new ArrayList<>(), nums, used);
+        return new ArrayList<>(ans);
+    }
+
+    public void backTrack2(Set<List<Integer>> set, List<Integer> temp, int[] nums, boolean[] used) {
+        if (temp.size() == nums.length) {
+            set.add(new ArrayList<>(temp));
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                if (!used[i]) {
+                    used[i] = true;
+                    temp.add(nums[i]);
+                    backTrack2(set, temp, nums, used);
+                    used[i] = false;
+                    temp.remove(temp.size() - 1);
+                }
+            }
         }
     }
 }
