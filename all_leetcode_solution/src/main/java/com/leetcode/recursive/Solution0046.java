@@ -11,12 +11,9 @@ import java.util.stream.Collectors;
 class Solution0046 {
     public static void main(String[] args) {
         Solution0046 obj = new Solution0046();
-        int[] arr = {1, 2, 3};
-        System.out.println(obj.permute(arr));
-        System.out.println(obj.permute3(arr));
-
-        int[] arr2 = {1, 1, 3};
-        System.out.println(obj.permute2(arr2));
+        System.out.println(obj.permute(new int[]{1, 2, 3}));
+        System.out.println(obj.permute2(new int[]{1, 2, 3}));
+        System.out.println(obj.permute3(new int[]{1, 2, 3}));
 
     }
 
@@ -106,5 +103,6 @@ class Solution0046 {
             }
         }
     }
+
 
 }
