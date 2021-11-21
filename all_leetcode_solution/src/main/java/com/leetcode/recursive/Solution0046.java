@@ -100,7 +100,8 @@ class Solution0046 {
                 if (!temp.contains(nums[i])) {
                     temp.add(nums[i]);
                     backTrack3(list, temp, nums);
-                    temp.remove(nums[i]);
+//                    temp.remove((Integer) nums[i]);
+                    temp.remove(temp.size() - 1);
                 }
             }
         }
