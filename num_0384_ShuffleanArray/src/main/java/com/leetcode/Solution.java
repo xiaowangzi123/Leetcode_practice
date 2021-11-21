@@ -44,4 +44,15 @@ public class Solution {
         }
         return arr;
     }
+
+    public int[] shuffle2() {
+        Random random = new Random();
+        for (int i = 1; i <= arr.length; i++) {
+            int j = random.nextInt(i);
+            int temp = arr[i - 1];
+            arr[i - 1] = arr[j];
+            arr[j] = temp;
+        }
+        return arr;
+    }
 }
