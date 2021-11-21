@@ -12,45 +12,14 @@ import java.util.List;
 public class Solution0078 {
     public static void main(String[] args) {
         Solution0078 obj = new Solution0078();
-        int[] arr = {1, 2, 3};
-        System.out.println(obj.subsets(arr));
+        System.out.println(obj.subsets(new int[]{1, 2, 3}));
+        System.out.println(obj.subsets2(new int[]{1, 2, 3}));
+        System.out.println(obj.subsets3(new int[]{1, 2, 3}));
+        System.out.println("----------------------------");
+        System.out.println(obj.subsets3(new int[]{1, 2}));
+        System.out.println(obj.subsets4(new int[]{1, 2, 3}));
+        System.out.println(obj.subsets44(new int[]{1, 2, 3}));
 
-        int[] arr2 = {1, 2, 3};
-        System.out.println(obj.subsets2(arr2));
-        System.out.println(obj.subsets3(arr2));
-
-        int[] arr3 = {1, 2};
-        System.out.println(obj.subsets3(arr3));
-        int[] arr4 = {1, 2};
-        System.out.println("{4}-->" + obj.subsets4(arr4));
-        System.out.println(1 << 3);
-        System.out.println("---------<<<<<0<<<<<<----------------");
-        System.out.println(0 & (1 << 0));
-        System.out.println(0 & (1 << 1));
-        System.out.println(0 & (1 << 2));
-        System.out.println("---------<<<<<1<<<<<<----------------");
-        System.out.println(1 & (1 << 0));
-        System.out.println(1 & (1 << 1));
-        System.out.println(1 & (1 << 2));
-        System.out.println("---------<<<<<2<<<<<<----------------");
-        System.out.println(2 & (1 << 0));
-        System.out.println(2 & (1 << 1));
-        System.out.println(2 & (1 << 2));
-
-        System.out.println("---------<<<<<3<<<<<<----------------");
-        System.out.println(3 & (1 << 0));
-        System.out.println(3 & (1 << 1));
-        System.out.println(3 & (1 << 2));
-
-        System.out.println("---------<<<<<4<<<<<<----------------");
-        System.out.println(4 & (1 << 0));
-        System.out.println(4 & (1 << 1));
-        System.out.println(4 & (1 << 2));
-
-        System.out.println("---------<<<<<5<<<<<<----------------");
-        System.out.println(5 & (1 << 0));
-        System.out.println(5 & (1 << 1));
-        System.out.println(5 & (1 << 2));
 
     }
 
@@ -108,6 +77,10 @@ public class Solution0078 {
 
     /**
      * 递归加入每一个元素
+     * {}
+     * {}{1}
+     * {}{1}{2}{1,2}
+     * {}{1}{2}{1,2}{3}{1,3}{2,3}{1,2,3}
      */
     public List<List<Integer>> subsets3(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
@@ -117,16 +90,30 @@ public class Solution0078 {
     }
 
     public void recursion(int[] nums, int i, List<List<Integer>> res) {
-        if (i >= nums.length) {
+        if (i == nums.length) {
             return;
         }
         int size = res.size();
         for (int j = 0; j < size; j++) {
-            List<Integer> newSub = new ArrayList<>(res.get(j));
-            newSub.add(nums[i]);
-            res.add(newSub);
+            List<Integer> temp = new ArrayList<>(res.get(j));
+            temp.add(nums[i]);
+            res.add(temp);
         }
         recursion(nums, i + 1, res);
+    }
+
+    public List<List<Integer>> subsets33(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        ans.add(new ArrayList<>());
+        for (int i = 0; i < nums.length; i++) {
+            int size = ans.size();
+            for (int j = 0; j < size; j++) {
+                List<Integer> temp = new ArrayList<>(ans.get(j));
+                temp.add(nums[i]);
+                ans.add(temp);
+            }
+        }
+        return ans;
     }
 
     /**
@@ -150,6 +137,23 @@ public class Solution0078 {
             sub.add(nums[j]);
             res.add(new ArrayList<>(sub));
             backtrack(nums, j + 1, sub, res);
+            sub.remove(sub.size() - 1);
+        }
+    }
+
+    public List<List<Integer>> subsets44(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        backTrack44(0, nums, new ArrayList<>(), ans);
+        return ans;
+    }
+
+    public void backTrack44(int start, int[] nums, List<Integer> sub, List<List<Integer>> ans) {
+        if (start <= nums.length) {
+            ans.add(new ArrayList<>(sub));
+        }
+        for (int i = start; i < nums.length; i++) {
+            sub.add(nums[i]);
+            backTrack44(i + 1, nums, sub, ans);
             sub.remove(sub.size() - 1);
         }
     }
