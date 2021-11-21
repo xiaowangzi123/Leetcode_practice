@@ -13,6 +13,7 @@ class Solution0046 {
         Solution0046 obj = new Solution0046();
         int[] arr = {1, 2, 3};
         System.out.println(obj.permute(arr));
+        System.out.println(obj.permute3(arr));
 
         int[] arr2 = {1, 1, 3};
         System.out.println(obj.permute2(arr2));
@@ -83,5 +84,26 @@ class Solution0046 {
         }
     }
 
+
+    public List<List<Integer>> permute3(int[] nums) {
+        // 使用一个动态数组保存所有可能的全排列
+        List<List<Integer>> ans = new ArrayList<>();
+        backTrack3(ans, new ArrayList<>(), nums);
+        return ans;
+    }
+
+    public void backTrack3(List<List<Integer>> list, List<Integer> temp, int[] nums) {
+        if (temp.size() == nums.length) {
+            list.add(new ArrayList<>(temp));
+        } else {
+            for (int i = 0; i < nums.length; i++) {
+                if (!temp.contains(nums[i])) {
+                    temp.add(nums[i]);
+                    backTrack3(list, temp, nums);
+                    temp.remove(nums[i]);
+                }
+            }
+        }
+    }
 
 }
