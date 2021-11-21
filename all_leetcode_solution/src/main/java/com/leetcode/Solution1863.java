@@ -10,8 +10,12 @@ public class Solution1863 {
         Solution1863 obj = new Solution1863();
         int[] nums = {1, 3};
         System.out.println(obj.subsetXORSum(nums));
+        System.out.println(obj.subsetXORSum2(nums));
     }
 
+    /**
+     * 回溯
+     */
     int xor = 0;
     int res = 0;
     public int subsetXORSum(int[] nums) {
@@ -30,6 +34,11 @@ public class Solution1863 {
     }
 
 
+    /**
+     * 数组的子集个数1 << n
+     * 以{1,3}为例，四个子集分别为{}{1}{3}{1,3}
+     * 00 01 10 11为0表示不取当前元素，为1表示取当前元素
+     */
     public int subsetXORSum2(int[] nums) {
         int ans = 0, n = nums.length;
         for (int i = 0; i < (1 << n); ++i) {

@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/27
- * @description :全排列
+ * @description :全排列，元素不重复
  */
 class Solution0046 {
     public static void main(String[] args) {
@@ -76,12 +76,9 @@ class Solution0046 {
             if (!used[i]) {
                 path.addLast(nums[i]);
                 used[i] = true;
-
-                System.out.println("  递归之前 => " + path);
                 dfs(nums, length, depth + 1, path, used, res);
                 used[i] = false;
                 path.removeLast();
-                System.out.println("递归之后 => " + path);
             }
         }
     }
