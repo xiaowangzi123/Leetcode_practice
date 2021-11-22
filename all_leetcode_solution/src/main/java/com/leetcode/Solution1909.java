@@ -9,11 +9,12 @@ public class Solution1909 {
     public static void main(String[] args) {
         Solution1909 obj = new Solution1909();
         System.out.println(obj.canBeIncreasing(new int[]{1, 2, 10, 5, 7}));
-        System.out.println(obj.canBeIncreasing2(new int[]{1, 2, 10, 5, 7}));
+        System.out.println(obj.canBeIncreasing2(new int[]{10, 1, 2, 5, 7}));
         System.out.println(obj.canBeIncreasing(new int[]{2, 3, 1, 2}));
         System.out.println(obj.canBeIncreasing2(new int[]{2, 3, 1, 2}));
         System.out.println(obj.canBeIncreasing(new int[]{1, 1, 1}));
         System.out.println(obj.canBeIncreasing2(new int[]{1, 1, 1}));
+
     }
 
     public boolean canBeIncreasing(int[] nums) {
