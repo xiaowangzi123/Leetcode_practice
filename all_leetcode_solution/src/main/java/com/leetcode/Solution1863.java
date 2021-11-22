@@ -1,4 +1,4 @@
-package com.leetcode.backtrace;
+package com.leetcode;
 
 /**
  * @author :wyq
@@ -15,24 +15,26 @@ public class Solution1863 {
 
     /**
      * 回溯
+     * todo
      */
-    int xor = 0;
-    int res = 0;
+    int sum = 0;
+    int cur = 0;
 
     public int subsetXORSum(int[] nums) {
-        dfs(nums, 0);
-        return res;
+        backtrace(nums, 0);
+        return sum;
     }
 
-    public void dfs(int[] nums, int count) {
-        if (count == nums.length) {
-            res += xor;
+    public void backtrace(int[] nums, int index) {
+        if (index == nums.length) {
             return;
         }
-
-        dfs(nums, count + 1);
-        xor ^= nums[count];
-        dfs(nums, count + 1);
+        for (int i = index; i < nums.length; i++) {
+            cur ^= nums[i];
+            sum += cur;
+            backtrace(nums, i + 1);
+            cur ^= nums[i];
+        }
     }
 
 
