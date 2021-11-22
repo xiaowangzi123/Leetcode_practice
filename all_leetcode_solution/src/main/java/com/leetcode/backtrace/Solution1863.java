@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.backtrace;
 
 /**
  * @author :wyq
@@ -8,9 +8,10 @@ package com.leetcode;
 public class Solution1863 {
     public static void main(String[] args) {
         Solution1863 obj = new Solution1863();
-        System.out.println(obj.subsetXORSum(new int[]{1, 3}));
+        System.out.println(obj.subsetXORSum(new int[]{1, 5, 6}));
         System.out.println(obj.subsetXORSum2(new int[]{1, 3}));
         System.out.println(obj.subsetXORSum3(new int[]{1, 3}));
+
     }
 
     /**
@@ -18,7 +19,7 @@ public class Solution1863 {
      * todo
      */
     int sum = 0;
-    int cur = 0;
+    int temp = 0;
 
     public int subsetXORSum(int[] nums) {
         backtrace(nums, 0);
@@ -30,10 +31,10 @@ public class Solution1863 {
             return;
         }
         for (int i = index; i < nums.length; i++) {
-            cur ^= nums[i];
-            sum += cur;
+            temp ^= nums[i];
+            sum += temp;
             backtrace(nums, i + 1);
-            cur ^= nums[i];
+            temp ^= nums[i];
         }
     }
 
