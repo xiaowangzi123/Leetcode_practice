@@ -21,6 +21,7 @@ public class Solution0859 {
         StringBuilder s3 = new StringBuilder("ab");
         StringBuilder s4 = new StringBuilder("ba");
 
+        //StringBuilder没有重写equals方法，比较的是地址
         //false
         System.out.println(s1.equals(s3));
         //true
@@ -62,14 +63,8 @@ public class Solution0859 {
             if (s1.length() != 2 || s2.length() != 2) {
                 return false;
             }
-            /*if (s1.toString().equals(s2.reverse().toString())) {
-                return true;
-            } else {
-                return false;
-            }*/
             return s1.toString().equals(s2.reverse().toString());
         }
-
     }
 
 
