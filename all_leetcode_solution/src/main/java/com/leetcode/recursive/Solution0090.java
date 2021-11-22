@@ -14,19 +14,17 @@ import java.util.List;
 public class Solution0090 {
     public static void main(String[] args) {
         Solution0090 obj = new Solution0090();
-        int[] arr = {2, 2, 2};
-        System.out.println(obj.subsetsWithDup(arr));
+        System.out.println(obj.subsetsWithDup(new int[]{2, 2, 2}));
+        System.out.println(obj.subsetsWithDup2(new int[]{2, 2, 2}));
+        System.out.println(obj.subsetsWithDup3(new int[]{2, 2, 2}));
+        System.out.println(obj.subsetsWithDup33(new int[]{2, 2, 2}));
 
-        int[] arr2 = {1, 2, 2, 2};
-        System.out.println("{1, 2, 2, 2}-->" +obj.subsetsWithDup(arr2));
-        System.out.println(obj.subsetsWithDup2(arr2));
+        System.out.println("--------------------");
+        System.out.println(obj.subsetsWithDup(new int[]{1, 2, 2, 2}));
+        System.out.println(obj.subsetsWithDup2(new int[]{1, 2, 2, 2}));
+        System.out.println(obj.subsetsWithDup3(new int[]{1, 2, 2, 2}));
+        System.out.println(obj.subsetsWithDup33(new int[]{1, 2, 2, 2}));
 
-        int[] arr3 = {1, 2, 2, 2};
-        System.out.println("{1, 2, 2, 2}-->" + obj.subsetsWithDup2(arr3));
-
-        System.out.println(0 >> 1 & 1);
-        System.out.println(1 >> 1 & 1);
-        System.out.println(2 >> 1 & 1);
     }
 
     /**
@@ -83,7 +81,7 @@ public class Solution0090 {
             for (int j = 0; j < t; j++) {
                 List<Integer> sub = new ArrayList<>(ans.get(j));
                 //此处需要修改
-                if (j > 1 && sub.contains(nums[j - 1])&& nums[j] == nums[j - 1]) {
+                if (j > 1 && sub.contains(nums[j - 1]) && nums[j] == nums[j - 1]) {
                     break;
                 }
                 sub.add(num);
@@ -115,6 +113,29 @@ public class Solution0090 {
             sub.add(nums[j]);
             res.add(new ArrayList<>(sub));
             backtrack(nums, j + 1, sub, res);
+            sub.remove(sub.size() - 1);
+        }
+    }
+
+    public List<List<Integer>> subsetsWithDup33(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+
+        Arrays.sort(nums);
+        backtrack33(nums, 0, new ArrayList<>(), ans);
+        return ans;
+    }
+
+    public void backtrack33(int[] nums, int start, List<Integer> sub, List<List<Integer>> ans) {
+        if (start <= nums.length) {
+            ans.add(new ArrayList<>(sub));
+        }
+        for (int j = start; j < nums.length; j++) {
+            //去掉重复值
+            if (j > start && nums[j] == nums[j - 1]) {
+                continue;
+            }
+            sub.add(nums[j]);
+            backtrack33(nums, j + 1, sub, ans);
             sub.remove(sub.size() - 1);
         }
     }
