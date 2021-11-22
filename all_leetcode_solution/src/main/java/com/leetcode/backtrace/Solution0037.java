@@ -98,11 +98,10 @@ public class Solution0037 {
         boolean[][] row = new boolean[9][9], col = new boolean[9][9], box = new boolean[9][9];
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (board[i][j] == '.') {
-                    continue;
+                if (board[i][j] != '.') {
+                    int num = board[i][j] - '1', k = (i / 3) * 3 + j / 3;
+                    row[i][num] = col[j][num] = box[k][num] = true;
                 }
-                int num = board[i][j] - '1', k = (i / 3) * 3 + j / 3;
-                row[i][num] = col[j][num] = box[k][num] = true;
             }
         }
         backTrack2(board, 0, row, col, box);
@@ -134,36 +133,37 @@ public class Solution0037 {
     }
 
     boolean end = false;
+    int point = 0;
 
     public void solveSudoku22(char[][] board) {
         boolean[][] row = new boolean[9][9], col = new boolean[9][9], box = new boolean[9][9];
+        List<int[]> list = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != '.') {
                     int num = board[i][j] - '1', k = (i / 3) * 3 + j / 3;
                     row[i][num] = col[j][num] = box[k][num] = true;
+                } else {
+                    list.add(new int[]{i, j});
                 }
             }
         }
-        backTrack22(board, 0, row, col, box);
+        backTrack22(list, board, 0, row, col, box);
     }
 
 
-    public void backTrack22(char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
-        if (n == 81) {
+    public void backTrack22(List<int[]> list, char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
+        if (n == list.size()) {
             end = true;
             return;
         }
-        int i = n / 9, j = n % 9;
-        if (board[i][j] != '.') {
-            backTrack22(board, n + 1, row, col, box);
-        }
+        int i = list.get(n)[0], j = list.get(n)[1];
         int k = (i / 3) * 3 + j / 3;
         for (int num = 0; num < 9 && !end; num++) {
             if (!row[i][num] && !col[j][num] && !box[k][num]) {
                 board[i][j] = (char) (num + '1');
                 row[i][num] = col[j][num] = box[k][num] = true;
-                backTrack22(board, n + 1, row, col, box);
+                backTrack22(list, board, n + 1, row, col, box);
                 row[i][num] = col[j][num] = box[k][num] = false;
             }
         }
