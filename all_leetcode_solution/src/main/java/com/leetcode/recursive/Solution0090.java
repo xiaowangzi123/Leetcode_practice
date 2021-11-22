@@ -77,7 +77,7 @@ public class Solution0090 {
             int t = ans.size();
             for (int j = 0; j < t; j++) {
                 List<Integer> sub = new ArrayList<>(ans.get(j));
-                //此处需要修改
+                //此处需要修改，去除重复有误，最后只能利用set去重
                 /*if (j > 1 && sub.contains(nums[j - 1]) && nums[j] == nums[j - 1]) {
                     break;
                 }*/
