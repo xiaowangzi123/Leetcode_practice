@@ -54,7 +54,7 @@ public class Solution1909 {
                 if (flag) {
                     if (i == 1 || nums[i] > nums[i - 2]) {
                         flag = false;
-                    } else if (i == n - 1 || nums[i] > nums[i - 2]) {
+                    } else if (i == n - 1 || nums[i + 1] > nums[i - 1]) {
                         flag = false;
                     } else {
                         return false;
