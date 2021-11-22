@@ -3,18 +3,17 @@ package com.leetcode;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/11
- * @description :
+ * @description : 亲密字符串
  */
 public class Solution0859 {
     public static void main(String[] args) {
         Solution0859 obj = new Solution0859();
-        String A = "aaaaaaabc", B = "aaaaaaacb";
-        System.out.println(obj.buddyStrings(A, B));
+        System.out.println(obj.buddyStrings("aaaaaaabc", "aaaaaaacb"));
 
         System.out.println("---------------");
 
-        System.out.println(A.replace('b', 'd'));
-        System.out.println(A.replace('a', 'd'));
+        System.out.println("aaaaaaacb".replace('b', 'd'));
+        System.out.println("aaaaaaacb".replace('a', 'd'));
 
         System.out.println("---------------");
         StringBuilder s1 = new StringBuilder("ab");
@@ -63,11 +62,12 @@ public class Solution0859 {
             if (s1.length() != 2 || s2.length() != 2) {
                 return false;
             }
-            if (s1.toString().equals(s2.reverse().toString())) {
+            /*if (s1.toString().equals(s2.reverse().toString())) {
                 return true;
             } else {
                 return false;
-            }
+            }*/
+            return s1.toString().equals(s2.reverse().toString());
         }
 
     }
