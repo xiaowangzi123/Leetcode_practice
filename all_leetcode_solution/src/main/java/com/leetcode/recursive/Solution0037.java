@@ -163,14 +163,13 @@ public class Solution0037 {
         }
         int k = (i / 3) * 3 + j / 3;
         for (int num = 0; num < 9 && !end; num++) {
-            if (row[i][num] || col[j][num] || box[k][num]) {
-                continue;
-            }
-            board[i][j] = (char) (num + '1');
-            row[i][num] = col[j][num] = box[k][num] = true;
-            solveSudokuHelper22(board, n + 1, row, col, box);
-            row[i][num] = col[j][num] = box[k][num] = false;
+            if (!row[i][num] && !col[j][num] && !box[k][num]) {
+                board[i][j] = (char) (num + '1');
+                row[i][num] = col[j][num] = box[k][num] = true;
+                solveSudokuHelper22(board, n + 1, row, col, box);
+                row[i][num] = col[j][num] = box[k][num] = false;
 //            board[i][j] = '.';
+            }
         }
 
 
