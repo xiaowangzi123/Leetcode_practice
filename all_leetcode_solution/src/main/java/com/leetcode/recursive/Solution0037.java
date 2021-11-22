@@ -22,16 +22,16 @@ public class Solution0037 {
                 {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
                 {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
         char[][] arr2 = {
-                {'5', '3', '4', '6', '7', '8', '9', '1', '2'},
-                {'6', '7', '2', '1', '9', '5', '3', '4', '8'},
-                {'1', '9', '8', '3', '4', '2', '5', '6', '7'},
-                {'8', '5', '9', '7', '6', '1', '4', '2', '3'},
-                {'4', '2', '6', '8', '5', '3', '7', '9', '1'},
-                {'7', '1', '3', '9', '2', '4', '8', '5', '6'},
-                {'9', '6', '1', '5', '3', '7', '2', '8', '4'},
-                {'2', '8', '7', '4', '1', '9', '6', '3', '5'},
-                {'3', '4', '.', '.', '8', '.', '.', '7', '9'}};
-        obj.solveSudoku(arr2);
+                {'5', '3', '.', '6', '7', '.', '.', '1', '.'},
+                {'6', '.', '2', '1', '9', '5', '.', '.', '8'},
+                {'.', '9', '8', '.', '.', '.', '5', '6', '.'},
+                {'8', '.', '.', '7', '6', '1', '4', '.', '3'},
+                {'4', '2', '.', '8', '.', '3', '.', '9', '1'},
+                {'7', '.', '3', '.', '2', '.', '8', '.', '6'},
+                {'.', '6', '1', '5', '3', '7', '2', '8', '.'},
+                {'2', '.', '7', '4', '1', '9', '6', '3', '5'},
+                {'.', '4', '.', '.', '8', '.', '.', '7', '9'}};
+        obj.solveSudoku22(arr2);
         System.out.println(Arrays.deepToString(arr2));
     }
 
@@ -85,9 +85,9 @@ public class Solution0037 {
 
     /**
      * 数独首先行，列，还有 3*3 的方格内数字是 1~9 不能重复。
-     * 声明布尔数组，表明行列中某个数字是否被使用了， 被用过视为 true，没用过为 false。
+     * 声明布尔数组，表明行列中某个数字是否被使用了， 被用过为 true，没用过为 false。
      * 初始化布尔数组，表明哪些数字已经被使用过了。
-     * 尝试去填充数组，只要行，列， 还有 3*3 的方格内 出现已经被使用过的数字，我们就不填充，否则尝试填充。
+     * 尝试去填充数组，只要行，列， 还有 3*3 的方格内出现已经被使用过的数字，我们就不填充，否则尝试填充。
      * 如果填充失败，那么我们需要回溯。将原来尝试填充的地方改回来。
      * 递归直到数独被填充完成。
      */
@@ -108,7 +108,7 @@ public class Solution0037 {
         solveSudokuHelper(board, 0, row, col, box);
     }
 
-    boolean solveSudokuHelper(char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
+    public boolean solveSudokuHelper(char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
         if (n == 81) {
             return true;
         }
@@ -131,5 +131,48 @@ public class Solution0037 {
         }
         board[i][j] = '.';
         return false;
+    }
+
+    int point = 0;
+    boolean end = false;
+
+    public void solveSudoku22(char[][] board) {
+        boolean[][] row = new boolean[9][9], col = new boolean[9][9], box = new boolean[9][9];
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] == '.') {
+                    point++;
+                    continue;
+                }
+                int num = board[i][j] - '1', k = (i / 3) * 3 + j / 3;
+                row[i][num] = col[j][num] = box[k][num] = true;
+            }
+        }
+        solveSudokuHelper22(board, 0, row, col, box);
+    }
+
+
+    public void solveSudokuHelper22(char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
+        if (n == 81) {
+            end = true;
+            return;
+        }
+        int i = n / 9, j = n % 9;
+        if (board[i][j] != '.') {
+            solveSudokuHelper22(board, n + 1, row, col, box);
+        }
+        int k = (i / 3) * 3 + j / 3;
+        for (int num = 0; num < 9 && !end; num++) {
+            if (row[i][num] || col[j][num] || box[k][num]) {
+                continue;
+            }
+            board[i][j] = (char) (num + '1');
+            row[i][num] = col[j][num] = box[k][num] = true;
+            solveSudokuHelper22(board, n + 1, row, col, box);
+            row[i][num] = col[j][num] = box[k][num] = false;
+//            board[i][j] = '.';
+        }
+
+
     }
 }
