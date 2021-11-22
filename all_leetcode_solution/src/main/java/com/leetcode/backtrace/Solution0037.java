@@ -133,11 +133,10 @@ public class Solution0037 {
     }
 
     boolean end = false;
-    int point = 0;
+    List<int[]> list = new ArrayList<>();
 
     public void solveSudoku22(char[][] board) {
         boolean[][] row = new boolean[9][9], col = new boolean[9][9], box = new boolean[9][9];
-        List<int[]> list = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != '.') {
@@ -148,11 +147,11 @@ public class Solution0037 {
                 }
             }
         }
-        backTrack22(list, board, 0, row, col, box);
+        backTrace22(board, 0, row, col, box);
     }
 
 
-    public void backTrack22(List<int[]> list, char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
+    public void backTrace22(char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
         if (n == list.size()) {
             end = true;
             return;
@@ -163,11 +162,9 @@ public class Solution0037 {
             if (!row[i][num] && !col[j][num] && !box[k][num]) {
                 board[i][j] = (char) (num + '1');
                 row[i][num] = col[j][num] = box[k][num] = true;
-                backTrack22(list, board, n + 1, row, col, box);
+                backTrace22(board, n + 1, row, col, box);
                 row[i][num] = col[j][num] = box[k][num] = false;
             }
         }
-
-
     }
 }
