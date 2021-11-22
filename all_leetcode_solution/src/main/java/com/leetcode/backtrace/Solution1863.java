@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.backtrace;
 
 /**
  * @author :wyq
@@ -8,9 +8,9 @@ package com.leetcode;
 public class Solution1863 {
     public static void main(String[] args) {
         Solution1863 obj = new Solution1863();
-        int[] nums = {1, 3};
-        System.out.println(obj.subsetXORSum(nums));
-        System.out.println(obj.subsetXORSum2(nums));
+        System.out.println(obj.subsetXORSum(new int[]{1, 3}));
+        System.out.println(obj.subsetXORSum2(new int[]{1, 3}));
+        System.out.println(obj.subsetXORSum3(new int[]{1, 3}));
     }
 
     /**
@@ -18,19 +18,21 @@ public class Solution1863 {
      */
     int xor = 0;
     int res = 0;
+
     public int subsetXORSum(int[] nums) {
         dfs(nums, 0);
         return res;
     }
-    public void dfs(int[] nums, int count){
-        if(count == nums.length){
+
+    public void dfs(int[] nums, int count) {
+        if (count == nums.length) {
             res += xor;
             return;
         }
 
-        dfs(nums, count+1);
+        dfs(nums, count + 1);
         xor ^= nums[count];
-        dfs(nums, count+1);
+        dfs(nums, count + 1);
     }
 
 
@@ -51,5 +53,13 @@ public class Solution1863 {
             ans += tmp;
         }
         return ans;
+    }
+
+    public int subsetXORSum3(int[] nums) {
+        int ans = 0, n = nums.length;
+        for (int i = 0; i < n; i++) {
+            ans |= nums[i];
+        }
+        return ans << (n - 1);
     }
 }
