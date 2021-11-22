@@ -1,4 +1,4 @@
-package com.leetcode.recursive;
+package com.leetcode.backtrace;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

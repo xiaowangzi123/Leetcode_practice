@@ -1,4 +1,4 @@
-package com.leetcode.recursive;
+package com.leetcode.backtrace;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,8 +31,8 @@ public class Solution0037 {
                 {'.', '6', '1', '5', '3', '7', '2', '8', '.'},
                 {'2', '.', '7', '4', '1', '9', '6', '3', '5'},
                 {'.', '4', '.', '.', '8', '.', '.', '7', '9'}};
-        obj.solveSudoku22(arr2);
-        System.out.println(Arrays.deepToString(arr2));
+        obj.solveSudoku22(arr);
+        System.out.println(Arrays.deepToString(arr));
     }
 
     /**
@@ -105,16 +105,16 @@ public class Solution0037 {
                 row[i][num] = col[j][num] = box[k][num] = true;
             }
         }
-        solveSudokuHelper(board, 0, row, col, box);
+        backTrack2(board, 0, row, col, box);
     }
 
-    public boolean solveSudokuHelper(char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
+    public boolean backTrack2(char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
         if (n == 81) {
             return true;
         }
         int i = n / 9, j = n % 9;
         if (board[i][j] != '.') {
-            return solveSudokuHelper(board, n + 1, row, col, box);
+            return backTrack2(board, n + 1, row, col, box);
         }
 
         int k = (i / 3) * 3 + j / 3;
@@ -124,7 +124,7 @@ public class Solution0037 {
             }
             board[i][j] = (char) (num + '1');
             row[i][num] = col[j][num] = box[k][num] = true;
-            if (solveSudokuHelper(board, n + 1, row, col, box)) {
+            if (backTrack2(board, n + 1, row, col, box)) {
                 return true;
             }
             row[i][num] = col[j][num] = box[k][num] = false;
@@ -133,42 +133,38 @@ public class Solution0037 {
         return false;
     }
 
-    int point = 0;
     boolean end = false;
 
     public void solveSudoku22(char[][] board) {
         boolean[][] row = new boolean[9][9], col = new boolean[9][9], box = new boolean[9][9];
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (board[i][j] == '.') {
-                    point++;
-                    continue;
+                if (board[i][j] != '.') {
+                    int num = board[i][j] - '1', k = (i / 3) * 3 + j / 3;
+                    row[i][num] = col[j][num] = box[k][num] = true;
                 }
-                int num = board[i][j] - '1', k = (i / 3) * 3 + j / 3;
-                row[i][num] = col[j][num] = box[k][num] = true;
             }
         }
-        solveSudokuHelper22(board, 0, row, col, box);
+        backTrack22(board, 0, row, col, box);
     }
 
 
-    public void solveSudokuHelper22(char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
+    public void backTrack22(char[][] board, int n, boolean[][] row, boolean[][] col, boolean[][] box) {
         if (n == 81) {
             end = true;
             return;
         }
         int i = n / 9, j = n % 9;
         if (board[i][j] != '.') {
-            solveSudokuHelper22(board, n + 1, row, col, box);
+            backTrack22(board, n + 1, row, col, box);
         }
         int k = (i / 3) * 3 + j / 3;
         for (int num = 0; num < 9 && !end; num++) {
             if (!row[i][num] && !col[j][num] && !box[k][num]) {
                 board[i][j] = (char) (num + '1');
                 row[i][num] = col[j][num] = box[k][num] = true;
-                solveSudokuHelper22(board, n + 1, row, col, box);
+                backTrack22(board, n + 1, row, col, box);
                 row[i][num] = col[j][num] = box[k][num] = false;
-//            board[i][j] = '.';
             }
         }
 

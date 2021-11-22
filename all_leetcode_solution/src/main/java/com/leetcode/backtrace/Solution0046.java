@@ -1,4 +1,4 @@
-package com.leetcode.recursive;
+package com.leetcode.backtrace;
 
 import java.util.*;
 import java.util.stream.Collectors;
