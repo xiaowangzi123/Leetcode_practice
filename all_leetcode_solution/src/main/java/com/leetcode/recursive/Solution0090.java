@@ -1,9 +1,6 @@
 package com.leetcode.recursive;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author ：wyq
@@ -81,14 +78,19 @@ public class Solution0090 {
             for (int j = 0; j < t; j++) {
                 List<Integer> sub = new ArrayList<>(ans.get(j));
                 //此处需要修改
-                if (j > 1 && sub.contains(nums[j - 1]) && nums[j] == nums[j - 1]) {
+                /*if (j > 1 && sub.contains(nums[j - 1]) && nums[j] == nums[j - 1]) {
                     break;
-                }
+                }*/
                 sub.add(num);
                 ans.add(sub);
             }
         }
-        return ans;
+        //利用set去除重复
+        Set<List<Integer>> res = new HashSet<>();
+        for (List<Integer> a:ans){
+            res.add(a);
+        }
+        return new ArrayList<>(res);
     }
 
 
