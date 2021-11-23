@@ -11,6 +11,7 @@ public class Solution1920 {
     public static void main(String[] args) {
         Solution1920 obj = new Solution1920();
         System.out.println(Arrays.toString(obj.buildArray(new int[]{0, 2, 1, 5, 3, 4})));
+        System.out.println(Arrays.toString(obj.buildArray2(new int[]{0, 2, 1, 5, 3, 4})));
     }
 
     public int[] buildArray(int[] nums) {
