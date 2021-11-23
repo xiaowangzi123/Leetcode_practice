@@ -8,10 +8,10 @@ package com.leetcode;
 public class Solution1909 {
     public static void main(String[] args) {
         Solution1909 obj = new Solution1909();
-        System.out.println(obj.canBeIncreasing(new int[]{1, 2, 10, 5, 7}));
+        System.out.println(obj.canBeIncreasing3(new int[]{2, 3, 1, 2}));
+        System.out.println(obj.canBeIncreasing3(new int[]{9, 1, 2, 3, 4}));
+        System.out.println(obj.canBeIncreasing3(new int[]{1, 2, 3, 10, 5}));
         System.out.println(obj.canBeIncreasing2(new int[]{10, 1, 2, 5, 7}));
-        System.out.println(obj.canBeIncreasing(new int[]{2, 3, 1, 2}));
-        System.out.println(obj.canBeIncreasing2(new int[]{2, 3, 1, 2}));
         System.out.println(obj.canBeIncreasing(new int[]{1, 1, 1}));
         System.out.println(obj.canBeIncreasing2(new int[]{1, 1, 1}));
 
@@ -79,21 +79,22 @@ public class Solution1909 {
 
     /**
      * 遍历数组，找到第一个递减的元素对，有nums[k]>=nums[k+1]
-     * 1.如果nums[k-1]>=nums[k+1]时，表明k+1为低谷值，将nums[k]赋值给nums[k+1]后，继续后续遍历
-     * 2.如果nums[k+1]>nums[k-1]且nums[k+1]>nums[k-2]，
+     * 1.如果nums[k-1]>=nums[k+1]时，表明nums[k+1]小于前两个元素，将nums[k]赋值给nums[k+1]后，相当于删除了nums[k+1]，继续后续遍历
+     * 2.如果nums[k-1]<nums[k+1],将nums[k-1]赋值给nums[k]，相当于删除了nums[k]
+     * 以上情况只能出现一次
      */
     public boolean canBeIncreasing3(int[] nums) {
         int count = 0;
-        for (int i = 1; i < nums.length && count <= 1; i++) {
-            if (nums[i] > nums[i - 1]) {
+        for (int k = 0; k < nums.length - 1 && count <= 1; k++) {
+            if (nums[k + 1] > nums[k]) {
                 continue;
             }
             count++;
-            if (i - 1 > 0 && nums[i] <= nums[i - 2]) {
-                nums[i] = nums[i - 1];
-            } else {
+            if (k > 0 && nums[k + 1] <= nums[k - 1]) {
+                nums[k + 1] = nums[k];
+            } /*else {
                 nums[i - 1] = nums[i];
-            }
+            }*/
         }
         return count <= 1;
     }
