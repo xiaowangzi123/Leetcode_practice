@@ -93,7 +93,7 @@ public class Solution1909 {
             if (k > 0 && nums[k + 1] <= nums[k - 1]) {
                 nums[k + 1] = nums[k];
             } /*else {
-                nums[i - 1] = nums[i];
+                nums[k] = nums[k - 1];
             }*/
         }
         return count <= 1;
