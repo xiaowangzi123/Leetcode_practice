@@ -49,7 +49,7 @@ public class Solution0423 {
 
         StringBuilder ans = new StringBuilder();
         for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < num[i]; i++) {
+            for (int j = 0; j < num[i]; j++) {
                 ans.append(i);
             }
         }
