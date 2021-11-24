@@ -11,7 +11,7 @@ import java.util.List;
 public class Solution1441 {
     public static void main(String[] args) {
         Solution1441 obj = new Solution1441();
-//        System.out.println(obj.buildArray(new int[]{1, 3}, 3));
+        System.out.println(obj.buildArray(new int[]{1, 3}, 3));
         System.out.println(obj.buildArray(new int[]{1, 2}, 4));
     }
 
