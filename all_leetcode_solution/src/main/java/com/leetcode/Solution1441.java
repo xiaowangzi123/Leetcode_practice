@@ -11,20 +11,21 @@ import java.util.List;
 public class Solution1441 {
     public static void main(String[] args) {
         Solution1441 obj = new Solution1441();
-        System.out.println(obj.buildArray(new int[]{1, 3}, 3));
+//        System.out.println(obj.buildArray(new int[]{1, 3}, 3));
+        System.out.println(obj.buildArray(new int[]{1, 2}, 4));
     }
 
     public List<String> buildArray(int[] target, int n) {
         List<String> ans = new ArrayList<>();
-        int j = 0;
+        int index = 0;
         for (int i = 1; i <= n; i++) {
-            if (j == n) {
+            if (index == target.length) {
                 break;
 
             }
-            if (target[j] == i) {
+            if (target[index] == i) {
                 ans.add("Push");
-                j++;
+                index++;
             } else {
                 ans.add("Push");
                 ans.add("Pop");
