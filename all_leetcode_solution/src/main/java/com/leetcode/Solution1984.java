@@ -17,7 +17,10 @@ public class Solution1984 {
         Arrays.sort(nums);
         int n = nums.length, min = Integer.MAX_VALUE;
         for (int i = 0; i < n - k + 1; i++) {
-            min = Math.min(min, nums[i + k - 1] - nums[i]);
+//            min = Math.min(min, nums[i + k - 1] - nums[i]);
+            if (min > nums[i + k - 1] - nums[i]) {
+                min = nums[i + k - 1] - nums[i];
+            }
         }
         return min;
     }
