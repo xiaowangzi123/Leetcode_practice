@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * @author :wyq
  * @date ：Created in 2021/11/24
- * @description : 统计特殊四元组
+ * @description : 差的绝对值为 K 的数对数目
  */
 public class Solution2006 {
     public static void main(String[] args) {
