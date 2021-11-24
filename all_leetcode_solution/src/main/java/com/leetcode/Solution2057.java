@@ -16,7 +16,7 @@ public class Solution2057 {
 
     public int smallestEqual(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] % 10 == i) {
+            if (i % 10 == nums[i]) {
                 return i;
             }
         }
