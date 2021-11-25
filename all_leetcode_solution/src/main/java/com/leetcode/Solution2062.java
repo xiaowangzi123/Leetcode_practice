@@ -1,5 +1,9 @@
 package com.leetcode;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author: wyq
  * @create time: 2021/11/25
@@ -11,6 +15,8 @@ public class Solution2062 {
         System.out.println(obj.countVowelSubstrings("aeiouu"));
         System.out.println(obj.countVowelSubstrings("unicornarihan"));
         System.out.println(obj.countVowelSubstrings("cuaieuouac"));
+        System.out.println(obj.countVowelSubstrings2("cuaieuouac"));
+
     }
 
     public int countVowelSubstrings(String word) {
@@ -42,4 +48,18 @@ public class Solution2062 {
     }
 
 
+    public int countVowelSubstrings2(String word) {
+        int count = 0, n = word.length();
+        Set<Character> set = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
+        for (int i = 0; i < n; i++) {
+            Set<Character> temp = new HashSet<>();
+            for (int j = i; j < n; j++) {
+                temp.add(word.charAt(i));
+                if (temp.size() == 5 && set.equals(temp)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 }
