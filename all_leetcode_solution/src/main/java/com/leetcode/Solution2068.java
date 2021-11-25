@@ -39,13 +39,16 @@ public class Solution2068 {
     public boolean checkAlmostEquivalent2(String word1, String word2) {
         Map<Character, Integer> m1 = new HashMap<>(), m2 = new HashMap<>();
         for (char c : word1.toCharArray()) {
-            m1.put(c, m1.getOrDefault(m1, 0) + 1);
+            m1.put(c, m1.getOrDefault(c, 0) + 1);
         }
         for (char c : word2.toCharArray()) {
-            m2.put(c, m2.getOrDefault(m2, 0) + 1);
+            m2.put(c, m2.getOrDefault(c, 0) + 1);
+            if (Math.abs(m1.getOrDefault(c, 0) - m2.getOrDefault(c, 0)) > 3) {
+                return false;
+            }
         }
-        for (Map.Entry<Character,Integer> entry:m1.entrySet()) {
-            if (Math.abs(entry.getValue()-m2.getOrDefault(entry.getKey(),0)) > 3) {
+        for (char c : word1.toCharArray()) {
+            if (Math.abs(m1.getOrDefault(c, 0) - m2.getOrDefault(c, 0)) > 3) {
                 return false;
             }
         }
