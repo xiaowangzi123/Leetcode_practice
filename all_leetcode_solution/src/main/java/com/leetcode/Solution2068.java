@@ -10,12 +10,14 @@ import java.util.*;
 public class Solution2068 {
     public static void main(String[] args) {
         Solution2068 obj = new Solution2068();
-        System.out.println(obj.checkAlmostEquivalent("aaaa", "bccb"));
-        System.out.println(obj.checkAlmostEquivalent2("aaaa", "bccb"));
-        System.out.println(obj.checkAlmostEquivalent("abcdeef", "abaaacc"));
-        System.out.println(obj.checkAlmostEquivalent2("abcdeef", "abaaacc"));
-        System.out.println(obj.checkAlmostEquivalent("cccddabba", "babababab"));
-        System.out.println(obj.checkAlmostEquivalent2("cccddabba", "babababab"));
+//        System.out.println(obj.checkAlmostEquivalent("aaaa", "bccb"));
+//        System.out.println(obj.checkAlmostEquivalent2("aaaa", "bccb"));
+//        System.out.println(obj.checkAlmostEquivalent("abcdeef", "abaaacc"));
+//        System.out.println(obj.checkAlmostEquivalent2("abcdeef", "abaaacc"));
+//        System.out.println(obj.checkAlmostEquivalent("cccddabba", "babababab"));
+//        System.out.println(obj.checkAlmostEquivalent2("cccddabba", "babababab"));
+        System.out.println(obj.checkAlmostEquivalent("dfgcbehcifihghedhffbggdcebbbghigfhddhiigcgfeiih", "cdcgbeeceifbgchhfiffhifghiebfchbcbfhggchfbbhddb"));
+        System.out.println(obj.checkAlmostEquivalent2("dfgcbehcifihghedhffbggdcebbbghigfhddhiigcgfeiih", "cdcgbeeceifbgchhfiffhifghiebfchbcbfhggchfbbhddb"));
 
     }
 
@@ -43,11 +45,13 @@ public class Solution2068 {
         }
         for (char c : word2.toCharArray()) {
             m2.put(c, m2.getOrDefault(c, 0) + 1);
+        }
+        for (char c : word1.toCharArray()) {
             if (Math.abs(m1.getOrDefault(c, 0) - m2.getOrDefault(c, 0)) > 3) {
                 return false;
             }
         }
-        for (char c : word1.toCharArray()) {
+        for (char c : word2.toCharArray()) {
             if (Math.abs(m1.getOrDefault(c, 0) - m2.getOrDefault(c, 0)) > 3) {
                 return false;
             }
