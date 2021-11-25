@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author: wyq
  * @create time: 2021/11/24
- * @description: sumRange函数要多次调用
+ * @description: sumRange函数要多次调用,sum[i+1]表示数组的前i项和
  */
 public class NumArray {
     public static void main(String[] args) {
