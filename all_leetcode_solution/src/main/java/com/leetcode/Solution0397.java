@@ -17,6 +17,10 @@ public class Solution0397 {
         System.out.println(obj.integerReplacement(8));
     }
 
+    /**
+     * 1.n为偶数时，只有一种方式将n替换为n/2
+     * 2.n为奇数时，可以换为(n+1)或(n-1),n+1有数据溢出的可能
+     */
     public int integerReplacement(int n) {
         if (n == 1) {
             return 0;
