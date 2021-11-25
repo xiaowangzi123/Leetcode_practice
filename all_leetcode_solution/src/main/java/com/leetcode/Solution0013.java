@@ -8,9 +8,9 @@ package com.leetcode;
 public class Solution0013 {
     public static void main(String[] args) {
         Solution0013 obj = new Solution0013();
-//        System.out.println(obj.romanToInt("III"));
-//        System.out.println(obj.romanToInt("IV"));
-//        System.out.println(obj.romanToInt("IX"));
+        System.out.println(obj.romanToInt("III"));
+        System.out.println(obj.romanToInt("IV"));
+        System.out.println(obj.romanToInt("IX"));
         System.out.println(obj.romanToInt("LVIII"));
         System.out.println(obj.romanToInt("MCMXCIV"));
     }
@@ -50,4 +50,6 @@ public class Solution0013 {
                 return 0;
         }
     }
+
+
 }
