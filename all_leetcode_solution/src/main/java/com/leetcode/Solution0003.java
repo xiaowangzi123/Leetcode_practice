@@ -1,5 +1,8 @@
 package com.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author :wyq
  * @date ：Created in 2021/11/24
@@ -10,6 +13,7 @@ public class Solution0003 {
         Solution0003 obj = new Solution0003();
         System.out.println(obj.lengthOfLongestSubstring(""));
         System.out.println(obj.lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(obj.lengthOfLongestSubstring2("abcabcbb"));
         System.out.println(obj.lengthOfLongestSubstring("bbbbb"));
         System.out.println(obj.lengthOfLongestSubstring("pwwkew"));
     }
@@ -17,17 +21,31 @@ public class Solution0003 {
     public int lengthOfLongestSubstring(String s) {
         int max = 0, n = s.length();
         for (int i = 0; i < n; i++) {
-            StringBuilder sb = new StringBuilder();
+            Set<Character> set = new HashSet<>();
             for (int j = i; j < n; j++) {
-                String temp = String.valueOf(s.charAt(j));
-                if (sb.toString().contains(temp)) {
+                if (set.contains(s.charAt(j))) {
                     break;
                 } else {
-                    sb.append(temp);
-                    max = Math.max(max, sb.length());
+                    set.add(s.charAt(j));
+                    max = Math.max(max, set.size());
                 }
             }
         }
+        return max;
+    }
+
+    public int lengthOfLongestSubstring2(String s) {
+        int max = 0, n = s.length();
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            int index = i;
+            while (index < n && !set.contains(s.charAt(index))) {
+                set.add(s.charAt(index));
+                index++;
+            }
+            max = Math.max(max, set.size());
+        }
+
         return max;
     }
 
