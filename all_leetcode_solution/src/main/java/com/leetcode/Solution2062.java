@@ -54,7 +54,7 @@ public class Solution2062 {
         for (int i = 0; i < n; i++) {
             Set<Character> temp = new HashSet<>();
             for (int j = i; j < n; j++) {
-                temp.add(word.charAt(i));
+                temp.add(word.charAt(j));
                 if (temp.size() == 5 && set.equals(temp)) {
                     count++;
                 }
