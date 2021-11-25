@@ -35,6 +35,9 @@ public class Solution2062 {
                 return false;
             }
         }
+        if (!s.contains("a") || !s.contains("e") || !s.contains("i") || !s.contains("o") || !s.contains("u")) {
+            return false;
+        }
         return true;
     }
 
