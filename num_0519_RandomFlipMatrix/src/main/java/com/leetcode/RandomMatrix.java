@@ -1,9 +1,6 @@
 package com.leetcode;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author: wyq
@@ -20,28 +17,26 @@ public class RandomMatrix {
 
     }
 
-    Map<Integer, Integer> map = new HashMap<>();
-    int m, n, total;
-    Random rand = new Random();
+    int m, n;
+    Set<Integer> set;
 
     public RandomMatrix(int m, int n) {
         this.m = m;
         this.n = n;
-        this.total = m * n;
+        set = new HashSet<>();
     }
 
     public int[] flip() {
-        int r = rand.nextInt(total);
-        total--;
-        int idx = map.getOrDefault(r, r);
-        // 将位置 r 对应的映射设置为位置 total 对应的映射
-        map.put(r, map.getOrDefault(total, total));
-        return new int[]{idx / n, idx % n};
+        while (true) {
+            int a = (int) (m * n * Math.random());
+            if (!set.contains(a)) {
+                set.add(a);
+                return new int[]{a / n, a % n};
+            }
+        }
     }
 
-
     public void reset() {
-        total = m * n;
-        map.clear();
+        set = new HashSet<>();
     }
 }
