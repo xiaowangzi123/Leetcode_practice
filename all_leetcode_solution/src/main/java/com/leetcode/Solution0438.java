@@ -13,7 +13,7 @@ import java.util.List;
 public class Solution0438 {
     public static void main(String[] args) {
         Solution0438 obj = new Solution0438();
-//        System.out.println(obj.findAnagrams("cbaebabacd", "abc"));
+        System.out.println(obj.findAnagrams("cbaebabacd", "abc"));
         System.out.println(obj.findAnagrams("abab", "ab"));
     }
 
@@ -23,7 +23,7 @@ public class Solution0438 {
         if (m < n) {
             return ans;
         }
-        for (int i = 0; i < m - n; i++) {
+        for (int i = 0; i <= m - n; i++) {
             if (stringIsEquals(s.substring(i, i + n), p)) {
                 ans.add(i);
             }
