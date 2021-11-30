@@ -41,10 +41,12 @@ public class Solution0400 {
             d++;
             count *= 10;
         }
+        //num确定是哪个数
         int num = (int) Math.pow(10, d - 1) + (n - 1) / d;
-        int digitIndex = (n - 1) % d;
+        //默认下标从0开始，确定是哪个下标
+        int index = (n - 1) % d;
         char[] ch = String.valueOf(num).toCharArray();
-        return ch[digitIndex] - '0';
+        return ch[index] - '0';
     }
 
 }
