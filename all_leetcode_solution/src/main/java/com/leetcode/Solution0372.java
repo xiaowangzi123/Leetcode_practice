@@ -6,10 +6,12 @@ package com.leetcode;
  * @description : 超级次方
  */
 public class Solution0372 {
+    private static final int MOD = 1337;
+
     public static void main(String[] args) {
         Solution0372 obj = new Solution0372();
         //665
-//        System.out.println(obj.superPow(78267, new int[]{1, 7, 7, 4, 3, 1, 7, 0, 1, 4, 4}));
+        System.out.println(obj.superPow(78267, new int[]{1, 7, 7, 4, 3, 1, 7, 0, 1, 4, 4}));
         System.out.println(obj.superPow2(78267, new int[]{1, 7, 7, 4, 3, 1, 7, 0, 1, 4, 4}));
         System.out.println(obj.superPow(2, new int[]{3}));
         System.out.println(obj.superPow2(2, new int[]{3}));
@@ -29,14 +31,14 @@ public class Solution0372 {
      */
     public int superPow(int a, int[] b) {
         int n = b.length, ans = 1, temp = 1;
-        a %= 1337;
+        int d = a % MOD;
         for (int i = n - 1; i >= 0; i--) {
             int m = b[i] * temp, pre = 1;
             for (int j = 0; j < m; j++) {
-                pre = pre * a % 1337;
+                pre = pre * d % MOD;
             }
             temp *= 10;
-            ans = ans * pre % 1337;
+            ans = ans * pre % MOD;
         }
         return ans;
     }
