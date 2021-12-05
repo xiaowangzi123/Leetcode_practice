@@ -45,6 +45,10 @@ public class Solution0372 {
         return ans;
     }
 
+    /**
+     * (ab)mod n=[(a mod n)*(b mod n)]mod n
+     * (a^b)mod n = (a mod n)^b
+     */
     public int superPow2(int a, int[] b) {
         int n = b.length, ans = 1;
         for (int i = n - 1; i >= 0; i--) {
