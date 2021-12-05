@@ -9,8 +9,11 @@ public class Solution0372 {
     public static void main(String[] args) {
         Solution0372 obj = new Solution0372();
         System.out.println(obj.superPow(2, new int[]{3}));
+        System.out.println(obj.superPow2(2, new int[]{3}));
         System.out.println(obj.superPow(2, new int[]{1, 0}));
+        System.out.println(obj.superPow2(2, new int[]{1, 0}));
         System.out.println(obj.superPow(2147483647, new int[]{2, 0, 0}));
+        System.out.println(obj.superPow2(2147483647, new int[]{2, 0, 0}));
     }
 
     /**
@@ -26,7 +29,29 @@ public class Solution0372 {
             }
             temp *= 10;
         }
-
         return ans;
+    }
+
+    public int superPow2(int a, int[] b) {
+        int n = b.length, ans = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            ans *= getNumMod(a, b[i]);
+            int k = n - i - 1;
+            while (k > 0) {
+                ans *= getNumMod(ans, 10);
+                k--;
+            }
+        }
+        return ans;
+    }
+
+    public int getNumMod(int a, int b) {
+        int ans = 1;
+        for (int i = 0; i < b; i++) {
+            ans *= (a % 1337);
+            ans %= 1337;
+        }
+        return ans;
+
     }
 }
