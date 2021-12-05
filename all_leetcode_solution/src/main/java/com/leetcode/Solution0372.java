@@ -9,7 +9,7 @@ public class Solution0372 {
     public static void main(String[] args) {
         Solution0372 obj = new Solution0372();
         System.out.println(obj.superPow(2, new int[]{3}));
-//        System.out.println(obj.superPow2(2, new int[]{3}));
+        System.out.println(obj.superPow2(2, new int[]{3}));
         System.out.println(obj.superPow(2, new int[]{1, 0}));
         System.out.println(obj.superPow2(2, new int[]{1, 0}));
         System.out.println(obj.superPow(2147483647, new int[]{2, 0, 0}));
@@ -17,8 +17,8 @@ public class Solution0372 {
 
         System.out.println("---------------------");
 
-        System.out.println(obj.getNumMod(2,0));
-        System.out.println(obj.pow(2,0));
+        System.out.println(obj.getNumMod(2, 0));
+        System.out.println(obj.pow(2, 0));
     }
 
     /**
@@ -40,12 +40,13 @@ public class Solution0372 {
     public int superPow2(int a, int[] b) {
         int n = b.length, ans = 1;
         for (int i = n - 1; i >= 0; i--) {
-            ans *= getNumMod(a, b[i]);
+            int temp = getNumMod(a, b[i]);
             int k = n - i - 1;
             while (k > 0) {
-                ans *= getNumMod(ans, 10);
+                temp *= getNumMod(temp, 10);
                 k--;
             }
+            ans *= temp;
         }
         return ans;
     }
