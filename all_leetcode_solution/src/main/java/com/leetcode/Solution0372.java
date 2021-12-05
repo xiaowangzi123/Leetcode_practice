@@ -29,13 +29,14 @@ public class Solution0372 {
      */
     public int superPow(int a, int[] b) {
         int n = b.length, ans = 1, temp = 1;
+        a %= 1337;
         for (int i = n - 1; i >= 0; i--) {
-            int m = b[i] * temp;
+            int m = b[i] * temp, pre = 1;
             for (int j = 0; j < m; j++) {
-                ans *= (a % 1337);
-                ans %= 1337;
+                pre = pre * a % 1337;
             }
             temp *= 10;
+            ans = ans * pre % 1337;
         }
         return ans;
     }
