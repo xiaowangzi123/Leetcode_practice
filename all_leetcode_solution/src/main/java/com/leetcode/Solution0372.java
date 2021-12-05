@@ -33,10 +33,12 @@ public class Solution0372 {
         int n = b.length, ans = 1, temp = 1;
         int d = a % MOD;
         for (int i = n - 1; i >= 0; i--) {
+            //
             int m = b[i] * temp, pre = 1;
             for (int j = 0; j < m; j++) {
                 pre = pre * d % MOD;
             }
+            //temp或超过int最大值
             temp *= 10;
             ans = ans * pre % MOD;
         }
