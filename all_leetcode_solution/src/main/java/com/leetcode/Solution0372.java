@@ -8,6 +8,9 @@ package com.leetcode;
 public class Solution0372 {
     public static void main(String[] args) {
         Solution0372 obj = new Solution0372();
+        //665
+//        System.out.println(obj.superPow(78267, new int[]{1, 7, 7, 4, 3, 1, 7, 0, 1, 4, 4}));
+        System.out.println(obj.superPow2(78267, new int[]{1, 7, 7, 4, 3, 1, 7, 0, 1, 4, 4}));
         System.out.println(obj.superPow(2, new int[]{3}));
         System.out.println(obj.superPow2(2, new int[]{3}));
         System.out.println(obj.superPow(2, new int[]{1, 0}));
@@ -43,10 +46,10 @@ public class Solution0372 {
             int temp = getNumMod(a, b[i]);
             int k = n - i - 1;
             while (k > 0) {
-                temp *= getNumMod(temp, 10);
+                temp = getNumMod(temp, 10);
                 k--;
             }
-            ans *= temp;
+            ans = ans * temp % 1337;
         }
         return ans;
     }
