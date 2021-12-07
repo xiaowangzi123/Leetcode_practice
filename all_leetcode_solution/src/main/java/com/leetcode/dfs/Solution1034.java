@@ -1,8 +1,6 @@
 package com.leetcode.dfs;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author :wyq
@@ -14,6 +12,7 @@ public class Solution1034 {
         Solution1034 obj = new Solution1034();
         System.out.println(Arrays.deepToString(obj.colorBorder(new int[][]{{1, 1}, {1, 2}}, 0, 0, 3)));
         System.out.println(Arrays.deepToString(obj.colorBorder(new int[][]{{1, 2, 2}, {2, 3, 2}}, 0, 1, 3)));
+        System.out.println(Arrays.deepToString(obj.colorBorder(new int[][]{{1, 1, 1}, {1, 1, 1}, {1, 1, 1}}, 1, 1, 2)));
     }
 
     /**
@@ -25,17 +24,17 @@ public class Solution1034 {
     public int[][] colorBorder(int[][] grid, int row, int col, int color) {
         int m = grid.length, n = grid[0].length;
         boolean[][] flags = new boolean[m][n];
-        Map<Integer, Integer> borders = new HashMap<>();
+        List<int[]> borders = new ArrayList<>();
         int orgColor = grid[row][col];
 
         dfs(orgColor, row, col, flags, grid, borders);
-        for (Map.Entry<Integer, Integer> entry : borders.entrySet()) {
-            grid[entry.getKey()][entry.getValue()] = color;
+        for (int[] a : borders) {
+            grid[a[0]][a[1]] = color;
         }
         return grid;
     }
 
-    private void dfs(int orgColor, int x, int y, boolean[][] flags, int[][] grid, Map<Integer, Integer> borders) {
+    private void dfs(int orgColor, int x, int y, boolean[][] flags, int[][] grid, List<int[]> borders) {
         int m = grid.length, n = grid[0].length;
         boolean isBorder = false;
         int[][] d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
@@ -52,7 +51,7 @@ public class Solution1034 {
             }
         }
         if (isBorder) {
-            borders.put(x, y);
+            borders.add(new int[]{x, y});
         }
     }
 }
