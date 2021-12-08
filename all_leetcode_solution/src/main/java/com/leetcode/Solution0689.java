@@ -13,7 +13,7 @@ public class Solution0689 {
         Solution0689 obj = new Solution0689();
         System.out.println(Arrays.toString(obj.maxSumOfOneSubarrays(new int[]{1, 2, 3, 5, 2, 7}, 3)));
         System.out.println(Arrays.toString(obj.maxSumOfTwoSubarrays(new int[]{1, 2, 4, 3, 2, 6, 4, 2, 1, 1}, 2)));
-        System.out.println(Arrays.toString(obj.maxSumOfThreeSubarrays(new int[]{1, 2, 4, 3, 2, 6, 4, 2, 1, 6, 2}, 2)));
+        System.out.println(Arrays.toString(obj.maxSumOfThreeSubarrays(new int[]{1, 2, 4, 3, 2, 6, 4, 2, 1, 6, 2, 7}, 2)));
     }
 
 
