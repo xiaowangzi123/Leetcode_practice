@@ -26,6 +26,7 @@
         <module>num_0677_MapSumPairs</module>
         <module>num_0705_DesignHashSet</module>
         <module>num_0706_DesignHashMap</module>
+        <module>num_0911_OnlineElection</module>
         <module>Offer_1_practice</module>
         <module>Offer_2_practice</module>
     </modules>
