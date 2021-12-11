@@ -12,8 +12,8 @@ public class TopVotedCandidate {
     Map<Integer, Integer> map;
     int[] times;
 
-
     public TopVotedCandidate(int[] persons, int[] times) {
+        this.times = times;
         lists = new ArrayList<>();
         map = new HashMap<>();
         int max = 0;
@@ -22,9 +22,8 @@ public class TopVotedCandidate {
             if (map.get(p) >= map.getOrDefault(max, 0)) {
                 max = p;
             }
-            lists.add(p);
+            lists.add(max);
         }
-        this.times = times;
     }
 
     public int q(int t) {
@@ -42,6 +41,27 @@ public class TopVotedCandidate {
     }
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        //0, 1, 1, 0, 0, 1
+        TopVotedCandidate obj = new TopVotedCandidate(new int[]{0, 1, 1, 0, 0, 1, 0}, new int[]{0, 5, 10, 15, 20, 25, 30});
+        System.out.println(obj.q(3));
+        System.out.println(obj.q(12));
+        System.out.println(obj.q(25));
+        System.out.println(obj.q(15));
+        System.out.println(obj.q(24));
+        System.out.println(obj.q(8));
+        System.out.println("-----------------------------");
+
+        //0,0,0,0,0,0,0,0,0,0
+        TopVotedCandidate obj2 = new TopVotedCandidate(new int[]{0, 0, 0, 0, 1}, new int[]{0, 6, 39, 52, 75});
+        System.out.println(obj2.q(45));
+        System.out.println(obj2.q(49));
+        System.out.println(obj2.q(59));
+        System.out.println(obj2.q(68));
+        System.out.println(obj2.q(42));
+        System.out.println(obj2.q(37));
+        System.out.println(obj2.q(99));
+        System.out.println(obj2.q(26));
+        System.out.println(obj2.q(78));
+        System.out.println(obj2.q(43));
     }
 }
