@@ -1,10 +1,10 @@
-package com.leetcode;
+package com.leetcode.todo;
 
 /**
  * @author :wyq
  * @date ：Created in 2021/11/3
  * @description : 接雨水
- * {@link Solution0407}
+ * {@link com.leetcode.backtrace.Solution0047}
  * todo
  */
 public class Solution0042 {
