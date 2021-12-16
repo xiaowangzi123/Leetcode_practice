@@ -20,7 +20,7 @@ public class Solution0101 {
         TreeNode t2 = new TreeNode(2, t4, t5);
         TreeNode t1 = new TreeNode(1, t2, t3);
 
-        System.out.println(obj.isSymmetric(t1));
+        System.out.println(obj.isSymmetric2(t1));
 
     }
 
