@@ -2,10 +2,7 @@ package com.leetcode.tree;
 
 import com.leetcode.bean.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author: wyq
@@ -45,4 +42,30 @@ public class Solution0101 {
     }
 
 
+    public boolean isSymmetric2(TreeNode root) {
+        return check(root, root);
+    }
+
+    public boolean check(TreeNode t1, TreeNode t2) {
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(t1);
+        q.offer(t2);
+        while (!q.isEmpty()) {
+            t1 = q.poll();
+            t2 = q.poll();
+            if (t1 == null && t2 == null) {
+                continue;
+            }
+            if ((t1 == null || t2 == null) || (t1.val != t2.val)) {
+                return false;
+            }
+
+            q.offer(t1.left);
+            q.offer(t2.right);
+
+            q.offer(t1.right);
+            q.offer(t2.left);
+        }
+        return true;
+    }
 }
