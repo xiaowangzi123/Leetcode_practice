@@ -27,4 +27,8 @@ public class Solution1518 {
         }
         return ans;
     }
+
+    public int numWaterBottles2(int numBottles, int numExchange) {
+        return (numBottles * numExchange - 1) / (numExchange - 1);
+    }
 }
