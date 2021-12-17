@@ -21,9 +21,9 @@ public class Solution1518 {
     public int numWaterBottles(int numBottles, int numExchange) {
         int ans = numBottles, empty = numBottles;
         while (empty >= numExchange) {
-            empty = empty / numExchange + empty % numExchange;
             numBottles = empty / numExchange;
             ans += numBottles;
+            empty = empty / numExchange + empty % numExchange;
         }
         return ans;
     }
