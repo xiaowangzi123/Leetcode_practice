@@ -23,7 +23,7 @@ public class Solution0112 {
         TreeNode t2 = new TreeNode(4, t4, null);
         TreeNode t1 = new TreeNode(5, t2, t3);
 
-        System.out.println(obj.hasPathSum(t1, 22));
+        System.out.println(obj.hasPathSum2(t1, 22));
 
     }
 
@@ -39,4 +39,32 @@ public class Solution0112 {
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
     }
 
+    public boolean hasPathSum2(TreeNode root, int targetSum) {
+        if (root == null) {
+            return false;
+        }
+        Queue<TreeNode> nodeList = new LinkedList<>();
+        Queue<Integer> valList = new LinkedList<>();
+        nodeList.add(root);
+        valList.add(root.val);
+
+        while (!nodeList.isEmpty()) {
+            TreeNode curNode = nodeList.poll();
+            int temp = valList.poll();
+            if (curNode.left == null && curNode.right == null) {
+                if (temp == targetSum) {
+                    return true;
+                }
+            }
+            if (curNode.left != null) {
+                nodeList.offer(curNode.left);
+                valList.offer(curNode.val + temp);
+            }
+            if (curNode.right != null) {
+                nodeList.offer(curNode.right);
+                valList.offer(curNode.val + temp);
+            }
+        }
+        return false;
+    }
 }
