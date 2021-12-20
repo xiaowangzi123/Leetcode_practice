@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>num_0705_DesignHashSet</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
