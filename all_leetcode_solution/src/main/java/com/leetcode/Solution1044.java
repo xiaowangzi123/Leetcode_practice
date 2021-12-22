@@ -5,7 +5,8 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/19
- * @description :
+ * @description : 最长重复子串
+ * TODO
  */
 public class Solution1044 {
     public static void main(String[] args) {
