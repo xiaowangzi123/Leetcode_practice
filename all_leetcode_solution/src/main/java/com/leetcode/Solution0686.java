@@ -14,16 +14,15 @@ public class Solution0686 {
         System.out.println(obj.repeatedStringMatch("a", "a"));
         System.out.println(obj.repeatedStringMatch("a", "aa"));
         System.out.println(obj.repeatedStringMatch("abc", "wxyz"));
-        System.out.println(obj.repeatedStringMatch("abc", ""));
     }
 
 
     public int repeatedStringMatch(String a, String b) {
-        int m = a.length(), n = b.length(),ans =1;
+        int m = a.length(), n = b.length(), ans = 1;
         StringBuilder sb = new StringBuilder(a);
         while (sb.length() <= m * 2 + n) {
             int index = sb.indexOf(b);
-            if (index>=0){
+            if (index >= 0) {
                 return ans;
             }
             ans++;
