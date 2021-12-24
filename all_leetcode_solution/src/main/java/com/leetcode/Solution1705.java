@@ -25,8 +25,8 @@ public class Solution1705 {
             while (!pq.isEmpty() && (pq.peek()[0] <= d || pq.peek()[1] == 0)) {
                 pq.poll();
             }
-            //吃苹果
-            while (!pq.isEmpty()){
+            //吃苹果，一天最多吃一个
+            if (!pq.isEmpty()){
                 ans++;
                 pq.peek()[1]--;
             }
