@@ -42,7 +42,7 @@ public class Solution1609 {
                 if (level % 2 == val % 2) {
                     return false;
                 }
-
+                //偶数层，数据递减；奇数层，数据递增。
                 if ((level % 2 == 0 && val <= prev) || (level % 2 == 1 && val >= prev)) {
                     return false;
                 }
