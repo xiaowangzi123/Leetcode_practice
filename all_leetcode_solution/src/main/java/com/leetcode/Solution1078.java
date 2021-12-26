@@ -26,6 +26,11 @@ public class Solution1078 {
                 list.add(str[i + 2]);
             }
         }
-        return list.toArray(new String[0]);
+//        return list.toArray(new String[0]);
+        String[] ans = new String[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            ans[i] = list.get(i);
+        }
+        return ans;
     }
 }
