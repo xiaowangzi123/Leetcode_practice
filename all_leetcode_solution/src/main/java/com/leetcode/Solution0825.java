@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author :wyq
  * @date ：Created in 2021/10/27
- * @description : 山羊拉丁文
+ * @description : 适龄的朋友
  */
 public class Solution0825 {
     public static void main(String[] args) {
