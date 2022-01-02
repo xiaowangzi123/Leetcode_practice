@@ -41,28 +41,26 @@ public class Solution0390 {
     }
 
     public int lastRemaining2(int n) {
-        int num = n;
-        int l = 1;
-        int r = n;
+        int l = 1, r = n;
         boolean flag = true;
-        int lift = 1;
-        while (num > 2) {
+        int step = 1;
+        while (n > 2) {
             if (flag) {
-                if (num % 2 == 1) {
-                    r -= lift;
+                if (n % 2 == 1) {
+                    r -= step;
                 }
-                l += lift;
+                l += step;
                 flag = false;
             } else {
-                if (num % 2 == 1) {
-                    l += lift;
+                if (n % 2 == 1) {
+                    l += step;
                 }
-                r -= lift;
+                r -= step;
                 flag = true;
             }
-            num /= 2;
-            lift *= 2;
+            n /= 2;
+            step *= 2;
         }
-        return num == 2 && flag ? r : l;
+        return n == 2 && flag ? r : l;
     }
 }
