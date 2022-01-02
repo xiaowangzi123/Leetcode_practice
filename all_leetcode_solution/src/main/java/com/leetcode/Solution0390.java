@@ -22,12 +22,12 @@ public class Solution0390 {
         boolean flag = true;
         while (sb.length() > 1) {
             if (flag) {
-                for (int i = 0; i < sb.length(); i++) {
+                for (int i = 0; sb.length() > 1 && i < sb.length(); i++) {
                     sb.deleteCharAt(i);
                 }
                 flag = false;
             } else {
-                for (int i = sb.length() - 1; i >= 0; i--) {
+                for (int i = sb.length() - 1; sb.length() > 1 && i >= 0; i -= 2) {
                     sb.deleteCharAt(i);
                 }
                 flag = true;
