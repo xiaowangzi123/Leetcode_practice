@@ -16,20 +16,18 @@ public class Solution0390 {
 
     public int lastRemaining(int n) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             sb.append(i);
         }
         boolean flag = true;
         while (sb.length() > 1) {
             if (flag) {
-                int m = sb.length();
-                for (int i = 0; i < m; i++) {
+                for (int i = 0; i < sb.length(); i++) {
                     sb.deleteCharAt(i);
                 }
                 flag = false;
             } else {
-                int l = sb.length();
-                for (int i = l - 1; i >= 0; i--) {
+                for (int i = sb.length() - 1; i >= 0; i--) {
                     sb.deleteCharAt(i);
                 }
                 flag = true;
