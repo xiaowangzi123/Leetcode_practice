@@ -13,9 +13,9 @@ import java.util.Map;
 public class Solution0390 {
     public static void main(String[] args) {
         Solution0390 obj = new Solution0390();
-        System.out.println(obj.lastRemaining2(3));
-        System.out.println(obj.lastRemaining2(11));
-        System.out.println(obj.lastRemaining2(9));
+        System.out.println(obj.lastRemaining3(3));
+        System.out.println(obj.lastRemaining3(11));
+        System.out.println(obj.lastRemaining3(9));
     }
 
     //超时
@@ -62,5 +62,24 @@ public class Solution0390 {
             step *= 2;
         }
         return n == 2 && flag ? r : l;
+    }
+
+    public int lastRemaining3(int n) {
+        int l = 1, step = 1;
+        boolean flag = true;
+        while (n > 1) {
+            if (flag) {
+                l += step;
+                flag = false;
+            } else {
+                if (n % 2 == 1) {
+                    l += step;
+                }
+                flag = true;
+            }
+            n /= 2;
+            step *= 2;
+        }
+        return l;
     }
 }
