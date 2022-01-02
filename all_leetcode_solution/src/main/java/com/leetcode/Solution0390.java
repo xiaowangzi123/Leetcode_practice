@@ -41,6 +41,9 @@ public class Solution0390 {
         return list.get(0);
     }
 
+    /**
+     * 找左右两边的边界
+     */
     public int lastRemaining2(int n) {
         int l = 1, r = n, step = 1;
         boolean flag = true;
