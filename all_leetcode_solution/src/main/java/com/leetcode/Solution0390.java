@@ -13,8 +13,8 @@ import java.util.Map;
 public class Solution0390 {
     public static void main(String[] args) {
         Solution0390 obj = new Solution0390();
-        System.out.println(obj.lastRemaining(11));
-        System.out.println(obj.lastRemaining(9));
+        System.out.println(obj.lastRemaining2(11));
+        System.out.println(obj.lastRemaining2(9));
     }
 
     //超时
@@ -40,4 +40,29 @@ public class Solution0390 {
         return list.get(0);
     }
 
+    public int lastRemaining2(int n) {
+        int num = n;
+        int l = 1;
+        int r = n;
+        boolean flag = true;
+        int lift = 1;
+        while (num > 2) {
+            if (flag) {
+                if (num % 2 == 1) {
+                    r -= lift;
+                }
+                l += lift;
+                flag = false;
+            } else {
+                if (num % 2 == 1) {
+                    l += lift;
+                }
+                r -= lift;
+                flag = true;
+            }
+            num /= 2;
+            lift *= 2;
+        }
+        return num == 2 && flag ? r : l;
+    }
 }
