@@ -13,6 +13,7 @@ import java.util.Map;
 public class Solution0390 {
     public static void main(String[] args) {
         Solution0390 obj = new Solution0390();
+        System.out.println(obj.lastRemaining2(3));
         System.out.println(obj.lastRemaining2(11));
         System.out.println(obj.lastRemaining2(9));
     }
@@ -41,9 +42,8 @@ public class Solution0390 {
     }
 
     public int lastRemaining2(int n) {
-        int l = 1, r = n;
+        int l = 1, r = n, step = 1;
         boolean flag = true;
-        int step = 1;
         while (n > 2) {
             if (flag) {
                 if (n % 2 == 1) {
