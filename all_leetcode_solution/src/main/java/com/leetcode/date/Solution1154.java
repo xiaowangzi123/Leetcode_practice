@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.date;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
