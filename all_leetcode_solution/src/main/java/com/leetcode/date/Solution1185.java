@@ -4,6 +4,7 @@ import sun.reflect.misc.ConstructorUtil;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Calendar;
 public class Solution1185 {
     public static void main(String[] args) {
         Solution1185 obj = new Solution1185();
-        System.out.println(obj.dayOfTheWeek(21, 12, 1980));
+        System.out.println(obj.dayOfTheWeek2(21, 12, 1980));
         System.out.println(obj.dayOfTheWeek(1, 1, 1971));
         System.out.println(obj.dayOfTheWeek(3, 1, 2022));
         System.out.println(obj.dayOfTheWeek(31, 8, 2019));
@@ -50,6 +51,14 @@ public class Solution1185 {
         count += day;
 
         return week[(count + 4) % 7];
+    }
+
+    public String dayOfTheWeek2(int day, int month, int year) {
+        LocalDate localDate = LocalDate.of(year,month,day);
+        String [] weeks = {null, "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"};
+        int index = localDate.getDayOfWeek().getValue();
+        return weeks[index];
+
     }
 
 }
