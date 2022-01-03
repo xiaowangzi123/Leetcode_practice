@@ -15,8 +15,12 @@ import java.util.Calendar;
 public class Solution1185 {
     public static void main(String[] args) {
         Solution1185 obj = new Solution1185();
-        System.out.println(obj.dayOfTheWeek(1, 1, 1972));
+        System.out.println(obj.dayOfTheWeek(21, 12, 1980));
+        System.out.println(obj.dayOfTheWeek(1, 1, 1971));
         System.out.println(obj.dayOfTheWeek(3, 1, 2022));
+        System.out.println(obj.dayOfTheWeek(31, 8, 2019));
+        System.out.println(obj.dayOfTheWeek(18, 7, 1999));
+        System.out.println(obj.dayOfTheWeek(15, 8, 1993));
 
     }
 
@@ -38,6 +42,9 @@ public class Solution1185 {
         for (int i = 0; i < month - 1; i++) {
             count += months[i];
         }
+        if ((year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) && month >= 3) {
+            count++;
+        }
 
         //日贡献天数
         count += day;
@@ -45,58 +52,4 @@ public class Solution1185 {
         return week[(count + 4) % 7];
     }
 
-    /**
-     * 四百年一润；四年一润，百年不润；
-     */
-    public int dayOfYear(String date) {
-        String[] d = date.split("-");
-        int count = 0, year = Integer.valueOf(d[0]), month = Integer.valueOf(d[1]), day = Integer.valueOf(d[2]);
-        int[] months = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
-            months[1] = 29;
-        }
-        for (int i = 1; i < month; i++) {
-            count += months[i - 1];
-        }
-        count += day;
-        return count;
-    }
-
-
-    public int dayOfYear3(String date) {
-        String[] d = date.split("-");
-        int count = 0, year = Integer.valueOf(d[0]), month = Integer.valueOf(d[1]), day = Integer.valueOf(d[2]);
-        switch (month) {
-            case 12:
-                count += 30;
-            case 11:
-                count += 31;
-            case 10:
-                count += 30;
-            case 9:
-                count += 31;
-            case 8:
-                count += 31;
-            case 7:
-                count += 30;
-            case 6:
-                count += 31;
-            case 5:
-                count += 30;
-            case 4:
-                count += 31;
-            case 3:
-                if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
-                    count += 29;
-                } else {
-                    count += 28;
-                }
-            case 2:
-                count += 31;
-            default:
-                break;
-        }
-        count += day;
-        return count;
-    }
 }
