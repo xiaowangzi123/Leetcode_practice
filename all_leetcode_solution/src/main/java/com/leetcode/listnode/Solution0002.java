@@ -1,9 +1,6 @@
 package com.leetcode.listnode;
 
 import com.leetcode.bean.ListNode;
-import com.sun.media.sound.EmergencySoundbank;
-
-import java.util.Arrays;
 
 /**
  * @author: wyq
