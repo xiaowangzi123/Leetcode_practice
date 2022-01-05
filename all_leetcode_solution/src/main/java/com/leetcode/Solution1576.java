@@ -42,7 +42,9 @@ public class Solution1576 {
         return ans;
     }
 
-
+    /**
+     * 找出？前后的字母，找一个与前后两个字母不同的字母，赋值给？
+     */
     public String modifyString2(String s) {
         int n = s.length();
         char[] ans = s.toCharArray();
