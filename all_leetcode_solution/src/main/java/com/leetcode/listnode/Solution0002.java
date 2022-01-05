@@ -24,7 +24,6 @@ public class Solution0002 {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode ans = null, temp = null;
-
         int k = 0;
         while (l1 != null || l2 != null) {
             int a = l1 == null ? 0 : l1.val;
@@ -43,9 +42,10 @@ public class Solution0002 {
             if (l2 != null) {
                 l2 = l2.next;
             }
-            if (k > 0) {
-                ans = new ListNode(k);
-            }
+
+        }
+        if (k > 0) {
+            temp.next = new ListNode(k);
         }
         return ans;
     }
