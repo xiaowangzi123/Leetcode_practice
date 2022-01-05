@@ -4,6 +4,7 @@ package com.leetcode;
  * @author :wyq
  * @date ：Created in 2021/11/5
  * @description : 替换所有的问号
+ * 替换的值不能与前后字母相同
  */
 public class Solution1576 {
     public static void main(String[] args) {
