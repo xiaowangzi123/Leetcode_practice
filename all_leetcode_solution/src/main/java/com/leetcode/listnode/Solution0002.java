@@ -14,23 +14,26 @@ public class Solution0002 {
         Solution0002 obj = new Solution0002();
         ListNode l13 = new ListNode(3, null);
         ListNode l12 = new ListNode(4, l13);
-        ListNode l11 = new ListNode(2,l12);
+        ListNode l11 = new ListNode(2, l12);
 
         ListNode l23 = new ListNode(4, null);
         ListNode l22 = new ListNode(6, l23);
-        ListNode l21 = new ListNode(5,l22);
-        System.out.println(obj.addTwoNumbers(l11,l21));
+        ListNode l21 = new ListNode(5, l22);
+        System.out.println(obj.addTwoNumbers(l11, l21));
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode ans = new ListNode();
+        ListNode ans = null, temp = null;
 
         int k = 0;
         while (l1 != null || l2 != null) {
             int a = l1 == null ? 0 : l1.val;
             int b = l2 == null ? 0 : l2.val;
             if (ans == null) {
-                ans = new ListNode((a + b + k) % 10);
+                ans = temp = new ListNode((a + b + k) % 10);
+            } else {
+                temp.next = new ListNode((a + b + k) % 10);
+                temp = temp.next;
             }
             k = (a + b + k) / 10;
 
