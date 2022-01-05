@@ -1,6 +1,7 @@
 package com.leetcode.listnode;
 
 import com.leetcode.bean.ListNode;
+import com.sun.media.sound.EmergencySoundbank;
 
 import java.util.Arrays;
 
@@ -42,7 +43,6 @@ public class Solution0002 {
             if (l2 != null) {
                 l2 = l2.next;
             }
-
         }
         if (k > 0) {
             temp.next = new ListNode(k);
