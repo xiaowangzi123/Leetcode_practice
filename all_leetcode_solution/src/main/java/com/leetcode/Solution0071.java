@@ -42,11 +42,11 @@ public class Solution0071 {
         StringBuilder ans = new StringBuilder();
         if (deque.isEmpty()){
             ans.append("/");
+        }else {
+            while (!deque.isEmpty()){
+                ans.append("/").append(deque.poll());
+            }
         }
-        while (!deque.isEmpty()){
-            ans.append("/").append(deque.poll());
-        }
-
         return ans.toString();
     }
 
