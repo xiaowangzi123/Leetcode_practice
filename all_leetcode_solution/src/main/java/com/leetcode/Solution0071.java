@@ -12,8 +12,10 @@ import java.util.Arrays;
 public class Solution0071 {
     public static void main(String[] args) {
         Solution0071 obj = new Solution0071();
-        System.out.println(obj.simplifyPath2("/home/"));
+        System.out.println(obj.simplifyPath("/home//foo/"));
+        System.out.println(obj.simplifyPath2("/home//foo/"));
         System.out.println(obj.simplifyPath2("/../"));
+        System.out.println(obj.simplifyPath2("/home/"));
         System.out.println(obj.simplifyPath2("/..."));
         System.out.println(obj.simplifyPath2("/home//foo/"));
         System.out.println(obj.simplifyPath2("/a/./b/../../c/"));
@@ -38,9 +40,13 @@ public class Solution0071 {
             }
         }
         StringBuilder ans = new StringBuilder();
-        while (!deque.isEmpty()){
-            ans.append("/").append(deque.pollLast());
+        if (deque.isEmpty()){
+            ans.append("/");
         }
+        while (!deque.isEmpty()){
+            ans.append("/").append(deque.poll());
+        }
+
         return ans.toString();
     }
 
