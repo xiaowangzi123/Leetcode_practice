@@ -12,8 +12,13 @@ public class Solution0089 {
     public static void main(String[] args) {
         Solution0089 obj = new Solution0089();
         System.out.println(obj.grayCode(2));
+        System.out.println(obj.grayCode(3));
+        System.out.println(1^(1>>1));
     }
 
+    /**
+     * 第n个格雷码 G(n) = n xor (n>>1)
+     */
     public List<Integer> grayCode(int n) {
         List<Integer> ans = new ArrayList<>();
         for (int i = 0; i < 1 << n; i++) {
