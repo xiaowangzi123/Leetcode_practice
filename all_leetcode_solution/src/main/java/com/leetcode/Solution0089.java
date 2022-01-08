@@ -16,7 +16,7 @@ public class Solution0089 {
         System.out.println(obj.grayCode2(2));
         System.out.println(obj.grayCode(3));
         System.out.println(obj.grayCode2(3));
-        System.out.println(1<<2);
+        System.out.println(1 << 2);
     }
 
     /**
@@ -35,11 +35,13 @@ public class Solution0089 {
             return new ArrayList<>(Arrays.asList(0));
         }
         List<Integer> ans = new ArrayList<>();
-        List<Integer> temp = grayCode2(n-1);
+        List<Integer> temp = grayCode2(n - 1);
 
         for (int i = 0; i < temp.size(); i++) {
             ans.add(temp.get(i));
-            ans.add(i+temp.size(),temp.get(i)+temp.size());
+        }
+        for (int i = 0; i < temp.size(); i++) {
+            ans.add(i + temp.size(), temp.get(temp.size() - i - 1) + temp.size());
         }
         return ans;
     }
