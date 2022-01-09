@@ -29,6 +29,7 @@
         <module>num_0911_OnlineElection</module>
         <module>Offer_1_practice</module>
         <module>Offer_2_practice</module>
+        <module>leetcode_interview_questions</module>
     </modules>
 
     <properties>
