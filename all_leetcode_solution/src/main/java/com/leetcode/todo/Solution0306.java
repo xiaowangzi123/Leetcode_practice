@@ -9,8 +9,9 @@ public class Solution0306 {
     public static void main(String[] args) {
         Solution0306 obj = new Solution0306();
         System.out.println(obj.isAdditiveNumber("0112358"));
-        System.out.println(obj.isAdditiveNumber2("0112358"));
+//        System.out.println(obj.isAdditiveNumber2("0112358"));
         System.out.println(obj.isAdditiveNumber2("111"));
+        System.out.println(obj.isAdditiveNumber2("1023"));
     }
 
     public boolean isAdditiveNumber(String num) {
@@ -93,7 +94,7 @@ public class Solution0306 {
 
     public boolean stringAddIsAdditive(String num, String s1, String s2, int index) {
         String sum = getAddString(s1, s2);
-        if (!sum.equals(num.substring(index, index + sum.length()))) {
+        if (index == num.length() ||!sum.equals(num.substring(index, index + sum.length()))) {
             return false;
         }
         index += sum.length();
