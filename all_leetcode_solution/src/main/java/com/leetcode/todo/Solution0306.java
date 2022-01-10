@@ -8,9 +8,9 @@ package com.leetcode.todo;
 public class Solution0306 {
     public static void main(String[] args) {
         Solution0306 obj = new Solution0306();
-        System.out.println(obj.isAdditiveNumber("0112358"));
+//        System.out.println(obj.isAdditiveNumber("0112358"));
 //        System.out.println(obj.isAdditiveNumber2("0112358"));
-        System.out.println(obj.isAdditiveNumber2("111"));
+//        System.out.println(obj.isAdditiveNumber2("111"));
         System.out.println(obj.isAdditiveNumber2("1023"));
     }
 
@@ -83,7 +83,7 @@ public class Solution0306 {
                 if (num.charAt(i + 1) == '0' && j > i + 1) {
                     break;
                 }
-                String s2 = num.substring(i + 1, j+1);
+                String s2 = num.substring(i + 1, j + 1);
                 if (stringAddIsAdditive(num, s1, s2, j + 1)) {
                     return true;
                 }
@@ -94,7 +94,7 @@ public class Solution0306 {
 
     public boolean stringAddIsAdditive(String num, String s1, String s2, int index) {
         String sum = getAddString(s1, s2);
-        if (index == num.length() ||!sum.equals(num.substring(index, index + sum.length()))) {
+        if (index + sum.length() > num.length() || !sum.equals(num.substring(index, index + sum.length()))) {
             return false;
         }
         index += sum.length();
