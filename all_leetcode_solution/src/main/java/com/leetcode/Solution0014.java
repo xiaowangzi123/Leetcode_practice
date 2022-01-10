@@ -16,9 +16,9 @@ public class Solution0014 {
         String[] str2 = {"dog", "abc", "high"};
         System.out.println(obj.longestCommonPrefix(str2));
 */
-        String[] str3 = {"abc", "ab"};
+//        String[] str3 = {"abc", "ab"};
+        String[] str3 = {"a", "b"};
         System.out.println(obj.longestCommonPrefix(str3));
-        System.out.println("abc".charAt(1));
     }
 
     public String longestCommonPrefix(String[] strs) {
