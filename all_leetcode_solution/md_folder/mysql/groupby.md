@@ -26,3 +26,8 @@ select gender,
        avg(question_cnt)
 from user_profile
 group by gender, university
+
+
+
+select gender,university,count(id) user_num,avg(active_days_within_30) avg_active_day,avg(question_cnt) avg_question_cnt from user_profile
+group by university,gende
