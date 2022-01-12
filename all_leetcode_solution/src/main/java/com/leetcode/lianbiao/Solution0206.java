@@ -23,8 +23,19 @@ public class Solution0206 {
     }
 
     public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
         ListNode ans = head;
+        ListNode p2 = ans.next;
 
+        while (p2 != null) {
+            ListNode tmp = p2.next;
+            p2.next = ans;
+            ans = p2;
+            p2 = tmp;
+        }
+        head.next = null;
         return ans;
     }
 }
