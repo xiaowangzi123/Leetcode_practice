@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * @author ：wyq
  * @date ：Created in 2021/9/18
- * @description：
+ * @description： 反转链表
  */
 public class Solution0206 {
     public static void main(String[] args) {
@@ -22,33 +22,22 @@ public class Solution0206 {
         System.out.println(obj.reverseList(l1));
     }
 
+
     public ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode ans = head;
-        ListNode p2 = ans.next;
-
-        while (p2 != null) {
-            ListNode tmp = p2.next;
-            p2.next = ans;
-            ans = p2;
-            p2 = tmp;
-        }
-        head.next = null;
-        return ans;
-    }
-
-    public static ListNode reverseListIterative(ListNode head) {
-        ListNode prev = null; //前指针节点
-        ListNode curr = head; //当前指针节点
+        ListNode ans = null;
+        //当前指针节点
+        ListNode curr = head;
         //每次循环，都将当前节点指向它前面的节点，然后当前节点和前节点后移
         while (curr != null) {
-            ListNode nextTemp = curr.next; //临时节点，暂存当前节点的下一节点，用于后移
-            curr.next = prev; //将当前节点指向它前面的节点
-            prev = curr; //前指针后移
-            curr = nextTemp; //当前指针后移
+            //临时节点，暂存当前节点的下一节点，用于后移
+            ListNode nextTemp = curr.next;
+            //当前节点指向原链表中之前的节点
+            curr.next = ans;
+            //此时当前节点不在指向临时节点
+            ans = curr;
+            //当前指针后移
+            curr = nextTemp;
         }
-        return prev;
+        return ans;
     }
 }
