@@ -13,6 +13,7 @@ public class Solution0747 {
 //        int[] nums = {3, 6, 1, 0};
         int[] nums = {1, 2, 3, 4};
         System.out.println(obj.dominantIndex(nums));
+        System.out.println(obj.dominantIndex2(new int[]{1}));
     }
 
     public int dominantIndex(int[] nums) {
@@ -29,5 +30,20 @@ public class Solution0747 {
             }
         }
         return ans;
+    }
+
+    public int dominantIndex2(int[] nums) {
+        int first = -1, second = -1;
+        int index = -1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > first) {
+                second = first;
+                first = nums[i];
+                index = i;
+            } else if (nums[i] > second) {
+                second = nums[i];
+            }
+        }
+        return first > second * 2 ? index : -1;
     }
 }
