@@ -44,6 +44,6 @@ public class Solution0747 {
                 second = nums[i];
             }
         }
-        return first > second * 2 ? index : -1;
+        return first >= second * 2 ? index : -1;
     }
 }
