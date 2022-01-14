@@ -17,16 +17,28 @@ public class Solution0373 {
         System.out.println(obj.kSmallestPairs(new int[]{1, 7}, new int[]{2}, 3));
     }
 
+    //超时
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> ans = new ArrayList<>();
         PriorityQueue<List<Integer>> pq = new PriorityQueue<>(k, (a, b) -> (a.get(0) + a.get(1) - b.get(0) - b.get(1)));
-        for (int i = 0; i < nums1.length; i++) {
-            for (int j = 0; j < nums2.length; j++) {
+        int m = nums1.length, n = nums2.length;
+        for (int i = 0; i < Math.min(k, m); i++) {
+            for (int j = 0; j < Math.min(k, n); j++) {
                 List<Integer> temp = new ArrayList<>(Arrays.asList(nums1[i], nums2[j]));
                 pq.add(temp);
             }
         }
         for (int i = 0; i < k && !pq.isEmpty(); i++) {
+            ans.add(pq.poll());
+        }
+        return ans;
+    }
+
+    public List<List<Integer>> kSmallestPairs2(int[] nums1, int[] nums2, int k) {
+        List<List<Integer>> ans = new ArrayList<>();
+        PriorityQueue<List<Integer>> pq = new PriorityQueue<>(k, (a, b) -> (a.get(0) + a.get(1) - b.get(0) - b.get(1)));
+        int m = nums1.length, n = nums2.length;
+        for (int i = 0; i < k && i < Math.min(m * n, k); i++) {
             ans.add(pq.poll());
         }
         return ans;
