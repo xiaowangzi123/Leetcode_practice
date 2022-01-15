@@ -8,9 +8,9 @@ package com.leetcode;
 public class Solution1716 {
     public static void main(String[] args) {
         Solution1716 obj = new Solution1716();
-        System.out.println(obj.totalMoney(4));
-        System.out.println(obj.totalMoney(10));
-        System.out.println(obj.totalMoney(20));
+        System.out.println(obj.totalMoney2(4));
+        System.out.println(obj.totalMoney2(10));
+        System.out.println(obj.totalMoney2(20));
     }
 
     public int totalMoney(int n) {
@@ -19,8 +19,22 @@ public class Solution1716 {
             ans += (i + m);
         }
         ans += (28 * m);
-        if ((m-1)>0){
-            ans+=(m-1)*m*7/2;
+        if ((m - 1) > 0) {
+            ans += (m - 1) * m * 7 / 2;
+        }
+        return ans;
+    }
+
+    public int totalMoney2(int n) {
+        int ans = 0, week = 0;
+        int day = 1;
+        for (int i = 1; i <= n; i++) {
+            ans += day + week;
+            day++;
+            if (day == 8) {
+                day = 1;
+                week++;
+            }
         }
         return ans;
     }
