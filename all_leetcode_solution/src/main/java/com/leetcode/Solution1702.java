@@ -19,7 +19,7 @@ public class Solution1702 {
      * 对于01的情形，则需要将后面可能存在的0通过10到01的变换，将0变换到前面的位置，既01的1的位置，进而再实现00到10的变换；
      */
     public String maximumBinaryString(String binary) {
-        int n = binary.length();
+        int n = binary.length(), index = 0;
         char[] chs = binary.toCharArray();
         for (int i = 0; i < n; i++) {
             //连续的两个零的00的情形
@@ -28,7 +28,9 @@ public class Solution1702 {
                 chs[i] = '1';
             } else if (chs[i] == '0') {
                 //确定后面的0的位置
-                int index = i + 1;
+                if (index < i + 1) {
+                    index = i + 1;
+                }
                 while (index < n && chs[index] == '1') {
                     index++;
                 }
@@ -51,7 +53,7 @@ public class Solution1702 {
         int index = 0;
         char[] chs = binary.toCharArray();
         for (int i = 0; i < n; i++) {
-            if (i + 1<n && chs[i] == '0' && chs[i + 1] == '0') {
+            if (i + 1 < n && chs[i] == '0' && chs[i + 1] == '0') {
                 chs[i] = '1';
             } else if (chs[i] == '0') {
                 index = index < i + 1 ? i + 1 : index;
