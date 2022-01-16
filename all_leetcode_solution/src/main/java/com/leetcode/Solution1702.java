@@ -9,6 +9,8 @@ public class Solution1702 {
     public static void main(String[] args) {
         Solution1702 obj = new Solution1702();
         System.out.println(obj.maximumBinaryString("000110"));
+        System.out.println(obj.maximumBinaryString("0"));
+        System.out.println(obj.maximumBinaryString("01"));
     }
 
 
@@ -18,23 +20,47 @@ public class Solution1702 {
      */
     public String maximumBinaryString(String binary) {
         int n = binary.length();
-        //确定后面的0的位置
-        int index = 0;
         char[] chs = binary.toCharArray();
         for (int i = 0; i < n; i++) {
             //连续的两个零的00的情形
-            if (chs[i] == '0' && chs[i + 1] == '0') {
+            if (chs[i] == '0' && i + 1 < n && chs[i + 1] == '0') {
                 //00到10的变换
                 chs[i] = '1';
-            } else if (chs[i] == '0') {//在01的情形下，判断后面是否有0可以前移
-                index = index < i + 1 ? i + 1 : index;
-                while (index < n && chs[index] == '1') {//找可能存在的0的位置
+            } else if (chs[i] == '0') {
+                //确定后面的0的位置
+                int index = i + 1;
+                while (index < n && chs[index] == '1') {
                     index++;
                 }
-                if (index == n) {//没有0了
+                //没有0了
+                if (index == n) {
                     break;
                 }
                 //变换位置
+                chs[index] = '1';
+                chs[i] = '1';
+                chs[i + 1] = '0';
+            }
+        }
+        return new String(chs);
+    }
+
+
+    public String maximumBinaryString2(String binary) {
+        int n = binary.length();
+        int index = 0;
+        char[] chs = binary.toCharArray();
+        for (int i = 0; i < n; i++) {
+            if (i + 1<n && chs[i] == '0' && chs[i + 1] == '0') {
+                chs[i] = '1';
+            } else if (chs[i] == '0') {
+                index = index < i + 1 ? i + 1 : index;
+                while (index < n && chs[index] == '1') {
+                    index++;
+                }
+                if (index == n) {
+                    break;
+                }
                 chs[index] = '1';
                 chs[i] = '1';
                 chs[i + 1] = '0';
