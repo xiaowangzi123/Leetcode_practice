@@ -17,6 +17,7 @@ public class Solution1702 {
     /**
      * 为了使获得值最大，则需要从左到右将连续的两个00变成10的情形，
      * 对于01的情形，则需要将后面可能存在的0通过10到01的变换，将0变换到前面的位置，既01的1的位置，进而再实现00到10的变换；
+     *
      */
     public String maximumBinaryString(String binary) {
         int n = binary.length(), index = 0;
