@@ -21,6 +21,7 @@
         <module>all_leetcode_solution</module>
         <module>leetcode_competition_programing</module>
         <module>num_0303_RangeSumQueryImmutable</module>
+        <module>num_0382_LinkedListRandomNode</module>
         <module>num_0384_ShuffleanArray</module>
         <module>num_0519_RandomFlipMatrix</module>
         <module>num_0677_MapSumPairs</module>
