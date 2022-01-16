@@ -17,13 +17,21 @@ public class Solution2 {
     }
 
     public int getRandom() {
-        int count = 0, ans = 0;
-        while (list != null) {
-            int rand = random.nextInt(++count);
-            if (count == rand) {
-                ans = list.val;
+        int count = 1, ans = 0;
+        /*for (ListNode node=list;node!=null;node=node.next){
+            if (random.nextInt(count)==0){
+                ans=node.val;
             }
-            list = list.next;
+            count++;
+        }*/
+        ListNode node = list;
+        while (node != null) {
+            int rand = random.nextInt(count);
+            if (0 == rand) {
+                ans = node.val;
+            }
+            count++;
+            node = node.next;
         }
         return ans;
     }
@@ -33,11 +41,23 @@ public class Solution2 {
         ListNode l2 = new ListNode(3, l3);
         ListNode l1 = new ListNode(1, l2);
         Solution2 obj = new Solution2(l1);
-        System.out.println(obj.getRandom());
-        System.out.println(obj.getRandom());
-        System.out.println(obj.getRandom());
-        System.out.println(obj.getRandom());
-        System.out.println(obj.getRandom());
-        System.out.println(obj.getRandom());
+        int a = 0, b = 0, c = 0,d=0;
+        for (int i = 0; i < 1000; i++) {
+            int temp = obj.getRandom();
+            if (temp == 1) {
+                a++;
+            } else if (temp == 3) {
+                b++;
+            } else if (temp == 5) {
+                c++;
+            }else {
+                d++;
+            }
+        }
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
+
     }
 }
