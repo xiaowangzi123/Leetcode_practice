@@ -22,10 +22,14 @@ public class Solution0039 {
             return ans;
         }
 
-        backtrack(0,n,target,candidates);
+        backtrack(0, n, target, candidates);
         return ans;
     }
 
+    /**
+     * 每一个元素可以重复使用，考虑了所有的候选数，因此出现了重复的列表。
+     * 从每一层的第 22 个结点开始，都不能再搜索产生同一层结点已经使用过的 candidate 里的元素
+     */
     public void backtrack(int start, int n, int target, int[] candidates) {
         if (target < 0) {
             return;
@@ -34,9 +38,9 @@ public class Solution0039 {
             ans.add(new ArrayList<>(path));
         }
 
-        for (int i = 0; i < n; i++) {
+        for (int i = start; i < n; i++) {
             path.offer(candidates[i]);
-            backtrack(i, n, target-candidates[i], candidates);
+            backtrack(i, n, target - candidates[i], candidates);
             path.removeLast();
         }
 
