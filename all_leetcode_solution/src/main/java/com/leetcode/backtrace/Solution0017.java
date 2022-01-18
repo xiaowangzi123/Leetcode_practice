@@ -12,9 +12,22 @@ import java.util.List;
 public class Solution0017 {
     public static void main(String[] args) {
         Solution0017 obj = new Solution0017();
-        System.out.println(obj.letterCombinations(""));
+//        System.out.println(obj.letterCombinations(""));
 //        System.out.println(obj.letterCombinations("2"));
-//        System.out.println(obj.letterCombinations("23"));
+        System.out.println(obj.letterCombinations("23"));
+        
+        System.out.println("------------------");
+        String s1 = "abc";
+        System.out.println(s1.hashCode());
+        String s2 = s1;
+        System.out.println(s2.hashCode());
+        s1="bcd";
+        System.out.println(s1.hashCode());
+        
+        StringBuilder s3 = new StringBuilder("abc");
+        System.out.println(s3.hashCode());
+        s3.append("bcd");
+        System.out.println(s3.hashCode());
     }
 
     private String digLetter[] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
