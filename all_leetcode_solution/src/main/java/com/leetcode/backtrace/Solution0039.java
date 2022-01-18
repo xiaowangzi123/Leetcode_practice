@@ -38,6 +38,7 @@ public class Solution0039 {
             ans.add(new ArrayList<>(path));
         }
 
+        //元素可以重复，下次添加元素，还是要从当前元素开始，所以回溯方法中i没有加1
         for (int i = start; i < n; i++) {
             path.offer(candidates[i]);
             backtrack(i, n, target - candidates[i], candidates);
