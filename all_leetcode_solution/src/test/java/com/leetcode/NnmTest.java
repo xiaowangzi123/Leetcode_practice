@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author :wyq
  * @date ：Created in 2022/1/18
- * @description :
+ * @description : 获得六位不同数组组成的数
  */
 public class NnmTest {
     public static void main(String[] args) {
@@ -13,7 +13,10 @@ public class NnmTest {
         System.out.println(obj.getNum());
         System.out.println("-------------------");
         List<Integer> list = new ArrayList<>(Arrays.asList(1, 0, 2, 3, 4, 7));
-        System.out.println(obj.getMultDiff(list));
+//        System.out.println(obj.getMultDiff(list));
+        System.out.println("-------------------");
+        List<Integer> list2 = new ArrayList<>(Arrays.asList(1, 2, 6, 9, 8, 4));
+        System.out.println(obj.getMultDiff2(list2));
     }
 
     int num = 0;
@@ -27,7 +30,7 @@ public class NnmTest {
     public void dfs(List<Integer> list, boolean[] used) {
         if (list.size() >= 6) {
 //            if (list.get(0) == 1 && getMult2(list) && getMult3(list) && getMult4(list) && getMult5(list) && getMult6(list)) {
-            if (list.get(0) == 1 && getMultDiff(list)) {
+            if (list.get(0) == 1 && getMultDiff2(list)) {
                 System.out.println(list);
                 num++;
             }
@@ -76,7 +79,14 @@ public class NnmTest {
             if (set.size() < 6) {
                 return false;
             }
+            for (Integer in : pre) {
+                set.remove(in);
+            }
+            if (set.size() != 0) {
+                return false;
+            }
         }
+
         return true;
     }
 
