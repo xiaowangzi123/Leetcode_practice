@@ -19,10 +19,13 @@ public class Solution0539 {
         Collections.sort(timePoints, (o1, o2) -> o1.compareTo(o2));
         int n = timePoints.size();
         int ans = getMinter(timePoints.get(n - 1)) - getMinter(timePoints.get(0));
+        ans = ans > 720 ? 1440 - ans : ans;
 
         for (int i = 0; i < n - 1; i++) {
             ans = Math.min(ans, getMinter(timePoints.get(i + 1)) - getMinter(timePoints.get(i)));
+            ans = ans > 720 ? 1440 - ans : ans;
         }
+
         return ans;
     }
 
