@@ -17,6 +17,10 @@ public class NnmTest {
         System.out.println("-------------------");
         List<Integer> list2 = new ArrayList<>(Arrays.asList(1, 2, 6, 9, 8, 4));
         System.out.println(obj.getMultDiff2(list2));
+        System.out.println("-------------------");
+
+
+
     }
 
     int num = 0;
@@ -144,4 +148,6 @@ public class NnmTest {
         }
         return set.size() == 6;
     }
+
+
 }

@@ -11,12 +11,12 @@ public class Solution1863 {
         System.out.println(obj.subsetXORSum(new int[]{1, 5, 6}));
         System.out.println(obj.subsetXORSum2(new int[]{1, 3}));
         System.out.println(obj.subsetXORSum3(new int[]{1, 3}));
-
+        System.out.println("-----------------");
+        System.out.println(1^3^3);
     }
 
     /**
      * 回溯
-     * todo
      */
     int sum = 0;
     int temp = 0;
