@@ -59,9 +59,8 @@ public class Solution0078 {
      */
     public List<List<Integer>> subsets2(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> temp = new ArrayList<>();
         //先把空子集加入
-        ans.add(temp);
+        ans.add(new ArrayList<>());
 
         //循环加入每一个元素
         for (int num : nums) {
@@ -102,19 +101,6 @@ public class Solution0078 {
         recursion(nums, i + 1, res);
     }
 
-    public List<List<Integer>> subsets33(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<>();
-        ans.add(new ArrayList<>());
-        for (int i = 0; i < nums.length; i++) {
-            int size = ans.size();
-            for (int j = 0; j < size; j++) {
-                List<Integer> temp = new ArrayList<>(ans.get(j));
-                temp.add(nums[i]);
-                ans.add(temp);
-            }
-        }
-        return ans;
-    }
 
     /**
      * 回溯
