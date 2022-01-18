@@ -11,7 +11,7 @@ import java.util.List;
 public class Solution0022 {
     public static void main(String[] args) {
         Solution0022 obj = new Solution0022();
-        System.out.println(obj.generateParenthesis(3));
+        System.out.println(obj.generateParenthesis(2));
     }
 
     List<String> ans = new ArrayList<>();
@@ -29,10 +29,10 @@ public class Solution0022 {
         if (l < r) {
             return;
         }
-        if (l <= n) {
+        if (l < n) {
             backtrack(l + 1, r, n, s + "(");
         }
-        if (r <= n) {
+        if (r < n) {
             backtrack(l, r + 1, n, s + ")");
         }
 
