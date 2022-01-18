@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @author: wyq
  * @create time: 2022/1/18
- * @description: TODO
+ * @description: 二进制手表
  */
 public class Solution0401 {
     public static void main(String[] args) {
@@ -22,18 +22,12 @@ public class Solution0401 {
         return res;
     }
 
+    //剩余需要点亮的灯数量，从索引index开始往后点亮灯，当前小时数，当前分钟数
     public void backtrack(int num, int index, int hour, int minute) {
         if (hour > 11 || minute > 59) {
             return;
         }
         if (num == 0) {
-            /*StringBuilder sb = new StringBuilder();
-            sb.append(hour).append(':');
-            if (minute < 10) {
-                sb.append('0');
-            }
-            sb.append(minute);
-            res.add(sb.toString());*/
             res.add(hour+":" + (minute < 10 ? "0" : "") + minute);
             return;
         }
