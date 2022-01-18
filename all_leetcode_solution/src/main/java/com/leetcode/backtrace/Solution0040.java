@@ -11,7 +11,7 @@ public class Solution0040 {
     public static void main(String[] args) {
         Solution0040 obj = new Solution0040();
 //        System.out.println(obj.combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
-        System.out.println(obj.combinationSum2(new int[]{10, 1, 7, 1}, 8));
+        System.out.println(obj.combinationSum2(new int[]{10, 1, 7, 1, 1}, 8));
     }
 
     //ArrayDeque没有ArrayList速度快
@@ -41,13 +41,12 @@ public class Solution0040 {
             return;
         }
 
-
         for (int i = start; i < n; i++) {
             // 剪枝，如果target - candidates[i] < 0，那target减去第i+1，i+2时,也都会小于0
             if (target - candidates[i] < 0) {
                 break;
             }
-            //去除重复
+            //去除重复,如果没有i>start,{1,1,7}这样的序列不会被判断出现
             if (i > start && candidates[i - 1] == candidates[i]) {
                 continue;
             }
