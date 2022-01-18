@@ -15,26 +15,25 @@ public class Solution0022 {
     }
 
     List<String> ans = new ArrayList<>();
+
     public List<String> generateParenthesis(int n) {
-        backtrack(n, n, new StringBuilder());
+        backtrack(0, 0, n, "");
         return ans;
     }
 
-    /**
-     *
-     */
-    public void backtrack(int l, int r, StringBuilder sb) {
-        if (l == 0 && r == 0) {
-            ans.add(sb.toString());
+    public void backtrack(int l, int r, int n, String s) {
+        if (l == n && r == n) {
+            ans.add(s);
             return;
         }
-
-        if (l > 0) {
-            backtrack(l - 1, r, sb.append("("));
+        if (l < r) {
+            return;
         }
-
-        if (r > 0) {
-            backtrack(l, r - 1, sb.append(")"));
+        if (l <= n) {
+            backtrack(l + 1, r, n, s + "(");
+        }
+        if (r <= n) {
+            backtrack(l, r + 1, n, s + ")");
         }
 
     }
