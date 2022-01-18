@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author ：wyq
  * @date ：Created in 2020/11/21
- * @description：
+ * @description： 搜索插入位置
  */
 public class Solution0035 {
     public static void main(String[] args) {
