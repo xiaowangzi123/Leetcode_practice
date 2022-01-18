@@ -12,7 +12,7 @@ public class Solution0039 {
         Solution0039 obj = new Solution0039();
         System.out.println(obj.combinationSum(new int[]{2, 3, 6, 7}, 7));
     }
-
+    //ArrayDeque没有ArrayList速度快
     List<List<Integer>> ans = new ArrayList<>();
     Deque<Integer> path = new ArrayDeque<>();
 
