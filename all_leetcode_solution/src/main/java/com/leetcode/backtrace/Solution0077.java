@@ -42,6 +42,7 @@ public class Solution0077 {
 
     }
 
+    //一个for循环确定一个数，k个数需要k个for循环，这个方法需要再考虑一下
     public List<List<Integer>> combine2(int n, int k) {
         List<List<Integer>> ans = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
@@ -49,7 +50,8 @@ public class Solution0077 {
             for (int j = i + 1; j <= n; j++) {
                 temp.add(i);
                 temp.add(j);
-                ans.add(temp);
+                ans.add(new ArrayList<>(temp));
+                temp.clear();
             }
         }
         return ans;
