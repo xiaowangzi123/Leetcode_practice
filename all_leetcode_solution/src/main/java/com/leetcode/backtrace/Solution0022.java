@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author: wyq
  * @create time: 2022/1/18
- * @description: 组合
+ * @description: 括号生成
  */
 public class Solution0022 {
     public static void main(String[] args) {
