@@ -26,6 +26,7 @@ public class Solution0022 {
             ans.add(s);
             return;
         }
+        //剪枝，左括号数量不能小于右括号
         if (l < r) {
             return;
         }
