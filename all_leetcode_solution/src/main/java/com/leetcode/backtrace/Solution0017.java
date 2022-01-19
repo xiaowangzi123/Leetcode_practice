@@ -74,6 +74,9 @@ public class Solution0017 {
         }
     }
 
+    /**
+     * 每个数字代表的字符串都处于同一层级，for循环不合适
+     */
     public List<String> letterCombinations2(String digits) {
         int n = digits.length();
         if (n == 0) {
