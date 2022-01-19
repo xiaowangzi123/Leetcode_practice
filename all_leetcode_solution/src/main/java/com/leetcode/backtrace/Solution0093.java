@@ -11,8 +11,12 @@ import java.util.List;
 public class Solution0093 {
     public static void main(String[] args) {
         Solution0093 obj = new Solution0093();
+//        System.out.println(obj.restoreIpAddresses("abcde"));
         System.out.println(obj.restoreIpAddresses("25525511135"));
-
+        System.out.println("----------------");
+        String str = "123456";
+        System.out.println(str.substring(0, 6));
+        System.out.println(str.substring(1));
 
     }
 
@@ -25,6 +29,7 @@ public class Solution0093 {
             return ans;
         }
 
+        backtrack(0, 0, n, s, "");
         return ans;
     }
 
@@ -32,16 +37,19 @@ public class Solution0093 {
     /**
      *
      */
-    public void backtrack(int index, int count, String s) {
+    public void backtrack(int index, int count, int n, String s, String sub) {
         if (index == s.length()) {
-            if (count == 0) {
+            if (count == 4) {
                 ans.add(String.join(".", path));
             }
             return;
         }
 
-        for (int i = 1; i < s.length(); i++) {
-
+        for (int i = index; i < index + 3 && i < n; i++) {
+            String temp = s.substring(index, i + 1);
+            path.add(temp);
+            backtrack(i + 1, count + 1, n, s, s);
+            path.remove(path.size() - 1);
         }
     }
 }
