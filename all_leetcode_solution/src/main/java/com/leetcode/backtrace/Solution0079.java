@@ -25,7 +25,7 @@ public class Solution0079 {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                boolean flag = backtrack(i, j, new StringBuilder(), word, used, board);
+                boolean flag = backtrack(i, j, 0, word, used, board);
                 if (flag) {
                     return true;
                 }
@@ -34,8 +34,10 @@ public class Solution0079 {
         return false;
     }
 
-    public boolean backtrack(int i, int j, StringBuilder path, String word, boolean[][] used, char[][] board) {
-        if (word.equals(path)) {
+    public boolean backtrack(int i, int j, int index, String word, boolean[][] used, char[][] board) {
+        if (word.charAt(index) != board[i][j]) {
+            return false;
+        } else if (index == word.length()) {
             return true;
         }
 
@@ -45,7 +47,7 @@ public class Solution0079 {
             int x = dir[0] + i, y = dir[1] + j;
             if (x >= 0 && x < board.length && y >= 0 && y < board[0].length) {
                 if (!used[x][y]) {
-                    boolean flag = backtrack(x, y, path, word, used, board);
+                    boolean flag = backtrack(x, y, index + 1, word, used, board);
                     if (flag) {
                         return true;
                     }
