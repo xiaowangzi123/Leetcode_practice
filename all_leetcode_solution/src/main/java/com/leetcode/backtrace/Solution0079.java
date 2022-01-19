@@ -1,15 +1,9 @@
 package com.leetcode.backtrace;
 
-import jdk.nashorn.internal.ir.IfNode;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 /**
- * @author ：wyq
- * @date ：Created in 2021/9/15
- * @description ：子集 回溯的应用
+ * @author: wyq
+ * @create time: 2022/1/19
+ * @description: 单词搜索
  */
 public class Solution0079 {
     public static void main(String[] args) {
