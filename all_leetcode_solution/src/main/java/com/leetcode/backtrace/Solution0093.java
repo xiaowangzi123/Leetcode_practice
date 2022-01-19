@@ -12,7 +12,7 @@ public class Solution0093 {
     public static void main(String[] args) {
         Solution0093 obj = new Solution0093();
 //        System.out.println(obj.restoreIpAddresses("abcde"));
-//        System.out.println(obj.restoreIpAddresses("012345678"));
+//        System.out.println(obj.restoreIpAddresses("01234567"));
         System.out.println(obj.restoreIpAddresses("25525511135"));
         System.out.println("----------------");
         String str = "123456";
@@ -58,6 +58,11 @@ public class Solution0093 {
         }
     }
 
+    /**
+     * 不能含有前导 0，例如不能有01.02这样的，可以有0.1.0.2这样的
+     * 每个整数位于0到255之间组成，
+     *
+     */
     public boolean checkIp(String ip) {
         int len = ip.length();
         if (len > 1 && ip.charAt(0) == '0') {
