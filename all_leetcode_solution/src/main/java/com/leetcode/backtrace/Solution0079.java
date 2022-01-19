@@ -40,19 +40,20 @@ public class Solution0079 {
         }
 
         int[][] directions = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
-
+        used[i][j] = true;
         for (int[] dir : directions) {
             int x = dir[0] + i, y = dir[1] + j;
             if (x >= 0 && x < board.length && y >= 0 && y < board[0].length) {
-                if (!used[x][y]){
-                    boolean flag = backtrack(x,y,path,word,used,board);
-                    if (flag){
+                if (!used[x][y]) {
+                    boolean flag = backtrack(x, y, path, word, used, board);
+                    if (flag) {
                         return true;
                     }
                 }
             }
         }
 
+        used[i][j] = false;
         return false;
     }
 
