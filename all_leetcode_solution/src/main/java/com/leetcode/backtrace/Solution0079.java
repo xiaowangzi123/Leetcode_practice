@@ -37,7 +37,7 @@ public class Solution0079 {
     public boolean backtrack(int i, int j, int index, String word, boolean[][] used, char[][] board) {
         if (word.charAt(index) != board[i][j]) {
             return false;
-        } else if (index == word.length()) {
+        } else if (index == word.length()-1) {
             return true;
         }
 
