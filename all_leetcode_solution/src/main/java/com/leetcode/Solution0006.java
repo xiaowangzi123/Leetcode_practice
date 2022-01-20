@@ -11,6 +11,8 @@ import java.util.Set;
 public class Solution0006 {
     public static void main(String[] args) {
         Solution0006 obj = new Solution0006();
+//        System.out.println(obj.convert("0123456789abcdefghiJKL", 4));
+//        System.out.println(obj.convert2("0123456789abcdefghiJKL", 4));
         System.out.println(obj.convert("0123456789abcdefghi", 4));
         System.out.println(obj.convert2("0123456789abcdefghi", 4));
     }
@@ -26,21 +28,20 @@ public class Solution0006 {
         StringBuilder sb = new StringBuilder();
         int n = s.length(), step = 2 * (num - 1);
         for (int i = 0; i < num; i++) {
-            if (i == 0) {
-                for (int j = 0; step * j + i < n; j++) {
-                    sb.append(s.charAt(step * j));
+            if (i == 0) {//第一行
+                for (int j = 0; j + i < n; j += step) {
+                    sb.append(s.charAt(j + i));
                 }
-            } else if (i == num - 1) {
-                for (int j = 0; step * j + i < n; j++) {
-                    sb.append(s.charAt(step * j + i));
+            } else if (i == num - 1) {//最后一行
+                for (int j = 0; j + i < n; j += step) {
+                    sb.append(s.charAt(j + i));
                 }
-            } else {
-                //边界怎么确定
-                for (int j = 0; step * j + i < n; j++) {
-                    if (j > 0) {
-                        sb.append(s.charAt(step * j - i));
+            } else {//中间行
+                for (int j = 0; j + i < n; j += step) {
+                    sb.append(s.charAt(j + i));
+                    if (j + step - i < n) {
+                        sb.append(s.charAt(j + step - i));
                     }
-                    sb.append(s.charAt(step * j + i));
                 }
             }
         }
@@ -49,6 +50,7 @@ public class Solution0006 {
     }
 
 
+    //优化版
     public String convert2(String s, int num) {
         if (num == 1) {
             return s;
@@ -56,14 +58,13 @@ public class Solution0006 {
         StringBuilder sb = new StringBuilder();
         int n = s.length(), step = 2 * (num - 1);
         for (int i = 0; i < num; i++) {
-            for (int k = 0; k + i < n; k += step) {
-                sb.append(s.charAt(k + i));
-                if (i != 0 && i != num - 1 && k + step - i < n) {
-                    sb.append(s.charAt(k + step - i));
+            for (int j = 0; j + i < n; j += step) {
+                sb.append(s.charAt(j + i));
+                if (i != 0 && i != num - 1 && j + step - i < n) {
+                    sb.append(s.charAt(j + step - i));
                 }
             }
         }
-
         return sb.toString();
     }
 }
