@@ -18,27 +18,27 @@ public class Solution0006 {
     /**
      *
      */
-    public String convert(String s, int k) {
-        if (k == 1) {
+    public String convert(String s, int num) {
+        if (num == 1) {
             return s;
         }
         StringBuilder sb = new StringBuilder();
-        int n = s.length();
-        for (int i = 0; i < k; i++) {
+        int n = s.length(), step = 2 * (num - 1);
+        for (int i = 0; i < num; i++) {
             if (i == 0) {
-                for (int j = 0; (k - 1) * j < n; j += 2) {
-                    sb.append(s.charAt((k - 1) * j));
+                for (int j = 0; step * j + i < n; j++) {
+                    sb.append(s.charAt(step * j));
                 }
-            } else if (i == k - 1) {
-                for (int j = 1; (k - 1) * j < n; j += 2) {
-                    sb.append(s.charAt((k - 1) * j));
+            } else if (i == num - 1) {
+                for (int j = 0; step * j + i < n; j++) {
+                    sb.append(s.charAt(step * j + i));
                 }
             } else {
-                for (int j = 0; (k - 1) * j < n; j += 2) {
-                    if ((k - 1) * j + i < n) {
-                        sb.append(s.charAt((k - 1) * j + i));
+                for (int j = 0; step * j + i < n; j++) {
+                    if (j > 0) {
+                        sb.append(s.charAt(step * j - i));
                     }
-                    sb.append(s.charAt((k - 1) * j - i));
+                    sb.append(s.charAt(step * j + i));
                 }
             }
         }
