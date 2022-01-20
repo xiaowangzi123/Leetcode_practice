@@ -19,7 +19,8 @@ public class Solution0006 {
 
 
     /**
-     *
+     * 第一行和最后一行的数据很容易确定，这两行，每个元素下标相隔为2 * (num - 1)
+     * 第i(0<i<num)行每次需要确定1~2个元素
      */
     public String convert(String s, int num) {
         if (num == 1) {
