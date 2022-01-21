@@ -1,5 +1,7 @@
 package com.leetcode.todo;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import java.util.*;
 
 /**
@@ -39,7 +41,7 @@ public class Solution1345 {
         while (!queue.isEmpty()) {
             int[] idxStep = queue.poll();
             int idx = idxStep[0], step = idxStep[1];
-            if (idx == arr.length - 1) {
+            if (idx == n - 1) {
                 return step;
             }
             int val = arr[idx];
@@ -111,5 +113,6 @@ public class Solution1345 {
         return -1;
 
     }
+
 
 }
