@@ -21,7 +21,7 @@ public class Solution1345 {
         if (n == 1) {
             return 0;
         }
-        //把相同元素的下标放在一起
+        //把相同元素的下标放在同一个key值下
         Map<Integer, List<Integer>> indexMap = new HashMap<>();
         for (int i = 0; i < n; i++) {
             indexMap.putIfAbsent(arr[i], new ArrayList<>());
@@ -47,6 +47,7 @@ public class Solution1345 {
             //到达与当前元素相同的位置
             if (indexMap.containsKey(val)) {
                 for (int i : indexMap.get(val)) {
+                    //没有遍历过的元素，添加到达此元素下标，以及到达此下标所需步数
                     if (set.add(i)) {
                         queue.offer(new int[]{i, step});
                     }
@@ -65,7 +66,7 @@ public class Solution1345 {
         return -1;
     }
 
-    //超时
+    //超时是由于遍历过的元素没有赋值为true
     public int minJumps2(int[] arr) {
         int n = arr.length;
         if (n == 1) {
