@@ -17,6 +17,7 @@ public class Solution0019 {
         ListNode l1 = new ListNode(1, l2);
 
         System.out.println(obj.removeNthFromEnd(l1, 2));
+        System.out.println(obj.removeNthFromEnd(new ListNode(1, null), 1));
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
@@ -28,7 +29,7 @@ public class Solution0019 {
         }
         ListNode dummy = new ListNode(0, head);
         ListNode cur = dummy;
-        for (int i = 1; i < len - n + 1; ++i) {
+        for (int i = 0; i < len - n; ++i) {
             cur = cur.next;
         }
         cur.next = cur.next.next;
