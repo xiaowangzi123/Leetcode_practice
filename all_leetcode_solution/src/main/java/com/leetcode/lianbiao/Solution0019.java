@@ -2,9 +2,6 @@ package com.leetcode.lianbiao;
 
 import com.leetcode.bean.ListNode;
 
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * @author: wyq
  * @create time: 2022/1/22
@@ -29,12 +26,13 @@ public class Solution0019 {
             len++;
             temp = temp.next;
         }
-        System.out.println(len);
-        ListNode cur = head;
-        for (int i = 0; i < len - n; i++) {
+        ListNode dummy = new ListNode(0, head);
+        ListNode cur = dummy;
+        for (int i = 1; i < len - n + 1; ++i) {
             cur = cur.next;
         }
-
-        return cur;
+        cur.next = cur.next.next;
+        ListNode ans = dummy.next;
+        return ans;
     }
 }
