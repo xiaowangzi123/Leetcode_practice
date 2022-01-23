@@ -9,27 +9,29 @@ import java.util.PriorityQueue;
  * @description: 股票价格波动
  */
 public class StockPrice {
-    int maxTimestamp;
+
+    int maxTime;
+    //第一个时间戳，第二个股票价格
     HashMap<Integer, Integer> timePriceMap;
     PriorityQueue<int[]> pqMax;
     PriorityQueue<int[]> pqMin;
 
     public StockPrice() {
-        maxTimestamp = 0;
-        timePriceMap = new HashMap<Integer, Integer>();
+        maxTime = 0;
+        timePriceMap = new HashMap<>();
         pqMax = new PriorityQueue<int[]>((a, b) -> b[0] - a[0]);
         pqMin = new PriorityQueue<int[]>((a, b) -> a[0] - b[0]);
     }
 
     public void update(int timestamp, int price) {
-        maxTimestamp = Math.max(maxTimestamp, timestamp);
+        maxTime = Math.max(maxTime, timestamp);
         timePriceMap.put(timestamp, price);
         pqMax.offer(new int[]{price, timestamp});
         pqMin.offer(new int[]{price, timestamp});
     }
 
     public int current() {
-        return timePriceMap.get(maxTimestamp);
+        return timePriceMap.get(maxTime);
     }
 
     public int maximum() {
@@ -44,7 +46,7 @@ public class StockPrice {
     }
 
     public int minimum() {
-        while (true) {
+        while (!pqMin.isEmpty()){
             int[] priceTime = pqMin.peek();
             int price = priceTime[0], timestamp = priceTime[1];
             if (timePriceMap.get(timestamp) == price) {
@@ -52,17 +54,18 @@ public class StockPrice {
             }
             pqMin.poll();
         }
+        return -1;
     }
 
     public static void main(String[] args) {
         StockPrice stockPrice = new StockPrice();
         stockPrice.update(1, 10);
         stockPrice.update(2, 5);
-        stockPrice.current();
-        stockPrice.maximum();
+        System.out.println("cur: "+stockPrice.current());
+        System.out.println("max: "+stockPrice.maximum());
         stockPrice.update(1, 3);
-        stockPrice.maximum();
+        System.out.println("max: "+stockPrice.maximum());
         stockPrice.update(4, 2);
-        stockPrice.minimum();
+        System.out.println("min: "+stockPrice.minimum());
     }
 }
