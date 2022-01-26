@@ -38,8 +38,8 @@ class DetectSquares {
             if (a != x) {
                 // 根据对称性，这里可以不用取绝对值
                 int d = a - x;
-                res += curMap.getOrDefault(b, 0) * checkMap.getOrDefault(b + d, 0) * map.getOrDefault(a + d, new HashMap<>()).getOrDefault(b+d,0);
-                res += curMap.getOrDefault(b, 0) * checkMap.getOrDefault(x - d, 0) * map.getOrDefault(x - d, new HashMap<>()).getOrDefault(b-d,0);
+                res += checkMap.getOrDefault(b + d, 0) * curMap.getOrDefault(b, 0) * curMap.getOrDefault(b + d, 0);
+                res += checkMap.getOrDefault(b - d, 0) * curMap.getOrDefault(b, 0) * curMap.getOrDefault(b - d, 0);
             }
         }
         return res;
