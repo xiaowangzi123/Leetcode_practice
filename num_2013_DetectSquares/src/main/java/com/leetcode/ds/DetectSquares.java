@@ -31,6 +31,7 @@ class DetectSquares {
         if (!map.containsKey(a)) {
             return 0;
         }
+        //在同一水平上的点，纵坐标一样
         Map<Integer, Integer> checkMap = map.get(a);
         for (Map.Entry<Integer, Map<Integer, Integer>> entry : map.entrySet()) {
             int x = entry.getKey();
@@ -50,7 +51,7 @@ class DetectSquares {
         DetectSquares detectSquares = new DetectSquares();
         detectSquares.add(new int[]{3, 10});
         detectSquares.add(new int[]{11, 2});
-//        detectSquares.add(new int[]{3, 2});
+        detectSquares.add(new int[]{3, 2});
         detectSquares.add(new int[]{3, 2});
         detectSquares.count(new int[]{11, 10});
         detectSquares.count(new int[]{14, 8});
