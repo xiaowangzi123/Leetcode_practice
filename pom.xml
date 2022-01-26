@@ -32,6 +32,7 @@
         <module>Offer_1_practice</module>
         <module>Offer_2_practice</module>
         <module>leetcode_interview_questions</module>
+        <module>num_2013_DetectSquares</module>
     </modules>
 
     <properties>
