@@ -17,7 +17,8 @@ public class Solution0881 {
     /**
      * 一条船最多坐两个人
      * 体重最轻的人，如果不能和最重的乘坐一条船，那体重最重的人只能单独乘坐一条船
-     * 最轻的与最重的和乘一条船，不超重
+     * 最轻的与最重的和乘一条船，不超重，则左右指针各前进一步，count值加1
+     * 最轻的与最重的和乘一条船，超重，则体重多的单独乘坐一条船，count值加1，当前体重轻的继续寻找此一个体重最大的
      */
     public int numRescueBoats(int[] people, int limit) {
         int count = 0, l = 0, r = people.length - 1;
