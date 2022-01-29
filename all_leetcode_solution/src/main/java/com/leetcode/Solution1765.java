@@ -1,8 +1,6 @@
 package com.leetcode;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author: wyq
@@ -16,10 +14,39 @@ public class Solution1765 {
 
     }
 
+    /**
+     * 首先水域地方值先设置为0
+     * 然后与0相邻近的位置设置为1
+     *
+     */
     public int[][] highestPeak(int[][] isWater) {
-        int m = isWater.length,n=isWater[0].length;
+        int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int m = isWater.length, n = isWater[0].length;
         int[][] ans = new int[m][n];
-
+        // -1 表示该格子尚未被访问过
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(ans[i], -1);
+        }
+        Queue<int[]> queue = new ArrayDeque<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (isWater[i][j] == 1) {
+                    ans[i][j] = 0;
+                    // 将所有水域入队
+                    queue.offer(new int[]{i, j});
+                }
+            }
+        }
+        while (!queue.isEmpty()) {
+            int[] p = queue.poll();
+            for (int[] dir : dirs) {
+                int x = p[0] + dir[0], y = p[1] + dir[1];
+                if (0 <= x && x < m && 0 <= y && y < n && ans[x][y] == -1) {
+                    ans[x][y] = ans[p[0]][p[1]] + 1;
+                    queue.offer(new int[]{x, y});
+                }
+            }
+        }
         return ans;
     }
 
