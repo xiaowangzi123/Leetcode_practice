@@ -55,6 +55,7 @@ public class Solution1765 {
      * 多个中心并行，dfs深度遍历不行，需要改进
      * 先把0周边的填充，然后填充1周边的
      * 值最大不超过m+n-1
+     * 用时比上面方法久
      */
     public int[][] highestPeak2(int[][] isWater) {
         int m = isWater.length, n = isWater[0].length;
