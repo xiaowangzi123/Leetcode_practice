@@ -52,13 +52,14 @@ public class Solution1765 {
 
 
     /**
-     * 多个中心并行，此方法不行，需要改进
+     * 多个中心并行，dfs深度遍历不行，需要改进
+     * 先把0周边的填充，然后填充1周边的
      */
     public int[][] highestPeak2(int[][] isWater) {
         int m = isWater.length, n = isWater[0].length;
         int[][] ans = new int[m][n];
         for (int i = 0; i < m; ++i) {
-            Arrays.fill(ans[i], 10000);
+            Arrays.fill(ans[i], -1);
         }
 
         int[][] dic = new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
@@ -70,28 +71,23 @@ public class Solution1765 {
             }
         }
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (ans[i][j] == 0) {
-                    bfs(ans, dic, i, j, m, n);
+        for (int k = 0; k < m + n - 1; k++) {
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (ans[i][j] == k) {
+                        for (int d = 0; d <= 3; d++) {
+                            int a = i + dic[d][0];
+                            int b = j + dic[d][1];
+                            if (a >= 0 && a < m && b >= 0 && b < n && ans[a][b] == -1) {
+                                ans[a][b] = k + 1;
+                            }
+                        }
+                    }
                 }
             }
         }
         return ans;
     }
 
-    public void bfs(int[][] ans, int[][] dic, int i, int j, int m, int n) {
-        if (i < 0 || i >= m || j < 0 || j >= n) {
-            return;
-        }
-        for (int k = 0; k <= 3; k++) {
-            int a = i + dic[k][0];
-            int b = j + dic[k][1];
-            if (a >= 0 && a < m && b >= 0 && b < n && ans[a][b] == 10000) {
-                ans[a][b] = Math.min(ans[a][b], ans[i][j] + 1);
-            }
-        }
-
-    }
 
 }
