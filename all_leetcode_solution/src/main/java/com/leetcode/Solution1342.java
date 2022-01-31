@@ -1,9 +1,9 @@
-package com.leetcode.math;
+package com.leetcode;
 
 /**
- * @author ：wyq
- * @date ：Created in 2020/11/19
- * @description：
+ * @author: wyq
+ * @create time: 2022/1/31
+ * @description: 将数字变成 0 的操作次数
  */
 public class Solution1342 {
 
