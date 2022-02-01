@@ -31,10 +31,15 @@ public class OfferTwo0057 {
         return false;
     }
 
+    /**
+     * |a-b|<=t
+     * b-t<=a<=b+t
+     */
     public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
         int n = nums.length;
         TreeSet<Long> set = new TreeSet<>();
         for (int i = 0; i < n; i++) {
+            //比(long) nums[i] - (long) t大的最小数
             Long ceiling = set.ceiling((long) nums[i] - (long) t);
             if (ceiling != null && ceiling <= (long) nums[i] + (long) t) {
                 return true;
@@ -46,4 +51,6 @@ public class OfferTwo0057 {
         }
         return false;
     }
+
+
 }
