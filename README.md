@@ -9,4 +9,6 @@
 web新建分支提交，主分支在此期间不更新提交代码，
 IDEA中合并，只有一条线；换网页github中提交合并,有两条线
 
-IDEA中创建分支，用github中的pull request提交合并
+IDEA中创建分支，用github中的pull request提交合并，此时两条线
+
+基本上确定了，github中的合并提交是两条线
