@@ -28,11 +28,11 @@
         <module>num_0705_DesignHashSet</module>
         <module>num_0706_DesignHashMap</module>
         <module>num_0911_OnlineElection</module>
+        <module>num_2013_DetectSquares</module>
         <module>num_2034_StockPriceFluctuation</module>
         <module>Offer_1_practice</module>
         <module>Offer_2_practice</module>
         <module>leetcode_interview_questions</module>
-        <module>num_2013_DetectSquares</module>
     </modules>
 
     <properties>
