@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import java.util.TreeSet;
+
 /**
  * @author: wyq
  * @create time: 2022/2/1
@@ -24,6 +26,22 @@ public class OfferTwo0057 {
                 if (Math.abs((long) nums[i] - (long) nums[j]) <= t) {
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
+        int n = nums.length;
+        TreeSet<Long> set = new TreeSet<>();
+        for (int i = 0; i < n; i++) {
+            Long ceiling = set.ceiling((long) nums[i] - (long) t);
+            if (ceiling != null && ceiling <= (long) nums[i] + (long) t) {
+                return true;
+            }
+            set.add((long) nums[i]);
+            if (i >= k) {
+                set.remove((long) nums[i - k]);
             }
         }
         return false;
