@@ -2,7 +2,7 @@ package com.leetcode;
 
 /**
  * @author :wyq
- * @date ：Created in 2021/11/7
+ * @date ：Created in 2022/2/2
  * @description : 反转单词前缀
  */
 public class Solution2000 {
