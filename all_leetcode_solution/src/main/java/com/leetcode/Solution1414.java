@@ -8,6 +8,7 @@ package com.leetcode;
 public class Solution1414 {
     public static void main(String[] args) {
         Solution1414 obj = new Solution1414();
+        System.out.println(obj.findMinFibonacciNumbers(5));
         System.out.println(obj.findMinFibonacciNumbers(7));
         System.out.println(obj.findMinFibonacciNumbers(10));
         System.out.println(obj.findMinFibonacciNumbers(19));
@@ -19,7 +20,7 @@ public class Solution1414 {
             n++;
         }
         int ans = 0;
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = n; i >= 0; i--) {
             int temp = getFibonacci(i);
             if (k >= temp) {
                 k -= temp;
