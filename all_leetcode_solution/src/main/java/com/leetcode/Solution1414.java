@@ -11,8 +11,8 @@ import java.util.List;
 public class Solution1414 {
     public static void main(String[] args) {
         Solution1414 obj = new Solution1414();
-        System.out.println(obj.findMinFibonacciNumbers2(5));
-        System.out.println(obj.findMinFibonacciNumbers2(7));
+        System.out.println(obj.findMinFibonacciNumbers3(5));
+        System.out.println(obj.findMinFibonacciNumbers3(7));
         System.out.println(obj.findMinFibonacciNumbers(10));
         System.out.println(obj.findMinFibonacciNumbers(19));
     }
@@ -65,6 +65,21 @@ public class Solution1414 {
                     return ans;
                 }
             }
+        }
+        return ans;
+    }
+
+    public int findMinFibonacciNumbers3(int k) {
+        int ans = 0;
+        int f1, f2;
+        while (k != 0) {
+            f1 = f2 = 1;
+            while (f2 <= k) {
+                f2 = f1 + f2;
+                f1 = f2 - f1;
+            }
+            k -= f1;
+            ans++;
         }
         return ans;
     }
