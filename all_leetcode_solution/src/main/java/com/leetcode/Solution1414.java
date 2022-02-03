@@ -19,11 +19,14 @@ public class Solution1414 {
             n++;
         }
         int ans = 0;
-        for (int i = 0; i < n; i++) {
-            int temp = getFibonacci(n);
+        for (int i = n - 1; i >= 0; i--) {
+            int temp = getFibonacci(i);
             if (k >= temp) {
                 k -= temp;
                 ans++;
+                if (k == 0) {
+                    return ans;
+                }
             }
         }
         return ans;
