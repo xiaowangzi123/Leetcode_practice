@@ -25,4 +25,23 @@ public class Solution1725 {
         }
         return count;
     }
+
+    public int countGoodRectangles2(int[][] rectangles) {
+        int count = 0, n = rectangles.length, max = Integer.MIN_VALUE;
+        int[] tans = new int[n];
+        for (int i = 0; i < n; i++) {
+            tans[i] = Math.min(rectangles[i][0], rectangles[i][1]);
+        }
+
+        for (int i : tans) {
+            int temp = i;
+            if (max == temp) {
+                count++;
+            } else if (max < temp) {
+                max = temp;
+                count = 1;
+            }
+        }
+        return count;
+    }
 }
