@@ -28,8 +28,7 @@ public class Solution0038 {
         String str = "1";
         for (int i = 2; i <= n; ++i) {
             StringBuilder sb = new StringBuilder();
-            int start = 0;
-            int index = 0;
+            int start = 0, index = 0;
 
             while (index < str.length()) {
                 while (index < str.length() && str.charAt(index) == str.charAt(start)) {
