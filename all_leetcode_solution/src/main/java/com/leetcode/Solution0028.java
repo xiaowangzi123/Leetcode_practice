@@ -14,9 +14,11 @@ public class Solution0028 {
         Solution0028 obj = new Solution0028();
         String haystack = "hello", needle = "ll";
 //        System.out.println(obj.strStr(haystack, needle));
+        System.out.println(obj.strStr(haystack, needle));
         System.out.println(obj.strStr2(haystack, needle));
     }
 
+    //需要改进
     public int strStr(String haystack, String needle) {
         int m = haystack.length(), n = needle.length();
         for (int i = 0; i + n < m; i++) {
