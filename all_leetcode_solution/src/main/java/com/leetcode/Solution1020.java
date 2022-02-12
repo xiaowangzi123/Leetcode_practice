@@ -28,15 +28,15 @@ public class Solution1020 {
             dfs(grid, 0, j);
             dfs(grid, m - 1, j);
         }
-        int enclaves = 0;
+        int ans = 0;
         for (int i = 1; i < m - 1; i++) {
             for (int j = 1; j < n - 1; j++) {
                 if (grid[i][j] == 1 && !visited[i][j]) {
-                    enclaves++;
+                    ans++;
                 }
             }
         }
-        return enclaves;
+        return ans;
     }
 
     public void dfs(int[][] grid, int row, int col) {
