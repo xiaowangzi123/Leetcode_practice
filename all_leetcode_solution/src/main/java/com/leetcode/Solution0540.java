@@ -19,6 +19,7 @@ public class Solution0540 {
             if (m % 2 == 1) {
                 m--;
             }
+            //值相同，说明单个元素在m+2和r中
             if (nums[m] == nums[m + 1]) {
                 l = m + 2;
             } else {
