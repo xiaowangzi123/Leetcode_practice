@@ -8,7 +8,8 @@ package com.leetcode;
 public class Solution0540 {
     public static void main(String[] args) {
         Solution0540 obj = new Solution0540();
-        System.out.println(obj.singleNonDuplicate(new int[]{}));
+        System.out.println(obj.singleNonDuplicate(new int[]{1, 1, 2, 3, 3, 4, 4, 8, 8}));
+        System.out.println(obj.singleNonDuplicate2(new int[]{1, 1, 2, 3, 3, 4, 4, 8, 8}));
     }
 
     public int singleNonDuplicate(int[] nums) {
@@ -25,6 +26,15 @@ public class Solution0540 {
             }
         }
         return nums[l];
+    }
+
+
+    public int singleNonDuplicate2(int[] nums) {
+        int ans = 0;
+        for (int i : nums) {
+            ans ^= i;
+        }
+        return ans;
     }
 
 }
