@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author :wyq
- * @date ：Created in 2021/10/22
+ * @date ：Created in 2022/2/15
  * @description : 矩阵中的幸运数
  */
 public class Solution1380 {
