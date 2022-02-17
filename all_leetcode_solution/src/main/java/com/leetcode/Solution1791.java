@@ -10,6 +10,7 @@ import java.util.*;
 public class Solution1791 {
     public static void main(String[] args) {
         Solution1791 obj = new Solution1791();
+        System.out.println(obj.findCenter(new int[][]{{1, 2}, {1, 3}}));
     }
 
     public int findCenter(int[][] edges) {
