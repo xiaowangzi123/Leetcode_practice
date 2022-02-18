@@ -1,6 +1,8 @@
 package com.leetcode;
 
 
+import java.beans.beancontext.BeanContext;
+
 /**
  * @author :wyq
  * @date ：Created in 2021/10/14
@@ -10,6 +12,11 @@ public class Solution1791 {
     public static void main(String[] args) {
         Solution1791 obj = new Solution1791();
         System.out.println(obj.findCenter(new int[][]{{1, 2}, {1, 3}}));
+
+
+        //每行元素的其中之一肯定是中心节点
+        int[][] arr = new int[][]{{1, 2}, {1, 3}};
+        System.out.println(arr[0][0] == arr[1][0] || arr[0][0] == arr[1][1] ? arr[0][0] : arr[0][1]);
     }
 
     public int findCenter(int[][] edges) {
