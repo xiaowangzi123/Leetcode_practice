@@ -1,11 +1,10 @@
 package com.leetcode;
 
-import java.util.*;
 
 /**
  * @author :wyq
  * @date ：Created in 2021/10/14
- * @description :仅执行一次字符串交换能否使两个字符串相等
+ * @description :找出星型图的中心节点
  */
 public class Solution1791 {
     public static void main(String[] args) {
