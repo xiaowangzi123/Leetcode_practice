@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class Solution0688 {
     public static void main(String[] args) {
         Solution0688 obj = new Solution0688();
-        System.out.println(obj.knightProbability(1, 0, 0, 0));
         System.out.println(obj.knightProbability(3, 2, 0, 0));
+        System.out.println(obj.knightProbability(1, 0, 0, 0));
     }
 
     /**
@@ -21,9 +21,9 @@ public class Solution0688 {
 
     /**
      * step：步数
-     * 定义dp[step][i][j]表示骑士从棋盘上的点(i,j) 出发，走了step步时仍然留在棋盘上的概率
+     * 定义dp[step][i][j]表示骑士从棋盘上的点(i,j)出发，走了step步时仍然留在棋盘上的概率
+     * 当点(i,j)在棋盘上且step=0 时，dp[step][i][j]=1
      * 当点(i,j)不在棋盘上时，dp[step][i][j]=0
-     * 当点(i,j) 在棋盘上且step=0 时，dp[step][i][j]=1
      */
     public double knightProbability(int n, int k, int row, int column) {
         double[][][] dp = new double[k + 1][n][n];
