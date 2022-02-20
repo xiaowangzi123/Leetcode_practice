@@ -11,6 +11,7 @@ public class Solution0717 {
 //        int[] bits = {1, 0, 0};
         int[] bits = {1, 1, 1, 1, 0};
         System.out.println(obj.isOneBitCharacter(bits));
+        System.out.println(obj.isOneBitCharacter2(bits));
     }
 
     public boolean isOneBitCharacter(int[] bits) {
@@ -26,7 +27,8 @@ public class Solution0717 {
     }
 
     public boolean isOneBitCharacter2(int[] bits) {
-        int i = 0, n = bits.length;
+        int i = 0;
+        int n = bits.length;
         while (i < n - 1) {
             i += bits[i] + 1;
         }
