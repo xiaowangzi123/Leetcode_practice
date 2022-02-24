@@ -38,4 +38,5 @@ public class Solution0717 {
         }
         return i == bits.length - 1;
     }
+
 }
