@@ -14,6 +14,10 @@ public class Solution0717 {
         System.out.println(obj.isOneBitCharacter2(bits));
     }
 
+    /**
+     * 当前位是0，向前跳一位；
+     * 当前位是1，向前跳两位；
+     */
     public boolean isOneBitCharacter(int[] bits) {
         int i = 0;
         while (i < bits.length - 1) {
@@ -26,14 +30,13 @@ public class Solution0717 {
         return i == bits.length - 1;
     }
 
+    //
     public boolean isOneBitCharacter2(int[] bits) {
         int i = 0;
-        int n = bits.length;
-        while (i < n - 1) {
+        while (i < bits.length - 1) {
             i += bits[i] + 1;
         }
-        return i == n - 1;
+        return i == bits.length - 1;
     }
-
 
 }
