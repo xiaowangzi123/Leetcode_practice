@@ -40,7 +40,8 @@ public class Solution0917 {
                 char temp = chs[i];
                 chs[i] = chs[j];
 
-                i++;chs[j] = temp;
+                i++;
+                chs[j] = temp;
                 j--;
             } else if (!isLetter(chs[i])) {
                 i++;
