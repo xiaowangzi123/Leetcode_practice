@@ -14,13 +14,13 @@ public class Solution0553 {
     public String optimalDivision(int[] nums) {
         StringBuilder sb = new StringBuilder();
         int n = nums.length;
-        for (int i = 0; i < n; i++) {
-            sb.append(nums[i]).append("/");
-            if (i == 1) {
-                sb.append("(");
-            }
+        for (int num : nums) {
+            sb.append(num).append("/");
         }
-        sb.append(")");
+        if (n > 1) {
+            sb.insert(sb.indexOf("/") + 1, "(");
+            sb.append(")");
+        }
         return sb.toString();
     }
 
