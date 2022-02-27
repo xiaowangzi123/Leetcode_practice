@@ -17,7 +17,8 @@ public class Solution0553 {
         for (int num : nums) {
             sb.append(num).append("/");
         }
-        if (n > 1) {
+        sb.deleteCharAt(sb.length() - 1);
+        if (n > 2) {
             sb.insert(sb.indexOf("/") + 1, "(");
             sb.append(")");
         }
