@@ -14,7 +14,10 @@ public class Solution2104 {
     }
 
     /**
-     * 子数组是数组中一个连续 非空 的元素序列。
+     * 子数组是数组中一个连续非空的元素序列。
+     * min和max确定一个子数组中的最小值和最大值
+     * i=0时，计算子数组(a0),(a0,a1),(a0,a1……an)的范围和
+     * i=1时，计算子数组(a1),(a1,a2),(a1,a2……an)的范围和
      */
     public long subArrayRanges(int[] nums) {
         long ans = 0;
