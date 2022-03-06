@@ -17,6 +17,10 @@ public class Solution2100 {
         System.out.println(obj.goodDaysToRobBank(new int[]{1, 2, 3, 4, 5, 6}, 2));
     }
 
+    /**
+     *  left[i]：第i天前警卫数目连续非递增的天数，有初始调试left[0]=0
+     *  right[i]: 第i天后警卫数目连续非递减的天数,有right[n-1]=0
+     */
     public List<Integer> goodDaysToRobBank(int[] security, int time) {
         int n = security.length;
         int[] left = new int[n];
