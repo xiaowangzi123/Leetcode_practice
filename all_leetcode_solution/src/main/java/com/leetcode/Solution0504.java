@@ -36,5 +36,4 @@ public class Solution0504 {
         return ans.reverse().toString();
     }
 
-
 }
