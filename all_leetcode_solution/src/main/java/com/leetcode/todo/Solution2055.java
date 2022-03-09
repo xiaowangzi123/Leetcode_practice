@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.todo;
 
 import java.util.Arrays;
 
