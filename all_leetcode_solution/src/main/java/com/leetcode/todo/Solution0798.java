@@ -66,4 +66,29 @@ public class Solution0798 {
         }
         return bestIndex;
     }
+
+    /**
+     * 我们以A=[2,3,1,4,0]为例寻找规律:
+     * A[0]=2移动到 2 号索引位置[4,0,2,3,1]其对应的K为3=(0-A[0]+5)%5
+     * A[1]=3移动到 3 号索引位置[0,2,3,1,4]其对应的K为3=(1-A[1]+5)%5
+     * A[2]=1移动到 1 号索引位置[3,1,4,0,2]其对应的K为1=(2-A[2]+5)%5
+     * A[3]=4移动到 4 号索引位置[0,2,3,1,4]其对应的K为1=(3-A[3]+5)%5
+     * A[4]=0移动到 0 号索引位置[0,2,3,1,4]其对应的K为3=(4-A[4]+5)%5
+     */
+    public int beatRotation3(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[(i - nums[i] + 1 + n) % n] += 1;
+        }
+
+        for (int i = 1; i < n; i++) {
+            arr[i] += arr[i - 1] - 1;
+            if (arr[i] < arr[ans]) {
+                ans = i;
+            }
+        }
+        return ans;
+    }
 }
