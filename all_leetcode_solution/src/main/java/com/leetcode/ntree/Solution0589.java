@@ -1,4 +1,4 @@
-package com.leetcode0589;
+package com.leetcode.ntree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 /**
  * @author: wyq
  * @create time: 2022/3/10
- * @description :
+ * @description : N叉树的前序遍历
  *  todo
  */
-public class Solution {
+public class Solution0589 {
     public static void main(String[] args) {
         Node n5 = new Node(5);
         Node n6 = new Node(6);
@@ -25,7 +25,7 @@ public class Solution {
         list1.add(n4);
         Node n1 = new Node(1, list1);
 
-        Solution obj = new Solution();
+        Solution0589 obj = new Solution0589();
         System.out.println(obj.preorder(n1));
         System.out.println("--------------");
         System.out.println(obj.preorder2(n1));

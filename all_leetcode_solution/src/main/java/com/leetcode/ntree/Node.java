@@ -1,4 +1,4 @@
-package com.leetcode0589;
+package com.leetcode.ntree;
 
 import java.util.List;
 
