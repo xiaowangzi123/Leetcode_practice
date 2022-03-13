@@ -9,8 +9,8 @@ package com.leetcode;
 public class Solution0393 {
     public static void main(String[] args) {
         Solution0393 obj = new Solution0393();
-        
-        System.out.println(obj.validUtf8(new int[]{197,130,1}));
+        System.out.println(obj.validUtf8(new int[]{197, 130, 1}));
+        System.out.println(obj.validUtf8(new int[]{235, 140, 4}));
     }
 
     static final int MASK1 = 1 << 7;
