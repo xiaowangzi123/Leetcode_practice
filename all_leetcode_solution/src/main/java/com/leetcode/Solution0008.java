@@ -14,10 +14,6 @@ public class Solution0008 {
         Solution0008 obj = new Solution0008();
     }
 
-    public int myAtoi(String s) {
-        return 0;
-    }
-
     public int myAtoi(String str) {
         Automaton automaton = new Automaton();
         int length = str.length();
