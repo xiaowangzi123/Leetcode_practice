@@ -31,4 +31,31 @@ public class Solution0917 {
         }
         return new String(chs);
     }
+
+    public String reverseOnlyLetters2(String s) {
+        char[] chs = s.toCharArray();
+        int i = 0, j = chs.length - 1;
+        while (i < j) {
+            if (isLetter(chs[i]) && isLetter(chs[j])) {
+                char temp = chs[i];
+                chs[i] = chs[j];
+
+                i++;
+                chs[j] = temp;
+                j--;
+            } else if (!isLetter(chs[i])) {
+                i++;
+            } else if (!isLetter(chs[j])) {
+                j--;
+            }
+        }
+        return new String(chs);
+    }
+
+    public boolean isLetter(char c) {
+        if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')) {
+            return true;
+        }
+        return false;
+    }
 }

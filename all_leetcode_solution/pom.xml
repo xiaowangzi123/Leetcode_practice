@@ -9,7 +9,6 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>all_leetcode_solution</name>
-    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
     <parent>
@@ -28,13 +27,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <version>4.13.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.9</version>
+            <version>3.12.0</version>
         </dependency>
     </dependencies>
 
