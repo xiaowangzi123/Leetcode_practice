@@ -23,7 +23,7 @@ public class Solution2049 {
         n = parents.length;
         children = new List[n];
         for (int i = 0; i < n; i++) {
-            children[i] = new ArrayList<Integer>();
+            children[i] = new ArrayList<>();
         }
         for (int i = 0; i < n; i++) {
             int p = parents[i];
