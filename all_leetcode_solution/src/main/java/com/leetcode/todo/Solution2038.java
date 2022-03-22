@@ -33,4 +33,23 @@ public class Solution2038 {
         return freq[0] > freq[1];
     }
 
+
+    public boolean winnerOfGame2(String colors) {
+        int len = colors.length();
+        char[] chars = colors.toCharArray();
+        int diff = 0;
+        for (int i = 1; i < len - 1; i++) {
+            if (chars[i - 1] == 'A' && chars[i] == 'A' && chars[i + 1] == 'A') {
+                diff++;
+                continue;
+            }
+            if (chars[i - 1] == 'B' && chars[i] == 'B' && chars[i + 1] == 'B') {
+                diff--;
+                continue;
+            }
+        }
+        return diff > 0;
+
+    }
+
 }
