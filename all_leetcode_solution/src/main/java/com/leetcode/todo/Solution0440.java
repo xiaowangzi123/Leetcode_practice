@@ -29,6 +29,9 @@ public class Solution0440 {
         return curr;
     }
 
+    /**
+     *
+     */
     public int getSteps(int curr, long n) {
         int steps = 0;
         long first = curr;
