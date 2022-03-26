@@ -1,6 +1,5 @@
 package com.leetcode;
 
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -17,6 +16,10 @@ public class Solution0682 {
         System.out.println(obj.calPoints2(st));
     }
 
+
+    /**
+     *
+     */
     public int calPoints(String[] ops) {
         int sum = 0;
         Deque<Integer> stack = new LinkedList<>();
