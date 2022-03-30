@@ -18,4 +18,17 @@ public class Solution0693 {
         int m = n ^ (n >> 1);
         return (m & (m + 1)) == 0;
     }
+    public boolean hasAlternatingBits2(int n) {
+        int prev = 2;
+        while (n != 0) {
+            int cur = n % 2;
+            if (cur == prev) {
+                return false;
+            }
+            prev = cur;
+            n /= 2;
+        }
+        return true;
+    }
+
 }
