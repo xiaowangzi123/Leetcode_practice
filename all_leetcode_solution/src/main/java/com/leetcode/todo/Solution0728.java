@@ -27,6 +27,11 @@ public class Solution0728 {
         return ans;
     }
 
+    /**
+     * 自除数，
+     * 1. 数字中不能有0
+     * 2. 能被自身的各个位数整除
+     */
     public boolean isSelfDivisor(int n) {
         int temp = n;
         while (temp > 0) {
