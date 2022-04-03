@@ -1,7 +1,5 @@
 package com.leetcode;
 
-import java.util.Arrays;
-
 /**
  * @author :wyq
  * @date ：Created in 2021/10/17
@@ -23,7 +21,6 @@ public class Solution0744 {
                 return letters[i];
             }
         }
-
         return letters[0];
     }
 }
