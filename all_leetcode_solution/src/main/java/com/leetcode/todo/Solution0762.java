@@ -16,14 +16,17 @@ public class Solution0762 {
 
     public int countPrimeSetBits(int left, int right) {
         int ans = 0;
-        for (int x = left; x <= right; ++x) {
-            if (isPrime(Integer.bitCount(x))) {
-                ++ans;
+        for (int i = left; i <= right; i++) {
+            if (isPrime(Integer.bitCount(i))) {
+                ans++;
             }
         }
         return ans;
     }
 
+    /**
+     * 判断是否是质数
+     */
     private boolean isPrime(int x) {
         if (x < 2) {
             return false;
