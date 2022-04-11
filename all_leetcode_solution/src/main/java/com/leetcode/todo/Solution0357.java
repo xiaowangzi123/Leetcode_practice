@@ -9,6 +9,10 @@ package com.leetcode.todo;
 public class Solution0357 {
     public static void main(String[] args) {
         Solution0357 obj = new Solution0357();
+        System.out.println(obj.countNumbersWithUniqueDigits(2));
+        System.out.println(obj.countNumbersWithUniqueDigits(1));
+        System.out.println(obj.countNumbersWithUniqueDigits2(2));
+        System.out.println(obj.countNumbersWithUniqueDigits2(3));
     }
 
     public int countNumbersWithUniqueDigits(int n) {
@@ -26,13 +30,20 @@ public class Solution0357 {
         return res;
     }
 
+    /**
+     * n=0  1
+     * n=1  10
+     * n=2  1+10+
+     */
     public int countNumbersWithUniqueDigits2(int n) {
-        if (n == 0) return 1;
-        int[] dp = new int[n+1];
+        if (n == 0) {
+            return 1;
+        }
+        int[] dp = new int[n + 1];
         dp[0] = 1;
         dp[1] = 10;
-        for (int i = 2; i <= n; i++){
-            dp[i] = dp[i-1] + (dp[i-1] - dp[i-2])*(10-(i-1));
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + (dp[i - 1] - dp[i - 2]) * (10 - (i - 1));
         }
         return dp[n];
     }
