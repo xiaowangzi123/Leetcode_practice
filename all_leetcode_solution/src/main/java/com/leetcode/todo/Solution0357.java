@@ -32,8 +32,9 @@ public class Solution0357 {
 
     /**
      * n=0  1
-     * n=1  10
-     * n=2  1+10+
+     * n=1  1+9=10
+     * n=2  1+10+81=91
+     * n=3
      */
     public int countNumbersWithUniqueDigits2(int n) {
         if (n == 0) {
