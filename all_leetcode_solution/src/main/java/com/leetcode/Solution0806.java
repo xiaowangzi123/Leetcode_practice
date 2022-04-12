@@ -1,13 +1,12 @@
 package com.leetcode;
 
-import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 import java.util.Arrays;
 
 /**
  * @author :wyq
  * @date ：Created in 2021/10/17
- * @description :
+ * @description : 806. 写字符串需要的行数
  */
 public class Solution0806 {
     public static void main(String[] args) {
