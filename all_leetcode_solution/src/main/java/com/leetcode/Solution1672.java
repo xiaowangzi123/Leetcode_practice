@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author :wyq
  * @date ：Created in 2021/11/11
- * @description : 最富有客户的资产总量
+ * @description : 1672.最富有客户的资产总量
  */
 public class Solution1672 {
     public static void main(String[] args) {
@@ -21,7 +21,6 @@ public class Solution1672 {
             }
             max = Math.max(max, sum);
         }
-
         return max;
     }
 }
