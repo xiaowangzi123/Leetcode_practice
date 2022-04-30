@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @author :wyq
- * @date ：Created in 2021/10/20
+ * @date ：Created in 2022/04/30
  * @description : 最小差值 I
  */
 public class Solution0908 {
@@ -18,8 +18,7 @@ public class Solution0908 {
     public int smallestRangeI(int[] nums, int k) {
         int n = nums.length;
         Arrays.sort(nums);
-//        return (nums[n - 1] - nums[0]) > k * 2 ? nums[n - 1] - nums[0] - k * 2 : 0;
-        return Math.max(0,nums[n - 1] - nums[0] - k * 2);
+        return Math.max(0, nums[n - 1] - nums[0] - k * 2);
     }
 
     public int smallestRangeI2(int[] nums, int k) {
