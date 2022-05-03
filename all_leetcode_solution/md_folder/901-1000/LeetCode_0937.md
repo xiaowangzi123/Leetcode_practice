@@ -13,23 +13,20 @@
 数字日志 应该保留原来的相对顺序。
 返回日志的最终顺序。
 
- 
+
 
 示例 1：
-
 输入：logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
 输出：["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 3 6"]
 解释：
 字母日志的内容都不同，所以顺序为 "art can", "art zero", "own kit dig" 。
 数字日志保留原来的相对顺序 "dig1 8 1 5 1", "dig2 3 6" 。
 示例 2：
-
 输入：logs = ["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]
 输出：["g1 act car","a8 act zoo","ab1 off key dog","a1 9 2 3 1","zo4 4 7"]
- 
+
 
 提示：
-
 1 <= logs.length <= 100
 3 <= logs[i].length <= 100
 logs[i] 中，字与字之间都用 单个 空格分隔
