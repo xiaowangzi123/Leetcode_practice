@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.todo;
 
 import java.util.Arrays;
 
@@ -16,6 +16,9 @@ public class Solution0937 {
     }
 
 
+    /**
+     *
+     */
     public String[] reorderLogFiles(String[] logs) {
         Arrays.sort(logs, (log1, log2) -> {
             //按分隔符“ ” ，分成2份
