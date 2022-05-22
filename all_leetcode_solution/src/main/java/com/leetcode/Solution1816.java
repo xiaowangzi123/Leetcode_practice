@@ -9,7 +9,20 @@ public class Solution1816 {
     public static void main(String[] args) {
         Solution1816 obj = new Solution1816();
         String s = "Hello how are you Contestant";
-        System.out.println(obj.truncateSentence(s, 4));
+        int n = 1000000;
+        long t1 = System.currentTimeMillis();
+        for (int i = 0; i < n; i++) {
+//            System.out.println(obj.truncateSentence(s, 4));
+            obj.truncateSentence(s, 4);
+        }
+        long t2 = System.currentTimeMillis();
+        System.out.println(t2 - t1);
+        for (int i = 0; i < n; i++) {
+            obj.truncateSentence3(s, 4);
+//            System.out.println(obj.truncateSentence3(s, 4));
+        }
+        long t3 = System.currentTimeMillis();
+        System.out.println(t3 - t2);
         System.out.println(obj.truncateSentence2(s, 4));
     }
 
@@ -36,5 +49,21 @@ public class Solution1816 {
             }
         }
         return sb.toString();
+    }
+
+
+    public String truncateSentence3(String s, int k) {
+        int n = s.length();
+        int end = 0, count = 0;
+        for (int i = 1; i <= n; i++) {
+            if (i == n || s.charAt(i) == ' ') {
+                count++;
+                if (count == k) {
+                    end = i;
+                    break;
+                }
+            }
+        }
+        return s.substring(0, end);
     }
 }

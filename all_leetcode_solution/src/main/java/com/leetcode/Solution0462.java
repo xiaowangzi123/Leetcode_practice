@@ -13,7 +13,17 @@ public class Solution0462 {
         System.out.println(obj.minMoves2(new int[]{1, 10, 2, 9}));
     }
 
+    //向中位数靠拢最小
     public int minMoves2(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length, ret = 0, x = nums[n / 2];
+        for (int i = 0; i < n; i++) {
+            ret += Math.abs(nums[i] - x);
+        }
+        return ret;
+    }
+
+    public int minMoves22(int[] nums) {
         Arrays.sort(nums);
         int ans = 0, i = 0, j = nums.length - 1;
         while (i < j) {
