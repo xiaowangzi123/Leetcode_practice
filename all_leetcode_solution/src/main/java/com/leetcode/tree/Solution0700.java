@@ -1,13 +1,6 @@
 package com.leetcode.tree;
 
 import com.leetcode.bean.TreeNode;
-import com.sun.org.apache.regexp.internal.RE;
-import com.sun.xml.internal.ws.client.sei.ResponseBuilder;
-
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
 
 
 /**
