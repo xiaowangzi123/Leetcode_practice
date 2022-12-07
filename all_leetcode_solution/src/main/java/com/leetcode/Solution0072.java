@@ -9,6 +9,8 @@ public class Solution0072 {
     public static void main(String[] args) {
         Solution0072 obj = new Solution0072();
         System.out.println(obj.minDistance("a","ab"));
+        System.out.println(obj.minDistance("a","b"));
+        System.out.println(obj.minDistance("中文有很多人用","中国有很多人"));
     }
 
     public int minDistance(String word1, String word2) {
