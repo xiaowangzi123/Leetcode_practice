@@ -9,8 +9,8 @@ package com.leetcode;
 public class Solution0415 {
     public static void main(String[] args) {
         Solution0415 obj = new Solution0415();
-        String num1 = "11", num2 = "123";
-        System.out.println(obj.addStrings(num1, num2));
+        String num1 = "00999", num2 = "1";
+        System.out.println(obj.addStrings2(num1, num2));
 
         String num3 = "435", num4 = "88";
         System.out.println(obj.addStrings2(num3, num4));
