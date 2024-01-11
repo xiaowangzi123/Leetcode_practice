@@ -29,9 +29,7 @@ public class Solution2645 {
         if (str == null || str.length()==0) {
             return new ArrayList<>();
         }
-
         StringBuilder temp = new StringBuilder();
-
         for (int i = 1; i < str.length(); i++) {
             if (str.charAt(i) > str.charAt(i-1)){
                 temp.append(str.charAt(i));
@@ -41,7 +39,7 @@ public class Solution2645 {
                 temp.append(str.charAt(i));
             }
         }
-        result.add(str.toString());
+        result.add(temp.toString());
         return result;
     }
 }
