@@ -11,8 +11,8 @@ import java.util.LinkedList;
 public class Solution2696 {
     public static void main(String[] args) {
         Solution2696 solution = new Solution2696();
-        System.out.println(solution.minLength("ABFCACDB"));
-        System.out.println(solution.minLength("ACBBD"));
+        System.out.println(solution.minLength2("ABFCACDB"));
+        System.out.println(solution.minLength2("ACBBD"));
     }
 
     public int minLength(String s) {
@@ -27,6 +27,21 @@ public class Solution2696 {
                 } else {
                     queue.addFirst(c);
                 }
+            } else {
+                queue.addFirst(c);
+            }
+        }
+        return queue.size();
+    }
+
+    public int minLength2(String s) {
+        Deque<Character> queue = new LinkedList<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if ('B' == c && !queue.isEmpty() && queue.peek() == 'A') {
+                queue.poll();
+            } else if ('D' == c && !queue.isEmpty() && queue.peek() == 'C') {
+                queue.poll();
             } else {
                 queue.addFirst(c);
             }
