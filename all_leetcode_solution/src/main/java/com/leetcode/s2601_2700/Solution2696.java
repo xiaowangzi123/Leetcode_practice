@@ -22,9 +22,10 @@ public class Solution2696 {
             if (c == 'B' || c == 'D') {
                 if ('B' == c && !queue.isEmpty() && queue.peek() == 'A') {
                     queue.poll();
-                }
-                if ('D' == c && !queue.isEmpty() && queue.peek() == 'C') {
+                } else if ('D' == c && !queue.isEmpty() && queue.peek() == 'C') {
                     queue.poll();
+                } else {
+                    queue.addFirst(c);
                 }
             } else {
                 queue.addFirst(c);
