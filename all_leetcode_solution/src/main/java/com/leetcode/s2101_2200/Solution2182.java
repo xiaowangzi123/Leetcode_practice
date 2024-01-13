@@ -16,7 +16,19 @@ public class Solution2182 {
         System.out.println(solution.repeatLimitedString(s, repeatLimit));
     }
 
+    public static int SIZE = 26;
+
     public String repeatLimitedString(String s, int repeatLimit) {
-        int
+        int count = 0;
+        int[] cnt = new int[SIZE];
+        for (int i = 0; i < s.length(); i++) {
+            cnt[s.charAt(i) - 'a']++;
+        }
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = SIZE - 1, j = SIZE - 2; i >= 0 && j >= 0; ) {
+
+        }
+        return sb.toString();
     }
 }
