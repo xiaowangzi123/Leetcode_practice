@@ -11,10 +11,12 @@ import java.util.Map;
  */
 public class Solution2707 {
     public static void main(String[] args) {
-
-
+        System.out.println();
     }
 
+    /**
+     * todo
+     */
     public int minExtraChar(String s, String[] dictionary) {
 
         int n = s.length();
