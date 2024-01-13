@@ -36,6 +36,9 @@ public class Solution2645 {
         return 3 * strings.size() - word.length();
     }
 
+    /**
+     * 连续字母进行分组的方法
+     */
     public static List<String> groupContinuous(String str) {
         List<String> result = new ArrayList<>();
         if (str == null || str.length() == 0) {
