@@ -12,9 +12,9 @@ public class Solution2182 {
         Solution2182 solution = new Solution2182();
         String s = "cczazcc";
         int repeatLimit = 3;
-        System.out.println(solution.repeatLimitedString(s, repeatLimit));
+//        System.out.println(solution.repeatLimitedString(s, repeatLimit));
         System.out.println(solution.repeatLimitedString2(s, repeatLimit));
-        System.out.println(solution.repeatLimitedString(s, 1));
+//        System.out.println(solution.repeatLimitedString(s, 1));
         System.out.println(solution.repeatLimitedString2(s, 1));
     }
 
@@ -60,18 +60,23 @@ public class Solution2182 {
                 j--;
             }else if (cnt[i] <= repeatLimit){
                 getStr(sb,cnt[i],(char) ('a' + i));
+                cnt[i]=0;
                 i--;
                 j--;
             }else {
-                while (cnt[i]>repeatLimit && j>=0){
-                    cnt[i]=-repeatLimit;
+                while (cnt[i]>repeatLimit){
                     getStr(sb,repeatLimit,(char) ('a' + i));
-                    if (cnt[j]==0){
+                    cnt[i]=-repeatLimit;
+                    while (cnt[j]==0) {
                         j--;
-                    }else {
-                        sb.append((char) ('a' + j));
                     }
+                    sb.append((char) ('a' + j));
+                    cnt[j]--;
                 }
+                getStr(sb,cnt[i],(char) ('a' + i));
+                cnt[i]=0;
+                i=j;
+                j--;
             }
         }
 
