@@ -13,9 +13,12 @@ public class Solution2182 {
         String s = "cczazcc";
         int repeatLimit = 3;
 //        System.out.println(solution.repeatLimitedString(s, repeatLimit));
-        System.out.println(solution.repeatLimitedString2(s, repeatLimit));
+//        System.out.println(solution.repeatLimitedString2(s, repeatLimit));
 //        System.out.println(solution.repeatLimitedString(s, 1));
-        System.out.println(solution.repeatLimitedString2(s, 1));
+//        System.out.println(solution.repeatLimitedString2(s, 1));
+
+        System.out.println(solution.repeatLimitedString("aababab",2));
+        System.out.println(solution.repeatLimitedString2("aababab",2));
     }
 
     public static int SIZE = 26;
@@ -48,6 +51,12 @@ public class Solution2182 {
         return sb.toString();
     }
 
+    /**
+     * 没解决某一个字母过多，超过limit数量的问题
+     * @param s
+     * @param repeatLimit
+     * @return
+     */
     public String repeatLimitedString2(String s, int repeatLimit) {
         int[] cnt = new int[SIZE];
         for (int i = 0; i < s.length(); i++) {
@@ -58,25 +67,36 @@ public class Solution2182 {
             if (cnt[i] == 0) {
                 i--;
                 j--;
-            }else if (cnt[i] <= repeatLimit){
-                getStr(sb,cnt[i],(char) ('a' + i));
-                cnt[i]=0;
+            } else if (cnt[i] <= repeatLimit) {
+                getStr(sb, cnt[i], (char) ('a' + i));
+                cnt[i] = 0;
                 i--;
                 j--;
-            }else {
-                while (cnt[i]>repeatLimit){
-                    getStr(sb,repeatLimit,(char) ('a' + i));
-                    cnt[i]=-repeatLimit;
-                    while (cnt[j]==0) {
+            } else {
+               char c= (char) ('a' + i);
+                if (sb.length()>0 && sb.charAt(sb.length()-1) == c) {
+                    break;
+                }
+                while (cnt[i] > repeatLimit) {
+                    getStr(sb, repeatLimit, (char) ('a' + i));
+                    cnt[i] = cnt[i] - repeatLimit;
+                    while (j >= 0 && cnt[j] == 0) {
                         j--;
                     }
-                    sb.append((char) ('a' + j));
-                    cnt[j]--;
+                    if (j >= 0) {
+                        sb.append((char) ('a' + j));
+                        cnt[j]--;
+                    } else {
+                        break;
+                    }
                 }
-                getStr(sb,cnt[i],(char) ('a' + i));
-                cnt[i]=0;
-                i=j;
-                j--;
+                if (j>=0){
+                    getStr(sb, cnt[i], (char) ('a' + i));
+                    cnt[i] = 0;
+                    i--;
+                    j--;
+
+                }
             }
         }
 
@@ -84,8 +104,8 @@ public class Solution2182 {
 
     }
 
-    public void getStr(StringBuilder s,int n,char c){
-        for (int i=0;i<n;i++){
+    public void getStr(StringBuilder s, int n, char c) {
+        for (int i = 0; i < n; i++) {
             s.append(c);
         }
     }
