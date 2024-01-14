@@ -1,4 +1,4 @@
-package com.leetcode.lianbiao;
+package com.leetcode.s0001_0100;
 
 import com.leetcode.bean.ListNode;
 

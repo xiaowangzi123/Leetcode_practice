@@ -53,9 +53,6 @@ public class Solution2182 {
 
     /**
      * 没解决某一个字母过多，超过limit数量的问题
-     * @param s
-     * @param repeatLimit
-     * @return
      */
     public String repeatLimitedString2(String s, int repeatLimit) {
         int[] cnt = new int[SIZE];

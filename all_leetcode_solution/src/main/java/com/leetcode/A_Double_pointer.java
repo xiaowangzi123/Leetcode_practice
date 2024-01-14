@@ -4,7 +4,7 @@ package com.leetcode;
  * 双指针
  *
  */
-public class A_Double_pointer {
+public interface A_Double_pointer {
 
     /**
      *

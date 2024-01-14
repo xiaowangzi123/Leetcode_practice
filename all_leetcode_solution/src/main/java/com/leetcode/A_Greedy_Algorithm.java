@@ -6,7 +6,7 @@ import com.leetcode.s2701_2800.Solution2707;
  * 贪心算法
  *
  */
-public class A_Greedy_Algorithm {
+public interface A_Greedy_Algorithm {
 
     /**
      *
