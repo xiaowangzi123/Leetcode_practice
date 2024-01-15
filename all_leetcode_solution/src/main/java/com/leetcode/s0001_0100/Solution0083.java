@@ -1,4 +1,4 @@
-package com.leetcode.lianbiao;
+package com.leetcode.s0001_0100;
 
 import com.leetcode.bean.ListNode;
 
@@ -24,7 +24,7 @@ public class Solution0083 {
         while (curr.next != null) {
             if (curr.val == curr.next.val) {
                 curr.next = curr.next.next;
-            }else {
+            } else {
                 curr = curr.next;
             }
         }
