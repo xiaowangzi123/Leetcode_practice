@@ -78,25 +78,34 @@ public class Solution2707 {
         return recursive(s, set, s.length());
     }
 
-    private int minExtraCharRecursive(String s, Set<String> set, int len, Map<Integer, Integer> memo) {
+    /**
+     * 递归
+     * @param s 字符串
+     * @param dictSet 字典集合
+     * @param len 当前字符串长度
+     * @param resultMap 结构集合（记忆化搜索技术，避免超时）
+     * @return 最小值
+     */
+    private int minExtraCharRecursive(String s, Set<String> dictSet, int len, Map<Integer, Integer> resultMap) {
         if (len == 0) {
             return 0;
         }
 
-        if (memo.containsKey(len)) {
-            return memo.get(len);
+        if (resultMap.containsKey(len)) {
+            return resultMap.get(len);
         }
 
-        int minExtra = minExtraCharRecursive(s, set, len - 1, memo) + 1;
+        int minExtra = minExtraCharRecursive(s, dictSet, len - 1, resultMap) + 1;
 
         for (int j = len - 1; j >= 0; j--) {
             String substring = s.substring(j, len);
-            if (set.contains(substring)) {
-                minExtra = Math.min(minExtra, minExtraCharRecursive(s, set, j, memo));
+            if (dictSet.contains(substring)) {
+                minExtra = Math.min(minExtra, minExtraCharRecursive(s, dictSet, j, resultMap));
             }
         }
 
-        memo.put(len, minExtra);
+        //加入结果值
+        resultMap.put(len, minExtra);
         return minExtra;
     }
 
