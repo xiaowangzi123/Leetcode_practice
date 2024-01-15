@@ -11,7 +11,10 @@ import java.util.Map;
  */
 public class Solution2707 {
     public static void main(String[] args) {
-        System.out.println();
+        Solution2707 solution = new Solution2707();
+        String s = "leetscleetode";
+        String[] dictionary = new String[]{"leet", "code", "leetcode"};
+        System.out.println(solution.minExtraChar(s, dictionary));
     }
 
     /**
@@ -22,7 +25,8 @@ public class Solution2707 {
         int n = s.length();
         int[] d = new int[n + 1];
         Arrays.fill(d, Integer.MAX_VALUE);
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        //对字典单词出现的次数没有限制，此处可以使用set
+        Map<String, Integer> map = new HashMap<>();
         for (String str : dictionary) {
             map.put(str, map.getOrDefault(str, 0) + 1);
         }
