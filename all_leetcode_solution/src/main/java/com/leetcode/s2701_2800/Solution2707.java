@@ -6,6 +6,7 @@ import java.util.*;
  * @author wyq
  * @date 2024/1/12
  * @desc 字符串中的额外字符串
+ *
  */
 public class Solution2707 {
     public static void main(String[] args) {
@@ -16,7 +17,7 @@ public class Solution2707 {
     }
 
     /**
-     * todo
+     * 动态规划求解
      */
     public int minExtraChar(String s, String[] dictionary) {
 
