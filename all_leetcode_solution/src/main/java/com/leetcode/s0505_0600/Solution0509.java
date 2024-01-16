@@ -10,16 +10,22 @@ public class Solution0509 {
     public static void main(String[] args) {
         Solution0509 solution = new Solution0509();
         System.out.println(System.currentTimeMillis());
-        System.out.println(solution.fib(1000));
+        System.out.println(solution.fib(5));
+        System.out.println(solution.count[0]);
         System.out.println(System.currentTimeMillis());
-        System.out.println(solution.fib2(1000));
+        System.out.println(solution.fib(50));
+        System.out.println(solution.count[0]);
+        System.out.println(System.currentTimeMillis());
+        System.out.println(solution.fib2(50));
         System.out.println(System.currentTimeMillis());
     }
 
     /**
-     * 递归,计算次数随着N的增加，指数级增长，不合适
+     * 递归,计算次数随着N的增加，（100就直接卡死了）指数级增长，不合适
      */
+    public final int[] count = new int[]{0};
     public int fib(int n) {
+        count[0]++;
         if (n < 2) {
             return n;
         } else {
