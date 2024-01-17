@@ -38,6 +38,7 @@ public class Solution2707 {
                 String word = s.substring(j, i);
                 //word存在于字典中时，此时d[i]=d[j]
                 if (map.containsKey(word)) {
+                    //取其中最小的一个值
                     d[i] = Math.min(d[i], d[j]);
                 }
             }
