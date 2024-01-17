@@ -52,4 +52,25 @@ public class Solution0509 {
     }
 
 
+    /**
+     * 记忆化搜索
+     */
+    private int myFib(int n, int[] memo) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+
+        // 已经计算过结果
+        if (memo[n] != 0) {
+            return memo[n];
+        }
+
+        // 没有计算过结果
+        memo[n] = myFib(n - 1, memo) + myFib(n - 2, memo);
+        return memo[n];
+    }
+
 }

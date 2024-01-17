@@ -32,6 +32,7 @@ public class Solution2719_2 {
         for (int i = 0; i < n; i++) {
             Arrays.fill(memo[i], -1);
         }
+
         // 第一位一定是 limit 的
         return (int) dfs(num, memo, 0, 0, true);
     }

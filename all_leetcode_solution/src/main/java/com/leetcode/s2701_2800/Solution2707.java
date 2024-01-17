@@ -79,7 +79,7 @@ public class Solution2707 {
     }
 
     /**
-     * 递归
+     * 记忆化搜索
      * @param s 字符串
      * @param dictSet 字典集合
      * @param len 当前字符串长度
@@ -111,7 +111,7 @@ public class Solution2707 {
 
 
     /**
-     * 没有使用记忆化技术，每次计算子串，导致最后超时
+     * 递归没有使用记忆化技术，每次计算子串，导致最后超时
      */
     private int recursive(String s, Set<String> set, int len) {
         if (len == 0) {
