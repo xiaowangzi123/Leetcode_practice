@@ -23,6 +23,12 @@ public class Solution2182 {
 
     public static int SIZE = 26;
 
+    /**
+     * 双指针，字母从大到小遍历
+     * 当前没有字母，继续下一个
+     * 有字母，添加一个，重复值m加一
+     * 对m进行判断，超过不超过继续添加，超过后，添加一个更小的字母
+     */
     public String repeatLimitedString(String s, int repeatLimit) {
         int m = 0; //当前字母已经连续的个数
         int[] cnt = new int[SIZE];
