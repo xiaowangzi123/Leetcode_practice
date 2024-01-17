@@ -9,8 +9,13 @@ public class Solution2719_2 {
     public static void main(String[] args) {
         Solution2719_2 solution = new Solution2719_2();
 
+        //11
         System.out.println(solution.count("1", "12", 1, 8));
+        //5
         System.out.println(solution.count("1", "5", 1, 5));
+        //883045899
+        System.out.println(solution.count("4179205230", "7748704426", 8, 46));
+
     }
 
     private static final int MOD = 1000000007;
@@ -34,16 +39,16 @@ public class Solution2719_2 {
         }
 
         // 第一位一定是 limit 的
-        return (int) dfs(num, memo, 0, 0, true);
+        return (int) dfs(num, memo, 0, 0, maxSum,true);
     }
 
     /**
      * 从数字第 i 位开始计算满足条件的 count
      * 这里递归栈为 n 层
      */
-    private long dfs(String s, long[][] memo, int i, int sum, boolean isLimit) {
+    private long dfs(String s, long[][] memo, int i, int sum, int maxSum, boolean isLimit) {
         // 递归求和超出上限, 停止后续计算
-        if (sum > 1000) {
+        if (sum > maxSum) {
             return 0;
         }
 
@@ -66,7 +71,7 @@ public class Solution2719_2 {
         // 枚举当前位可填数字
         for (int j = 0; j <= up; j++) {
             // 转移方程：累加 i + 1 位满足条件的 count
-            res = (res + dfs(s, memo, i + 1, sum + j, isLimit && j == up)) % 1000000007;
+            res = (res + dfs(s, memo, i + 1, sum + j, maxSum,isLimit && j == up)) % 1000000007;
         }
 
         // 记忆化存储累加和

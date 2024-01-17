@@ -9,8 +9,12 @@ public class Solution2719 {
     public static void main(String[] args) {
         Solution2719 solution = new Solution2719();
 
+        //11
         System.out.println(solution.count("1", "12", 1, 8));
+        //5
         System.out.println(solution.count("1", "5", 1, 5));
+        //883045899
+        System.out.println(solution.count("4179205230", "7748704426", 8, 46));
     }
 
     private static final int MOD = 1000000007;
