@@ -14,11 +14,11 @@ public class Solution2182 {
         int repeatLimit = 3;
 //        System.out.println(solution.repeatLimitedString(s, repeatLimit));
 //        System.out.println(solution.repeatLimitedString2(s, repeatLimit));
-//        System.out.println(solution.repeatLimitedString(s, 1));
+        System.out.println(solution.repeatLimitedString(s, 1));
 //        System.out.println(solution.repeatLimitedString2(s, 1));
 
-        System.out.println(solution.repeatLimitedString("aababab",2));
-        System.out.println(solution.repeatLimitedString2("aababab",2));
+        System.out.println(solution.repeatLimitedString("aabababbb", 2));
+        System.out.println(solution.repeatLimitedString2("aababab", 2));
     }
 
     public static int SIZE = 26;
@@ -76,8 +76,8 @@ public class Solution2182 {
                 i--;
                 j--;
             } else {
-               char c= (char) ('a' + i);
-                if (sb.length()>0 && sb.charAt(sb.length()-1) == c) {
+                char c = (char) ('a' + i);
+                if (sb.length() > 0 && sb.charAt(sb.length() - 1) == c) {
                     break;
                 }
                 while (cnt[i] > repeatLimit) {
@@ -93,7 +93,7 @@ public class Solution2182 {
                         break;
                     }
                 }
-                if (j>=0){
+                if (j >= 0) {
                     getStr(sb, cnt[i], (char) ('a' + i));
                     cnt[i] = 0;
                     i--;
