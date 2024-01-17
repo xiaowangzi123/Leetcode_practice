@@ -25,6 +25,7 @@ public class Solution2719 {
         for (char c : num1.toCharArray()) {
             sum += c - '0';
         }
+
         if (minSum <= sum && sum <= maxSum) {
             ans++;
         }
