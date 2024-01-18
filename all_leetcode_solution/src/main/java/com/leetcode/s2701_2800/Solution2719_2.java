@@ -21,7 +21,7 @@ public class Solution2719_2 {
     private static final int MOD = 1000000007;
 
     public int count(String num1, String num2, int min_sum, int max_sum) {
-        long ans = validCount(num2,max_sum) - validCount(num1,max_sum) + isValid(num1, min_sum, max_sum) + MOD;
+        long ans = validCount(num2, max_sum) - validCount(num1, max_sum) + isValid(num1, min_sum, max_sum) + MOD;
         return (int) (ans % MOD);
     }
 
@@ -39,7 +39,7 @@ public class Solution2719_2 {
         }
 
         // 第一位一定是 limit 的
-        return (int) dfs(num, memo, 0, 0, maxSum,true);
+        return (int) dfs(num, memo, 0, 0, maxSum, true);
     }
 
     /**
@@ -71,7 +71,7 @@ public class Solution2719_2 {
         // 枚举当前位可填数字
         for (int j = 0; j <= up; j++) {
             // 转移方程：累加 i + 1 位满足条件的 count
-            res = (res + dfs(s, memo, i + 1, sum + j, maxSum,isLimit && j == up)) % 1000000007;
+            res = (res + dfs(s, memo, i + 1, sum + j, maxSum, isLimit && j == up)) % 1000000007;
         }
 
         // 记忆化存储累加和
