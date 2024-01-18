@@ -40,7 +40,8 @@ public class Solution2719 {
             Arrays.fill(row, -1);
         }
         // 第一位一定是limit的
-        return dfs(0, 0, true, num.toCharArray(), minSum, maxSum, memo);
+        int dfs = dfs(0, 0, true, num.toCharArray(), minSum, maxSum, memo);
+        return dfs;
     }
 
     private int dfs(int i, int sum, boolean isLimit, char[] num, int minSum, int maxSum, int[][] memo) {
