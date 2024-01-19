@@ -45,16 +45,19 @@ public class Solution0070 {
 
     private final Map<Integer, Integer> memo = new HashMap<>();
 
-    public int fib2(int n) {
+    /**
+     * 记忆化搜索
+     */
+    public int climbStairs3(int n) {
         if (memo.containsKey(n)) {
             return memo.get(n);
         }
 
         int result;
         if (n < 2) {
-            result = n;
+            result = 1;
         } else {
-            result = fib2(n - 1) + fib2(n - 2);
+            result = climbStairs3(n - 1) + climbStairs3(n - 2);
         }
 
         memo.put(n, result);
