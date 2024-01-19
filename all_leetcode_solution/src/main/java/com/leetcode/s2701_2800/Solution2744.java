@@ -15,7 +15,7 @@ public class Solution2744 {
     }
 
     /**
-     * 动态规划求解
+     * 双重循环，判断两个元素是否符合条件
      */
     public int maximumNumberOfStringPairs(String[] words) {
         int res = 0;
