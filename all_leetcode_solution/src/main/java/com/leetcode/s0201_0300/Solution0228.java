@@ -1,12 +1,10 @@
-package com.leetcode;
+package com.leetcode.s0201_0300;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author ：wyq
- * @date ：Created in 2020/11/16
- * @description ：区间汇总
+ * 区间汇总
  */
 public class Solution0228 {
     public static void main(String[] args) {
