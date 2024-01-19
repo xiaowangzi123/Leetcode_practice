@@ -2,6 +2,7 @@ package com.leetcode.s0001_0100;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -31,27 +32,23 @@ public class Solution0056 {
             return new int[0][2];
         }
         //根据左端值对数组排序
-        Arrays.sort(intervals, (o1, o2) -> o1[0] - o2[0]);
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
 
-        List<int[]> res = new ArrayList<int[]>();
-        for (int i = 0; i < intervals.length; i++) {
-            int L = intervals[i][0], R = intervals[i][1];
-            if (res.size() == 0 || res.get(res.size() - 1)[1] < L) {
+        List<int[]> res = new ArrayList<>();
+        for (int[] interval : intervals) {
+            int L = interval[0], R = interval[1];
+            if (res.isEmpty() || res.get(res.size() - 1)[1] < L) {
                 res.add(new int[]{L, R});
             } else {
                 res.get(res.size() - 1)[1] = Math.max(res.get(res.size() - 1)[1], R);
             }
         }
-//        System.out.println(Arrays.toString(res.get(0)));  //[1, 6]
-//        System.out.println(res.get(0)[0]);   //1
-//        System.out.println(res.get(0)[1]);   //6
-        //
         return res.toArray(new int[0][]);
     }
 
     public int[][] merge2(int[][] intervals) {
         List<int[]> res = new ArrayList<>();
-        if (intervals.length == 0 || intervals == null) {
+        if (intervals == null || intervals.length == 0) {
             return res.toArray(new int[0][]);
         }
         // 对起点终点进行排序
