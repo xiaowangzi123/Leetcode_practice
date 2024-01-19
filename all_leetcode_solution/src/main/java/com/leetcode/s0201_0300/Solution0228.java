@@ -8,23 +8,12 @@ import java.util.List;
  */
 public class Solution0228 {
     public static void main(String[] args) {
-        int[] arr = {0, 1, 2, 3, 5, 6, 7, 9};
         Solution0228 obj = new Solution0228();
+        int[] arr = {0, 1, 2, 3, 5, 6, 7, 9};
+        int[] arr2 = {0, 2, 3, 4, 6, 8, 9};
         System.out.println(obj.summaryRanges(arr));
+        System.out.println(obj.summaryRanges(arr2));
 
-        //测试“”和String.valueOf()速度
-        long t1 = System.currentTimeMillis();
-        List<String> arr1 = new ArrayList<>();
-        for (int i = 0; i < 10000; i++) {
-            arr1.add(String.valueOf(i));
-        }
-        long t2 = System.currentTimeMillis();
-        List<String> arr2 = new ArrayList<>();
-        for (int i = 0; i < 10000; i++) {
-            arr1.add(i + "");
-        }
-        long t3 = System.currentTimeMillis();
-        System.out.println((t2 - t1) + ":" + (t3 - t2));
 
     }
 
