@@ -1,14 +1,11 @@
-package com.leetcode;
+package com.leetcode.s0001_0100;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 /**
- * @author ：wyq
- * @date ：Created in 2021/9/15
- * @description：
+ * 合并区间
  */
 public class Solution0056 {
     public static void main(String[] args) {

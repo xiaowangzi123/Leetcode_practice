@@ -31,7 +31,7 @@ public class Solution0228 {
             } else {
                 res.add(num + "->" + nums[i]);
             }
-            i = i + 1;
+            i++;
         }
 
         return res;
