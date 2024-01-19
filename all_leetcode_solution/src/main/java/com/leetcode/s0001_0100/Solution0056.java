@@ -13,12 +13,7 @@ public class Solution0056 {
         Solution0056 obj = new Solution0056();
         int[][] arr = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         int[][] res = obj.merge(arr);
-        System.out.println("length:"+arr.length);
         System.out.println(Arrays.deepToString(res));
-        System.out.println(res[2][1]);
-        for (int[] i : res) {
-            System.out.println(Arrays.toString(i));
-        }
 
         System.out.println("----------------------------");
         int[][] arr2 = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
@@ -28,9 +23,6 @@ public class Solution0056 {
     }
 
     public int[][] merge(int[][] intervals) {
-        if (intervals.length == 0) {
-            return new int[0][2];
-        }
         //根据左端值对数组排序
         Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
 
@@ -38,11 +30,14 @@ public class Solution0056 {
         for (int[] interval : intervals) {
             int L = interval[0], R = interval[1];
             if (res.isEmpty() || res.get(res.size() - 1)[1] < L) {
+                //为空或者前一个数组的右边界值小于当前值的左边距，说明范围不重复
                 res.add(new int[]{L, R});
             } else {
+                //区间重复，更新右边界值，在这两个数组中选一个最大的值作为右边界
                 res.get(res.size() - 1)[1] = Math.max(res.get(res.size() - 1)[1], R);
             }
         }
+        //将list转为数组
         return res.toArray(new int[0][]);
     }
 
