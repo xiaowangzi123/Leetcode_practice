@@ -1,7 +1,7 @@
 package com.leetcode;
 
 /**
- * 字典树
+ * 数组
  */
 public interface A_Array {
 
