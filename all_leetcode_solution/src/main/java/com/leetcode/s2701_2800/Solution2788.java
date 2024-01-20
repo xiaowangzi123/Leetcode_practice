@@ -26,7 +26,9 @@ public class Solution2788 {
         return res;
     }
 
-    //
+    /**
+     * separator分隔符中可能包含特殊字符，无法用split切分
+     */
     public List<String> getStrList(String s, String separator) {
         if (s == null || s.isEmpty()) {
             return new ArrayList<>();
