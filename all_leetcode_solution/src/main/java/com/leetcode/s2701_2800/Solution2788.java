@@ -12,7 +12,7 @@ public class Solution2788 {
         Solution2788 solution = new Solution2788();
         List<String> word = new ArrayList<>(Arrays.asList("one.two.three", "four.five", "six"));
         List<String> word2 = new ArrayList<>(Arrays.asList("$easy$","$problem$"));
-        System.out.println(solution.splitWordsBySeparator(word, '.'));
+//        System.out.println(solution.splitWordsBySeparator(word, '.'));
         System.out.println(solution.splitWordsBySeparator(word2, '$'));
 
 
@@ -40,7 +40,9 @@ public class Solution2788 {
             s = s.substring(index+separator.length());
             index = s.indexOf(separator);
         }
-        res.add(s);
+        if (!s.isEmpty()){
+            res.add(s);
+        }
         return res;
     }
 }
