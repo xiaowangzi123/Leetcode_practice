@@ -1,4 +1,4 @@
-package com.leetcode.s0505_0600;
+package com.leetcode.s0501_0600;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +24,7 @@ public class Solution0509 {
      * 递归,计算次数随着N的增加，（100就直接卡死了）指数级增长，不合适
      */
     public final int[] count = new int[]{0};
+
     public int fib(int n) {
         count[0]++;
         if (n < 2) {
@@ -31,6 +32,19 @@ public class Solution0509 {
         } else {
             return fib(n - 1) + fib(n - 2);
         }
+    }
+
+    public int fib11(int n) {
+        if (n < 2) {
+            return n;
+        }
+        int[] nums = new int[n + 1];
+        nums[0] = 0;
+        nums[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            nums[i] = nums[i - 1] + nums[i - 2];
+        }
+        return nums[n];
     }
 
     private final Map<Integer, Integer> memo = new HashMap<>();
