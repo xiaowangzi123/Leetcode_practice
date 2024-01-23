@@ -26,8 +26,12 @@ public class Solution2765 {
             }
             max = Math.max(max, count);
             count = 1;
+            // 如果最长交替数组大于剩余数组长度，则直接返回（有一点点提升）
+            if (len - i <= max) {
+                return max;
+            }
         }
-
+        //max==1说明没有符合条件的子序列
         return max == 1 ? -1 : max;
     }
 }
