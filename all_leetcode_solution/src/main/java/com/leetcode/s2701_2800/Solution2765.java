@@ -12,6 +12,9 @@ public class Solution2765 {
         System.out.println(solution.alternatingSubarray(nums2));
     }
 
+    /**
+     * 利用的是nums[k]-nums[j]=Math.pow(-1, count + 1)
+     */
     public int alternatingSubarray(int[] nums) {
         int max = -1;
         int count = 1;
@@ -34,4 +37,25 @@ public class Solution2765 {
         //max==1说明没有符合条件的子序列
         return max == 1 ? -1 : max;
     }
+
+    /**
+     * 利用的交替子序列，同奇同偶时数据相同，一奇一偶时加一
+     */
+    public int alternatingSubarray2(int[] nums) {
+        int res = -1;
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                //同奇同偶时数据相同，一奇一偶时加一
+                if (nums[j] - nums[i] == (j - i) % 2) {
+                    res = Math.max(res, j - i + 1);
+                } else {
+                    break;
+                }
+            }
+        }
+        return res;
+    }
+
+
 }
