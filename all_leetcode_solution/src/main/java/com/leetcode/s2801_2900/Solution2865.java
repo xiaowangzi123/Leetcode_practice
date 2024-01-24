@@ -19,8 +19,11 @@ public class Solution2865 {
     }
 
     /**
-     * 动态规划求解
-     * TODO
+     * 美丽塔，就是选中某一个i作为最高点，向两边逐渐递减降低即可
+     * 所以枚举所有点作为最高点的情况，从最高点开始，向左向右，
+     * 要么是小于记录值，保留自身，更新记录值；
+     * 要么大于记录值，大小改变为记录值，求和。
+     * 取其中最大的情况。
      */
     public long maximumSumOfHeights(List<Integer> maxHeights) {
         int n = maxHeights.size();
