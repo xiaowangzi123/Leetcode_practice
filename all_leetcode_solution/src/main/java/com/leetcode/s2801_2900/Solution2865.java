@@ -46,6 +46,12 @@ public class Solution2865 {
         return ans;
     }
 
+    /**
+     * TODO
+     * 单调栈
+     * @param maxHeights
+     * @return
+     */
     public long maximumSumOfHeights2(List<Integer> maxHeights) {
         int n = maxHeights.size();
         long ans = 0;
@@ -60,9 +66,11 @@ public class Solution2865 {
                 stk1.pop();
             }
             if (stk1.isEmpty()) {
-                prefix[i] = (long) (i - 0 + 1) * maxHeights.get(i); //种树问题，总数等于差值+1
+                //种树问题，总数等于差值+1
+                prefix[i] = (long) (i - 0 + 1) * maxHeights.get(i);
             } else {
-                prefix[i] = prefix[stk1.peek()] + (long) (i - stk1.peek()) * maxHeights.get(i); //这里不计算stk1.top()那个索引对应值，所以不加1
+                //这里不计算stk1.top()那个索引对应值，所以不加1
+                prefix[i] = prefix[stk1.peek()] + (long) (i - stk1.peek()) * maxHeights.get(i);
             }
             stk1.push(i);
         }
