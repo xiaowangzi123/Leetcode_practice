@@ -12,8 +12,11 @@ public class Solution2865 {
         List<Integer> nums2 = new ArrayList<>(Arrays.asList(6, 5, 3, 9, 2, 7));
         List<Integer> nums3 = new ArrayList<>(Arrays.asList(3, 2, 5, 5, 2, 3));
         System.out.println(solution.maximumSumOfHeights(nums1));
+        System.out.println(solution.maximumSumOfHeights2(nums1));
         System.out.println(solution.maximumSumOfHeights(nums2));
+        System.out.println(solution.maximumSumOfHeights2(nums2));
         System.out.println(solution.maximumSumOfHeights(nums3));
+        System.out.println(solution.maximumSumOfHeights2(nums3));
     }
 
     /**
@@ -30,13 +33,13 @@ public class Solution2865 {
             int temp = maxHeights.get(i);
             long sum = temp;
             for (int j = i - 1; j >= 0; j--) {
-                sum += Math.min(temp, maxHeights.get(j));
                 temp = Math.min(temp, maxHeights.get(j));
+                sum += temp;
             }
             temp = maxHeights.get(i);
             for (int k = i + 1; k < n; k++) {
-                sum += Math.min(temp, maxHeights.get(k));
                 temp = Math.min(temp, maxHeights.get(k));
+                sum += temp;
             }
             ans = Math.max(sum, ans);
         }
