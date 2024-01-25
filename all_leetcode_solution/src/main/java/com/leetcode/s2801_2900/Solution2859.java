@@ -1,6 +1,8 @@
 package com.leetcode.s2801_2900;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 计算 K 置位下标对应元素的和
@@ -18,6 +20,16 @@ public class Solution2859 {
     //Integer.bitCount(i)
 
     public int sumIndicesWithKSetBits(List<Integer> nums, int k) {
+        int sum = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (k == Integer.bitCount(i)) {
+                sum += nums.get(i);
+            }
+        }
+        return sum;
+    }
+
+    public int sumIndicesWithKSetBits2(List<Integer> nums, int k) {
         int sum = 0;
         for (int i = 0; i < nums.size(); i++) {
             String s = Integer.toBinaryString(i);
