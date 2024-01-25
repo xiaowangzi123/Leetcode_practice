@@ -49,8 +49,10 @@ public class Solution2865 {
     /**
      * TODO
      * 单调栈
-     * @param maxHeights
-     * @return
+     * 这里的单调栈存的是对应的索引值而不是具体的数组值，如果遇到当前值小于栈中索引对应数组值，则不断出栈，直到单调为止
+     * 这里同时记录了所有情况的最大和，prefix(i)表示的是从0到顶峰i（也就是左端单调的最大和），suffix(i)表示的是从顶峰i到n-1（也就是右端单调的最大和）
+     * 最终和为prefix(i) + suffix(i) - maxHeights[i] 重复加了一次。
+     * 枚举不同的i值，最终取得其中的最大值。
      */
     public long maximumSumOfHeights2(List<Integer> maxHeights) {
         int n = maxHeights.size();
