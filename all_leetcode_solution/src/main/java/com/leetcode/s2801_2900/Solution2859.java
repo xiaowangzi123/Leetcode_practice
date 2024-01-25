@@ -15,6 +15,7 @@ public class Solution2859 {
         System.out.println(solution.sumIndicesWithKSetBits(nums2, 2));
     }
 
+    //Integer.bitCount(i)
 
     public int sumIndicesWithKSetBits(List<Integer> nums, int k) {
         int sum = 0;
