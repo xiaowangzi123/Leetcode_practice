@@ -33,7 +33,6 @@ public class Solution2861 {
      */
     public int maxNumberOfAlloys(int n, int k, int budget, List<List<Integer>> composition, List<Integer> stock, List<Integer> cost) {
 
-
         int res = 0;
         for(int i = 0; i < k; i++){
             int l = 0;
