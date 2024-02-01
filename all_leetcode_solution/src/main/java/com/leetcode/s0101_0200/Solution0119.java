@@ -1,16 +1,13 @@
-package com.leetcode;
+package com.leetcode.s0101_0200;
 
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
- * @author ：wyq
- * @date ：Created in 2021/9/16
- * @description ：杨辉三角 II
+ * 杨辉三角 II
  */
 public class Solution0119 {
     public static void main(String[] args) {
@@ -20,12 +17,15 @@ public class Solution0119 {
         System.out.println(obj.getRow3(3));
     }
 
+    /**
+     * 遍历
+     */
     public List<Integer> getRow(int rowIndex) {
         List<List<Integer>> lists = new ArrayList<>();
         for (int i = 0; i <= rowIndex; i++) {
             List<Integer> row = new ArrayList<>();
             for (int j = 0; j <= i; j++) {
-                if (j == 0 || j == i) {
+                if (j == 0) {
                     row.add(1);
                 } else {
                     row.add(lists.get(i - 1).get(j - 1) + lists.get(i - 1).get(j));
