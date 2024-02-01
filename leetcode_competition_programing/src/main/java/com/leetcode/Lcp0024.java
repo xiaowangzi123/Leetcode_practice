@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 /**
- * Hello world!
+ * 数字游戏
  */
 public class Lcp0024 {
     public static void main(String[] args) {
@@ -14,6 +14,9 @@ public class Lcp0024 {
         System.out.println(Arrays.toString(obj.numsGame(nums)));
     }
 
+    /**
+     * TODO
+     */
     public int[] numsGame(int[] nums) {
         int n = nums.length;
         for (int i = 0; i < n; i++) {
