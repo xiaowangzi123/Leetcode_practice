@@ -30,7 +30,8 @@ public class Solution1686 {
 
         Arrays.sort(ps, (p1, p2) -> Integer.compare(p2[0] + p2[1], p1[0] + p1[1]));
 
-        int ascore = 0, bscore = 0;
+        int ascore = 0;
+        int bscore = 0;
 
         for (int i = 0; i < n; i++) {
             if (i % 2 == 0) {
