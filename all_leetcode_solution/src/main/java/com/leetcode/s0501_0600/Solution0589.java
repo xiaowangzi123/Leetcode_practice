@@ -1,4 +1,6 @@
-package com.leetcode.ntree;
+package com.leetcode.s0501_0600;
+
+import com.leetcode.ntree.Node;
 
 import java.util.ArrayList;
 import java.util.List;
