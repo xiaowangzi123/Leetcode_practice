@@ -6,10 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author: wyq
- * @create time: 2022/3/10
- * @description : N叉树的前序遍历
- *  todo
+ *  N叉树的前序遍历
+ *  TODO
  */
 public class Solution0589 {
     public static void main(String[] args) {
