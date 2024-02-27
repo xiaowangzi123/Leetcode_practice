@@ -1,9 +1,12 @@
-package com.leetcode.tree;
+package com.leetcode.s0901_1000;
 
 
 import com.leetcode.bean.TreeNode;
 import com.leetcode.tools.TreeNodeTools;
 
+/**
+ * 二叉搜索树的范围和
+ */
 public class Solution0938 {
 
     public static void main(String[] args) {
