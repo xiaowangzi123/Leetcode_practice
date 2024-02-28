@@ -14,6 +14,7 @@ public interface A_Tree {
      * {@link com.leetcode.s0801_0900.Solution0889} 0889根据前序和后序遍历构造二叉树
      * {@link com.leetcode.s0901_1000.Solution0938} 0938.二叉搜索树的范围和
      * {@link com.leetcode.s2501_2600.Solution2583} 2583二叉树中的第 K 大层和
+     * {@link com.leetcode.s2601_2700.Solution2673} 2673.使二叉树所有路径值相等的最小代价
      *
      *
      */
