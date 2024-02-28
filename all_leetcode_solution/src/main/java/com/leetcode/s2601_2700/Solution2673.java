@@ -8,12 +8,17 @@ public class Solution2673 {
         Solution2673 solution = new Solution2673();
         int[] nums = new int[]{1, 5, 2, 2, 3, 3, 1};
         int[] nums2 = new int[]{5, 3, 3};
+        int[] nums3 = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
         System.out.println(solution.minIncrements(7, nums));
         System.out.println(solution.minIncrements(3, nums2));
+        System.out.println(solution.minIncrements(15, nums3));
     }
 
     /**
-     *
+     * 对于兄弟叶子节点，可以考虑将较小的值，增加到和较大值一样，增加|x-y|
+     * 对于兄弟非叶子节点A、B，跟路径到此路径之前的数据都相同，所以把路径和从叶子一起计算
+     * 把B节点值与A的叶子节点最大值相加得到a,把A节点值与B的叶子节点最大值相加得到b,两者相减
+     * 计算最后一个非叶子节点值
      */
     public int minIncrements(int n, int[] cost) {
         int ans = 0;
@@ -29,6 +34,10 @@ public class Solution2673 {
     }
 
 
+    /**
+     *  对于兄弟叶子节点，可以考虑将较小的值，增加到和较大值一样，增加|x-y|
+     *
+     */
     public int minIncrements2(int n, int[] cost) {
         int ans = 0;
         for (int i = n - 2; i > 0; i -= 2) {
