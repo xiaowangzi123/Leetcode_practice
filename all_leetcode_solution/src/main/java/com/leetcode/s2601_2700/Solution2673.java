@@ -2,6 +2,7 @@ package com.leetcode.s2601_2700;
 
 /**
  * 使二叉树所有路径值相等的最小代价
+ * TODO
  */
 public class Solution2673 {
     public static void main(String[] args) {
