@@ -12,9 +12,10 @@ import java.util.List;
 public class Solution0119 {
     public static void main(String[] args) {
         Solution0119 obj = new Solution0119();
-        System.out.println(obj.getRow(3));
-        System.out.println(obj.getRow2(3));
-        System.out.println(obj.getRow3(3));
+        System.out.println(obj.getRow4(3));
+//        System.out.println(obj.getRow4(4));
+//        System.out.println(obj.getRow4(5));
+//        System.out.println(obj.getRow4(6));
     }
 
     /**
@@ -41,7 +42,7 @@ public class Solution0119 {
         for (int i = 0; i <= rowIndex; i++) {
             List<Integer> row = new ArrayList<>();
             for (int j = 0; j <= i; j++) {
-                if (j == 0 || j == i) {
+                if (j == 0) {
                     row.add(1);
                 } else {
                     row.add(list.get(j - 1) + list.get(j));
@@ -71,5 +72,16 @@ public class Solution0119 {
         //方法二：java8及以上版本
 //        int[] intArr1 =  list.stream().mapToInt(Integer::valueOf).toArray();
 
+    }
+
+    public List<Integer> getRow4(int rowIndex) {
+        List<Integer> arr = new ArrayList<>();
+        for (int i = 0; i <= rowIndex; i++) {
+            arr.add(0, 1);
+            for (int j = 1; j < arr.size() - 1; j++) {
+                arr.set(j, arr.get(j) + arr.get(j + 1));
+            }
+        }
+        return arr;
     }
 }

@@ -1,12 +1,12 @@
-package com.leetcode.ntree;
+package com.leetcode.s0501_0600;
+
+import com.leetcode.ntree.Node;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author :wyq
- * @date ：Created in 2022/3/12
- * @description : N叉树的后序遍历
+ *  N叉树的后序遍历
  * TODO
  */
 public class Solution0590 {

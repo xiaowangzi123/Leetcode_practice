@@ -1,11 +1,9 @@
-package com.leetcode;
+package com.leetcode.s0201_0300;
 
 import java.util.Arrays;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/10/15
- * @description : 有效的字母异位词
+ * 有效的字母异位词
  */
 public class Solution0242 {
     public static void main(String[] args) {

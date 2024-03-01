@@ -1,17 +1,17 @@
-package com.leetcode;
-
-import java.io.Console;
+package com.leetcode.s0401_0500;
 
 /**
- * @author ：wyq
- * @date ：Created in 2021/9/19
- * @description：
+ * 重复的子字符串
  */
 public class Solution0459 {
     public static void main(String[] args) {
         Solution0459 obj = new Solution0459();
         String s = "abcabc";
         System.out.println(obj.repeatedSubstringPattern2(s));
+
+        String str = s + s;
+        String substring = (s + s).substring(1, str.length() - 1);
+        System.out.println(substring);
 
         String s2 = "bb";
         System.out.println(obj.repeatedSubstringPattern2(s2));
@@ -48,10 +48,13 @@ public class Solution0459 {
         return true;
     }
 
-    //去掉首位元素
+    /**
+     * 去掉首尾元素
+     * 字符串至少被子字符串重复两次构成，比如abc这种不满足条件
+     */
     public boolean repeatedSubstringPattern2(String s) {
         String str = s + s;
-        return str.substring(1, str.length() - 1).contains(s);
+        return (s + s).substring(1, str.length() - 1).contains(s);
     }
 
     //

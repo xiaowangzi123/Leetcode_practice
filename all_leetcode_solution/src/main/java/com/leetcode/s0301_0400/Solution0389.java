@@ -1,12 +1,7 @@
-package com.leetcode;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.leetcode.s0301_0400;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/10/9
- * @description :找不同
+ * 找不同
  */
 public class Solution0389 {
     public static void main(String[] args) {
@@ -32,6 +27,9 @@ public class Solution0389 {
         return res;
     }
 
+    /**
+     * 计算每一个字母的数量，比对数量的不同
+     */
     public char findTheDifference2(String s, String t) {
         int[] count1 = new int[26];
         int[] count2 = new int[26];
@@ -52,6 +50,9 @@ public class Solution0389 {
         return 0;
     }
 
+    /**
+     * 后一个字符串字母值相加后减去前一个字符串字母值相加的结果
+     */
     public char findTheDifference3(String s, String t) {
         int ans1 = 0, ans2 = 0;
         for (int i = 0; i < s.length(); i++) {
@@ -62,7 +63,7 @@ public class Solution0389 {
             ans2 += t.charAt(i);
         }
 
-        return (char) (ans2-ans1);
+        return (char) (ans2 - ans1);
     }
 
 }
