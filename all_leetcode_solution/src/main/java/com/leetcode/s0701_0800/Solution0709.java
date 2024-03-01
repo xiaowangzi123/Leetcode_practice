@@ -1,9 +1,7 @@
-package com.leetcode;
+package com.leetcode.s0701_0800;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/10/16
- * @description : 转换成小写字母
+ * 转换成小写字母
  */
 public class Solution0709 {
     public static void main(String[] args) {
