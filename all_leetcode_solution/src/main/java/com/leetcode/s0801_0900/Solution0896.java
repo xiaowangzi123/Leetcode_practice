@@ -1,9 +1,7 @@
-package com.leetcode;
+package com.leetcode.s0801_0900;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/10/18
- * @description :
+ * 单调数列
  */
 public class Solution0896 {
     public static void main(String[] args) {
@@ -20,12 +18,14 @@ public class Solution0896 {
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] > nums[i - 1]) {
                 flag = false;
+                break;
             }
         }
 
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] < nums[i - 1]) {
                 flag2 = false;
+                break;
             }
         }
 
