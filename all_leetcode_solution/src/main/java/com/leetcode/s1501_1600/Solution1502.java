@@ -1,11 +1,9 @@
-package com.leetcode;
+package com.leetcode.s1501_1600;
 
 import java.util.Arrays;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/11/9
- * @description : 判断能否形成等差数列
+ * 判断能否形成等差数列
  */
 public class Solution1502 {
     public static void main(String[] args) {
