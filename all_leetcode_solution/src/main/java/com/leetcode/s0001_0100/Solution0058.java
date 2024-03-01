@@ -1,11 +1,7 @@
-package com.leetcode;
-
-import java.util.Arrays;
+package com.leetcode.s0001_0100;
 
 /**
- * @author ：wyq
- * @date ：Created in 2021/7/5
- * @description：
+ * 最后一个单词的长度
  */
 public class Solution0058 {
     public static void main(String[] args) {
@@ -29,10 +25,16 @@ public class Solution0058 {
 
     public int lengthOfLastWord2(String s) {
         int end = s.length() - 1;
-        while(end >= 0 && s.charAt(end) == ' ') end--;
-        if(end < 0) return 0;
+        while (end >= 0 && s.charAt(end) == ' ') {
+            end--;
+        }
+        if (end < 0) {
+            return 0;
+        }
         int start = end;
-        while(start >= 0 && s.charAt(start) != ' ') start--;
+        while (start >= 0 && s.charAt(start) != ' ') {
+            start--;
+        }
         return end - start;
     }
 }
