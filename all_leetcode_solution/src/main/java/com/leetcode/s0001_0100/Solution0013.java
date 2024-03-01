@@ -1,9 +1,7 @@
-package com.leetcode;
+package com.leetcode.s0001_0100;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/11/24
- * @description : 罗马数字转整数
+ * 罗马数字转整数
  */
 public class Solution0013 {
     public static void main(String[] args) {
