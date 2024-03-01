@@ -1,24 +1,22 @@
-package com.leetcode;
+package com.leetcode.s0001_0100;
 
 import java.util.Arrays;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/9/29
- * @description : 加一
+ * 加一
  */
 public class Solution0066 {
     public static void main(String[] args) {
         Solution0066 obj = new Solution0066();
         int[] nums = {1, 2, 9};
-        System.out.println(Arrays.toString(obj.plusOne(new int[]{1, 2, 9})));
-        System.out.println(Arrays.toString(obj.plusOne2(new int[]{1, 2, 9})));
-        System.out.println(Arrays.toString(obj.plusOne3(new int[]{1, 2, 9})));
+        System.out.println(Arrays.toString(obj.plusOne(nums)));
+        System.out.println(Arrays.toString(obj.plusOne2(nums)));
+        System.out.println(Arrays.toString(obj.plusOne3(nums)));
 
         int[] nums2 = {9, 9, 9};
-        System.out.println(Arrays.toString(obj.plusOne(new int[]{9, 9, 9})));
-        System.out.println(Arrays.toString(obj.plusOne2(new int[]{9, 9, 9})));
-        System.out.println(Arrays.toString(obj.plusOne3(new int[]{9, 9, 9})));
+        System.out.println(Arrays.toString(obj.plusOne(nums2)));
+        System.out.println(Arrays.toString(obj.plusOne2(nums2)));
+        System.out.println(Arrays.toString(obj.plusOne3(nums2)));
     }
 
     public int[] plusOne(int[] digits) {
@@ -65,7 +63,7 @@ public class Solution0066 {
             temp = digits[i] / 10;
             digits[i] = digits[i] % 10;
         }
-        if (temp==1){
+        if (temp == 1) {
             digits = new int[n + 1];
             digits[0] = 1;
         }
