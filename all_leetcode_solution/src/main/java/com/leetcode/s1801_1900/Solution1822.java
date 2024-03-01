@@ -1,9 +1,7 @@
-package com.leetcode;
+package com.leetcode.s1801_1900;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/11/17
- * @description : 数组元素积的符号
+ * 数组元素积的符号
  */
 public class Solution1822 {
     public static void main(String[] args) {
