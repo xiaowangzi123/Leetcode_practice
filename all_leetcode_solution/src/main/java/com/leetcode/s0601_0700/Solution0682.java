@@ -1,12 +1,10 @@
-package com.leetcode;
+package com.leetcode.s0601_0700;
 
 import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/10/10
- * @description :棒球比赛
+ * 棒球比赛
  */
 public class Solution0682 {
     public static void main(String[] args) {
