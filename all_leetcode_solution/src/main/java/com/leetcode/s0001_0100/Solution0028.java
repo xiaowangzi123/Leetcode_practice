@@ -1,13 +1,7 @@
-package com.leetcode;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+package com.leetcode.s0001_0100;
 
 /**
- * @author ：wyq
- * @date ：Created in 2020/11/21
- * @description：
+ * 找出字符串中第一个匹配项的下标
  */
 public class Solution0028 {
     public static void main(String[] args) {
@@ -16,6 +10,7 @@ public class Solution0028 {
 //        System.out.println(obj.strStr(haystack, needle));
         System.out.println(obj.strStr(haystack, needle));
         System.out.println(obj.strStr2(haystack, needle));
+        System.out.println(haystack.indexOf(needle));
     }
 
     //需要改进
