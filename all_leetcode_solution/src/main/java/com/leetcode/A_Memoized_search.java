@@ -12,6 +12,7 @@ public interface A_Memoized_search {
 
     /**
      * {@link com.leetcode.s0001_0100.Solution0070} 0070.爬楼梯
+     * {@link com.leetcode.s2301_2400.Solution2369} 2369.检查数组是否存在有效划分
      * {@link com.leetcode.s2701_2800.Solution2707} 2707.字符串中的额外字符串
      * {@link com.leetcode.s2701_2800.Solution2719} 2719.统计整数数目
      *
