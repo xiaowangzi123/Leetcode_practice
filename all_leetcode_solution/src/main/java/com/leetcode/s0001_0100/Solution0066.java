@@ -19,6 +19,9 @@ public class Solution0066 {
         System.out.println(Arrays.toString(obj.plusOne3(nums2)));
     }
 
+    /**
+     * 从低位每次加1，如果除以10，余数是0，表明有进位；余数非0，表明可以结束了
+     */
     public int[] plusOne(int[] digits) {
         int n = digits.length;
         for (int i = n - 1; i >= 0; i--) {
