@@ -1,9 +1,7 @@
-package com.leetcode;
+package com.leetcode.s1501_1600;
 
 /**
- * @author ：wyq
- * @date ：Created in 2020/11/14
- * @description :  矩阵对角线元素的和
+ * 矩阵对角线元素的和
  */
 public class Solution1572 {
     public static void main(String[] args) {

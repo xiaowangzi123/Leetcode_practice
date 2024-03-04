@@ -1,13 +1,8 @@
 package com.leetcode;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-
 /**
- * @author :wyq
- * @date ：Created in 2021/10/12
- * @description :1275. 找出井字棋的获胜者
+ * 找出井字棋的获胜者
+ * TODO
  */
 public class Solution1275 {
     public static void main(String[] args) {

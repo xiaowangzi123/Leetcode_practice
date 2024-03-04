@@ -1,9 +1,7 @@
-package com.leetcode;
+package com.leetcode.s0501_0600;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/10/26
- * @description : 机器人能否返回原点
+ * 机器人能否返回原点
  */
 public class Solution0657 {
     public static void main(String[] args) {
