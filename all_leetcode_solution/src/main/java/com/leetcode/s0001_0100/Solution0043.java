@@ -1,9 +1,8 @@
-package com.leetcode;
+package com.leetcode.s0001_0100;
 
 /**
- * @author ：wyq
- * @date ：Created in 2021/9/21
- * @description： {@link Solution0415}
+ * {@link com.leetcode.Solution0415}
+ * 字符串相乘
  */
 public class Solution0043 {
     public static void main(String[] args) {

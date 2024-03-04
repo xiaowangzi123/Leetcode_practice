@@ -1,9 +1,7 @@
-package com.leetcode;
+package com.leetcode.s1201_1300;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/10/21
- * @description : 缀点成线
+ * 缀点成线
  */
 public class Solution1232 {
     public static void main(String[] args) {

@@ -13,6 +13,8 @@ public class Solution0860 {
         int[] bills2 = {5, 5, 5, 20};
         System.out.println(obj.lemonadeChange(bills));
         System.out.println(obj.lemonadeChange2(bills));
+        System.out.println(obj.lemonadeChange(bills2));
+        System.out.println(obj.lemonadeChange2(bills2));
     }
 
     public boolean lemonadeChange(int[] bills) {
@@ -30,7 +32,7 @@ public class Solution0860 {
                 if (map.containsKey(5) && map.get(5) > 0 && map.containsKey(10) && map.get(10) > 0) {
                     map.put(5, map.get(5) - 1);
                     map.put(10, map.get(10) - 1);
-                } else if (map.containsKey(5) && map.get(5) > 3) {
+                } else if (map.containsKey(5) && map.get(5) >= 3) {
                     map.put(5, map.get(5) - 3);
                 } else {
                     return false;

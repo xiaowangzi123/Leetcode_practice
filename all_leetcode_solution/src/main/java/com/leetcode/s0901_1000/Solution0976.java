@@ -1,11 +1,9 @@
-package com.leetcode;
+package com.leetcode.s0901_1000;
 
 import java.util.Arrays;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/10/18
- * @description : 三角形的最大周长
+ * 三角形的最大周长
  */
 public class Solution0976 {
     public static void main(String[] args) {

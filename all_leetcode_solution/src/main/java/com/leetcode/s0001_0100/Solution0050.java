@@ -1,9 +1,7 @@
-package com.leetcode;
+package com.leetcode.s0001_0100;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/9/27
- * @description : 递归
+ * 递归
  */
 public class Solution0050 {
     public static void main(String[] args) {
