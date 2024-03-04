@@ -1,27 +1,26 @@
-package com.leetcode;
+package com.leetcode.s0801_0900;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/10/17
- * @description : 柠檬水找零
+ * 柠檬水找零
  */
 public class Solution0860 {
     public static void main(String[] args) {
         Solution0860 obj = new Solution0860();
         int[] bills = {5, 5, 5, 10, 20, 20};
+        int[] bills2 = {5, 5, 5, 20};
         System.out.println(obj.lemonadeChange(bills));
         System.out.println(obj.lemonadeChange2(bills));
     }
 
     public boolean lemonadeChange(int[] bills) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < bills.length; i++) {
-            if (bills[i] == 5) {
+        for (int bill : bills) {
+            if (bill == 5) {
                 map.put(5, map.getOrDefault(5, 0) + 1);
-            } else if (bills[i] == 10) {
+            } else if (bill == 10) {
                 if (!map.containsKey(5) || map.get(5) <= 0) {
                     return false;
                 }
@@ -48,7 +47,7 @@ public class Solution0860 {
             if (num == 5) {
                 five++;
             } else if (num == 10) {
-                if (five <= 0) {
+                if (five == 0) {
                     return false;
                 }
                 five--;
@@ -57,7 +56,7 @@ public class Solution0860 {
                 if (five > 0 && ten > 0) {
                     five--;
                     ten--;
-                } else if (five > 3) {
+                } else if (five >= 3) {
                     five -= 3;
                 } else {
                     return false;

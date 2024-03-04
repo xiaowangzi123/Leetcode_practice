@@ -1,12 +1,10 @@
-package com.leetcode;
+package com.leetcode.s0001_0100;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/9/28
- * @description : 螺旋矩阵
+ * 螺旋矩阵
  */
 public class Solution0054 {
     public static void main(String[] args) {

@@ -1,11 +1,9 @@
-package com.leetcode;
+package com.leetcode.s1401_1500;
 
 import java.util.Arrays;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/11/9
- * @description : 去掉最低工资和最高工资后的工资平均值
+ * 去掉最低工资和最高工资后的工资平均值
  */
 public class Solution1491 {
     public static void main(String[] args) {

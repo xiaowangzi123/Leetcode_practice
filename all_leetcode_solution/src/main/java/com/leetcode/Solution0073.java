@@ -3,9 +3,7 @@ package com.leetcode;
 import java.util.Arrays;
 
 /**
- * @author ：wyq
- * @date ：Created in 2021/9/15
- * @description：
+ * 矩阵置零
  */
 public class Solution0073 {
     public static void main(String[] args) {
