@@ -1,7 +1,7 @@
 package com.leetcode.s0001_0100;
 
 /**
- * 递归
+ * Pow(x, n)递归
  */
 public class Solution0050 {
     public static void main(String[] args) {

@@ -1,15 +1,9 @@
-package com.leetcode.lianbiao;
+package com.leetcode.s0201_0300;
 
 import com.leetcode.bean.ListNode;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
- * @author ：wyq
- * @date ：Created in 2021/9/18
- * @description： 反转链表
+ *  反转链表
  */
 public class Solution0206 {
     public static void main(String[] args) {

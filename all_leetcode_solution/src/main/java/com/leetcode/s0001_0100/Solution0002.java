@@ -1,11 +1,9 @@
-package com.leetcode.listnode;
+package com.leetcode.s0001_0100;
 
 import com.leetcode.bean.ListNode;
 
 /**
- * @author: wyq
- * @create time: 2022/1/5
- * @description: 两数相加
+ * 两数相加
  */
 public class Solution0002 {
     public static void main(String[] args) {
