@@ -9,12 +9,13 @@ public class Solution2834 {
     public static void main(String[] args) {
         Solution2834 solution = new Solution2834();
         //4
-        System.out.println(solution.minimumPossibleSum(2,3));
+        System.out.println(solution.minimumPossibleSum(2, 3));
         //8
-        System.out.println(solution.minimumPossibleSum(3,3));
+        System.out.println(solution.minimumPossibleSum(3, 3));
         //1
-        System.out.println(solution.minimumPossibleSum(1,1));
-        System.out.println(solution.minimumPossibleSum(1000000000,1000000000));
+        System.out.println(solution.minimumPossibleSum(1, 1));
+        //750000042
+        System.out.println(solution.minimumPossibleSum3(1000000000, 1000000000));
     }
 
     public static final int MOD = 1000000007;
@@ -39,13 +40,13 @@ public class Solution2834 {
         for (int value : nums) {
             sum += value;
         }
-        System.out.println("耗时"+(System.currentTimeMillis()-l));
+        System.out.println("耗时" + (System.currentTimeMillis() - l));
         return (int) (sum % MOD);
     }
 
     /**
      * 我们发现了规律，对于 [1, target−1] 内的数字：
-     *
+     * <p>
      * 1 和 target-1 只能选其中一个，为了使美丽数组的总和最小，我们选1。
      * 2 和 target-2 只能选其中一个，为了使美丽数组的总和最小，我们选2。
      * …
@@ -66,4 +67,26 @@ public class Solution2834 {
         }
         return sum;
     }
+
+    /**
+     * 对上述的优化，分两种情况
+     * 为了让数组之和最小，我们按照 1,2,3,⋯的顺序考虑，
+     * 但添加了x之后，就不能添加 target−x，因此最大可以添加到 ⌊target/2⌋，
+     * 如果个数还不够 n个，就继续从 target,target+1,target+2,⋯ 依次添加。
+     * 由于添加的数字是连续的，所以可以用等差数列求和公式快速求解。
+     */
+    public int minimumPossibleSum3(int n, int target) {
+        final int MOD = (int) 1e9 + 7;
+        int m = target / 2;
+        if (n <= m) {
+            return (int) ((long) (1 + n) * n / 2 % MOD);
+        } else {
+            long part1 = ((long) (1 + m) * m / 2);
+            long part2 = ((long) target + target + (n - m) - 1) * (n - m) / 2;
+            //下面转换范围超限制
+//            long l2 = (long) (target + target + (n - m) - 1) * (n - m) / 2;
+            return (int) ((part1 + part2) % MOD);
+        }
+    }
+
 }
