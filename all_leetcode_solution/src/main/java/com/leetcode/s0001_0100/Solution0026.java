@@ -1,9 +1,7 @@
-package com.leetcode;
+package com.leetcode.s0001_0100;
 
 /**
- * @author: wyq
- * @create time: 2022/2/2
- * @description: 删除有序数组中的重复项
+ * 删除有序数组中的重复项
  * 不要使用额外的数组空间，你必须在原地修改输入数组并在使用O(1)额外空间的条件下完成。
  */
 public class Solution0026 {
@@ -13,6 +11,10 @@ public class Solution0026 {
         System.out.println(obj.removeDuplicates2(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
     }
 
+    /**
+     * 相同时，索引相同，相当于给自己交换
+     * 不同时，后面索引赋值给前面索引
+     */
     public int removeDuplicates(int[] nums) {
         if (nums.length == 0) {
             return 0;
@@ -33,9 +35,7 @@ public class Solution0026 {
         }
         int count = 1;
         for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == nums[i - 1]) {
-                continue;
-            } else {
+            if (nums[i] != nums[i - 1]) {
                 nums[count] = nums[i];
                 count++;
             }

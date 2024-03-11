@@ -2,9 +2,7 @@ package com.leetcode.s2101_2200;
 
 
 /**
- * @author wyq
- * @date 2024/1/13
- * @desc 构造限制重复的字符串
+ * 构造限制重复的字符串
  */
 public class Solution2182 {
 

@@ -1,11 +1,9 @@
-package com.leetcode;
+package com.leetcode.s0001_0100;
 
 import java.util.Arrays;
 
 /**
- * @author ：wyq
- * @date ：Created in 2021/7/8
- * @description :合并两个有序数组
+ * 合并两个有序数组
  */
 public class Solution0088 {
     public static void main(String[] args) {
@@ -17,7 +15,9 @@ public class Solution0088 {
 
     }
 
-    //合并数组，并排序
+    /**
+     * 合并数组，并排序
+     */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         for (int i = 0; i < n; i++) {
             nums1[m + i] = nums2[i];

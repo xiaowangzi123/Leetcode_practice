@@ -3,9 +3,7 @@ package com.leetcode.s0001_0100;
 import com.leetcode.bean.ListNode;
 
 /**
- * @author :wyq
- * @date ：Created in 2021/9/30
- * @description : 删除排序链表中的重复元素
+ *  删除排序链表中的重复元素
  */
 public class Solution0083 {
     public static void main(String[] args) {

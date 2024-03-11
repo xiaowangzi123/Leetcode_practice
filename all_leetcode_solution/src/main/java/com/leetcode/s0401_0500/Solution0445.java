@@ -4,6 +4,7 @@ import com.leetcode.bean.ListNode;
 
 /**
  * 两数相加 II
+ * TODO 链表
  */
 public class Solution0445 {
     public static void main(String[] args) {
@@ -43,6 +44,10 @@ public class Solution0445 {
 
     }
 
+    /**
+     * 可参考0206反转链表
+     * {@link com.leetcode.s0201_0300.Solution0206}
+     */
     public ListNode reverse(ListNode head) {
         if (head == null || head.next == null) {
             return head;
@@ -52,7 +57,6 @@ public class Solution0445 {
         node.next = head;
         head.next = null;
         return newHead;
-
     }
 
 }
