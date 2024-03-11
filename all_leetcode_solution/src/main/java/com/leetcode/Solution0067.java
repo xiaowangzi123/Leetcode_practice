@@ -1,9 +1,7 @@
 package com.leetcode;
 
 /**
- * @author ：wyq
- * @date ：Created in 2020/11/21
- * @description：
+ * 二进制求和
  */
 public class Solution0067 {
     public static void main(String[] args) {

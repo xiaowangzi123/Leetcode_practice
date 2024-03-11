@@ -1,0 +1,28 @@
+package com.leetcode.s0001_0100;
+
+import java.util.Arrays;
+
+/**
+ * 合并两个有序数组
+ */
+public class Solution0088 {
+    public static void main(String[] args) {
+        Solution0088 obj = new Solution0088();
+        int[] nums1 = {1, 2, 3, 0, 0, 0}, nums2 = {2, 5, 6};
+        int m = 3, n = 3;
+        obj.merge(nums1, m, nums2, n);
+        System.out.println(Arrays.toString(nums1));
+
+    }
+
+    /**
+     * 合并数组，并排序
+     */
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        for (int i = 0; i < n; i++) {
+            nums1[m + i] = nums2[i];
+        }
+        Arrays.sort(nums1);
+    }
+
+}
