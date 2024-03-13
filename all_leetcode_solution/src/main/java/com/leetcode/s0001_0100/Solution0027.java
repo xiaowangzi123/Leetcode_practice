@@ -10,6 +10,12 @@ public class Solution0027 {
         System.out.println(obj.removeElement(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2));
     }
 
+    /**
+     * 双指针
+     * @param nums
+     * @param val
+     * @return
+     */
     public int removeElement(int[] nums, int val) {
         int count = 0;
 
