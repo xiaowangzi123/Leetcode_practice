@@ -1,11 +1,8 @@
 package com.leetcode.s0301_0400;
 
-import com.leetcode.todo.NumArray;
-
 /**
- * @author: wyq
- * @create time: 2021/11/24
- * @description: sumRange函数要多次调用,sum[i+1]表示数组的前i项和
+ * 区域和检索 - 数组不可变
+ *  sumRange函数要多次调用,sum[i+1]表示数组的前i项和
  */
 public class Solution0303 {
     public static void main(String[] args) {
@@ -15,9 +12,13 @@ public class Solution0303 {
         System.out.println(numArray.sumRange(0, 5));
     }
 
+}
+
+class NumArray {
+
     int[] sum;
 
-    public Solution0303(int[] nums) {
+    public NumArray(int[] nums) {
         int n = nums.length;
         sum = new int[n + 1];
         for (int i = 0; i < n; i++) {
